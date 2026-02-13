@@ -1,0 +1,99 @@
+{
+  "domains": [
+    {
+      "id": "development",
+      "num": "01",
+      "label": "開発",
+      "categories": [
+        {
+          "name": "サイト開発",
+          "products": []
+        },
+        {
+          "name": "アプリ開発",
+          "products": [
+            {
+              "name": "ワンタッチ管理",
+              "desc": "介護施設の通報・業者連絡を一画面で完結",
+              "url": "https://tamjump.github.io/one-touch/",
+              "icon": "icons/one-touch.png"
+            }
+          ]
+        },
+        {
+          "name": "不動産開発",
+          "products": []
+        }
+      ]
+    },
+    {
+      "id": "medical",
+      "num": "02",
+      "label": "医療＆福祉",
+      "categories": [
+        {
+          "name": "医療・福祉支援",
+          "products": []
+        },
+        {
+          "name": "経営改善",
+          "products": []
+        },
+        {
+          "name": "医療資格支援",
+          "products": []
+        },
+        {
+          "name": "国際救急医療支援",
+          "products": []
+        }
+      ]
+    },
+    {
+      "id": "finance",
+      "num": "03",
+      "label": "金融",
+      "categories": [
+        {
+          "name": "オーナーVISA",
+          "products": []
+        }
+      ]
+    },
+    {
+      "id": "entertainment",
+      "num": "04",
+      "label": "遊び",
+      "categories": [
+        {
+          "name": "ゲーム開発",
+          "products": []
+        },
+        {
+          "name": "音楽作曲",
+          "products": []
+        },
+        {
+          "name": "アニメーション作成",
+          "products": []
+        },
+        {
+          "name": "フィギュア作成",
+          "products": []
+        }
+      ]
+    }
+  ],
+  "partners": [
+    {
+      "name": "株式会社さかえケアサービス",
+      "type": "医療・福祉",
+      "url": ""
+    },
+    {
+      "name": "特定非営利法人GO TO HAPPY LIFE",
+      "type": "医療・福祉支援、国際支援",
+      "url": ""
+    }
+  ]
+}

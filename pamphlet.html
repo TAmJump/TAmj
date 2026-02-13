@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAmJ - 会社案内</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+JP:wght@200;300;400;500;700&family=Noto+Serif+JP:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #1a1a1a;
+      --charcoal: #2c2c2c;
+      --gray-200: #e5e5e5;
+      --gray-300: #d4d4d4;
+      --gray-400: #a3a3a3;
+      --gray-500: #737373;
+      --cream: #f5f0eb;
+      --warm-white: #fbfaf8;
+      --white: #ffffff;
+      --primary: #9B2335;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #e8e8e8; color: var(--black); line-height: 1.6; }
+
+    .print-btn {
+      position: fixed; top: 20px; right: 20px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.8rem; letter-spacing: 0.15em;
+      color: var(--white); background: var(--charcoal);
+      border: none; padding: 14px 28px; cursor: pointer;
+      transition: all 0.3s; z-index: 1000;
+    }
+    .print-btn:hover { background: var(--black); }
+
+    .container {
+      max-width: 297mm; margin: 40px auto;
+      background: white; box-shadow: 0 10px 60px rgba(0,0,0,0.12);
+    }
+    .page {
+      width: 297mm; height: 210mm;
+      position: relative; overflow: hidden;
+    }
+    .page + .page { border-top: 1px solid var(--gray-200); }
+
+    .page-num {
+      position: absolute; bottom: 10mm; right: 12mm;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.7rem; letter-spacing: 0.2em;
+      color: var(--gray-400); z-index: 10;
+    }
+    .page-num.light { color: rgba(255,255,255,0.4); }
+
+    /* ===== PAGE 1: COVER ===== */
+    .cover { display: flex; }
+    .cover-left {
+      width: 55%; padding: 25mm 30mm;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .cover-label {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.6rem; letter-spacing: 0.4em;
+      color: var(--gray-400); text-transform: uppercase;
+    }
+    .cover-content { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .cover-title {
+      font-family: "Noto Serif JP", serif;
+      font-size: 2.2rem; font-weight: 400;
+      line-height: 1.7; color: var(--black);
+      letter-spacing: 0.05em; margin-bottom: 1.5rem;
+    }
+    .cover-title em { font-style: normal; color: var(--primary); }
+    .cover-desc {
+      font-family: "Noto Serif JP", serif;
+      font-size: 0.82rem; font-weight: 300;
+      color: var(--gray-500); line-height: 2.2;
+    }
+    .cover-brand {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.6rem; font-weight: 300;
+      letter-spacing: 0.15em; color: var(--black);
+    }
+    .cover-brand-sub {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.6rem; color: var(--gray-400);
+      letter-spacing: 0.3em; margin-top: 0.3rem;
+    }
+    .cover-right {
+      width: 45%; background: var(--charcoal);
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center; padding: 25mm;
+    }
+    .cover-logo { height: 120px; margin-bottom: 1.5rem; filter: brightness(0) invert(1); }
+    .cover-logo-text {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.8rem; font-weight: 300;
+      letter-spacing: 0.2em; color: var(--white);
+    }
+    .cover-logo-sub {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.55rem; letter-spacing: 0.35em;
+      color: rgba(255,255,255,0.4); margin-top: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    /* ===== PAGE 2: BUSINESS ===== */
+    .business { display: flex; }
+    .business-left {
+      width: 38%; background: var(--charcoal);
+      padding: 25mm 20mm; display: flex;
+      flex-direction: column; justify-content: center;
+    }
+    .biz-label {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.55rem; letter-spacing: 0.3em;
+      color: rgba(255,255,255,0.4); text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .biz-title {
+      font-family: "Noto Serif JP", serif;
+      font-size: 2rem; font-weight: 400;
+      color: var(--white); line-height: 1.8; letter-spacing: 0.08em;
+    }
+    .biz-sub {
+      font-family: "Noto Serif JP", serif;
+      font-size: 0.75rem; font-weight: 300;
+      color: rgba(255,255,255,0.5); line-height: 2.2; margin-top: 2rem;
+    }
+    .business-right {
+      width: 62%; padding: 18mm 20mm;
+      display: flex; flex-direction: column;
+    }
+    .biz-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8mm; }
+    .biz-header img { height: 32px; }
+    .biz-header h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.1rem; font-weight: 400;
+      letter-spacing: 0.12em; color: var(--black);
+    }
+    .biz-cards { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+    .biz-card { display: flex; gap: 15px; padding: 10px 0; border-bottom: 1px solid var(--gray-200); }
+    .biz-card:last-child { border-bottom: none; }
+    .biz-card-num {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.8rem; font-weight: 300;
+      color: var(--gray-300); width: 45px; flex-shrink: 0;
+      line-height: 1; padding-top: 4px;
+    }
+    .biz-card-body { flex: 1; }
+    .biz-card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 5px; }
+    .biz-card h3 {
+      font-family: "Noto Serif JP", serif;
+      font-size: 0.95rem; font-weight: 500;
+      color: var(--black); letter-spacing: 0.02em;
+    }
+    .biz-tag {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.5rem; letter-spacing: 0.15em;
+      color: var(--gray-400); padding: 2px 8px;
+      border: 1px solid var(--gray-200); text-transform: uppercase;
+    }
+    .biz-card p {
+      font-size: 0.72rem; font-weight: 300;
+      color: var(--gray-500); line-height: 1.9;
+    }
+
+    /* ===== PAGE 3: COLLABORATION ===== */
+    .collab { display: flex; }
+    .collab-left {
+      width: 35%; background: var(--cream);
+      padding: 25mm 20mm; display: flex;
+      flex-direction: column; justify-content: center;
+    }
+    .collab-label {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.55rem; letter-spacing: 0.3em;
+      color: var(--gray-400); text-transform: uppercase; margin-bottom: 2rem;
+    }
+    .collab-title {
+      font-family: "Noto Serif JP", serif;
+      font-size: 1.8rem; font-weight: 400;
+      line-height: 1.8; color: var(--black); letter-spacing: 0.06em;
+    }
+    .collab-desc {
+      font-family: "Noto Serif JP", serif;
+      font-size: 0.75rem; font-weight: 300;
+      color: var(--gray-500); line-height: 2.2; margin-top: 2rem;
+    }
+    .collab-right {
+      width: 65%; padding: 18mm 20mm;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .collab-cards { display: flex; gap: 1px; background: var(--gray-200); }
+    .collab-city {
+      flex: 1; border-radius: 8px; overflow: hidden; position: relative;
+    }
+    .collab-city img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .collab-card {
+      flex: 1; background: var(--white);
+      padding: 20px 18px; display: flex; flex-direction: column;
+    }
+    .collab-card h4 {
+      font-family: "Noto Serif JP", serif;
+      font-size: 0.9rem; font-weight: 500;
+      color: var(--black); line-height: 1.6; margin-bottom: 12px;
+    }
+    .collab-card p {
+      font-size: 0.68rem; font-weight: 300;
+      color: var(--gray-500); line-height: 1.9;
+    }
+
+    /* ===== PAGE 4: COMPANY & CONTACT ===== */
+    .contact-page { display: flex; }
+    .contact-left {
+      width: 45%; padding: 20mm 22mm;
+      display: flex; flex-direction: column;
+      border-right: 1px solid var(--gray-200);
+    }
+    .co-header { display: flex; align-items: center; gap: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--gray-200); margin-bottom: 15px; }
+    .co-header img { height: 32px; }
+    .co-header h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.1rem; font-weight: 400;
+      letter-spacing: 0.12em; color: var(--black);
+    }
+    .co-row { display: flex; padding: 10px 0; border-bottom: 1px solid var(--gray-200); }
+    .co-row:last-child { border-bottom: none; }
+    .co-label {
+      width: 80px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.6rem; letter-spacing: 0.15em;
+      color: var(--gray-400); text-transform: uppercase;
+      flex-shrink: 0; padding-top: 2px;
+    }
+    .co-value {
+      font-family: "Noto Serif JP", serif;
+      font-size: 0.8rem; font-weight: 300; color: var(--black);
+    }
+    .ceo-section { display: flex; align-items: center; gap: 15px; margin-top: auto; padding-top: 15px; }
+    .ceo-avatar { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; }
+    .ceo-label {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.55rem; letter-spacing: 0.2em;
+      color: var(--gray-400); text-transform: uppercase; margin-bottom: 4px;
+    }
+    .ceo-name {
+      font-family: "Noto Serif JP", serif;
+      font-size: 1rem; font-weight: 400; color: var(--black);
+    }
+    .contact-right {
+      width: 55%; background: var(--charcoal);
+      padding: 20mm 22mm; display: flex;
+      flex-direction: column; color: var(--white);
+    }
+    .ct-stats { display: flex; justify-content: space-between; flex: 1; align-items: center; }
+    .ct-stat { text-align: center; flex: 1; }
+    .ct-stat-num {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.8rem; font-weight: 300;
+      color: var(--white); line-height: 1; margin-bottom: 6px; display: block;
+    }
+    .ct-stat-label {
+      font-family: "Noto Serif JP", serif;
+      font-size: 0.55rem; font-weight: 300;
+      color: rgba(255,255,255,0.4); letter-spacing: 0.05em; display: block;
+    }
+    .ct-info { margin-top: auto; }
+    .ct-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.6rem; letter-spacing: 0.3em;
+      color: rgba(255,255,255,0.4); text-transform: uppercase;
+      margin-bottom: 1.2rem; padding-bottom: 0.8rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .ct-item { margin-bottom: 12px; }
+    .ct-item-label {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.5rem; letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.3); text-transform: uppercase; margin-bottom: 3px;
+    }
+    .ct-email {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1rem; letter-spacing: 0.05em;
+    }
+    .ct-email a { color: var(--white); text-decoration: none; }
+    .ct-address {
+      font-family: "Noto Serif JP", serif;
+      font-size: 0.72rem; font-weight: 300;
+      line-height: 1.8; color: rgba(255,255,255,0.7);
+    }
+
+    @media print {
+      @page { size: A4 landscape; margin: 0; }
+      body { background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .print-btn { display: none !important; }
+      .container { margin: 0; box-shadow: none; max-width: none; }
+      .page { page-break-after: always; page-break-inside: avoid; }
+      .page:last-child { page-break-after: auto; }
+    }
+    @media screen and (max-width: 1000px) {
+      .container { margin: 20px auto; transform: scale(0.45); transform-origin: top center; }
+      .print-btn { top: 10px; right: 10px; padding: 10px 18px; font-size: 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <button class="print-btn" onclick="window.print()">PDF で保存</button>
+
+  <div class="container">
+
+    <!-- PAGE 1: COVER -->
+    <div class="page cover">
+      <div class="cover-left">
+        <div class="cover-label">Corporate Profile</div>
+        <div class="cover-content">
+          <h1 class="cover-title">
+            社会インフラの<br><em>未来</em>を創る。
+          </h1>
+          <p class="cover-desc">
+            介護施設・病院の開発から、<br>
+            金融ソリューション、エンタメ事業まで。<br>
+            TAmJは新しい価値を創造します。
+          </p>
+        </div>
+        <div>
+          <p class="cover-brand">TAmJ</p>
+          <p class="cover-brand-sub">Touch all minds, Jump</p>
+        </div>
+      </div>
+      <div class="cover-right">
+        <img src="logo.png" alt="TAmJ" class="cover-logo">
+        <p class="cover-logo-text">TAmJ</p>
+        <p class="cover-logo-sub">Touch all minds, Jump</p>
+      </div>
+    </div>
+
+    <!-- PAGE 2: BUSINESS -->
+    <div class="page business">
+      <div class="business-left">
+        <p class="biz-label">4 Business Domains</p>
+        <h2 class="biz-title">4つの事業で、<br>未来を創る。</h2>
+        <p class="biz-sub">構想を形に、現場を変革し、<br>体験で心を動かす。<br>TAmJは4つの事業領域で<br>社会に新しい価値を届けます。</p>
+      </div>
+      <div class="business-right">
+        <div class="biz-header">
+          <img src="logo.png" alt="TAmJ">
+          <h2>Our Business</h2>
+        </div>
+        <div class="biz-cards">
+          <div class="biz-card">
+            <span class="biz-card-num">01</span>
+            <div class="biz-card-body">
+              <div class="biz-card-head"><h3>開発</h3></div>
+              <p>サイト・アプリ開発から不動産開発まで。設計→施工→開業の一気通貫で、<br>経営者マインドを持ってビジネスを動かします。</p>
+            </div>
+          </div>
+          <div class="biz-card">
+            <span class="biz-card-num">02</span>
+            <div class="biz-card-body">
+              <div class="biz-card-head"><h3>医療＆福祉</h3></div>
+              <p>医療・救急・在宅の現場設計。診療報酬の構築から経営改善まで、<br>社会をより良くするために惜しみなく情熱を燃やします。</p>
+            </div>
+          </div>
+          <div class="biz-card">
+            <span class="biz-card-num">03</span>
+            <div class="biz-card-body">
+              <div class="biz-card-head"><h3>金融</h3></div>
+              <p>医療・介護施設の構想から資金調達まで。<br>プロジェクトを世界とともに実現します。</p>
+            </div>
+          </div>
+          <div class="biz-card">
+            <span class="biz-card-num">04</span>
+            <div class="biz-card-body">
+              <div class="biz-card-head"><h3>遊び</h3><span class="biz-tag">Coming Soon</span></div>
+              <p>ゲーム開発、音楽作曲、アニメーション、フィギュア。<br>エンタメ・IP企画と参加型体験設計で人の行動を動かします。</p>
+            </div>
+          </div>
+        </div>
+        <span class="page-num">01</span>
+      </div>
+    </div>
+
+    <!-- PAGE 3: COLLABORATION -->
+    <div class="page collab">
+      <div class="collab-left">
+        <p class="collab-label">Collaboration</p>
+        <h2 class="collab-title">世界と<br>共同作業で<br>価値を<br>創造する。</h2>
+        <p class="collab-desc">多様なパートナーとの<br>協働により、<br>より大きな価値を生み出します。</p>
+      </div>
+      <div class="collab-right">
+        <div class="collab-cards">
+          <div class="collab-card">
+            <h4>歴史と<br>共同作業</h4>
+            <p>過去の知恵と経験から学び、歴史が築いてきた価値を未来へと繋げる事業を推進します。</p>
+          </div>
+          <div class="collab-card">
+            <h4>患者と<br>共同作業</h4>
+            <p>現場の声に耳を傾け、患者目線でサービスを設計し、本当に必要とされる価値を届けます。</p>
+          </div>
+          <div class="collab-card">
+            <h4>ド素人と<br>共同作業</h4>
+            <p>専門外の視点を大切にし、常識にとらわれない発想で新しい価値を生み出します。</p>
+          </div>
+        </div>
+        <div class="collab-city">
+          <img src="city.png" alt="Future City">
+        </div>
+        <span class="page-num">02</span>
+      </div>
+    </div>
+
+    <!-- PAGE 4: COMPANY & CONTACT -->
+    <div class="page contact-page">
+      <div class="contact-left">
+        <div class="co-header">
+          <img src="logo.png" alt="TAmJ">
+          <h2>Company</h2>
+        </div>
+        <div>
+          <div class="co-row"><span class="co-label">Company</span><span class="co-value">タムジ株式会社</span></div>
+          <div class="co-row"><span class="co-label">Founded</span><span class="co-value">2020年3月</span></div>
+          <div class="co-row"><span class="co-label">Business</span><span class="co-value">開発・医療＆福祉・金融・遊び</span></div>
+        </div>
+        <div class="ceo-section">
+          <img src="ceo-avatar.png" alt="CEO" class="ceo-avatar">
+          <div>
+            <p class="ceo-label">CEO</p>
+            <p class="ceo-name">Jin.Oshita（Tiger.J.Bob）</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-right">
+        <div class="ct-stats">
+          <div class="ct-stat"><span class="ct-stat-num">4</span><span class="ct-stat-label">事業領域</span></div>
+          <div class="ct-stat"><span class="ct-stat-num">4</span><span class="ct-stat-label">展開国</span></div>
+          <div class="ct-stat"><span class="ct-stat-num">11</span><span class="ct-stat-label">チームメンバー</span></div>
+          <div class="ct-stat"><span class="ct-stat-num">∞</span><span class="ct-stat-label">可能性</span></div>
+        </div>
+        <div class="ct-info">
+          <p class="ct-title">Contact</p>
+          <div class="ct-item">
+            <p class="ct-item-label">Email</p>
+            <p class="ct-email"><a href="mailto:info@tamjump.com">info@tamjump.com</a></p>
+          </div>
+          <div class="ct-item">
+            <p class="ct-item-label">Address</p>
+            <p class="ct-address">〒103-0004<br>東京都中央区東日本橋3-3-17</p>
+          </div>
+        </div>
+        <span class="page-num light">03</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
