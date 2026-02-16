@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | TAmJ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+JP:wght@200;300;400;500;700&family=Noto+Serif+JP:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/corporate.css">
+</head>
+<body>
+    <header id="siteHeader">
+        <a href="index.html" class="header-logo"><img src="logo.png" alt="TAmJ"></a>
+        <nav class="header-nav">
+            <a href="index.html" data-i18n="nav.top">Top</a>
+            <a href="service.html" data-i18n="nav.service">Service</a>
+            <a href="about-company.html" data-i18n="nav.company">Company</a>
+            <a href="contact.html" class="nav-cta" data-i18n="nav.contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="page-top">
+        <span class="page-label">Contact</span>
+        <h1 data-i18n="contact.title">お問合せ</h1>
+        <p class="page-sub" data-i18n="contact.desc">ご質問・ご相談はこちらからお気軽にどうぞ。<br>後日、担当者よりご連絡いたします。</p>
+    </section>
+
+    <section class="sec">
+        <div class="narrow-form">
+            <form id="contactForm" action="https://formspree.io/f/mbdaovnz" method="POST">
+                <div class="fg reveal">
+                    <label data-i18n="contact.name">お名前<span class="req">*</span></label>
+                    <input type="text" name="name" required placeholder="山田 太郎" data-i18n-ph="contact.ph.name">
+                </div>
+                <div class="fg reveal">
+                    <label data-i18n="contact.email">メールアドレス<span class="req">*</span></label>
+                    <input type="email" name="email" required placeholder="email@example.com">
+                </div>
+                <div class="fg reveal">
+                    <label data-i18n="contact.phone">電話番号</label>
+                    <input type="tel" name="phone" placeholder="03-1234-5678">
+                </div>
+                <div class="fg reveal">
+                    <label data-i18n="contact.category">お問合せ種別<span class="req">*</span></label>
+                    <select name="category" required>
+                        <option value="" data-i18n="contact.cat.select">選択してください</option>
+                        <option value="金融について" data-i18n="contact.cat.finance">金融について</option>
+                        <option value="開発サービスについて" data-i18n="contact.cat.dev">開発サービスについて</option>
+                        <option value="医療サービスについて" data-i18n="contact.cat.medical">医療サービスについて</option>
+                        <option value="会員登録について" data-i18n="contact.cat.member">会員登録について</option>
+                        <option value="その他" data-i18n="contact.cat.other">その他</option>
+                    </select>
+                </div>
+                <div class="fg reveal">
+                    <label data-i18n="contact.message">お問合せ内容<span class="req">*</span></label>
+                    <textarea name="message" required placeholder="お問合せ内容をご記入ください" data-i18n-ph="contact.ph.message"></textarea>
+                </div>
+                <input type="hidden" name="_subject" value="【TAmJ】お問い合わせ">
+                <button type="submit" class="submit-btn reveal" data-i18n="contact.submit">送信する</button>
+            </form>
+
+            <div class="other-contact reveal">
+                <p data-i18n="contact.email.label">メールでのお問合せ</p>
+                <a href="mailto:info@tamjump.com" class="text-link">info@tamjump.com</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="logo.png" alt="TAmJ">
+                <p data-i18n="footer.brand">Touch all minds, Jump</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4 data-i18n="footer.company">Company</h4>
+                    <a href="about-company.html" data-i18n="footer.about">会社情報</a>
+                    <a href="about-message.html" data-i18n="footer.message">代表メッセージ</a>
+                    <a href="about-philosophy.html" data-i18n="footer.philosophy">経営理念</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.service">Service</h4>
+                    <a href="service.html" data-i18n="footer.dev">開発</a>
+                    <a href="service.html" data-i18n="footer.medical">医療＆福祉</a>
+                    <a href="service.html" data-i18n="footer.finance">金融</a>
+                    <a href="service.html" data-i18n="footer.entertainment">遊び</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.support">Support</h4>
+                    <a href="contact.html" data-i18n="footer.inquiry">お問合せ</a>
+                    <a href="members/" data-i18n="footer.members">会員ページ</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy" data-i18n="footer.copy">&copy; 2020 TAmJ株式会社 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const h = document.getElementById('siteHeader');
+        if(h) window.addEventListener('scroll', () => h.classList.toggle('scrolled', window.scrollY > 50));
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+        // Formspree AJAX送信（ページ遷移なし）
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = '送信中...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    // フォームを完了メッセージに置き換え
+                    form.innerHTML = `
+                        <div style="text-align:center; padding:3rem 1rem;">
+                            <h2 style="font-size:1.5rem; margin-bottom:1rem; color:#166534;">ありがとうございます！</h2>
+                            <p style="color:#15803d; line-height:1.8;">送信が無事に完了しました。<br>担当者より折り返しご連絡いたします。</p>
+                            <a href="index.html" style="display:inline-block; margin-top:2rem; color:#9B2335;">トップに戻る →</a>
+                        </div>
+                    `;
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    throw new Error('送信失敗');
+                }
+            } catch (error) {
+                alert('送信に失敗しました。時間をおいて再度お試しください。');
+                btn.disabled = false;
+                btn.textContent = originalText;
+            }
+        });
+    </script>
+    <script src="js/translations.js"></script>
+    <script src="js/lang.js"></script>
+</body>
+</html>
