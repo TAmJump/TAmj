@@ -34,7 +34,7 @@
                 <tr><th data-i18n="company.ceo.label">CEO</th><td>Jin.Oshita（Tiger.J.Bob）</td></tr>
                 <tr><th data-i18n="company.capital.label">Capital</th><td data-i18n="company.capital.value">100万円</td></tr>
                 <tr><th data-i18n="company.address.label">Address</th><td data-i18n="company.address.value">〒103-0004 東京都中央区東日本橋3-3-17</td></tr>
-                <tr><th data-i18n="company.email.label">Email</th><td><a href="/cdn-cgi/l/email-protection#620b0c040d2216030f08170f124c010d0f" style="color:var(--primary)"><span class="__cf_email__" data-cfemail="d4bdbab2bb94a0b5b9bea1b9a4fab7bbb9">[email&#160;protected]</span></a></td></tr>
+                <tr><th data-i18n="company.email.label">Email</th><td><a href="mailto:info@tamjump.com" style="color:var(--primary)">info@tamjump.com</a></td></tr>
                 <tr><th data-i18n="company.business.label">Business</th><td data-i18n="company.business.value">医療・介護・開発・再生・エンタメ</td></tr>
             </table>
             <p class="reveal" style="text-align:center; margin-top:2.5rem;">
@@ -92,9 +92,15 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         const h = document.getElementById('siteHeader');
         if(h) window.addEventListener('scroll', () => h.classList.toggle('scrolled', window.scrollY > 50));
         const obs = new IntersectionObserver((entries) => {
             entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-        }, { thresho
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    </script>
+    <script src="js/translations.js"></script>
+    <script src="js/lang.js"></script>
+</body>
+</html>
