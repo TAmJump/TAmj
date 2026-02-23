@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | TAmJ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+JP:wght@200;300;400;500;700&family=Noto+Serif+JP:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/corporate.css">
+    <style>
+        .thank-you-message {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        .thank-you-message h2 {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.1em;
+        }
+        .thank-you-message p {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 0.95rem;
+            color: #6b7280;
+            line-height: 2;
+        }
+        .thank-you-message .back-link {
+            display: inline-block;
+            margin-top: 2.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            color: #9B2335;
+            text-decoration: none;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid #9B2335;
+            transition: all 0.3s;
+        }
+        .thank-you-message .back-link:hover {
+            opacity: 0.7;
+        }
+        
+        /* 確認モーダル */
+        .confirm-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .confirm-overlay.show {
+            display: flex;
+        }
+        .confirm-modal {
+            background: #fff;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border-radius: 4px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        .confirm-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .confirm-header h3 {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            letter-spacing: 0.08em;
+        }
+        .confirm-body {
+            padding: 1.5rem 2rem;
+        }
+        .confirm-item {
+            margin-bottom: 1.2rem;
+        }
+        .confirm-item:last-child {
+            margin-bottom: 0;
+        }
+        .confirm-label {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.05em;
+        }
+        .confirm-value {
+            font-size: 0.95rem;
+            color: #1a1a1a;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .confirm-footer {
+            padding: 1.5rem 2rem;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .confirm-btn {
+            padding: 0.8rem 2rem;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .confirm-btn.cancel {
+            background: #f3f4f6;
+            color: #6b7280;
+        }
+        .confirm-btn.cancel:hover {
+            background: #e5e7eb;
+        }
+        .confirm-btn.submit {
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .confirm-btn.submit:hover {
+            background: #333;
+        }
+        .confirm-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <header id="siteHeader">
+        <a href="index.html" class="header-logo"><img src="logo.png" alt="TAmJ"></a>
+        <nav class="header-nav">
+            <a href="index.html" data-i18n="nav.top">Top</a>
+            <a href="service.html" data-i18n="nav.service">Service</a>
+            <a href="about-company.html" data-i18n="nav.company">Company</a>
+            <a href="contact.html" class="nav-cta" data-i18n="nav.contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="page-top">
+        <span class="page-label">Contact</span>
+        <h1 data-i18n="contact.title">お問合せ</h1>
+        <p class="page-sub" data-i18n="contact.desc">ご質問・ご相談はこちらからお気軽にどうぞ。<br>後日、担当者よりご連絡いたします。</p>
+    </section>
+
+    <section class="sec">
+        <div class="narrow-form">
+            <form id="contactForm" action="https://formspree.io/f/mbdaovnz" method="POST">
+                <div class="fg reveal">
+                    <label data-i18n="contact.name">お名前<span class="req">*</span></label>
+                    <input type="text" name="name" required placeholder="山田 太郎" data-i18n-ph="contact.ph.name">
+                </div>
+                <div class="fg reveal">
+                    <label data-i18n="contact.email">メールアドレス<span class="req">*</span></label>
+                    <input type="email" name="email" required placeholder="email@example.com">
+                </div>
+                <div class="fg reveal">
+                    <label data-i18n="contact.phone">電話番号</label>
+                    <input type="tel" name="phone" placeholder="03-1234-5678">
+                </div>
+                <div class="fg reveal">
+                    <label data-i18n="contact.category">お問合せ種別<span class="req">*</span></label>
+                    <select name="category" required>
+                        <option value="" data-i18n="contact.cat.select">選択してください</option>
+                        <option value="金融について" data-i18n="contact.cat.finance">金融について</option>
+                        <option value="開発サービスについて" data-i18n="contact.cat.dev">開発サービスについて</option>
+                        <option value="医療サービスについて" data-i18n="contact.cat.medical">医療サービスについて</option>
+                        <option value="会員登録について" data-i18n="contact.cat.member">会員登録について</option>
+                        <option value="その他" data-i18n="contact.cat.other">その他</option>
+                    </select>
+                </div>
+                <div class="fg reveal">
+                    <label data-i18n="contact.message">お問合せ内容<span class="req">*</span></label>
+                    <textarea name="message" required placeholder="お問合せ内容をご記入ください" data-i18n-ph="contact.ph.message"></textarea>
+                </div>
+                <input type="hidden" name="_subject" value="【TAmJ】お問い合わせ">
+                <button type="submit" class="submit-btn reveal" data-i18n="contact.submit">送信する</button>
+            </form>
+
+            <div class="other-contact reveal">
+                <p data-i18n="contact.email.label">メールでのお問合せ</p>
+                <a href="/cdn-cgi/l/email-protection#80e9eee6efc0f4e1edeaf5edf0aee3efed" class="text-link"><span class="__cf_email__" data-cfemail="046d6a626b447065696e7169742a676b69">[email&#160;protected]</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 確認モーダル -->
+    <div id="confirmOverlay" class="confirm-overlay">
+        <div class="confirm-modal">
+            <div class="confirm-header">
+                <h3>入力内容の確認</h3>
+            </div>
+            <div class="confirm-body">
+                <div class="confirm-item">
+                    <div class="confirm-label">お名前</div>
+                    <div class="confirm-value" id="confirmName"></div>
+                </div>
+                <div class="confirm-item">
+                    <div class="confirm-label">メールアドレス</div>
+                    <div class="confirm-value" id="confirmEmail"></div>
+                </div>
+                <div class="confirm-item">
+                    <div class="confirm-label">電話番号</div>
+                    <div class="confirm-value" id="confirmPhone"></div>
+                </div>
+                <div class="confirm-item">
+                    <div class="confirm-label">お問合せ種別</div>
+                    <div class="confirm-value" id="confirmCategory"></div>
+                </div>
+                <div class="confirm-item">
+                    <div class="confirm-label">お問合せ内容</div>
+                    <div class="confirm-value" id="confirmMessage"></div>
+                </div>
+            </div>
+            <div class="confirm-footer">
+                <button type="button" class="confirm-btn cancel" id="confirmCancel">修正する</button>
+                <button type="button" class="confirm-btn submit" id="confirmSubmit">送信する</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="logo.png" alt="TAmJ">
+                <p data-i18n="footer.brand">Touch all minds, Jump</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4 data-i18n="footer.company">Company</h4>
+                    <a href="about-company.html" data-i18n="footer.about">会社情報</a>
+                    <a href="about-message.html" data-i18n="footer.message">代表メッセージ</a>
+                    <a href="about-philosophy.html" data-i18n="footer.philosophy">経営理念</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.service">Service</h4>
+                    <a href="service.html" data-i18n="footer.dev">開発</a>
+                    <a href="service.html" data-i18n="footer.medical">医療＆福祉</a>
+                    <a href="service.html" data-i18n="footer.finance">金融</a>
+                    <a href="service.html" data-i18n="footer.entertainment">遊び</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.support">Support</h4>
+                    <a href="contact.html" data-i18n="footer.inquiry">お問合せ</a>
+                    <a href="members/" data-i18n="footer.members">会員ページ</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.legal">Legal</h4>
+                    <a href="privacy.html" data-i18n="footer.privacy">プライバシーポリシー</a>
+                    <a href="terms.html" data-i18n="footer.terms">利用規約</a>
+                    <a href="commerce.html" data-i18n="footer.commerce">特定商取引法</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy" data-i18n="footer.copy">&copy; 2020 TAmJ株式会社 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        const h = document.getElementById('siteHeader');
+        if(h) window.addEventListener('scroll', () => h.classList.toggle('scrolled', window.scrollY > 50));
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+        // フォーム要素
+        const form = document.getElementById('contactForm');
+        const confirmOverlay = document.getElementById('confirmOverlay');
+        const confirmCancel = document.getElementById('confirmCancel');
+        const confirmSubmit = document.getElementById('confirmSubmit');
+
+        // 送信ボタンクリック → 確認画面表示
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 入力値を確認画面に反映
+            document.getElementById('confirmName').textContent = form.querySelector('input[name="name"]').value;
+            document.getElementById('confirmEmail').textContent = form.querySelector('input[name="email"]').value;
+            document.getElementById('confirmPhone').textContent = form.querySelector('input[name="phone"]').value || '未入力';
+            document.getElementById('confirmCategory').textContent = form.querySelector('select[name="category"]').value;
+            document.getElementById('confirmMessage').textContent = form.querySelector('textarea[name="message"]').value;
+            
+            // モーダル表示
+            confirmOverlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // 「修正する」ボタン → モーダル閉じる
+        confirmCancel.addEventListener('click', function() {
+            confirmOverlay.classList.remove('show');
+            document.body.style.overflow = '';
+        });
+
+        // オーバーレイクリックで閉じる
+        confirmOverlay.addEventListener('click', function(e) {
+            if (e.target === confirmOverlay) {
+                confirmOverlay.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // 「送信する」ボタン → 実際に送信
+        confirmSubmit.addEventListener('click', async function() {
+            confirmSubmit.disabled = true;
+            confirmSubmit.textContent = '送信中...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    // モーダル閉じる
+                    confirmOverlay.classList.remove('show');
+                    document.body.style.overflow = '';
+                    
+                    // フォームを完了メッセージに置き換え
+                    form.innerHTML = `
+                        <div class="thank-you-message">
+                            <h2>ありがとうございます！</h2>
+                            <p>送信が無事に完了しました。<br>担当者より折り返しご連絡いたします。</p>
+                            <a href="index.html" class="back-link">トップに戻る →</a>
+                        </div>
+                    `;
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    throw new Error('送信失敗');
+                }
+            } catch (error) {
+                alert('送信に失敗しました。時間をおいて再度お試しください。');
+             
