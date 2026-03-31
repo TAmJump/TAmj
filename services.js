@@ -80,19 +80,26 @@ var SERVICES_DATA = {
       "label": { "ja": "遊び", "en": "Entertainment", "ko": "엔터테인먼트" },
       "categories": [
         {
-          "name": { "ja": "ゲーム開発", "en": "Game Development", "ko": "게임 개발" },
+          "name": { "ja": "ゲーム", "en": "Game", "ko": "게임" },
           "products": []
         },
         {
-          "name": { "ja": "音楽作曲", "en": "Music Composition", "ko": "음악 작곡" },
+          "name": { "ja": "music", "en": "music", "ko": "music" },
+          "products": [
+            {
+              "name": { "ja": "TAMSIC", "en": "TAMSIC", "ko": "TAMSIC" },
+              "desc": { "ja": "音楽レーベル & エンターテイメント", "en": "Music Label & Entertainment", "ko": "뮤직 레이블 & 엔터테인먼트" },
+              "url": "https://tamsic.tamjump.com",
+              "icon": ""
+            }
+          ]
+        },
+        {
+          "name": { "ja": "CM", "en": "CM", "ko": "CM" },
           "products": []
         },
         {
-          "name": { "ja": "アニメーション作成", "en": "Animation", "ko": "애니메이션 제작" },
-          "products": []
-        },
-        {
-          "name": { "ja": "フィギュア作成", "en": "Figure Making", "ko": "피규어 제작" },
+          "name": { "ja": "おもちゃ作り", "en": "Toy Making", "ko": "장난감 만들기" },
           "products": []
         }
       ]

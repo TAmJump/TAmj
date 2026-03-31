@@ -66,19 +66,26 @@
       "label": "遊び",
       "categories": [
         {
-          "name": "ゲーム開発",
+          "name": "ゲーム",
           "products": []
         },
         {
-          "name": "音楽作曲",
+          "name": "music",
+          "products": [
+            {
+              "name": "TAMSIC",
+              "desc": "音楽レーベル & エンターテイメント",
+              "url": "https://tamsic.tamjump.com",
+              "icon": ""
+            }
+          ]
+        },
+        {
+          "name": "CM",
           "products": []
         },
         {
-          "name": "アニメーション作成",
-          "products": []
-        },
-        {
-          "name": "フィギュア作成",
+          "name": "おもちゃ作り",
           "products": []
         }
       ]
