@@ -22,7 +22,20 @@
         },
         {
           "name": "不動産開発",
-          "products": []
+          "products": [
+            {
+              "name": "介護・医療施設 開発シミュレーション",
+              "desc": "施設種別＋入居者数で建築費・投資額を自動概算。マクロ建築指数（MCI）連動。",
+              "url": "https://tamjump.github.io/develop/",
+              "icon": ""
+            },
+            {
+              "name": "建設コスト根拠ツール",
+              "desc": "8指標で算出するMCI指数。根拠のある提案資料を5分で作成。",
+              "url": "https://develop.tamjump.com/lp-mci.html",
+              "icon": ""
+            }
+          ]
         }
       ]
     },

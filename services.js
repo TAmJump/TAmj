@@ -35,6 +35,12 @@ var SERVICES_DATA = {
               "desc": { "ja": "施設種別＋入居者数で建築費・投資額を自動概算。マクロ建築指数（MCI）連動。", "en": "Auto-estimate construction costs and investment from facility type and capacity. Linked to Macro Construction Index.", "ko": "시설 유형＋입주자 수로 건축비・투자액 자동 개산. 매크로 건축 지수(MCI) 연동." },
               "url": "https://tamjump.github.io/develop/",
               "icon": ""
+            },
+            {
+              "name": { "ja": "建設コスト根拠ツール", "en": "Construction Cost Intelligence", "ko": "건설 비용 근거 툴" },
+              "desc": { "ja": "8指標で算出するMCI指数。根拠のある提案資料を5分で作成。", "en": "MCI index calculated from 8 market indicators. Create evidence-based proposals in 5 minutes.", "ko": "8개 지표로 산출하는 MCI 지수. 근거 있는 제안 자료를 5분에 작성." },
+              "url": "https://develop.tamjump.com/lp-mci.html",
+              "icon": ""
             }
           ]
         }
