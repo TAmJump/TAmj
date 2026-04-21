@@ -28,7 +28,7 @@ var SERVICES_DATA = {
             {
               "name": { "ja": "Touchvoo", "en": "Touchvoo", "ko": "Touchvoo" },
               "desc": { "ja": "施設設備の通報・管理会社連携・QR台帳", "en": "Facility equipment alerts, management company coordination, QR ledger", "ko": "시설 설비 신고・관리회사 연계・QR 대장" },
-              "url": "https://tamjump.github.io/onetouch_app/",
+              "url": "https://one-touch.tamjump.com",
               "icon": ""
             },
             {
