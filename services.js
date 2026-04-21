@@ -20,19 +20,19 @@ var SERVICES_DATA = {
           "name": { "ja": "アプリ開発", "en": "App Development", "ko": "앱 개발" },
           "products": [
             {
-              "name": { "ja": "Adapt", "en": "Adapt", "ko": "Adapt" },
-              "desc": { "ja": "モジュール統合プラットフォーム。1クリックで各モジュールを起動", "en": "Module integration platform — launch each module with one click", "ko": "모듈 통합 플랫폼. 원 클릭으로 각 모듈 실행" },
+              "name": { "ja": "Adavoo", "en": "Adavoo", "ko": "Adavoo" },
+              "desc": { "ja": "Vision Of Oneness — モジュール統合プラットフォーム。1クリックで各モジュールを起動", "en": "Vision Of Oneness — Module integration platform, launch each module with one click", "ko": "Vision Of Oneness — 모듈 통합 플랫폼. 원 클릭으로 각 모듈 실행" },
               "url": "https://adapt.tamjump.com/",
               "icon": ""
             },
             {
-              "name": { "ja": "OneTouchAdapt", "en": "OneTouchAdapt", "ko": "OneTouchAdapt" },
+              "name": { "ja": "Touchvoo", "en": "Touchvoo", "ko": "Touchvoo" },
               "desc": { "ja": "施設設備の通報・管理会社連携・QR台帳", "en": "Facility equipment alerts, management company coordination, QR ledger", "ko": "시설 설비 신고・관리회사 연계・QR 대장" },
               "url": "https://tamjump.github.io/onetouch_app/",
               "icon": ""
             },
             {
-              "name": { "ja": "MedAdapt", "en": "MedAdapt", "ko": "MedAdapt" },
+              "name": { "ja": "Medvoo", "en": "Medvoo", "ko": "Medvoo" },
               "desc": { "ja": "医療・介護の法人間連携OS（NDA・退院通知・面談）", "en": "Medical & care inter-organization OS (NDA, discharge notification, meetings)", "ko": "의료・요양의 법인간 연계 OS (NDA・퇴원 통지・면담)" },
               "url": "https://medadapt.scsgo.co.jp/",
               "icon": ""
@@ -67,7 +67,7 @@ var SERVICES_DATA = {
           "name": { "ja": "医療・福祉支援", "en": "Medical & Welfare Support", "ko": "의료・복지 지원" },
           "products": [
             {
-              "name": { "ja": "MedAdapt", "en": "MedAdapt", "ko": "MedAdapt" },
+              "name": { "ja": "Medvoo", "en": "Medvoo", "ko": "Medvoo" },
               "desc": { "ja": "医療・介護の法人間連携OS（NDA・退院通知・面談）", "en": "Medical & care inter-organization OS (NDA, discharge notification, meetings)", "ko": "의료・요양의 법인간 연계 OS (NDA・퇴원 통지・면담)" },
               "url": "https://medadapt.scsgo.co.jp/",
               "icon": ""
