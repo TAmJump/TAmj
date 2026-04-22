@@ -13,9 +13,9 @@
           "name": "アプリ開発",
           "products": [
             {
-              "name": "ワンタッチ管理",
+              "name": "Touchvoo",
               "desc": "介護施設の通報・業者連絡を一画面で完結",
-              "url": "https://tamjump.github.io/one-touch/",
+              "url": "https://one-touch.tamjump.com",
               "icon": "icons/one-touch.png"
             }
           ]
