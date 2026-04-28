@@ -102,7 +102,7 @@ var SERVICES_DATA = {
     {
       "id": "entertainment",
       "num": "04",
-      "label": { "ja": "遊び", "en": "Entertainment", "ko": "엔터테인먼트" },
+      "label": { "ja": "エンターテイメント", "en": "Entertainment", "ko": "엔터테인먼트" },
       "categories": [
         {
           "name": { "ja": "ゲーム", "en": "Game", "ko": "게임" },
