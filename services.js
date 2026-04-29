@@ -22,19 +22,19 @@ var SERVICES_DATA = {
             {
               "name": { "ja": "やるゼ！", "en": "Yaruze", "ko": "Yaruze" },
               "desc": { "ja": "Vision Of Oneness — モジュール統合プラットフォーム。1クリックで各モジュールを起動", "en": "Vision Of Oneness — Module integration platform, launch each module with one click", "ko": "Vision Of Oneness — 모듈 통합 플랫폼. 원 클릭으로 각 모듈 실행" },
-              "url": "https://adapt.tamjump.com/",
+              "url": "https://yaruze.tamjump.com/",
               "icon": ""
             },
             {
               "name": { "ja": "ｔやるゼ！", "en": "tYaruze", "ko": "tYaruze" },
               "desc": { "ja": "施設設備の通報・管理会社連携・QR台帳", "en": "Facility equipment alerts, management company coordination, QR ledger", "ko": "시설 설비 신고・관리회사 연계・QR 대장" },
-              "url": "https://one-touch.tamjump.com",
+              "url": "https://tyaruze.tamjump.com",
               "icon": ""
             },
             {
               "name": { "ja": "ｍやるゼ！", "en": "mYaruze", "ko": "mYaruze" },
               "desc": { "ja": "医療・介護の法人間連携OS（NDA・退院通知・面談）", "en": "Medical & care inter-organization OS (NDA, discharge notification, meetings)", "ko": "의료・요양의 법인간 연계 OS (NDA・퇴원 통지・면담)" },
-              "url": "https://medadapt.scsgo.co.jp/",
+              "url": "https://myaruze.tamjump.com/",
               "icon": ""
             }
           ]
@@ -69,7 +69,7 @@ var SERVICES_DATA = {
             {
               "name": { "ja": "ｍやるゼ！", "en": "mYaruze", "ko": "mYaruze" },
               "desc": { "ja": "医療・介護の法人間連携OS（NDA・退院通知・面談）", "en": "Medical & care inter-organization OS (NDA, discharge notification, meetings)", "ko": "의료・요양의 법인간 연계 OS (NDA・퇴원 통지・면담)" },
-              "url": "https://medadapt.scsgo.co.jp/",
+              "url": "https://myaruze.tamjump.com/",
               "icon": ""
             }
           ]
