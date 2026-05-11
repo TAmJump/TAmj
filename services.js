@@ -106,7 +106,14 @@ var SERVICES_DATA = {
       "categories": [
         {
           "name": { "ja": "ゲーム", "en": "Game", "ko": "게임" },
-          "products": []
+          "products": [
+            {
+              "name": { "ja": "KINGMAKER 23:23", "en": "KINGMAKER 23:23", "ko": "KINGMAKER 23:23" },
+              "desc": { "ja": "世界同時5分儀式。100円が誰かのMissionを王にする。", "en": "A worldwide 5-minute ritual. ¥100 turns someone's Mission into a King.", "ko": "전 세계 동시 5분 의식. 100엔이 누군가의 Mission을 왕으로 만든다." },
+              "url": "https://king2323.tamjump.com",
+              "icon": ""
+            }
+          ]
         },
         {
           "name": { "ja": "music", "en": "music", "ko": "music" },
