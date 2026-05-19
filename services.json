@@ -50,7 +50,14 @@
         },
         {
           "name": "経営改善",
-          "products": []
+          "products": [
+            {
+              "name": "Care Support Pass",
+              "desc": "月100円の支援者を集め、介護施設の固定費を埋める仕組み。",
+              "url": "https://carepass.tamjump.com/",
+              "icon": ""
+            }
+          ]
         },
         {
           "name": "医療資格支援",
@@ -68,8 +75,15 @@
       "label": "金融",
       "categories": [
         {
-          "name": "オーナーVISA",
-          "products": []
+          "name": "Care Support Pass",
+          "products": [
+            {
+              "name": "Care Support Pass",
+              "desc": "月100円の月額会員サービス。施設を指名して支援できる仕組み。",
+              "url": "https://carepass.tamjump.com/",
+              "icon": ""
+            }
+          ]
         }
       ]
     },

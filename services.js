@@ -76,7 +76,14 @@ var SERVICES_DATA = {
         },
         {
           "name": { "ja": "経営改善", "en": "Management Improvement", "ko": "경영 개선" },
-          "products": []
+          "products": [
+            {
+              "name": { "ja": "Care Support Pass", "en": "Care Support Pass", "ko": "Care Support Pass" },
+              "desc": { "ja": "月100円の支援者を集め、介護施設の固定費を埋める仕組み。", "en": "A subscription scheme where ¥100/month supporters help cover fixed costs of care facilities.", "ko": "월 100엔 후원자를 모아 요양시설의 고정비를 메우는 구조." },
+              "url": "https://carepass.tamjump.com/",
+              "icon": ""
+            }
+          ]
         },
         {
           "name": { "ja": "医療資格支援", "en": "Medical Qualification Support", "ko": "의료 자격 지원" },
@@ -94,8 +101,15 @@ var SERVICES_DATA = {
       "label": { "ja": "金融", "en": "Finance", "ko": "금융" },
       "categories": [
         {
-          "name": { "ja": "オーナーVISA", "en": "Owner VISA", "ko": "오너 VISA" },
-          "products": []
+          "name": { "ja": "Care Support Pass", "en": "Care Support Pass", "ko": "Care Support Pass" },
+          "products": [
+            {
+              "name": { "ja": "Care Support Pass", "en": "Care Support Pass", "ko": "Care Support Pass" },
+              "desc": { "ja": "月100円の月額会員サービス。施設を指名して支援できる仕組み。", "en": "A ¥100/month membership service. Supporters designate the facility they want to support.", "ko": "월 100엔 월회원 서비스. 후원할 시설을 지명할 수 있는 구조." },
+              "url": "https://carepass.tamjump.com/",
+              "icon": ""
+            }
+          ]
         }
       ]
     },
