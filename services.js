@@ -155,12 +155,27 @@ var SERVICES_DATA = {
     {
       "name": { "ja": "株式会社さかえケアサービス", "en": "Sakae Care Service Co., Ltd.", "ko": "사카에 케어 서비스 주식회사" },
       "type": { "ja": "医療・福祉", "en": "Medical & Welfare", "ko": "의료・복지" },
-      "url": ""
+      "url": "https://site.scsgo.co.jp/"
     },
     {
       "name": { "ja": "特定非営利法人GO TO HAPPY LIFE", "en": "NPO GO TO HAPPY LIFE", "ko": "특정비영리법인 GO TO HAPPY LIFE" },
       "type": { "ja": "医療・福祉支援、国際支援", "en": "Medical & Welfare Support, International Aid", "ko": "의료・복지 지원, 국제 지원" },
-      "url": ""
+      "url": "https://tamjump.github.io/GoTo_Site/"
+    },
+    {
+      "name": { "ja": "コンパスメディカルグループ", "en": "Compass Medical Group", "ko": "컴퍼스 메디컬 그룹" },
+      "type": { "ja": "医療（医科・歯科・健診）", "en": "Medical (Internal Medicine, Dentistry, Health Checkup)", "ko": "의료（내과・치과・건강검진）" },
+      "url": "https://www.compass-dc.jp/"
+    },
+    {
+      "name": { "ja": "株式会社メディパス", "en": "MEDiPASS Co., Ltd.", "ko": "주식회사 메디파스" },
+      "type": { "ja": "医療・介護経営支援", "en": "Medical & Care Management Support", "ko": "의료・간호 경영 지원" },
+      "url": "https://medipass.co.jp/"
+    },
+    {
+      "name": { "ja": "へき地医療jp チームGREEN", "en": "Hekichi-Iryou.jp Team GREEN", "ko": "오지의료jp 팀 GREEN" },
+      "type": { "ja": "地域医療・介護支援", "en": "Rural Medical & Care Support", "ko": "지역 의료・간호 지원" },
+      "url": "https://hekichiiryou.jp/"
     }
   ],
   "ui": {
