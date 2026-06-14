@@ -91,7 +91,14 @@ var SERVICES_DATA = {
         },
         {
           "name": { "ja": "国際救急医療支援", "en": "International Emergency Medical Support", "ko": "국제 응급의료 지원" },
-          "products": []
+          "products": [
+            {
+              "name": { "ja": "Animed", "en": "Animed", "ko": "Animed" },
+              "desc": { "ja": "海外から日本の医療へ。人と医療をつなぐグローバルヘルスブリッジ。", "en": "Connecting people abroad to medical care in Japan — a global health bridge.", "ko": "해외에서 일본 의료로. 사람과 의료를 잇는 글로벌 헬스 브리지." },
+              "url": "https://tamjump.github.io/animed/",
+              "icon": ""
+            }
+          ]
         }
       ]
     },
@@ -100,6 +107,17 @@ var SERVICES_DATA = {
       "num": "03",
       "label": { "ja": "金融", "en": "Finance", "ko": "금융" },
       "categories": [
+        {
+          "name": { "ja": "事業承継・M&A", "en": "Business Succession & M&A", "ko": "사업 승계・M&A" },
+          "products": [
+            {
+              "name": { "ja": "Re-Bridge", "en": "Re-Bridge", "ko": "Re-Bridge" },
+              "desc": { "ja": "承継再生型M&A。事業の価値を無料・約5分で再評価する。", "en": "Succession & turnaround M&A. Reappraise your business value for free in about 5 minutes.", "ko": "승계 재생형 M&A. 사업 가치를 무료・약 5분에 재평가." },
+              "url": "https://rebridge.tamjump.com/",
+              "icon": ""
+            }
+          ]
+        },
         {
           "name": { "ja": "Care Support Pass", "en": "Care Support Pass", "ko": "Care Support Pass" },
           "products": [
