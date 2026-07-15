@@ -124,7 +124,7 @@
             overflow: hidden;
             transition: max-height 0.4s ease;
         }
-        .category.open .products { max-height: 600px; }
+        .category.open .products { max-height: 1200px; }
         .product-item {
             display: flex;
             align-items: center;
@@ -159,6 +159,92 @@
             transition: color 0.3s;
         }
         .product-item:hover .product-arrow { color: var(--primary); }
+
+        /* ── Featured (store-listed apps) ── */
+        .product-store {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.6rem 1.5rem;
+            border-top: 1px solid var(--gray-100);
+        }
+        .store-main {
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+            flex: 1;
+            min-width: 0;
+            transition: opacity 0.3s;
+        }
+        .store-main:hover { opacity: 0.62; }
+        .store-icon {
+            width: 68px;
+            height: 68px;
+            border-radius: 15px;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 1px solid var(--gray-100);
+        }
+        .store-text { min-width: 0; }
+        .store-name {
+            display: block;
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            letter-spacing: 0.04em;
+            line-height: 1.3;
+        }
+        .store-tag {
+            display: inline-block;
+            margin-top: 0.4rem;
+            padding: 0.15rem 0.55rem;
+            border: 1px solid var(--gray-100);
+            border-radius: 2px;
+            font-size: 0.58rem;
+            font-weight: 400;
+            color: var(--gray-400);
+            letter-spacing: 0.08em;
+            white-space: nowrap;
+        }
+        .store-desc {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.72rem;
+            font-weight: 300;
+            line-height: 1.65;
+            color: var(--gray-400);
+        }
+        .store-cta {
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+            flex-shrink: 0;
+        }
+        .store-badge { display: block; transition: opacity 0.3s; }
+        .store-badge:hover { opacity: 0.72; }
+        .store-badge img {
+            display: block;
+            width: 152px;
+            height: auto;
+        }
+        .store-qr { text-align: center; }
+        .store-qr img {
+            display: block;
+            width: 84px;
+            height: 84px;
+            padding: 5px;
+            border: 1px solid var(--gray-100);
+            border-radius: 4px;
+            background: #fff;
+        }
+        .store-qr span {
+            display: block;
+            margin-top: 0.4rem;
+            font-size: 0.55rem;
+            font-weight: 300;
+            color: var(--gray-300);
+            letter-spacing: 0.06em;
+        }
         .empty-msg {
             padding: 1rem 1.5rem;
             font-size: 0.75rem;
@@ -227,6 +313,17 @@
             .product-desc { display: none; }
             .product-item { padding-left: 1rem; }
             .product-item:hover { padding-left: 1.5rem; }
+            .product-store {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1.1rem;
+                padding: 1.4rem 1rem;
+            }
+            .store-icon { width: 56px; height: 56px; border-radius: 13px; }
+            .store-name { font-size: 1rem; }
+            .store-cta { justify-content: flex-start; gap: 1rem; }
+            .store-badge img { width: 132px; }
+            .store-qr img { width: 68px; height: 68px; }
         }
     </style>
 </head>
@@ -318,7 +415,7 @@
         </div>
     </footer>
 
-    <script src="services.js?v=20260614"></script>
+    <script src="services.js?v=20260715"></script>
     <script>
         // Header scroll
         const h = document.getElementById('siteHeader');
@@ -340,7 +437,10 @@
         function buildServiceUI(lang) {
             lang = lang || 'ja';
             var data = SERVICES_DATA;
-            var ui = (data.ui && data.ui[lang]) || data.ui['ja'] || { capabilities: 'できること', preparing: '準備中' };
+            var ui = (data.ui && data.ui[lang]) || (data.ui && data.ui['ja']) || {};
+            ui = { capabilities: ui.capabilities || 'できること', preparing: ui.preparing || '準備中',
+                   open: ui.open || 'アプリを開く', scan: ui.scan || 'スマホで読み取る',
+                   onPlay: ui.onPlay || 'Google Play で配信中' };
             var nav = document.getElementById('tabNav');
             var panels = document.getElementById('tabPanels');
             var activeTab = nav.querySelector('.tab-btn.active');
@@ -378,6 +478,29 @@
                     var productsHtml = '';
                     if (count > 0) {
                         productsHtml = cat.products.map(function(p) {
+                            if (p.play) {
+                                var badge = 'icons/googleplay/' + (lang === 'ja' || lang === 'ko' ? lang : 'en') + '.svg';
+                                var name = t(p.name, lang);
+                                return '<div class="product-store">'
+                                    + '<a href="' + p.url + '" class="store-main">'
+                                    +   '<img src="' + p.icon + '" alt="' + name + '" class="store-icon">'
+                                    +   '<span class="store-text">'
+                                    +     '<span class="store-name">' + name + '</span>'
+                                    +     '<span class="store-tag">' + ui.onPlay + '</span>'
+                                    +     '<span class="store-desc">' + t(p.desc, lang) + '</span>'
+                                    +   '</span>'
+                                    + '</a>'
+                                    + '<span class="store-cta">'
+                                    +   '<a href="' + p.play + '" class="store-badge" target="_blank" rel="noopener">'
+                                    +     '<img src="' + badge + '" alt="Google Play" loading="lazy">'
+                                    +   '</a>'
+                                    +   (p.qr ? '<span class="store-qr">'
+                                    +     '<img src="' + p.qr + '" alt="" loading="lazy">'
+                                    +     '<span>' + ui.scan + '</span>'
+                                    +   '</span>' : '')
+                                    + '</span>'
+                                    + '</div>';
+                            }
                             return '<a href="' + p.url + '" class="product-item">'
                                 + (p.icon ? '<img src="' + p.icon + '" alt="" class="product-icon">' : '')
                                 + '<span class="product-name">' + t(p.name, lang) + '</span>'

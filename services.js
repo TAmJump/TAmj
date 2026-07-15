@@ -23,7 +23,9 @@ var SERVICES_DATA = {
               "name": { "ja": "やるゼ！", "en": "Yaruze", "ko": "Yaruze" },
               "desc": { "ja": "Vision Of Oneness — モジュール統合プラットフォーム。1クリックで各モジュールを起動", "en": "Vision Of Oneness — Module integration platform, launch each module with one click", "ko": "Vision Of Oneness — 모듈 통합 플랫폼. 원 클릭으로 각 모듈 실행" },
               "url": "https://yaruze.tamjump.com/",
-              "icon": ""
+              "icon": "icons/yaruze.png",
+              "play": "https://play.google.com/store/apps/details?id=com.tamjump.yaruze&pcampaignid=web_share",
+              "qr": "icons/qr/yaruze.svg"
             },
             {
               "name": { "ja": "ｔやるゼ！", "en": "tYaruze", "ko": "tYaruze" },
@@ -35,7 +37,9 @@ var SERVICES_DATA = {
               "name": { "ja": "ｍやるゼ！", "en": "mYaruze", "ko": "mYaruze" },
               "desc": { "ja": "医療・介護の法人間連携OS（NDA・退院通知・面談）", "en": "Medical & care inter-organization OS (NDA, discharge notification, meetings)", "ko": "의료・요양의 법인간 연계 OS (NDA・퇴원 통지・면담)" },
               "url": "https://myaruze.tamjump.com/",
-              "icon": ""
+              "icon": "icons/myaruze.png",
+              "play": "https://play.google.com/store/apps/details?id=com.tamjump.medvoo&pcampaignid=web_share",
+              "qr": "icons/qr/myaruze.svg"
             }
           ]
         },
@@ -70,7 +74,9 @@ var SERVICES_DATA = {
               "name": { "ja": "ｍやるゼ！", "en": "mYaruze", "ko": "mYaruze" },
               "desc": { "ja": "医療・介護の法人間連携OS（NDA・退院通知・面談）", "en": "Medical & care inter-organization OS (NDA, discharge notification, meetings)", "ko": "의료・요양의 법인간 연계 OS (NDA・퇴원 통지・면담)" },
               "url": "https://myaruze.tamjump.com/",
-              "icon": ""
+              "icon": "icons/myaruze.png",
+              "play": "https://play.google.com/store/apps/details?id=com.tamjump.medvoo&pcampaignid=web_share",
+              "qr": "icons/qr/myaruze.svg"
             }
           ]
         },
@@ -197,8 +203,8 @@ var SERVICES_DATA = {
     }
   ],
   "ui": {
-    "ja": { "capabilities": "できること", "preparing": "準備中" },
-    "en": { "capabilities": "Capabilities", "preparing": "Coming Soon" },
-    "ko": { "capabilities": "할 수 있는 것", "preparing": "준비 중" }
+    "ja": { "capabilities": "できること", "preparing": "準備中", "open": "アプリを開く", "scan": "スマホで読み取る", "onPlay": "Google Play で配信中" },
+    "en": { "capabilities": "Capabilities", "preparing": "Coming Soon", "open": "Open the app", "scan": "Scan with your phone", "onPlay": "Available on Google Play" },
+    "ko": { "capabilities": "할 수 있는 것", "preparing": "준비 중", "open": "앱 열기", "scan": "휴대폰으로 스캔", "onPlay": "Google Play에서 제공" }
   }
 };
