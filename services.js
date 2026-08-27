@@ -79,7 +79,7 @@ var SERVICES_DATA = {
               "qr": "icons/qr/myaruze.svg"
             },
             {
-              "name": { "ja": "介護・医療標準化OS 構想", "en": "Care & Medical Standardization OS (Concept)", "ko": "요양・의료 표준화 OS 구상" },
+              "name": { "ja": "標準化Project", "en": "Standardization Project", "ko": "Standardization Project" },
               "desc": { "ja": "介護と介護寄り医療を同じ画面・同じ基準でつなぐ構想。6つの標準機能をUIモックアップで示す。閲覧にはパスワードが必要。", "en": "A concept for connecting care and care-adjacent medicine on the same screen and the same criteria. Six standard functions shown as UI mockups. Password required.", "ko": "요양과 요양 지향 의료를 같은 화면・같은 기준으로 잇는 구상. 6가지 표준 기능을 UI 목업으로 제시. 열람에 비밀번호가 필요." },
               "url": "standardization-os.html",
               "icon": "icons/myaruze.png"
