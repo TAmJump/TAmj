@@ -108,8 +108,15 @@
           ]
         },
         {
-          "name": "CM",
-          "products": []
+          "name": "TOTAL BEAUTY",
+          "products": [
+            {
+              "name": "O2N",
+              "desc": "ヘアケアブランド evev の企画・開発・販売。",
+              "url": "https://o2n.tamjump.com",
+              "icon": ""
+            }
+          ]
         },
         {
           "name": "おもちゃ作り",

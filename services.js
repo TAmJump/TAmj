@@ -171,8 +171,15 @@ var SERVICES_DATA = {
           ]
         },
         {
-          "name": { "ja": "CM", "en": "CM", "ko": "CM" },
-          "products": []
+          "name": { "ja": "TOTAL BEAUTY", "en": "TOTAL BEAUTY", "ko": "TOTAL BEAUTY" },
+          "products": [
+            {
+              "name": { "ja": "O2N", "en": "O2N", "ko": "O2N" },
+              "desc": { "ja": "ヘアケアブランド evev の企画・開発・販売。", "en": "Planning, development and sales of the hair care brand evev.", "ko": "헤어케어 브랜드 evev의 기획・개발・판매." },
+              "url": "https://o2n.tamjump.com",
+              "icon": ""
+            }
+          ]
         },
         {
           "name": { "ja": "おもちゃ作り", "en": "Toy Making", "ko": "장난감 만들기" },
