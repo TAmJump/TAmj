@@ -17,6 +17,12 @@ var TRANSLATIONS = {
     "default": "ja"
   },
   ja: {
+    "vision.back.label": "The Back Side",
+    "vision.back.title": "裏の世界",
+    "vision.back.lead": "上の構想図に、人は描かれていません。インフラを整備するだけでは、街は動かないからです。<br>裏にあるのが熱狂のスイッチ。心が動いた瞬間に、人が集まり、街に人が満ちます。",
+    "vision.back.cap1": "ONE HEART / 人が集まった街",
+    "vision.back.cap2": "表 × 裏 / 二つが重なって、はじめて世界が動き出す",
+    "vision.back.find": "裏の世界のどこかに、このキャラクターが隠れています。探してみてください。",
     "vision.title": "未来の街の構想図",
     "vision.sub": "医療・介護を核に、住まい・仕事・食・交流を<br>一つの圏域に束ねた街の全体像。",
     "vision.hint": "図中の番号をクリック",
@@ -556,6 +562,12 @@ var TRANSLATIONS = {
     "lp.x_sensitive_note": "ｍやるゼ！ は医療・介護機関の従業者の業務利用を前提としたシステムです。要配慮個人情報の入力は、当該機関の管理者の指示・同意のもと、業務上必要な範囲においてのみ行ってください。本サービスは診断・治療・処方・医療行為・介護行為の最終判断を代替するものではありません。",
   },
   en: {
+    "vision.back.label": "The Back Side",
+    "vision.back.title": "The world underneath",
+    "vision.back.lead": "No one is drawn on the map above. Building the infrastructure does not, on its own, make a town move.<br>Underneath sits the switch for passion. The moment hearts move, people arrive and the streets fill up.",
+    "vision.back.cap1": "ONE HEART / the town once people came",
+    "vision.back.cap2": "Front × Back / only when the two overlap does the world start moving",
+    "vision.back.find": "A character is hiding somewhere in the world below. See if you can find it.",
     "vision.title": "The map of the town we are building",
     "vision.sub": "Healthcare and care at the core, with housing, work,<br>food and community gathered into one district.",
     "vision.hint": "Tap a number on the map",
@@ -1095,6 +1107,12 @@ var TRANSLATIONS = {
     "lp.x_sensitive_note": "M-YaruZe! is a system intended for professional use by employees of medical/care institutions. Entry of sensitive personal information must be performed only within the scope of business necessity, under the instruction and consent of the institution's administrator. This Service does not replace the final judgment of diagnosis, treatment, prescription, medical practice, or care practice.",
   },
   ko: {
+    "vision.back.label": "The Back Side",
+    "vision.back.title": "이면의 세계",
+    "vision.back.lead": "위의 구상도에는 사람이 그려져 있지 않습니다. 인프라를 갖추는 것만으로는 도시가 움직이지 않기 때문입니다.<br>이면에 있는 것이 열광의 스위치입니다. 마음이 움직인 순간, 사람이 모이고 거리가 채워집니다.",
+    "vision.back.cap1": "ONE HEART / 사람이 모인 거리",
+    "vision.back.cap2": "앞 × 뒤 / 둘이 겹쳐질 때 비로소 세계가 움직인다",
+    "vision.back.find": "이면의 세계 어딘가에 이 캐릭터가 숨어 있습니다. 찾아보세요.",
     "vision.title": "우리가 만들어 갈 도시의 구상도",
     "vision.sub": "의료·돌봄을 중심에 두고 주거, 일자리, 먹거리,<br>교류를 하나의 생활권으로 묶은 도시의 전체상.",
     "vision.hint": "그림 속 번호를 눌러 주세요",

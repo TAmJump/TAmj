@@ -115,6 +115,19 @@
 
         .vm-backdrop { display: none; }
 
+        /* ── back side ── */
+        .back-wrap { max-width: 880px; margin: 0 auto; }
+        .back-lead { font-size: 0.88rem; line-height: 2.2; color: var(--gray-500); font-weight: 300; text-align: center; margin-bottom: 2.6rem; }
+        .back-fig { border: 1px solid var(--gray-100); background: var(--white); padding: 10px; margin-bottom: 0.9rem; }
+        .back-fig img { width: 100%; display: block; }
+        .back-cap { font-size: 0.72rem; letter-spacing: 0.1em; color: var(--gray-400); text-align: center; margin-bottom: 3rem; }
+        .back-find { display: flex; align-items: center; justify-content: center; gap: 1rem; border-top: 1px solid var(--gray-100); padding-top: 2rem; }
+        .back-find img { width: 54px; height: auto; }
+        .back-find p { font-size: 0.85rem; color: var(--primary); font-weight: 400; }
+        @media (max-width: 768px) {
+            .back-find { flex-direction: column; text-align: center; gap: 0.8rem; }
+        }
+
         /* ── list below ── */
         .vm-list { max-width: 720px; margin: 0 auto; }
         .vm-row {
@@ -183,11 +196,11 @@
             <div class="map-frame">
                 <img src="city.png" alt="TAmJが描く未来の街の構想図">
 
-                <button class="pin" data-id="01" style="left: 7.3%;  top: 11.4%;" aria-label="01 森林保全">01</button>
-                <button class="pin" data-id="02" style="left: 34.3%; top: 41.4%;" aria-label="02 コミュニティ拠点">02</button>
-                <button class="pin" data-id="03" style="left: 46.3%; top: 17.4%;" aria-label="03 医療支援">03</button>
-                <button class="pin" data-id="04" style="left: 64.3%; top: 38.4%;" aria-label="04 デジタル社会">04</button>
-                <button class="pin" data-id="05" style="left: 57.3%; top: 75.4%;" aria-label="05 文化・伝統の継承">05</button>
+                <button class="pin" data-id="01" style="left: 10%;   top: 23%;" aria-label="01">01</button>
+                <button class="pin" data-id="02" style="left: 33.5%; top: 50%;" aria-label="02">02</button>
+                <button class="pin" data-id="03" style="left: 46.5%; top: 23.5%;" aria-label="03">03</button>
+                <button class="pin" data-id="04" style="left: 57.5%; top: 42%;" aria-label="04">04</button>
+                <button class="pin" data-id="05" style="left: 57.5%; top: 76%;" aria-label="05">05</button>
 
                 <div class="vm-panel" id="vmPanel" role="dialog">
                     <div class="vm-panel-head">
@@ -280,6 +293,27 @@
                         <p data-i18n="vision.05.vision">過去を大切にしながら、未来を創る。歴史に触れ、次の一歩へ跳ぼう。それがTAmJの描く街づくりの姿です。</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec">
+        <div class="back-wrap">
+            <div class="section-head" style="text-align:center;">
+                <span class="section-label" data-i18n="vision.back.label">The Back Side</span>
+                <h2 data-i18n="vision.back.title">裏の世界</h2>
+            </div>
+            <p class="back-lead reveal" data-i18n="vision.back.lead">上の構想図に、人は描かれていません。インフラを整備するだけでは、街は動かないからです。<br>裏にあるのが熱狂のスイッチ。心が動いた瞬間に、人が集まり、街に人が満ちます。</p>
+
+            <div class="back-fig reveal"><img src="vision-map-back.jpg?v=20260911" alt="熱狂の世界"></div>
+            <p class="back-cap" data-i18n="vision.back.cap1">ONE HEART / 人が集まった街</p>
+
+            <div class="back-fig reveal"><img src="vision-map-layers.jpg?v=20260911" alt="表と裏が重なった構造"></div>
+            <p class="back-cap" data-i18n="vision.back.cap2">表 × 裏 / 二つが重なって、はじめて世界が動き出す</p>
+
+            <div class="back-find reveal">
+                <img src="vision-character.webp" alt="">
+                <p data-i18n="vision.back.find">裏の世界のどこかに、このキャラクターが隠れています。探してみてください。</p>
             </div>
         </div>
     </section>
