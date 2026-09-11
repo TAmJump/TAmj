@@ -302,6 +302,49 @@
                 font-size: 0.65rem;
             }
         }
+
+        /* ── Vision Map ── */
+        .index-vision { padding: var(--sp-xl) 2rem; background: var(--cream); }
+        .index-vision-inner { max-width: 1000px; margin: 0 auto; }
+        .vision-head { text-align: center; margin-bottom: 2.5rem; }
+        .vision-label {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 0.65rem; letter-spacing: 0.35em; color: var(--gray-400);
+            text-transform: uppercase; display: block; margin-bottom: 0.8rem;
+        }
+        .vision-heading {
+            font-family: "Noto Serif JP", serif; font-weight: 400;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem); letter-spacing: 0.06em;
+            color: var(--black); line-height: 1.6;
+        }
+        .vision-desc {
+            font-size: 0.85rem; font-weight: 300; color: var(--gray-500);
+            line-height: 2; margin-top: 1rem;
+        }
+        .vision-figure {
+            position: relative; display: block;
+            background: var(--white); border: 1px solid var(--gray-200); padding: 8px;
+            transition: box-shadow 0.5s ease, transform 0.5s ease;
+        }
+        .vision-figure:hover { box-shadow: 0 22px 55px rgba(0,0,0,0.12); transform: translateY(-3px); }
+        .vision-figure img { width: 100%; display: block; }
+        .vision-pin {
+            position: absolute; transform: translate(-50%, -50%);
+            width: 3.1%; min-width: 28px; aspect-ratio: 1 / 1; border-radius: 50%;
+            background: rgba(255,255,255,0.94); border: 1px solid var(--primary);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+            display: flex; align-items: center; justify-content: center;
+            font-family: "Cormorant Garamond", serif; font-weight: 500;
+            font-size: clamp(0.72rem, 1.05vw, 0.95rem); color: var(--primary);
+            pointer-events: none;
+            transition: background 0.4s, color 0.4s;
+        }
+        .vision-figure:hover .vision-pin { background: var(--primary); color: var(--white); }
+        .vision-foot { text-align: center; margin-top: 2rem; }
+        @media (max-width: 768px) {
+            .index-vision { padding: var(--sp-lg) 1.2rem; }
+            .vision-pin { min-width: 22px; font-size: 0.62rem; }
+        }
     </style>
 </head>
 <body>
@@ -347,6 +390,27 @@
                 <p class="card-jp" data-i18n="index.service.desc">開発・医療＆福祉・金融・エンターテイメント</p>
                 <span class="card-arrow">View →</span>
             </a>
+        </div>
+    </section>
+
+    <section class="index-vision">
+        <div class="index-vision-inner">
+            <div class="vision-head reveal">
+                <span class="vision-label">Vision Map</span>
+                <h2 class="vision-heading">未来の街の構想図</h2>
+                <p class="vision-desc">医療・介護を核に、住まい・仕事・食・交流を一つの圏域に束ねた街の全体像。<br>図中の番号から、5つの取り組みをご覧いただけます。</p>
+            </div>
+            <a href="vision-map.html" class="vision-figure reveal delay-1">
+                <img src="city.png?v=20260520b" alt="TAmJが描く未来の街の構想図">
+                <span class="vision-pin" style="left: 7.3%;  top: 11.4%;">01</span>
+                <span class="vision-pin" style="left: 34.3%; top: 41.4%;">02</span>
+                <span class="vision-pin" style="left: 46.3%; top: 17.4%;">03</span>
+                <span class="vision-pin" style="left: 64.3%; top: 38.4%;">04</span>
+                <span class="vision-pin" style="left: 57.3%; top: 75.4%;">05</span>
+            </a>
+            <p class="vision-foot reveal">
+                <a href="vision-map.html" class="text-link">Vision Map を見る →</a>
+            </p>
         </div>
     </section>
 
