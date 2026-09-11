@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision Map | TAmJ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+JP:wght@200;300;400;500;700&family=Noto+Serif+JP:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css?v=20260520b">
+    <link rel="stylesheet" href="css/corporate.css?v=20260520b">
+    <style>
+        /* ════════════════════════════════════════
+           VISION MAP — page specific
+           ════════════════════════════════════════ */
+        .map-sec { padding: 0 var(--sp-md) var(--sp-xl); }
+        .map-wrap { max-width: 1080px; margin: 0 auto; }
+
+        .map-frame {
+            position: relative;
+            border: 1px solid var(--gray-100);
+            background: var(--white);
+            padding: 10px;
+        }
+        .map-frame img { width: 100%; display: block; }
+
+        .map-hint {
+            display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+            margin: 0 0 2rem;
+            font-size: 0.72rem; letter-spacing: 0.12em; color: var(--gray-400);
+        }
+        .map-hint::before, .map-hint::after { content: ''; height: 1px; width: 40px; background: var(--gray-200); }
+
+        @keyframes haloPulse {
+            0%   { transform: scale(1);   opacity: 0.55; }
+            70%  { transform: scale(1.9); opacity: 0; }
+            100% { transform: scale(1.9); opacity: 0; }
+        }
+
+        .pin {
+            position: absolute;
+            width: 3.1%; min-width: 30px; aspect-ratio: 1 / 1;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background: rgba(255,255,255,0.94);
+            border: 1px solid var(--primary);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-display);
+            font-size: clamp(0.8rem, 1.15vw, 1.05rem);
+            font-weight: 500; letter-spacing: 0.02em;
+            color: var(--primary);
+            cursor: pointer; z-index: 10;
+            transition: background 0.35s, color 0.35s, box-shadow 0.35s, transform 0.35s;
+        }
+        .pin::after {
+            content: ''; position: absolute; inset: -1px;
+            border-radius: 50%; border: 1px solid var(--primary);
+            animation: haloPulse 2.8s ease-out infinite;
+            pointer-events: none;
+        }
+        .pin:hover, .pin.active {
+            background: var(--primary); color: var(--white);
+            transform: translate(-50%, -50%) scale(1.12);
+            box-shadow: 0 4px 18px rgba(200,22,29,0.35);
+        }
+        .pin:hover::after, .pin.active::after { animation: none; opacity: 0; }
+
+        /* ── in-place panel ── */
+        .vm-panel {
+            position: absolute; width: 320px; z-index: 40;
+            background: var(--white);
+            border: 1px solid var(--gray-100);
+            box-shadow: 0 18px 50px rgba(0,0,0,0.14);
+            opacity: 0; visibility: hidden; transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .vm-panel.open { opacity: 1; visibility: visible; transform: translateY(0); }
+        .vm-panel-head {
+            padding: 1.5rem 1.6rem 1.1rem;
+            border-bottom: 1px solid var(--gray-100);
+            position: relative;
+        }
+        .vm-panel-num {
+            font-family: var(--font-display);
+            font-size: 0.7rem; letter-spacing: 0.35em; color: var(--gray-400);
+            display: block; margin-bottom: 0.6rem;
+        }
+        .vm-panel-head h3 { font-size: 1.05rem; line-height: 1.5; }
+        .vm-panel-en {
+            font-family: var(--font-display);
+            font-size: 0.68rem; letter-spacing: 0.2em; color: var(--gray-400);
+            text-transform: uppercase; display: block; margin-top: 0.35rem;
+        }
+        .vm-close {
+            position: absolute; top: 1.1rem; right: 1.1rem;
+            background: none; border: none; cursor: pointer;
+            font-size: 0.9rem; line-height: 1; color: var(--gray-300);
+            transition: color 0.3s;
+        }
+        .vm-close:hover { color: var(--primary); }
+        .vm-panel-body { padding: 1.4rem 1.6rem 1.6rem; }
+        .vm-panel-body .desc { font-size: 0.8rem; line-height: 2; color: var(--gray-500); font-weight: 300; }
+        .vm-vision {
+            margin-top: 1.2rem; padding-left: 1rem;
+            border-left: 2px solid var(--primary);
+        }
+        .vm-vision span {
+            font-family: var(--font-display);
+            font-size: 0.65rem; letter-spacing: 0.25em; color: var(--gray-400);
+            text-transform: uppercase; display: block; margin-bottom: 0.4rem;
+        }
+        .vm-vision p { font-size: 0.78rem; line-height: 1.95; color: var(--charcoal); font-weight: 300; }
+        .vm-more { display: inline-block; margin-top: 1.3rem; }
+
+        .vm-backdrop { display: none; }
+
+        /* ── list below ── */
+        .vm-list { max-width: 720px; margin: 0 auto; }
+        .vm-row {
+            display: grid; grid-template-columns: 64px 1fr; gap: 1.8rem;
+            padding: 2.6rem 0; border-bottom: 1px solid var(--gray-100);
+            scroll-margin-top: 110px;
+        }
+        .vm-row:first-of-type { border-top: 1px solid var(--gray-100); }
+        .vm-row .rnum {
+            font-family: var(--font-display);
+            font-size: 1.6rem; font-weight: 300; color: var(--gray-300);
+            line-height: 1; padding-top: 0.15rem;
+        }
+        .vm-row h3 { margin-bottom: 0.25rem; }
+        .vm-row .en {
+            font-family: var(--font-display);
+            font-size: 0.68rem; letter-spacing: 0.2em; color: var(--gray-400);
+            text-transform: uppercase; display: block; margin-bottom: 1.1rem;
+        }
+        .vm-row .desc { font-size: 0.85rem; line-height: 2.1; color: var(--gray-500); font-weight: 300; }
+        .vm-row .vm-vision { margin-top: 1.3rem; }
+
+        @media (max-width: 768px) {
+            .map-sec { padding: 0 1rem var(--sp-lg); }
+            .map-frame { padding: 6px; }
+            .pin { min-width: 26px; font-size: 0.72rem; }
+            .vm-row { grid-template-columns: 1fr; gap: 0.6rem; padding: 2.2rem 0; }
+            .vm-row .rnum { font-size: 1.2rem; }
+
+            .vm-panel {
+                position: fixed; width: auto;
+                left: 12px; right: 12px; bottom: 12px; top: auto !important;
+                max-height: 72vh; overflow-y: auto; z-index: 2100;
+                transform: translateY(24px);
+            }
+            .vm-panel.open { transform: translateY(0); }
+            .vm-backdrop {
+                display: block; position: fixed; inset: 0;
+                background: rgba(26,26,26,0.45); z-index: 2050;
+                opacity: 0; visibility: hidden; transition: opacity 0.3s;
+            }
+            .vm-backdrop.open { opacity: 1; visibility: visible; }
+        }
+    </style>
+</head>
+<body>
+    <header id="siteHeader">
+        <a href="index.html" class="header-logo"><img src="logo.png" alt="TAmJ"></a>
+        <nav class="header-nav">
+            <a href="index.html" data-i18n="nav.top">Top</a>
+            <a href="service.html" data-i18n="nav.service">Service</a>
+            <a href="about-company.html" data-i18n="nav.company">Company</a>
+            <a href="contact.html" class="nav-cta" data-i18n="nav.contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="page-top">
+        <span class="page-label">Vision Map</span>
+        <h1>未来の街の構想図</h1>
+        <p class="page-sub">医療・介護を核に、住まい・仕事・食・交流を<br>一つの圏域に束ねた街の全体像。</p>
+    </section>
+
+    <section class="map-sec">
+        <div class="map-wrap reveal">
+            <p class="map-hint">図中の番号をクリック</p>
+            <div class="map-frame">
+                <img src="city.png" alt="TAmJが描く未来の街の構想図">
+
+                <button class="pin" data-id="01" style="left: 7.3%;  top: 11.4%;" aria-label="01 森林保全">01</button>
+                <button class="pin" data-id="02" style="left: 34.3%; top: 41.4%;" aria-label="02 コミュニティ拠点">02</button>
+                <button class="pin" data-id="03" style="left: 46.3%; top: 17.4%;" aria-label="03 医療支援">03</button>
+                <button class="pin" data-id="04" style="left: 64.3%; top: 38.4%;" aria-label="04 デジタル社会">04</button>
+                <button class="pin" data-id="05" style="left: 57.3%; top: 75.4%;" aria-label="05 文化・伝統の継承">05</button>
+
+                <div class="vm-panel" id="vmPanel" role="dialog">
+                    <div class="vm-panel-head">
+                        <span class="vm-panel-num" id="vmNum">01</span>
+                        <h3 id="vmTitle"></h3>
+                        <span class="vm-panel-en" id="vmEn"></span>
+                        <button class="vm-close" id="vmClose" aria-label="閉じる">✕</button>
+                    </div>
+                    <div class="vm-panel-body">
+                        <p class="desc" id="vmDesc"></p>
+                        <div class="vm-vision">
+                            <span>TAmJの想い</span>
+                            <p id="vmVision"></p>
+                        </div>
+                        <a class="text-link vm-more" id="vmMore" href="#vm-01">詳しく見る →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="vm-backdrop" id="vmBackdrop"></div>
+
+    <section class="sec bg-alt">
+        <div class="vm-list">
+            <div class="section-head" style="text-align:center;">
+                <span class="section-label">Five Initiatives</span>
+                <h2>構想図の5つの取り組み</h2>
+            </div>
+
+            <div class="vm-row reveal" id="vm-01">
+                <div class="rnum">01</div>
+                <div>
+                    <h3>森林保全</h3>
+                    <span class="en">Forest Conservation</span>
+                    <p class="desc">計画的な植林と間伐により、健全な森林を維持・育成します。木材の有効活用とCO2吸収により、循環型社会の構築に貢献。</p>
+                    <div class="vm-vision">
+                        <span>TAmJの想い</span>
+                        <p>森は地球の肺であり、多くの生命を育む場所。先人から受け継いだ豊かな森林を、次世代へ引き継ぐことが私たちの使命です。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vm-row reveal" id="vm-02">
+                <div class="rnum">02</div>
+                <div>
+                    <h3>コミュニティ拠点</h3>
+                    <span class="en">Community Hub</span>
+                    <p class="desc">地域の中心となるコミュニティ拠点を整備。多世代が交流し、支え合える場を創造します。</p>
+                    <div class="vm-vision">
+                        <span>TAmJの想い</span>
+                        <p>人と人とのつながりこそが、地域の力。すべての人が居場所を見つけられるコミュニティを目指しています。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vm-row reveal" id="vm-03">
+                <div class="rnum">03</div>
+                <div>
+                    <h3>医療支援</h3>
+                    <span class="en">Healthcare Support</span>
+                    <p class="desc">移動診療車や遠隔医療の導入により、医療が届かない地域への支援を実現。すべての人に健康を届けます。</p>
+                    <div class="vm-vision">
+                        <span>TAmJの想い</span>
+                        <p>医療は人権。誰もが適切な医療を受けられる社会を目指して。その想いを形にするための手段が、私たちの事業です。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vm-row reveal" id="vm-04">
+                <div class="rnum">04</div>
+                <div>
+                    <h3>デジタル社会</h3>
+                    <span class="en">Digital Society</span>
+                    <p class="desc">最新のテクノロジーを活用し、医療・教育・行政サービスをデジタル化。効率的で質の高いサービスを提供します。</p>
+                    <div class="vm-vision">
+                        <span>TAmJの想い</span>
+                        <p>デジタル技術は目的ではなく手段。すべての人が技術の恩恵を受けられる社会を目指しています。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vm-row reveal" id="vm-05">
+                <div class="rnum">05</div>
+                <div>
+                    <h3>文化・伝統の継承</h3>
+                    <span class="en">Cultural Heritage</span>
+                    <p class="desc">日本の伝統的な建築様式や文化を大切にしながら、現代のニーズに合わせた新しい住まい方を提案。</p>
+                    <div class="vm-vision">
+                        <span>TAmJの想い</span>
+                        <p>過去を大切にしながら、未来を創る。歴史に触れ、次の一歩へ跳ぼう。それがTAmJの描く街づくりの姿です。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-band reveal">
+        <p>構想へのご意見、パートナーシップのご相談はお気軽にどうぞ。</p>
+        <a href="contact.html" class="text-link">お問合せ →</a>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="logo.png" alt="TAmJ">
+                <p data-i18n="footer.brand">Touch all minds, Jump</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4 data-i18n="footer.company">Company</h4>
+                    <a href="about-company.html" data-i18n="footer.about">会社情報</a>
+                    <a href="about-message.html" data-i18n="footer.message">代表メッセージ</a>
+                    <a href="about-philosophy.html" data-i18n="footer.philosophy">経営理念</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.service">Service</h4>
+                    <a href="service.html" data-i18n="footer.dev">開発</a>
+                    <a href="service.html" data-i18n="footer.medical">医療＆福祉</a>
+                    <a href="service.html" data-i18n="footer.finance">金融</a>
+                    <a href="service.html" data-i18n="footer.entertainment">エンターテイメント</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.support">Support</h4>
+                    <a href="contact.html" data-i18n="footer.inquiry">お問合せ</a>
+                    <a href="members/" data-i18n="footer.members">会員ページ</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.legal">Legal</h4>
+                    <a href="privacy.html" data-i18n="footer.privacy">プライバシーポリシー</a>
+                    <a href="terms.html" data-i18n="footer.terms">利用規約</a>
+                    <a href="commerce.html" data-i18n="footer.commerce">特定商取引法</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy" data-i18n="footer.copy">&copy; 2020 TAmJ株式会社 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const h = document.getElementById('siteHeader');
+        if(h) window.addEventListener('scroll', () => h.classList.toggle('scrolled', window.scrollY > 50));
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    </script>
+
+    <script>
+        const VM = {
+            '01': { title: '森林保全', en: 'Forest Conservation',
+                desc: '計画的な植林と間伐により、健全な森林を維持・育成します。木材の有効活用とCO2吸収により、循環型社会の構築に貢献。',
+                vision: '森は地球の肺であり、多くの生命を育む場所。先人から受け継いだ豊かな森林を、次世代へ引き継ぐことが私たちの使命です。' },
+            '02': { title: 'コミュニティ拠点', en: 'Community Hub',
+                desc: '地域の中心となるコミュニティ拠点を整備。多世代が交流し、支え合える場を創造します。',
+                vision: '人と人とのつながりこそが、地域の力。すべての人が居場所を見つけられるコミュニティを目指しています。' },
+            '03': { title: '医療支援', en: 'Healthcare Support',
+                desc: '移動診療車や遠隔医療の導入により、医療が届かない地域への支援を実現。すべての人に健康を届けます。',
+                vision: '医療は人権。誰もが適切な医療を受けられる社会を目指して。その想いを形にするための手段が、私たちの事業です。' },
+            '04': { title: 'デジタル社会', en: 'Digital Society',
+                desc: '最新のテクノロジーを活用し、医療・教育・行政サービスをデジタル化。効率的で質の高いサービスを提供します。',
+                vision: 'デジタル技術は目的ではなく手段。すべての人が技術の恩恵を受けられる社会を目指しています。' },
+            '05': { title: '文化・伝統の継承', en: 'Cultural Heritage',
+                desc: '日本の伝統的な建築様式や文化を大切にしながら、現代のニーズに合わせた新しい住まい方を提案。',
+                vision: '過去を大切にしながら、未来を創る。歴史に触れ、次の一歩へ跳ぼう。それがTAmJの描く街づくりの姿です。' }
+        };
+
+        const frame = document.querySelector('.map-frame');
+        const panel = document.getElementById('vmPanel');
+        const backdrop = document.getElementById('vmBackdrop');
+        let activePin = null;
+
+        function placePanel(pin) {
+            if (window.innerWidth <= 768) return;
+            const f = frame.getBoundingClientRect();
+            const p = pin.getBoundingClientRect();
+            const cx = p.left - f.left + p.width / 2;
+            const cy = p.top - f.top + p.height / 2;
+            const w = panel.offsetWidth;
+            const ht = panel.offsetHeight;
+            const gap = 16;
+
+            let left = cx + p.width / 2 + gap;
+            if (left + w > f.width - 12) left = cx - p.width / 2 - gap - w;
+            if (left < 12) left = Math.max(12, Math.min(cx - w / 2, f.width - w - 12));
+
+            let top = cy - ht / 2;
+            top = (ht < f.height) ? Math.max(12, Math.min(top, f.height - ht - 12)) : 12;
+
+            panel.style.left = left + 'px';
+            panel.style.top = top + 'px';
+        }
+
+        function openPanel(pin) {
+            const id = pin.dataset.id;
+            const d = VM[id];
+            if (!d) return;
+            document.querySelectorAll('.pin').forEach(el => el.classList.remove('active'));
+            pin.classList.add('active');
+            activePin = pin;
+
+            document.getElementById('vmNum').textContent = id;
+            document.getElementById('vmTitle').textContent = d.title;
+            document.getElementById('vmEn').textContent = d.en;
+            document.getElementById('vmDesc').textContent = d.desc;
+            document.getElementById('vmVision').textContent = d.vision;
+            document.getElementById('vmMore').setAttribute('href', '#vm-' + id);
+
+            panel.style.visibility = 'hidden';
+            panel.classList.add('open');
+            placePanel(pin);
+            panel.style.visibility = '';
+            backdrop.classList.add('open');
+        }
+
+        function closePanel() {
+            panel.classList.remove('open');
+            backdrop.classList.remove('open');
+            document.querySelectorAll('.pin').forEach(el => el.classList.remove('active'));
+            activePin = null;
+        }
+
+        document.querySelectorAll('.pin').forEach(pin => {
+            pin.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (activePin === pin) { closePanel(); return; }
+                openPanel(pin);
+            });
+        });
+
+        document.getElementById('vmClose').addEventListener('click', closePanel);
+        document.getElementById('vmMore').addEventListener('click', closePanel);
+        backdrop.addEventListener('click', closePanel);
+        document.addEventListener('click', (e) => {
+            if (!activePin) return;
+            if (panel.contains(e.target)) return;
+            closePanel();
+        });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePanel(); });
+        window.addEventListener('resize', () => { if (activePin) placePanel(activePin); });
+    </script>
+
+    <script src="js/translations.js?v=20260520b"></script>
+    <script src="js/lang.js?v=20260520b"></script>
+</body>
+</html>
