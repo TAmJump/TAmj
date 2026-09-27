@@ -49,20 +49,48 @@
         .btn-line:hover { border-color: var(--black); }
         .lead-note { font-size: 0.72rem; color: var(--gray-400); margin-top: 1.1rem; letter-spacing: 0.04em; }
 
-        /* three answers */
-        .lead-answers { border-left: 1px solid var(--gray-100); padding-left: 2.4rem; }
-        .ans + .ans { margin-top: 2rem; }
-        .ans dt {
-            font-family: var(--font-display); font-size: 0.62rem;
-            letter-spacing: 0.3em; text-transform: uppercase;
-            color: var(--gray-400); margin-bottom: 0.5rem;
+        /* product shot */
+        .lead-shot { padding-top: 0.4rem; }
+        .shot {
+            border: 1px solid var(--gray-200); background: var(--white);
+            box-shadow: 0 18px 50px rgba(0,0,0,0.06);
         }
-        .ans dd { font-size: 0.92rem; font-weight: 400; line-height: 1.9; color: var(--black); }
-        .ans dd .amt {
-            font-family: var(--font-display); font-size: 1.9rem;
-            font-weight: 500; color: var(--primary); letter-spacing: 0.02em;
+        .shot-bar {
+            display: flex; align-items: center; gap: 6px;
+            padding: 0.65rem 0.9rem; border-bottom: 1px solid var(--gray-100); background: var(--cream);
         }
-        .ans dd small { display: block; font-size: 0.74rem; color: var(--gray-500); font-weight: 300; }
+        .shot-bar span { width: 8px; height: 8px; border-radius: 50%; background: var(--gray-200); }
+        .shot-bar p {
+            margin-left: 0.6rem; font-size: 0.64rem; letter-spacing: 0.1em;
+            color: var(--gray-500); font-weight: 500;
+        }
+        .shot-body { padding: 1.1rem 1.1rem 1.3rem; }
+        .shot-kpi { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; margin-bottom: 1.1rem; }
+        .shot-kpi div { border: 1px solid var(--gray-100); padding: 0.6rem 0.7rem; }
+        .shot-kpi b {
+            display: block; font-family: var(--font-display); font-size: 1.5rem;
+            font-weight: 500; color: var(--primary); line-height: 1.1;
+        }
+        .shot-kpi span { font-size: 0.62rem; color: var(--gray-500); letter-spacing: 0.04em; }
+        .shot-row { border: 1px solid var(--gray-100); padding: 0.7rem 0.85rem; margin-bottom: 0.55rem; }
+        .shot-row.hot { border-color: var(--primary); background: var(--primary-pale); }
+        .shot-row .t { font-size: 0.78rem; font-weight: 500; color: var(--black); }
+        .shot-row .s { font-size: 0.66rem; color: var(--gray-500); margin-top: 0.15rem; }
+        .shot-cap { font-size: 0.68rem; color: var(--gray-400); line-height: 1.9; margin-top: 0.9rem; }
+
+        /* three answers strip */
+        .answer-strip { background: var(--white); border-top: 1px solid var(--gray-100); padding: 2.4rem 2rem; }
+        .answer-strip dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.6rem; }
+        .answer-strip .ans dt {
+            font-family: var(--font-display); font-size: 0.64rem; letter-spacing: 0.22em;
+            text-transform: uppercase; color: var(--gray-400); margin-bottom: 0.6rem;
+        }
+        .answer-strip .ans dd { font-size: 0.85rem; font-weight: 300; line-height: 1.95; color: var(--black); }
+        .answer-strip .ans dd .amt {
+            font-family: var(--font-display); font-size: 1.6rem; font-weight: 500;
+            color: var(--primary); letter-spacing: 0.02em;
+        }
+        .answer-strip .ans dd small { font-size: 0.72rem; color: var(--gray-500); }
 
         /* ── GOAL ── */
         .goal { padding: 6.5rem 2rem; background: var(--white); border-top: 1px solid var(--gray-100); }
@@ -101,6 +129,11 @@
         .biz-name { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; color: var(--black); letter-spacing: 0.04em; margin-bottom: 0.5rem; }
         .biz-for { font-size: 0.74rem; letter-spacing: 0.1em; color: var(--primary); font-weight: 500; }
         .biz-body p { font-size: 0.88rem; font-weight: 300; line-height: 2.05; color: var(--gray-700); }
+        .biz-aim {
+            margin-top: 0.9rem; font-size: 0.82rem; font-weight: 400; color: var(--black);
+            border-left: 2px solid var(--primary); padding-left: 0.8rem; line-height: 1.9;
+        }
+        .biz-aim b { font-weight: 500; color: var(--primary); font-size: 0.7rem; letter-spacing: 0.1em; }
         .biz-tags { margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
         .biz-tags span {
             font-size: 0.68rem; letter-spacing: 0.06em; color: var(--gray-500);
@@ -125,7 +158,8 @@
         @media (max-width: 900px) {
             .lead-hero { padding: 7rem 1.5rem 3.5rem; }
             .lead-grid { grid-template-columns: 1fr; gap: 3rem; }
-            .lead-answers { border-left: 0; border-top: 1px solid var(--gray-100); padding-left: 0; padding-top: 2.2rem; }
+            .answer-strip dl { grid-template-columns: 1fr; gap: 1.8rem; }
+            .answer-strip { padding: 2rem 1.5rem; }
             .steps { grid-template-columns: 1fr; gap: 2.8rem; }
             .biz-row { grid-template-columns: 1fr; gap: 1.4rem; }
             .biz-price { text-align: left; }
@@ -421,23 +455,53 @@
                     <p class="lead-note" data-i18n="lead.note">カード登録は不要。無料のまま使い続けられます。</p>
                 </div>
 
-                <dl class="lead-answers">
-                    <div class="ans">
-                        <dt>What</dt>
-                        <dd data-i18n="ans.what">医療・介護の法人間連携アプリ<br>施設の開発と事業承継<br>受託開発</dd>
+                <div class="lead-shot">
+                    <div class="shot">
+                        <div class="shot-bar"><span></span><span></span><span></span><p>ｍやるゼ！ &nbsp;/&nbsp; 受入れ・移行</p></div>
+                        <div class="shot-body">
+                            <div class="shot-kpi">
+                                <div><b>3</b><span>対応中</span></div>
+                                <div><b>7</b><span>今週の受入れ</span></div>
+                                <div><b>2</b><span>署名待ち</span></div>
+                            </div>
+                            <div class="shot-row hot">
+                                <p class="t">退院通知 &mdash; 佐藤様</p>
+                                <p class="s">同意書 署名待ち ・ 担当者会議 10/2</p>
+                            </div>
+                            <div class="shot-row">
+                                <p class="t">受入れ相談 &mdash; 田中様</p>
+                                <p class="s">面談の日程を調整中</p>
+                            </div>
+                            <div class="shot-row">
+                                <p class="t">モニタリング &mdash; 鈴木様</p>
+                                <p class="s">記録の下書きあり</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ans">
-                        <dt>Who</dt>
-                        <dd data-i18n="ans.who">病院・診療所・介護事業者・薬局<br>施設をつくる人、譲る人、継ぐ人</dd>
-                    </div>
-                    <div class="ans">
-                        <dt>Price</dt>
-                        <dd><span class="amt">&yen;200</span><small data-i18n="ans.price">ｍやるゼ！ 1ユーザー / 月（税抜）・初期費用なし</small></dd>
-                    </div>
-                </dl>
+                    <p class="shot-cap">ｍやるゼ！の画面イメージ。法人をまたぐ1件が、1つのケースとして進みます。</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <div class="answer-strip">
+        <div class="lead-inner">
+            <dl>
+                <div class="ans">
+                    <dt>What &nbsp;何をする会社か</dt>
+                    <dd>医療・介護の法人間連携アプリ／施設の開発と事業承継／受託開発</dd>
+                </div>
+                <div class="ans">
+                    <dt>Who &nbsp;誰のための会社か</dt>
+                    <dd>病院・診療所・介護事業者・薬局／施設をつくる人、譲る人、継ぐ人</dd>
+                </div>
+                <div class="ans">
+                    <dt>Price &nbsp;いくらで始まるか</dt>
+                    <dd><span class="amt">&yen;200</span> <small>ｍやるゼ！ 1ユーザー / 月（税抜）・初期費用なし</small></dd>
+                </div>
+            </dl>
+        </div>
+    </div>
 
     <!-- ══ GOAL ══ -->
     <section class="goal">
@@ -480,6 +544,7 @@
                     </div>
                     <div class="biz-body">
                         <p data-i18n="biz1.p">法人をまたぐ受入れ・移行の業務を1件のケースとして進めます。退院通知、面談の日程調整、同意書の電子署名、担当者会議、モニタリング。連絡を取るためのSNSではなく、業務そのものを動かすアプリです。</p>
+                        <p class="biz-aim"><b>目的</b>　事務の重さで現場が潰れないようにする。</p>
                         <div class="biz-tags">
                             <span>ｍやるゼ！</span><span>ｔやるゼ！</span><span>Care Support Pass</span><span>Google Play 公開中</span>
                         </div>
@@ -498,6 +563,7 @@
                     </div>
                     <div class="biz-body">
                         <p data-i18n="biz2.p">医療・介護施設の開発用地、事業承継とM&amp;A、開発シミュレーションから財務設計・見積までを一気通貫で。全国1,740市区町村の需給分析をもとに、どこに何をつくるかから一緒に決めます。</p>
+                        <p class="biz-aim"><b>目的</b>　畳むしかない施設と事業所を、次の担い手につなぐ。</p>
                         <div class="biz-tags">
                             <span>不動産開発</span><span>Re-Bridge 事業承継</span><span>teamONE 地域分析</span>
                         </div>
@@ -516,6 +582,7 @@
                     </div>
                     <div class="biz-body">
                         <p data-i18n="biz3.p">医療・介護の業務システムを中心に、企画から運用まで。自社でアプリを公開し、決済まで回してきた会社が、そのまま請け負います。音楽レーベルとクラウドファンディング企画も、この枠でやっています。</p>
+                        <p class="biz-aim"><b>目的</b>　公費に頼りきらない原資を、自分たちでつくる。</p>
                         <div class="biz-tags">
                             <span>業務システム</span><span>サイト制作</span><span>TAMSIC</span><span>クラウドファンディング</span>
                         </div>
