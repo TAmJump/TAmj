@@ -7,8 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+JP:wght@200;300;400;500;700&family=Noto+Serif+JP:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/base.css?v=20260928d">
-    <link rel="stylesheet" href="css/corporate.css?v=20260928d">
+    <link rel="stylesheet" href="css/base.css?v=20260928e">
+    <link rel="stylesheet" href="css/corporate.css?v=20260928e">
     <style>
         .tab-section {
             max-width: 780px;
@@ -383,6 +383,7 @@
         .pnl-entry { text-align: left; margin: 1.8rem 0 3.2rem; }
         .pnl-entry .pnl-k { text-align: center; }
         .entry-list { border-top: 1px solid var(--gray-100); }
+        .pnl-lead .entry-list { border-top: 1px solid var(--gray-100); }
     </style>
 </head>
 <body>
@@ -405,38 +406,48 @@
         <nav class="tab-nav" id="tabNav" role="tablist">
             <button class="tab-btn active" data-tab="app" type="button"><span class="tab-num">01</span><span class="tab-label" data-i18n="tab1">やるゼ！</span></button>
             <button class="tab-btn" data-tab="dev" type="button"><span class="tab-num">02</span><span class="tab-label" data-i18n="tab2">開発と承継</span></button>
-            <button class="tab-btn" data-tab="make" type="button"><span class="tab-num">03</span><span class="tab-label" data-i18n="tab3">受託開発・コンテンツ</span></button>
+            <button class="tab-btn" data-tab="make" type="button"><span class="tab-num">03</span><span class="tab-label" data-i18n="tab3">エンタメと出逢い</span></button>
         </nav>
         <div class="tab-panels" id="tabPanels">
             <div class="tab-panel active" id="panel-app">
                 <div class="pnl-lead">
-                    <p class="pnl-hook" data-i18n="hook1">家族が退院するとき、病院と施設のやり取りはまだ電話と紙。それを、スマホ1台に。</p>
+                    <p class="pnl-hook" data-i18n="hook1">紹介した施設の数だけ、毎月フィーが入る。</p>
                     <div class="pnl-entry">
                         <p class="pnl-k" data-i18n="entry.for">こんな人に</p>
                         <div class="entry-list">
-            <a class="en-row" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener">
-                <span class="en-who" data-i18n="t11.w">介護施設・訪問看護の経営者</span>
-                <span class="en-line" data-i18n="t11.l">人を増やさずに、売上を伸ばす。1人月200円から。</span>
+            <a class="en-row" href="contact.html?topic=partner">
+                <span class="en-who" data-i18n="t11.w">代理店になりたい人</span>
+                <span class="en-line" data-i18n="t11.l">紹介した施設の数だけ、毎月フィーが入る。上位は認定代理店に。</span>
                 <span class="en-arrow">→</span>
             </a>
             <a class="en-row" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener">
-                <span class="en-who" data-i18n="t12.w">親を介護している家族</span>
-                <span class="en-line" data-i18n="t12.l">親の退院の手続きで、仕事を休まない。署名はスマホで。</span>
+                <span class="en-who" data-i18n="t12.w">介護施設・訪問看護の経営者</span>
+                <span class="en-line" data-i18n="t12.l">あなたの施設、先月いくら空床で失いましたか。</span>
                 <span class="en-arrow">→</span>
             </a>
             <a class="en-row" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener">
                 <span class="en-who" data-i18n="t13.w">病院・施設で働く人</span>
-                <span class="en-line" data-i18n="t13.l">電話とFAXに追われる時間を、患者さんと向き合う時間に。</span>
+                <span class="en-line" data-i18n="t13.l">回した受入れの件数が、あなたの実績として残る。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener">
+                <span class="en-who" data-i18n="t14.w">親を介護している家族</span>
+                <span class="en-line" data-i18n="t14.l">お母さんの退院、仕事を休まずにスマホで。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="contact.html?topic=build">
+                <span class="en-who" data-i18n="t15.w">アプリをつくりたい会社</span>
+                <span class="en-line" data-i18n="t15.l">やるゼ！をつくったチームが、あなたのアプリを1画面から。</span>
                 <span class="en-arrow">→</span>
             </a>
                         </div>
                     </div>
                     <p class="pnl-k" data-i18n="lbl.aim">目的</p>
-                    <p class="pnl-aim" data-i18n="biz1.aim">医療・介護の事業者に事務を減らす道具を渡し、売上と利益を上げてもらう。</p>
+                    <p class="pnl-aim" data-i18n="biz1.aim">代理店に継続収入を。施設に売上と利益を。職員に実績を。家族に安心を。</p>
                     <p class="pnl-k" data-i18n="lbl.change">変わること</p>
-                    <p class="pnl-change" data-i18n="biz1.change">少ない人手で回り、人件費が下がる。連携がそろえば処置の遅れが減り、利用者が元気でいられる。入院や退去で売上が途切れにくくなる。</p>
+                    <p class="pnl-change" data-i18n="biz1.change">代理店は紹介するほど、毎月の収入が積み上がる。施設は少ない人手で回り、空床が減る。職員の働きは記録で見える。</p>
                     <p class="pnl-k" data-i18n="lbl.goal">ゴール</p>
-                    <p class="pnl-goal"><b data-i18n="biz1.gnum">会員 20万人</b><span data-i18n="biz1.goal">会員同士で他社の医療や対応を見せ合い、業界を越えて仕事がつながるコミュニティ。</span></p>
+                    <p class="pnl-goal"><b data-i18n="biz1.gnum">代理店100社・会員20万人</b><span data-i18n="biz1.goal">上位の認定代理店と経営者が集まり、他社の数字と比べ合える会。</span></p>
                 </div>
                 <p class="panel-head" data-i18n="sv.can">できること</p>
                 <div class="plist">
@@ -470,68 +481,83 @@
                 </div>
                 <a class="product-item" href="https://tyaruze.tamjump.com/" target="_blank" rel="noopener">
                     <span class="product-name" data-i18n="tag.t">ｔやるゼ！</span>
-                    <span class="product-desc" data-i18n="app.tyaruze.d">施設の電球が切れた、水が漏れた。その連絡をボタン1つで。</span>
+                    <span class="product-desc" data-i18n="app.tyaruze.d">夜中の電話、もう出なくていい。設備トラブルはボタン1つで業者へ。</span>
                     <span class="product-arrow">→</span>
                 </a>
                 <a class="product-item" href="https://carepass.tamjump.com/" target="_blank" rel="noopener">
                     <span class="product-name" data-i18n="tag.carepass">Care Support Pass</span>
-                    <span class="product-desc" data-i18n="app.carepass.d">月100円で、近所の介護施設を応援できる会員制度。</span>
+                    <span class="product-desc" data-i18n="app.carepass.d">親が入るかもしれない施設を、月100円で今のうちに守る。</span>
+                    <span class="product-arrow">→</span>
+                </a>
+                <a class="product-item" href="contact.html?topic=consult">
+                    <span class="product-name" data-i18n="app.rebase">RE:BASE WORKS</span>
+                    <span class="product-desc" data-i18n="app.rebase.d">人件費を、月5万円／人の基本料に固定する。</span>
+                    <span class="product-arrow">→</span>
+                </a>
+                <a class="product-item" href="contact.html?topic=build">
+                    <span class="product-name" data-i18n="mk.r1">業務システム・サイト・アプリの受託開発</span>
+                    <span class="product-desc" data-i18n="mk.r1d">やるゼ！をつくったチームが、あなたのアプリを1画面から。</span>
                     <span class="product-arrow">→</span>
                 </a>
                 </div>
                 <p class="panel-head" data-i18n="sv.info">料金と違い</p>
                 <div class="plist">
                 <div class="info-row"><span class="info-k" data-i18n="lbl.price">料金</span><span class="info-v" data-i18n="p1.price">1ユーザー月200円（税抜）。無料プランあり（患者100件・スタッフ50名まで）。</span></div>
-                <div class="info-row"><span class="info-k" data-i18n="biz1.who1.h">患者さん・ご家族</span><span class="info-v" data-i18n="biz1.who1.p">同意書はスマホで署名。そのために病院へ行かなくていい。担当者会議にも、離れた場所から参加できる。</span></div>
-                <div class="info-row"><span class="info-k" data-i18n="lbl.diff">ほかとの違い</span><span class="info-v" data-i18n="biz1.diff">連絡を取るためのSNSではなく、同意書・会議・記録までが1件のケースで終わる業務アプリ。</span></div>
+                <div class="info-row"><span class="info-k" data-i18n="lbl.agent">代理店</span><span class="info-v" data-i18n="p1.agent">紹介した施設の利用料から、毎月フィーが入り続ける。</span></div>
+                <div class="info-row"><span class="info-k" data-i18n="lbl.diff">ほかとの違い</span><span class="info-v" data-i18n="biz1.diff">連絡のためのSNSではなく、紹介した人にお金が回り続ける業務アプリ。</span></div>
                 </div>
                 <p class="panel-head" data-i18n="sv.start">始め方</p>
                 <ul class="ways">
                     <li><span data-i18n="way.use">使う</span><a href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" class="way-link" data-i18n="biz1.w1">無料で始める</a></li>
                     <li><span data-i18n="way.ask">相談</span><a href="contact.html?topic=myaruze" class="way-link" data-i18n="biz1.w2">導入の相談</a></li>
-                    <li><span data-i18n="way.inv">出資・提携</span><a href="contact.html?topic=invest" class="way-link" data-i18n="biz1.w3">ソフト会社との連携・出資</a></li>
+                    <li><span data-i18n="way.inv">出資・提携</span><a href="contact.html?topic=partner" class="way-link" data-i18n="biz1.w3">代理店になる</a></li>
                 </ul>
             </div>
             <div class="tab-panel" id="panel-dev">
                 <div class="pnl-lead">
-                    <p class="pnl-hook" data-i18n="hook2">住んでいる街の介護施設、10年後も残っていますか。</p>
+                    <p class="pnl-hook" data-i18n="hook2">その土地、その会社、いくらになるか。無料で出す。</p>
                     <div class="pnl-entry">
                         <p class="pnl-k" data-i18n="entry.for">こんな人に</p>
                         <div class="entry-list">
-            <a class="en-row" href="contact.html?topic=develop">
-                <span class="en-who" data-i18n="t21.w">施設を閉じるか迷っている経営者</span>
-                <span class="en-line" data-i18n="t21.l">閉じる前に相談を。立て直して、引退後の資金に変える。</span>
+            <a class="en-row" href="https://develop.tamjump.com/" target="_blank" rel="noopener">
+                <span class="en-who" data-i18n="t21.w">土地を持っている人</span>
+                <span class="en-line" data-i18n="t21.l">その土地、毎月いくら生むか。無料で出す。</span>
                 <span class="en-arrow">→</span>
             </a>
-            <a class="en-row" href="https://develop.tamjump.com/" target="_blank" rel="noopener">
-                <span class="en-who" data-i18n="t22.w">土地を持っている人</span>
-                <span class="en-line" data-i18n="t22.l">使っていない土地に、毎月の収入を生む施設を。</span>
+            <a class="en-row" href="contact.html?topic=develop">
+                <span class="en-who" data-i18n="t22.w">会社を閉じるか迷っている経営者</span>
+                <span class="en-line" data-i18n="t22.l">閉じたら何も残らない。売ればいくら残るか、無料で査定。</span>
                 <span class="en-arrow">→</span>
             </a>
             <a class="en-row" href="https://develop.tamjump.com/" target="_blank" rel="noopener">
                 <span class="en-who" data-i18n="t23.w">投資家</span>
-                <span class="en-line" data-i18n="t23.l">人口が減っても需要が残る街を、データで選んで投資する。</span>
+                <span class="en-line" data-i18n="t23.l">非公開案件は会員だけ。先着順。</span>
                 <span class="en-arrow">→</span>
             </a>
             <a class="en-row" href="contact.html?topic=develop">
-                <span class="en-who" data-i18n="t24.w">経営者になりたい人</span>
-                <span class="en-line" data-i18n="t24.l">一から建てずに、動いている事業を引き継いで社長になる。</span>
+                <span class="en-who" data-i18n="t24.w">社長になりたい人</span>
+                <span class="en-line" data-i18n="t24.l">来月から社長。動いている事業を引き継ぐ。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="https://teamone.tamjump.com/" target="_blank" rel="noopener">
+                <span class="en-who" data-i18n="t25.w">建てる場所を探している人</span>
+                <span class="en-line" data-i18n="t25.l">あなたの街は全国何位か。1,740市区町村のランキング。</span>
                 <span class="en-arrow">→</span>
             </a>
                         </div>
                     </div>
                     <p class="pnl-k" data-i18n="lbl.aim">目的</p>
-                    <p class="pnl-aim" data-i18n="biz2.aim">施設を持つ人・継ぐ人・投資する人に、利回りと出口を。売れない施設も立て直して取引にのせる。</p>
+                    <p class="pnl-aim" data-i18n="biz2.aim">地主に家賃を。経営者に引退資金を。投資家に利回りを。継ぐ人に社長の座を。</p>
                     <p class="pnl-k" data-i18n="lbl.change">変わること</p>
-                    <p class="pnl-change" data-i18n="biz2.change">「売れない」施設が立て直されて資産に変わる。閉じるはずだった拠点が、稼ぐ拠点になる。</p>
+                    <p class="pnl-change" data-i18n="biz2.change">眠っていた土地と、閉じるはずだった会社が、お金を生む資産に変わる。</p>
                     <p class="pnl-k" data-i18n="lbl.goal">ゴール</p>
-                    <p class="pnl-goal"><b data-i18n="biz2.gnum">再生・承継 100社</b><span data-i18n="biz2.goal">売り手・買い手・投資家・運営者が集まり、案件と人が行き交うネットワーク。</span></p>
+                    <p class="pnl-goal"><b data-i18n="biz2.gnum">再生・承継 100社</b><span data-i18n="biz2.goal">地主・経営者・投資家・継ぐ人が集まる、非公開案件の会員網。</span></p>
                 </div>
                 <p class="panel-head" data-i18n="sv.can">できること</p>
                 <div class="plist">
                 <a class="product-item" href="https://develop.tamjump.com/" target="_blank" rel="noopener">
                     <span class="product-name" data-i18n="dev.r1">掲載中の開発案件・M&amp;A案件</span>
-                    <span class="product-desc" data-i18n="dev.r1d">売りに出ている土地と施設を見る。</span>
+                    <span class="product-desc" data-i18n="dev.r1d">非公開案件は会員だけ。物件ごとにNDA。</span>
                     <span class="product-arrow">→</span>
                 </a>
                 <a class="product-item" href="https://tamjump.github.io/develop/" target="_blank" rel="noopener">
@@ -546,92 +572,87 @@
                 </a>
                 <a class="product-item" href="https://teamone.tamjump.com/" target="_blank" rel="noopener">
                     <span class="product-name" data-i18n="dev.r4">teamONE 地域分析</span>
-                    <span class="product-desc" data-i18n="dev.r4d">住んでいる街に、介護がどれだけ足りているかを見る。</span>
+                    <span class="product-desc" data-i18n="dev.r4d">あなたの街は全国何位か。1,740市区町村のランキング。</span>
                     <span class="product-arrow">→</span>
                 </a>
                 </div>
                 <p class="panel-head" data-i18n="sv.info">料金と違い</p>
                 <div class="plist">
                 <div class="info-row"><span class="info-k" data-i18n="lbl.price">料金</span><span class="info-v" data-i18n="p2.price">着手金＋成功報酬。初回相談と概算は無料。</span></div>
-                <div class="info-row"><span class="info-k" data-i18n="biz2.who1.h">地域の利用者</span><span class="info-v" data-i18n="biz2.who1.p">施設が閉まらずに続けば、通い慣れた場所と顔なじみの職員が残る。遠くの施設へ移らなくて済む。</span></div>
-                <div class="info-row"><span class="info-k" data-i18n="lbl.diff">ほかとの違い</span><span class="info-v" data-i18n="biz2.diff">売れる会社だけを仲介するのではなく、売れない事業所を立て直してから引き継ぐ。建てる前の立地選びから、承継後の運営まで。</span></div>
+                <div class="info-row"><span class="info-k" data-i18n="lbl.investor">投資家</span><span class="info-v" data-i18n="p2.investor">非公開案件は、無料の会員登録と物件ごとのNDAで閲覧。</span></div>
+                <div class="info-row"><span class="info-k" data-i18n="lbl.diff">ほかとの違い</span><span class="info-v" data-i18n="biz2.diff">売れる会社だけを扱わない。売れない会社も立て直して、値段をつける。</span></div>
                 </div>
                 <p class="panel-head" data-i18n="sv.start">始め方</p>
                 <ul class="ways">
-                    <li><span data-i18n="way.use">使う</span><a href="https://develop.tamjump.com/" target="_blank" rel="noopener" class="way-link" data-i18n="biz2.w1">開発シミュレーションを無料で使う</a></li>
+                    <li><span data-i18n="way.use">使う</span><a href="https://develop.tamjump.com/" target="_blank" rel="noopener" class="way-link" data-i18n="biz2.w1">土地・会社を無料で査定</a></li>
                     <li><span data-i18n="way.ask">相談</span><a href="contact.html?topic=develop" class="way-link" data-i18n="biz2.w2">譲りたい・継ぎたい・建てたい</a></li>
-                    <li><span data-i18n="way.inv">出資・提携</span><a href="https://develop.tamjump.com/" target="_blank" rel="noopener" class="way-link" data-i18n="biz2.w3">掲載中の案件を見る（NDA）</a></li>
+                    <li><span data-i18n="way.inv">出資・提携</span><a href="https://develop.tamjump.com/" target="_blank" rel="noopener" class="way-link" data-i18n="biz2.w3">非公開案件を見る</a></li>
                 </ul>
             </div>
             <div class="tab-panel" id="panel-make">
                 <div class="pnl-lead">
-                    <p class="pnl-hook" data-i18n="hook3">音楽を聴く。顔写真でアートに加わる。ゲームで勝負する。そこで、人と出逢う。</p>
+                    <p class="pnl-hook" data-i18n="hook3">毎週23:23、王様が1人決まる。負けても、王様のパーティーに入れる。</p>
                     <div class="pnl-entry">
                         <p class="pnl-k" data-i18n="entry.for">こんな人に</p>
                         <div class="entry-list">
-            <a class="en-row" href="https://oneheart.tamjump.com/" target="_blank" rel="noopener">
-                <span class="en-who" data-i18n="t31.w">世界の人とつながりたい人</span>
-                <span class="en-line" data-i18n="t31.l">顔写真1枚で、世界規模のアートに名前が残る。参加者だけの交流の場へ。</span>
+            <a class="en-row" href="https://king2323.tamjump.com/" target="_blank" rel="noopener">
+                <span class="en-who" data-i18n="t31.w">勝負が好きな人</span>
+                <span class="en-line" data-i18n="t31.l">毎週23:23、王様が1人。誰が選ばれるかは最後まで分からない。</span>
                 <span class="en-arrow">→</span>
             </a>
             <a class="en-row" href="https://king2323.tamjump.com/" target="_blank" rel="noopener">
-                <span class="en-who" data-i18n="t32.w">勝負が好きな人</span>
-                <span class="en-line" data-i18n="t32.l">5分で決着。勝負のあとは、参加者同士で出逢う。</span>
+                <span class="en-who" data-i18n="t32.w">人脈を広げたい人</span>
+                <span class="en-line" data-i18n="t32.l">負けても王様のパーティーに入れる。勝った人と同じ部屋で飲める。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="https://oneheart.tamjump.com/" target="_blank" rel="noopener">
+                <span class="en-who" data-i18n="t33.w">世界の人とつながりたい人</span>
+                <span class="en-line" data-i18n="t33.l">番号付きのピースは、埋まったら終わり。保有者だけの会へ。</span>
                 <span class="en-arrow">→</span>
             </a>
             <a class="en-row" href="https://tamsic.tamjump.com/" target="_blank" rel="noopener">
-                <span class="en-who" data-i18n="t33.w">歌いたい人</span>
-                <span class="en-line" data-i18n="t33.l">TAMSIC の曲を、あなたの声で。制作費はレーベル持ち。</span>
-                <span class="en-arrow">→</span>
-            </a>
-            <a class="en-row" href="contact.html?topic=build">
-                <span class="en-who" data-i18n="t34.w">アプリをつくりたい会社</span>
-                <span class="en-line" data-i18n="t34.l">こんなアプリがあれば、を1画面から形に。</span>
+                <span class="en-who" data-i18n="t34.w">歌いたい人</span>
+                <span class="en-line" data-i18n="t34.l">次の歌い手に選ばれるのは誰か。制作費はレーベル持ち。</span>
                 <span class="en-arrow">→</span>
             </a>
                         </div>
                     </div>
                     <p class="pnl-k" data-i18n="lbl.aim">目的</p>
-                    <p class="pnl-aim" data-i18n="biz3.aim">音楽・アート・ゲームに参加する人に、楽しみと出逢いを。そこで生まれた縁を、仕事と収益につなぐ。</p>
+                    <p class="pnl-aim" data-i18n="biz3.aim">勝負と音楽とアートで人を集め、出逢った人同士のビジネスを広げる。</p>
                     <p class="pnl-k" data-i18n="lbl.change">変わること</p>
-                    <p class="pnl-change" data-i18n="biz3.change">遊びに来た人同士が出逢い、そこから企画や取引が生まれる。参加者の数が、そのまま人のつながりの数になる。</p>
+                    <p class="pnl-change" data-i18n="biz3.change">遊びに来た人が、王様のパーティーや保有者の会で出逢う。参加するほど人脈が増える。</p>
                     <p class="pnl-k" data-i18n="lbl.goal">ゴール</p>
-                    <p class="pnl-goal"><b data-i18n="biz3.gnum">ONE HEART 60,000ピース</b><span data-i18n="biz3.goal">参加した人だけが入れる交流の場を、世界各地に。</span></p>
+                    <p class="pnl-goal"><b data-i18n="biz3.gnum">年52回の王様パーティー</b><span data-i18n="biz3.goal">王様・保有者・歌い手・ファンだけが入れる会を、世界各地に。ONE HEART 60,000ピース完売。</span></p>
                 </div>
                 <p class="panel-head" data-i18n="sv.can">できること</p>
                 <div class="plist">
-                <a class="product-item" href="contact.html?topic=build">
-                    <span class="product-name" data-i18n="mk.r1">業務システム・サイト・アプリの受託開発</span>
-                    <span class="product-desc" data-i18n="mk.r1d">こんなアプリがほしい、を形にする。1画面から。</span>
+                <a class="product-item" href="https://king2323.tamjump.com/" target="_blank" rel="noopener">
+                    <span class="product-name" data-i18n="mk.r4">KINGMAKER 23:23</span>
+                    <span class="product-desc" data-i18n="mk.r4d">毎週23:23に王様が1人。負けてもパーティーに入れる。</span>
                     <span class="product-arrow">→</span>
                 </a>
                 <a class="product-item" href="https://tamsic.tamjump.com/" target="_blank" rel="noopener">
                     <span class="product-name" data-i18n="mk.r2">TAMSIC</span>
-                    <span class="product-desc" data-i18n="mk.r2d">命と人間を歌う、小さな音楽レーベル。YouTubeで全曲聴ける。</span>
+                    <span class="product-desc" data-i18n="mk.r2d">次の歌い手を選考中。制作費はレーベル持ち。YouTubeで全曲。</span>
                     <span class="product-arrow">→</span>
                 </a>
                 <a class="product-item" href="https://oneheart.tamjump.com/" target="_blank" rel="noopener">
                     <span class="product-name" data-i18n="mk.r3">ONE HEART</span>
-                    <span class="product-desc" data-i18n="mk.r3d">顔写真1枚が、世界規模のモザイクアートの1ピースになる。</span>
-                    <span class="product-arrow">→</span>
-                </a>
-                <a class="product-item" href="https://king2323.tamjump.com/" target="_blank" rel="noopener">
-                    <span class="product-name" data-i18n="mk.r4">KINGMAKER 23:23</span>
-                    <span class="product-desc" data-i18n="mk.r4d">5分で決着する参加型ゲーム。勝負のあとに、参加者同士が出逢う。</span>
+                    <span class="product-desc" data-i18n="mk.r3d">番号付きのピースで、世界規模のアートに名前が残る。保有者だけの会へ。</span>
                     <span class="product-arrow">→</span>
                 </a>
                 </div>
                 <p class="panel-head" data-i18n="sv.info">料金と違い</p>
                 <div class="plist">
-                <div class="info-row"><span class="info-k" data-i18n="lbl.price">料金</span><span class="info-v" data-i18n="p3.price">お見積り。1画面から相談できます。</span></div>
-                <div class="info-row"><span class="info-k" data-i18n="biz3.who1.h">依頼する会社</span><span class="info-v" data-i18n="biz3.who1.p">業務の説明から始めなくていい。1画面から相談でき、公開と運用まで任せられる。</span></div>
-                <div class="info-row"><span class="info-k" data-i18n="lbl.diff">ほかとの違い</span><span class="info-v" data-i18n="biz3.diff">医療・介護の業務を説明しなくていい。自社でアプリを公開し、決済と規約まで運用している会社がつくる。</span></div>
+                <div class="info-row"><span class="info-k" data-i18n="lbl.price">料金</span><span class="info-v" data-i18n="p3.price">参加方法と料金は、各サイトで。</span></div>
+                <div class="info-row"><span class="info-k" data-i18n="lbl.king">王様</span><span class="info-v" data-i18n="p3.king">王様の称号と、パーティーの主催権。</span></div>
+                <div class="info-row"><span class="info-k" data-i18n="lbl.diff">ほかとの違い</span><span class="info-v" data-i18n="biz3.diff">勝っても負けても、出逢いが残る。</span></div>
                 </div>
                 <p class="panel-head" data-i18n="sv.start">始め方</p>
                 <ul class="ways">
-                    <li><span data-i18n="way.use">使う</span><a href="https://tamsic.tamjump.com/" target="_blank" rel="noopener" class="way-link" data-i18n="biz3.w1">TAMSIC を聴く</a></li>
-                    <li><span data-i18n="way.ask">相談</span><a href="contact.html?topic=build" class="way-link" data-i18n="biz3.w2">開発を依頼する</a></li>
-                    <li><span data-i18n="way.inv">出資・提携</span><a href="contact.html?topic=partner" class="way-link" data-i18n="biz3.w3">共同企画・スポンサー</a></li>
+                    <li><span data-i18n="way.use">使う</span><a href="https://king2323.tamjump.com/" target="_blank" rel="noopener" class="way-link" data-i18n="biz3.w1">KINGMAKER に参加</a></li>
+                    <li><span data-i18n="way.ask">相談</span><a href="contact.html?topic=partner" class="way-link" data-i18n="biz3.w2">共同企画・協賛の相談</a></li>
+                    <li><span data-i18n="way.inv">出資・提携</span><a href="contact.html?topic=partner" class="way-link" data-i18n="biz3.w3">スポンサーになる</a></li>
                 </ul>
             </div>
         </div>
@@ -757,7 +778,7 @@
         window.addEventListener('load', badge);
         new MutationObserver(badge).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
     </script>
-    <script src="js/translations.js?v=20260928d"></script>
-    <script src="js/lang.js?v=20260928d"></script>
+    <script src="js/translations.js?v=20260928e"></script>
+    <script src="js/lang.js?v=20260928e"></script>
 </body>
 </html>
