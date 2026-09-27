@@ -106,6 +106,25 @@
             .btn-solid, .btn-line { display: block; text-align: center; }
             .sv-actions { display: grid; grid-template-columns: 1fr; gap: 0.7rem; }
         }
+
+        /* ── 印刷・PDF ── */
+        @media print {
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .header-nav,
+            a[href*="kickstarter"],
+            .index-partners,
+            .marquee-wrapper,
+            .index-scroll { display: none !important; }
+            .lead-hero { padding: 0 0 1.5rem !important; }
+            .goal, .biz, .proof, .sv-block, .sv-price, .sv-faq,
+            .index-vision, .index-contact, .page-top { padding: 1.4rem 0 !important; }
+            section { break-inside: avoid; page-break-inside: avoid; }
+            .index-vision-inner img { max-height: 11cm; width: auto; margin: 0 auto; display: block; }
+            .qa details { break-inside: avoid; }
+            .qa .a { display: block !important; }
+            body { font-size: 10.5pt; background: #fff; }
+            footer { break-before: avoid; }
+        }
     </style>
 </head>
 <body>
@@ -324,27 +343,27 @@
             <span class="sec-label">FAQ</span>
             <h2 class="sec-h2" data-i18n="faq.h2">よくある質問</h2>
             <div class="qa" style="margin-top:2.4rem">
-                <details>
+                <details open>
                     <summary data-i18n="faq.q1">無料プランのまま使い続けられますか。</summary>
                     <p class="a" data-i18n="faq.a1">使い続けられます。期限も、カード登録もありません。件数や人数が上限に届いたとき、通話を自分から発行したくなったときに Pro を検討してください。</p>
                 </details>
-                <details>
+                <details open>
                     <summary data-i18n="faq.q2">他社の介護ソフトを使っています。入れ替えが必要ですか。</summary>
                     <p class="a" data-i18n="faq.a2">要りません。やるゼ！は法人をまたぐ受入れ・移行の部分を担うもので、記録や請求のソフトとは役割が違います。いまお使いのものはそのままで構いません。</p>
                 </details>
-                <details>
+                <details open>
                     <summary data-i18n="faq.q3">連携用のSNSと何が違うのですか。</summary>
                     <p class="a" data-i18n="faq.a3">SNS型は「連絡を取ること」が中心です。やるゼ！は同意書の電子署名、改ざん検知、療養費の流れ、担当者会議やモニタリングまでを業務として持っています。メッセージ機能の多さで比べるより、1件の受入れが終わるまでに何回アプリの外に出るかで比べてください。</p>
                 </details>
-                <details>
+                <details open>
                     <summary data-i18n="faq.q4">患者や利用者の情報を預けても大丈夫ですか。</summary>
                     <p class="a" data-i18n="faq.a4">データは実績のあるクラウド基盤に保管し、アクセスできる範囲を役割ごとに分けています。同意書には改ざん検知をかけ、監査ログを書き出せます。契約前に、保管場所と取扱いの範囲を書面でお渡しします。</p>
                 </details>
-                <details>
+                <details open>
                     <summary data-i18n="faq.q5">開発の相談は、土地が決まっていなくてもできますか。</summary>
                     <p class="a" data-i18n="faq.a5">その段階が一番向いています。市区町村ごとの需給分析から場所を絞り、施設種別と定員を変えながら概算を出します。数字が合わなければ、やらない判断まで含めてお手伝いします。</p>
                 </details>
-                <details>
+                <details open>
                     <summary data-i18n="faq.q6">1人でやっている会社だと聞きました。続きますか。</summary>
                     <p class="a" data-i18n="faq.a6">開発と運営は少人数です。そのぶん判断が速く、価格も低く保てています。規模が増える分は外部に出す設計にしていますし、データの持ち出しと契約終了時の扱いはあらかじめ決めてあります。心配な点があれば、契約前に具体的にお答えします。</p>
                 </details>

@@ -28,9 +28,10 @@
         }
         .lead-h1 {
             font-family: var(--font-serif); font-weight: 500;
-            font-size: clamp(2rem, 5.2vw, 3.3rem); line-height: 1.45;
-            letter-spacing: 0.03em; color: var(--black); margin-bottom: 1.6rem;
+            font-size: clamp(1.75rem, 4vw, 2.5rem); line-height: 1.5;
+            letter-spacing: 0.03em; color: var(--black); margin-bottom: 1.5rem;
         }
+        .lead-h1 span { display: inline-block; }
         .lead-h1 em { font-style: normal; color: var(--primary); }
         .lead-sub {
             font-size: 0.95rem; font-weight: 300; line-height: 2.1;
@@ -132,6 +133,25 @@
             .btn-solid, .btn-line { display: block; text-align: center; }
             .lead-cta { display: grid; grid-template-columns: 1fr; gap: 0.7rem; }
         }
+
+        /* ── 印刷・PDF ── */
+        @media print {
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .header-nav,
+            a[href*="kickstarter"],
+            .index-partners,
+            .marquee-wrapper,
+            .index-scroll { display: none !important; }
+            .lead-hero { padding: 0 0 1.5rem !important; }
+            .goal, .biz, .proof, .sv-block, .sv-price, .sv-faq,
+            .index-vision, .index-contact, .page-top { padding: 1.4rem 0 !important; }
+            section { break-inside: avoid; page-break-inside: avoid; }
+            .index-vision-inner img { max-height: 11cm; width: auto; margin: 0 auto; display: block; }
+            .qa details { break-inside: avoid; }
+            .qa .a { display: block !important; }
+            body { font-size: 10.5pt; background: #fff; }
+            footer { break-before: avoid; }
+        }
     </style>
 </head>
 <body>
@@ -158,7 +178,7 @@
             <div class="lead-grid">
                 <div>
                     <span class="lead-eyebrow" data-i18n="lead.eyebrow">医療・介護の現場から生まれた会社</span>
-                    <h1 class="lead-h1" data-i18n="lead.h1">医療と介護を、<br><em>続けられる</em>ようにする。</h1>
+                    <h1 class="lead-h1" data-i18n="lead.h1">医療と介護を、<br><span><em>続けられる</em>ようにする。</span></h1>
                     <p class="lead-sub" data-i18n="lead.sub">現場の連携を1つの画面にまとめるアプリ。施設と事業を残すための開発と承継。そして、公費に頼りきらない原資づくり。20年この現場にいた人間が、必要だったものを順番につくっています。</p>
                     <div class="lead-cta">
                         <a href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" class="btn-solid" data-i18n="lead.cta1">ｍやるゼ！を無料で始める</a>
