@@ -7,8 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+JP:wght@200;300;400;500;700&family=Noto+Serif+JP:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/base.css?v=20260928c">
-    <link rel="stylesheet" href="css/corporate.css?v=20260928c">
+    <link rel="stylesheet" href="css/base.css?v=20260928d">
+    <link rel="stylesheet" href="css/corporate.css?v=20260928d">
     <style>
         .index-hero {
             min-height: 100vh;
@@ -372,6 +372,23 @@
         }
         .card-hook { font-family: "Noto Serif JP", serif; font-size: 0.95rem; font-weight: 400; color: var(--black); line-height: 1.9; letter-spacing: 0.04em; margin-bottom: 1rem; }
         .index-nav-inner.three .card-jp { font-size: 0.76rem; color: var(--gray-400); }
+        .en-row { display: flex; align-items: baseline; gap: 1.5rem; padding: 1.15rem 0; border-bottom: 1px solid var(--gray-100); color: inherit; transition: padding-left 0.3s; }
+        .en-row:hover, .en-row:focus-visible { padding-left: 0.5rem; }
+        .en-row:hover .en-line, .en-row:focus-visible .en-line { color: var(--primary); }
+        .en-who { flex: 0 0 13rem; font-size: 0.72rem; font-weight: 300; color: var(--gray-400); letter-spacing: 0.04em; }
+        .en-line { flex: 1; font-family: "Noto Serif JP", serif; font-size: 0.9rem; color: var(--black); line-height: 1.8; letter-spacing: 0.03em; transition: color 0.3s; }
+        .en-arrow { font-size: 0.7rem; color: var(--gray-300); }
+        @media (max-width: 640px) {
+            .en-row { flex-wrap: wrap; gap: 0.2rem; }
+            .en-who { flex: 0 0 100%; }
+        }
+        .index-entry { padding: 2rem 2rem 8rem; background: var(--white); }
+        .index-entry-inner { max-width: 820px; margin: 0 auto; }
+        .entry-head { text-align: center; margin-bottom: 3rem; }
+        .entry-label { font-family: "Cormorant Garamond", serif; font-size: 0.65rem; letter-spacing: 0.35em; color: var(--gray-400); text-transform: uppercase; display: block; margin-bottom: 1.2rem; }
+        .entry-title { font-family: "Noto Serif JP", serif; font-size: 1.6rem; font-weight: 400; color: var(--charcoal); letter-spacing: 0.06em; margin-bottom: 0.8rem; }
+        .entry-lead { font-size: 0.82rem; font-weight: 300; color: var(--gray-500); }
+        .entry-list { border-top: 1px solid var(--gray-100); }
     </style>
 </head>
 <body>
@@ -433,6 +450,73 @@
         </div>
     </section>
 
+    <section class="index-entry">
+        <div class="index-entry-inner">
+            <div class="entry-head reveal">
+                <span class="entry-label">For You</span>
+                <h2 class="entry-title" data-i18n="entry.h">あなたの入口</h2>
+                <p class="entry-lead" data-i18n="entry.lead">当てはまるところから、どうぞ。</p>
+            </div>
+            <div class="entry-list">
+            <a class="en-row" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener">
+                <span class="en-who" data-i18n="t11.w">介護施設・訪問看護の経営者</span>
+                <span class="en-line" data-i18n="t11.l">人を増やさずに、売上を伸ばす。1人月200円から。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener">
+                <span class="en-who" data-i18n="t12.w">親を介護している家族</span>
+                <span class="en-line" data-i18n="t12.l">親の退院の手続きで、仕事を休まない。署名はスマホで。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener">
+                <span class="en-who" data-i18n="t13.w">病院・施設で働く人</span>
+                <span class="en-line" data-i18n="t13.l">電話とFAXに追われる時間を、患者さんと向き合う時間に。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="contact.html?topic=develop">
+                <span class="en-who" data-i18n="t21.w">施設を閉じるか迷っている経営者</span>
+                <span class="en-line" data-i18n="t21.l">閉じる前に相談を。立て直して、引退後の資金に変える。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="https://develop.tamjump.com/" target="_blank" rel="noopener">
+                <span class="en-who" data-i18n="t22.w">土地を持っている人</span>
+                <span class="en-line" data-i18n="t22.l">使っていない土地に、毎月の収入を生む施設を。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="https://develop.tamjump.com/" target="_blank" rel="noopener">
+                <span class="en-who" data-i18n="t23.w">投資家</span>
+                <span class="en-line" data-i18n="t23.l">人口が減っても需要が残る街を、データで選んで投資する。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="contact.html?topic=develop">
+                <span class="en-who" data-i18n="t24.w">経営者になりたい人</span>
+                <span class="en-line" data-i18n="t24.l">一から建てずに、動いている事業を引き継いで社長になる。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="https://oneheart.tamjump.com/" target="_blank" rel="noopener">
+                <span class="en-who" data-i18n="t31.w">世界の人とつながりたい人</span>
+                <span class="en-line" data-i18n="t31.l">顔写真1枚で、世界規模のアートに名前が残る。参加者だけの交流の場へ。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="https://king2323.tamjump.com/" target="_blank" rel="noopener">
+                <span class="en-who" data-i18n="t32.w">勝負が好きな人</span>
+                <span class="en-line" data-i18n="t32.l">5分で決着。勝負のあとは、参加者同士で出逢う。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="https://tamsic.tamjump.com/" target="_blank" rel="noopener">
+                <span class="en-who" data-i18n="t33.w">歌いたい人</span>
+                <span class="en-line" data-i18n="t33.l">TAMSIC の曲を、あなたの声で。制作費はレーベル持ち。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="contact.html?topic=build">
+                <span class="en-who" data-i18n="t34.w">アプリをつくりたい会社</span>
+                <span class="en-line" data-i18n="t34.l">こんなアプリがあれば、を1画面から形に。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            </div>
+        </div>
+    </section>
+
     <section class="index-vision">
         <div class="index-vision-inner">
             <div class="vision-head reveal">
@@ -459,35 +543,35 @@
         <div class="marquee-wrapper">
             <div class="marquee-track">
                 <!-- ロゴセット1（ランダム順・14件） -->
-                <a class="partner-item" href="https://tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamj.png?v=20260928c" alt="タムジ.Corp"></a>
-                <a class="partner-item" href="https://carepass.tamjump.com/" target="_blank" rel="noopener"><img src="partners/carepass.png?v=20260928c" alt="Care Support Pass"></a>
-                <a class="partner-item bg-red" href="https://tyaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tyaruze.png?v=20260928c" alt="tやるぜ！"></a>
-                <a class="partner-item" href="https://tamsic.tamjump.com/kiki.html" target="_blank" rel="noopener"><img src="partners/kiki.png?v=20260928c" alt="kiki"></a>
-                <a class="partner-item fit-contain" href="https://www.compass-dc.jp/" target="_blank" rel="noopener"><img src="partners/compass.png?v=20260928c" alt="コンパスメディカルグループ"></a>
-                <a class="partner-item" href="https://yaruze.tamjump.com/lp.html" target="_blank" rel="noopener"><img src="partners/yaruze.png?v=20260928c" alt="やるぜ！"></a>
-                <a class="partner-item" href="https://tamsic.tamjump.com/nono.html" target="_blank" rel="noopener"><img src="partners/nono.png?v=20260928c" alt="no-no"></a>
-                <a class="partner-item fit-contain" href="https://medipass.co.jp/" target="_blank" rel="noopener"><img src="partners/medipass.png?v=20260928c" alt="株式会社メディパス"></a>
-                <a class="partner-item bg-black" href="https://tamsic.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamsic.png?v=20260928c" alt="TAMSiC"></a>
-                <a class="partner-item bg-blue" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/myaruze.png?v=20260928c" alt="mやるぜ！"></a>
-                <a class="partner-item" href="https://tamsic.tamjump.com/gen.html" target="_blank" rel="noopener"><img src="partners/gen.png?v=20260928c" alt="gEN"></a>
-                <a class="partner-item fit-contain" href="https://hekichiiryou.jp/" target="_blank" rel="noopener"><img src="partners/hekichiiryou.png?v=20260928c" alt="へき地医療jp チームGREEN"></a>
-                <a class="partner-item" href="https://king2323.tamjump.com/" target="_blank" rel="noopener"><img src="partners/kingmaker.png?v=20260928c" alt="KING MAKER 23:23"></a>
-                <a class="partner-item" href="https://tamjump.github.io/GoTo_Site/" target="_blank" rel="noopener"><img src="partners/goto-happy.png?v=20260928c" alt="特定非営利法人GO TO HAPPY LIFE"></a>
+                <a class="partner-item" href="https://tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamj.png?v=20260928d" alt="タムジ.Corp"></a>
+                <a class="partner-item" href="https://carepass.tamjump.com/" target="_blank" rel="noopener"><img src="partners/carepass.png?v=20260928d" alt="Care Support Pass"></a>
+                <a class="partner-item bg-red" href="https://tyaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tyaruze.png?v=20260928d" alt="tやるぜ！"></a>
+                <a class="partner-item" href="https://tamsic.tamjump.com/kiki.html" target="_blank" rel="noopener"><img src="partners/kiki.png?v=20260928d" alt="kiki"></a>
+                <a class="partner-item fit-contain" href="https://www.compass-dc.jp/" target="_blank" rel="noopener"><img src="partners/compass.png?v=20260928d" alt="コンパスメディカルグループ"></a>
+                <a class="partner-item" href="https://yaruze.tamjump.com/lp.html" target="_blank" rel="noopener"><img src="partners/yaruze.png?v=20260928d" alt="やるぜ！"></a>
+                <a class="partner-item" href="https://tamsic.tamjump.com/nono.html" target="_blank" rel="noopener"><img src="partners/nono.png?v=20260928d" alt="no-no"></a>
+                <a class="partner-item fit-contain" href="https://medipass.co.jp/" target="_blank" rel="noopener"><img src="partners/medipass.png?v=20260928d" alt="株式会社メディパス"></a>
+                <a class="partner-item bg-black" href="https://tamsic.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamsic.png?v=20260928d" alt="TAMSiC"></a>
+                <a class="partner-item bg-blue" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/myaruze.png?v=20260928d" alt="mやるぜ！"></a>
+                <a class="partner-item" href="https://tamsic.tamjump.com/gen.html" target="_blank" rel="noopener"><img src="partners/gen.png?v=20260928d" alt="gEN"></a>
+                <a class="partner-item fit-contain" href="https://hekichiiryou.jp/" target="_blank" rel="noopener"><img src="partners/hekichiiryou.png?v=20260928d" alt="へき地医療jp チームGREEN"></a>
+                <a class="partner-item" href="https://king2323.tamjump.com/" target="_blank" rel="noopener"><img src="partners/kingmaker.png?v=20260928d" alt="KING MAKER 23:23"></a>
+                <a class="partner-item" href="https://tamjump.github.io/GoTo_Site/" target="_blank" rel="noopener"><img src="partners/goto-happy.png?v=20260928d" alt="特定非営利法人GO TO HAPPY LIFE"></a>
                 <!-- 複製（無限ループ用） -->
-                <a class="partner-item" href="https://tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamj.png?v=20260928c" alt="タムジ.Corp"></a>
-                <a class="partner-item" href="https://carepass.tamjump.com/" target="_blank" rel="noopener"><img src="partners/carepass.png?v=20260928c" alt="Care Support Pass"></a>
-                <a class="partner-item bg-red" href="https://tyaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tyaruze.png?v=20260928c" alt="tやるぜ！"></a>
-                <a class="partner-item" href="https://tamsic.tamjump.com/kiki.html" target="_blank" rel="noopener"><img src="partners/kiki.png?v=20260928c" alt="kiki"></a>
-                <a class="partner-item fit-contain" href="https://www.compass-dc.jp/" target="_blank" rel="noopener"><img src="partners/compass.png?v=20260928c" alt="コンパスメディカルグループ"></a>
-                <a class="partner-item" href="https://yaruze.tamjump.com/lp.html" target="_blank" rel="noopener"><img src="partners/yaruze.png?v=20260928c" alt="やるぜ！"></a>
-                <a class="partner-item" href="https://tamsic.tamjump.com/nono.html" target="_blank" rel="noopener"><img src="partners/nono.png?v=20260928c" alt="no-no"></a>
-                <a class="partner-item fit-contain" href="https://medipass.co.jp/" target="_blank" rel="noopener"><img src="partners/medipass.png?v=20260928c" alt="株式会社メディパス"></a>
-                <a class="partner-item bg-black" href="https://tamsic.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamsic.png?v=20260928c" alt="TAMSiC"></a>
-                <a class="partner-item bg-blue" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/myaruze.png?v=20260928c" alt="mやるぜ！"></a>
-                <a class="partner-item" href="https://tamsic.tamjump.com/gen.html" target="_blank" rel="noopener"><img src="partners/gen.png?v=20260928c" alt="gEN"></a>
-                <a class="partner-item fit-contain" href="https://hekichiiryou.jp/" target="_blank" rel="noopener"><img src="partners/hekichiiryou.png?v=20260928c" alt="へき地医療jp チームGREEN"></a>
-                <a class="partner-item" href="https://king2323.tamjump.com/" target="_blank" rel="noopener"><img src="partners/kingmaker.png?v=20260928c" alt="KING MAKER 23:23"></a>
-                <a class="partner-item" href="https://tamjump.github.io/GoTo_Site/" target="_blank" rel="noopener"><img src="partners/goto-happy.png?v=20260928c" alt="特定非営利法人GO TO HAPPY LIFE"></a>
+                <a class="partner-item" href="https://tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamj.png?v=20260928d" alt="タムジ.Corp"></a>
+                <a class="partner-item" href="https://carepass.tamjump.com/" target="_blank" rel="noopener"><img src="partners/carepass.png?v=20260928d" alt="Care Support Pass"></a>
+                <a class="partner-item bg-red" href="https://tyaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tyaruze.png?v=20260928d" alt="tやるぜ！"></a>
+                <a class="partner-item" href="https://tamsic.tamjump.com/kiki.html" target="_blank" rel="noopener"><img src="partners/kiki.png?v=20260928d" alt="kiki"></a>
+                <a class="partner-item fit-contain" href="https://www.compass-dc.jp/" target="_blank" rel="noopener"><img src="partners/compass.png?v=20260928d" alt="コンパスメディカルグループ"></a>
+                <a class="partner-item" href="https://yaruze.tamjump.com/lp.html" target="_blank" rel="noopener"><img src="partners/yaruze.png?v=20260928d" alt="やるぜ！"></a>
+                <a class="partner-item" href="https://tamsic.tamjump.com/nono.html" target="_blank" rel="noopener"><img src="partners/nono.png?v=20260928d" alt="no-no"></a>
+                <a class="partner-item fit-contain" href="https://medipass.co.jp/" target="_blank" rel="noopener"><img src="partners/medipass.png?v=20260928d" alt="株式会社メディパス"></a>
+                <a class="partner-item bg-black" href="https://tamsic.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamsic.png?v=20260928d" alt="TAMSiC"></a>
+                <a class="partner-item bg-blue" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/myaruze.png?v=20260928d" alt="mやるぜ！"></a>
+                <a class="partner-item" href="https://tamsic.tamjump.com/gen.html" target="_blank" rel="noopener"><img src="partners/gen.png?v=20260928d" alt="gEN"></a>
+                <a class="partner-item fit-contain" href="https://hekichiiryou.jp/" target="_blank" rel="noopener"><img src="partners/hekichiiryou.png?v=20260928d" alt="へき地医療jp チームGREEN"></a>
+                <a class="partner-item" href="https://king2323.tamjump.com/" target="_blank" rel="noopener"><img src="partners/kingmaker.png?v=20260928d" alt="KING MAKER 23:23"></a>
+                <a class="partner-item" href="https://tamjump.github.io/GoTo_Site/" target="_blank" rel="noopener"><img src="partners/goto-happy.png?v=20260928d" alt="特定非営利法人GO TO HAPPY LIFE"></a>
             </div>
         </div>
     </section>
@@ -563,7 +647,7 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     </script>
-    <script src="js/translations.js?v=20260928c"></script>
-    <script src="js/lang.js?v=20260928c"></script>
+    <script src="js/translations.js?v=20260928d"></script>
+    <script src="js/lang.js?v=20260928d"></script>
 </body>
 </html>

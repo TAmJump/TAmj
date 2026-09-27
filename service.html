@@ -7,8 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+JP:wght@200;300;400;500;700&family=Noto+Serif+JP:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/base.css?v=20260928c">
-    <link rel="stylesheet" href="css/corporate.css?v=20260928c">
+    <link rel="stylesheet" href="css/base.css?v=20260928d">
+    <link rel="stylesheet" href="css/corporate.css?v=20260928d">
     <style>
         .tab-section {
             max-width: 780px;
@@ -370,6 +370,19 @@
             .product-item { flex-wrap: wrap; }
             .product-desc { display: block; order: 3; flex: 0 0 100%; margin: 0.35rem 0 0; line-height: 1.8; }
         }
+        .en-row { display: flex; align-items: baseline; gap: 1.5rem; padding: 1.15rem 0; border-bottom: 1px solid var(--gray-100); color: inherit; transition: padding-left 0.3s; }
+        .en-row:hover, .en-row:focus-visible { padding-left: 0.5rem; }
+        .en-row:hover .en-line, .en-row:focus-visible .en-line { color: var(--primary); }
+        .en-who { flex: 0 0 13rem; font-size: 0.72rem; font-weight: 300; color: var(--gray-400); letter-spacing: 0.04em; }
+        .en-line { flex: 1; font-family: "Noto Serif JP", serif; font-size: 0.9rem; color: var(--black); line-height: 1.8; letter-spacing: 0.03em; transition: color 0.3s; }
+        .en-arrow { font-size: 0.7rem; color: var(--gray-300); }
+        @media (max-width: 640px) {
+            .en-row { flex-wrap: wrap; gap: 0.2rem; }
+            .en-who { flex: 0 0 100%; }
+        }
+        .pnl-entry { text-align: left; margin: 1.8rem 0 3.2rem; }
+        .pnl-entry .pnl-k { text-align: center; }
+        .entry-list { border-top: 1px solid var(--gray-100); }
     </style>
 </head>
 <body>
@@ -398,7 +411,26 @@
             <div class="tab-panel active" id="panel-app">
                 <div class="pnl-lead">
                     <p class="pnl-hook" data-i18n="hook1">家族が退院するとき、病院と施設のやり取りはまだ電話と紙。それを、スマホ1台に。</p>
-                    <p class="pnl-peek"><a href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" class="text-link" data-i18n="peek1">ｍやるゼ！を見てみる</a></p>
+                    <div class="pnl-entry">
+                        <p class="pnl-k" data-i18n="entry.for">こんな人に</p>
+                        <div class="entry-list">
+            <a class="en-row" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener">
+                <span class="en-who" data-i18n="t11.w">介護施設・訪問看護の経営者</span>
+                <span class="en-line" data-i18n="t11.l">人を増やさずに、売上を伸ばす。1人月200円から。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener">
+                <span class="en-who" data-i18n="t12.w">親を介護している家族</span>
+                <span class="en-line" data-i18n="t12.l">親の退院の手続きで、仕事を休まない。署名はスマホで。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener">
+                <span class="en-who" data-i18n="t13.w">病院・施設で働く人</span>
+                <span class="en-line" data-i18n="t13.l">電話とFAXに追われる時間を、患者さんと向き合う時間に。</span>
+                <span class="en-arrow">→</span>
+            </a>
+                        </div>
+                    </div>
                     <p class="pnl-k" data-i18n="lbl.aim">目的</p>
                     <p class="pnl-aim" data-i18n="biz1.aim">医療・介護の事業者に事務を減らす道具を渡し、売上と利益を上げてもらう。</p>
                     <p class="pnl-k" data-i18n="lbl.change">変わること</p>
@@ -463,7 +495,31 @@
             <div class="tab-panel" id="panel-dev">
                 <div class="pnl-lead">
                     <p class="pnl-hook" data-i18n="hook2">住んでいる街の介護施設、10年後も残っていますか。</p>
-                    <p class="pnl-peek"><a href="https://teamone.tamjump.com/" target="_blank" rel="noopener" class="text-link" data-i18n="peek2">あなたの街を調べる</a></p>
+                    <div class="pnl-entry">
+                        <p class="pnl-k" data-i18n="entry.for">こんな人に</p>
+                        <div class="entry-list">
+            <a class="en-row" href="contact.html?topic=develop">
+                <span class="en-who" data-i18n="t21.w">施設を閉じるか迷っている経営者</span>
+                <span class="en-line" data-i18n="t21.l">閉じる前に相談を。立て直して、引退後の資金に変える。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="https://develop.tamjump.com/" target="_blank" rel="noopener">
+                <span class="en-who" data-i18n="t22.w">土地を持っている人</span>
+                <span class="en-line" data-i18n="t22.l">使っていない土地に、毎月の収入を生む施設を。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="https://develop.tamjump.com/" target="_blank" rel="noopener">
+                <span class="en-who" data-i18n="t23.w">投資家</span>
+                <span class="en-line" data-i18n="t23.l">人口が減っても需要が残る街を、データで選んで投資する。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="contact.html?topic=develop">
+                <span class="en-who" data-i18n="t24.w">経営者になりたい人</span>
+                <span class="en-line" data-i18n="t24.l">一から建てずに、動いている事業を引き継いで社長になる。</span>
+                <span class="en-arrow">→</span>
+            </a>
+                        </div>
+                    </div>
                     <p class="pnl-k" data-i18n="lbl.aim">目的</p>
                     <p class="pnl-aim" data-i18n="biz2.aim">施設を持つ人・継ぐ人・投資する人に、利回りと出口を。売れない施設も立て直して取引にのせる。</p>
                     <p class="pnl-k" data-i18n="lbl.change">変わること</p>
@@ -510,7 +566,31 @@
             <div class="tab-panel" id="panel-make">
                 <div class="pnl-lead">
                     <p class="pnl-hook" data-i18n="hook3">音楽を聴く。顔写真でアートに加わる。ゲームで勝負する。そこで、人と出逢う。</p>
-                    <p class="pnl-peek"><a href="https://oneheart.tamjump.com/" target="_blank" rel="noopener" class="text-link" data-i18n="peek3">ONE HEART に参加する</a></p>
+                    <div class="pnl-entry">
+                        <p class="pnl-k" data-i18n="entry.for">こんな人に</p>
+                        <div class="entry-list">
+            <a class="en-row" href="https://oneheart.tamjump.com/" target="_blank" rel="noopener">
+                <span class="en-who" data-i18n="t31.w">世界の人とつながりたい人</span>
+                <span class="en-line" data-i18n="t31.l">顔写真1枚で、世界規模のアートに名前が残る。参加者だけの交流の場へ。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="https://king2323.tamjump.com/" target="_blank" rel="noopener">
+                <span class="en-who" data-i18n="t32.w">勝負が好きな人</span>
+                <span class="en-line" data-i18n="t32.l">5分で決着。勝負のあとは、参加者同士で出逢う。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="https://tamsic.tamjump.com/" target="_blank" rel="noopener">
+                <span class="en-who" data-i18n="t33.w">歌いたい人</span>
+                <span class="en-line" data-i18n="t33.l">TAMSIC の曲を、あなたの声で。制作費はレーベル持ち。</span>
+                <span class="en-arrow">→</span>
+            </a>
+            <a class="en-row" href="contact.html?topic=build">
+                <span class="en-who" data-i18n="t34.w">アプリをつくりたい会社</span>
+                <span class="en-line" data-i18n="t34.l">こんなアプリがあれば、を1画面から形に。</span>
+                <span class="en-arrow">→</span>
+            </a>
+                        </div>
+                    </div>
                     <p class="pnl-k" data-i18n="lbl.aim">目的</p>
                     <p class="pnl-aim" data-i18n="biz3.aim">音楽・アート・ゲームに参加する人に、楽しみと出逢いを。そこで生まれた縁を、仕事と収益につなぐ。</p>
                     <p class="pnl-k" data-i18n="lbl.change">変わること</p>
@@ -677,7 +757,7 @@
         window.addEventListener('load', badge);
         new MutationObserver(badge).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
     </script>
-    <script src="js/translations.js?v=20260928c"></script>
-    <script src="js/lang.js?v=20260928c"></script>
+    <script src="js/translations.js?v=20260928d"></script>
+    <script src="js/lang.js?v=20260928d"></script>
 </body>
 </html>
