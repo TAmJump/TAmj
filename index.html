@@ -420,15 +420,52 @@
             body { font-size: 10.5pt; background: #fff; }
             footer { break-before: avoid; }
         }
+        /* ── BUSINESS（目的・ゴール・現在地／3つの入口） ── */
+        .biz-row { grid-template-columns: 1.15fr 1.25fr 0.85fr; }
+        .biz-desc { font-size: 0.84rem; font-weight: 300; line-height: 2; color: var(--gray-700); margin-top: 0.9rem; }
+        .biz-pg { margin: 0; }
+        .biz-pg > div { padding: 0.95rem 0; border-top: 1px solid var(--gray-200); }
+        .biz-pg > div:first-child { border-top: 0; padding-top: 0; }
+        .biz-pg dt { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; color: var(--primary); margin-bottom: 0.3rem; }
+        .biz-pg dd { margin: 0; font-size: 0.86rem; font-weight: 300; line-height: 1.95; color: var(--gray-700); }
+        .biz-pg .pg-goal dd { font-family: var(--font-serif); font-size: 1.02rem; font-weight: 500; line-height: 1.85; color: var(--black); letter-spacing: 0.02em; }
+        .biz-price { text-align: left; border-left: 1px solid var(--gray-200); padding-left: 1.6rem; }
+        .biz-ways { list-style: none; margin: 0.4rem 0 0; padding: 0; border-top: 1px solid var(--gray-200); }
+        .biz-ways li { padding: 0.7rem 0; border-bottom: 1px solid var(--gray-200); }
+        .biz-ways li span { display: block; font-size: 0.64rem; letter-spacing: 0.12em; color: var(--gray-400); margin-bottom: 0.15rem; }
+        .biz-price .biz-ways a { font-size: 0.8rem; line-height: 1.6; border-bottom: 0; padding-bottom: 0; }
+        .biz-price .biz-ways a:hover, .biz-price .biz-ways a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+
+        /* ── 3つの窓口 ── */
+        .join { padding: 6rem 2rem; background: var(--white); border-top: 1px solid var(--gray-100); }
+        .join-inner { max-width: 1080px; margin: 0 auto; }
+        .join-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 3rem; border: 1px solid var(--gray-200); }
+        .join-cell { padding: 2.4rem 2rem 2.2rem; display: flex; flex-direction: column; align-items: flex-start; }
+        .join-cell + .join-cell { border-left: 1px solid var(--gray-200); }
+        .join-cell h3 { font-family: var(--font-serif); font-size: 1.12rem; font-weight: 500; color: var(--black); letter-spacing: 0.04em; margin-bottom: 0.8rem; }
+        .join-cell p { font-size: 0.84rem; font-weight: 300; line-height: 2; color: var(--gray-700); margin-bottom: 1.8rem; flex: 1; }
+        .join-cell .btn-solid, .join-cell .btn-line { padding: 0.85rem 1.6rem; }
+
+        @media (max-width: 900px) {
+            .biz-row { grid-template-columns: 1fr; }
+            .biz-price { border-left: 0; padding-left: 0; border-top: 1px solid var(--gray-200); padding-top: 1.2rem; }
+            .join { padding: 4.5rem 1.5rem; }
+            .join-grid { grid-template-columns: 1fr; }
+            .join-cell + .join-cell { border-left: 0; border-top: 1px solid var(--gray-200); }
+        }
+        @media print {
+            .join { padding: 1.4rem 0 !important; }
+            .join-cell { padding: 1rem !important; }
+        }
     </style>
 </head>
 <body>
 <!-- ONE HEART Kickstarter 告知帯 -->
 <a href="https://www.kickstarter.com/projects/tamj/we-are-all-one-heart-23-pieces-one-world?ref=4k7z69" target="_blank" rel="noopener" style="display:block;background:#FDFBF5;border-bottom:1px solid #E4572E;color:#1a1a1a;text-decoration:none;font-family:system-ui,-apple-system,'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;font-size:13px;line-height:1.5;letter-spacing:.02em;padding:9px 16px;text-align:center;position:relative;z-index:9999">
-  <span style="color:#E4572E;font-weight:700">Kickstarterで公開中</span>
+  <span style="color:#E4572E;font-weight:700" data-i18n="ks.live">Kickstarterで公開中</span>
   <span style="opacity:.55;margin:0 8px">·</span>WE ARE ALL ONE HEART — 23 Pieces, One World
-  <span style="opacity:.55;margin:0 8px">·</span>10月8日まで
-  <span style="color:#E4572E;font-weight:700;margin-left:8px">参加する &rarr;</span>
+  <span style="opacity:.55;margin:0 8px">·</span><span data-i18n="ks.until">10月8日まで</span>
+  <span style="color:#E4572E;font-weight:700;margin-left:8px" data-i18n="ks.join">参加する &rarr;</span>
 </a>
 
     <!-- ヘッダーナビ（右上） -->
@@ -457,28 +494,28 @@
 
                 <div class="lead-shot">
                     <div class="shot">
-                        <div class="shot-bar"><span></span><span></span><span></span><p>ｍやるゼ！ &nbsp;/&nbsp; 受入れ・移行</p></div>
+                        <div class="shot-bar"><span></span><span></span><span></span><p data-i18n="shot.bar">ｍやるゼ！ &nbsp;/&nbsp; 受入れ・移行</p></div>
                         <div class="shot-body">
                             <div class="shot-kpi">
-                                <div><b>3</b><span>対応中</span></div>
-                                <div><b>7</b><span>今週の受入れ</span></div>
-                                <div><b>2</b><span>署名待ち</span></div>
+                                <div><b>3</b><span data-i18n="shot.k1">対応中</span></div>
+                                <div><b>7</b><span data-i18n="shot.k2">今週の受入れ</span></div>
+                                <div><b>2</b><span data-i18n="shot.k3">署名待ち</span></div>
                             </div>
                             <div class="shot-row hot">
-                                <p class="t">退院通知 &mdash; 佐藤様</p>
-                                <p class="s">同意書 署名待ち ・ 担当者会議 10/2</p>
+                                <p class="t" data-i18n="shot.r1t">退院通知 &mdash; 佐藤様</p>
+                                <p class="s" data-i18n="shot.r1s">同意書 署名待ち ・ 担当者会議 10/2</p>
                             </div>
                             <div class="shot-row">
-                                <p class="t">受入れ相談 &mdash; 田中様</p>
-                                <p class="s">面談の日程を調整中</p>
+                                <p class="t" data-i18n="shot.r2t">受入れ相談 &mdash; 田中様</p>
+                                <p class="s" data-i18n="shot.r2s">面談の日程を調整中</p>
                             </div>
                             <div class="shot-row">
-                                <p class="t">モニタリング &mdash; 鈴木様</p>
-                                <p class="s">記録の下書きあり</p>
+                                <p class="t" data-i18n="shot.r3t">モニタリング &mdash; 鈴木様</p>
+                                <p class="s" data-i18n="shot.r3s">記録の下書きあり</p>
                             </div>
                         </div>
                     </div>
-                    <p class="shot-cap">ｍやるゼ！の画面イメージ。法人をまたぐ1件が、1つのケースとして進みます。</p>
+                    <p class="shot-cap" data-i18n="shot.cap">ｍやるゼ！の画面イメージ。法人をまたぐ1件が、1つのケースとして進みます。</p>
                 </div>
             </div>
         </div>
@@ -488,16 +525,16 @@
         <div class="lead-inner">
             <dl>
                 <div class="ans">
-                    <dt>What &nbsp;何をする会社か</dt>
-                    <dd>医療・介護の法人間連携アプリ／施設の開発と事業承継／受託開発</dd>
+                    <dt data-i18n="ans.what.dt">What &nbsp;何をする会社か</dt>
+                    <dd data-i18n="ans.what.dd">医療・介護の法人間連携アプリ／施設の開発と事業承継／受託開発</dd>
                 </div>
                 <div class="ans">
-                    <dt>Who &nbsp;誰のための会社か</dt>
-                    <dd>病院・診療所・介護事業者・薬局／施設をつくる人、譲る人、継ぐ人</dd>
+                    <dt data-i18n="ans.who.dt">Who &nbsp;誰のための会社か</dt>
+                    <dd data-i18n="ans.who.dd">病院・診療所・介護事業者・薬局／施設をつくる人、譲る人、継ぐ人</dd>
                 </div>
                 <div class="ans">
-                    <dt>Price &nbsp;いくらで始まるか</dt>
-                    <dd><span class="amt">&yen;200</span> <small>ｍやるゼ！ 1ユーザー / 月（税抜）・初期費用なし</small></dd>
+                    <dt data-i18n="ans.price.dt">Price &nbsp;いくらで始まるか</dt>
+                    <dd><span class="amt">&yen;200</span> <small data-i18n="ans.price.sm">ｍやるゼ！ 1ユーザー / 月（税抜）・初期費用なし</small></dd>
                 </div>
             </dl>
         </div>
@@ -530,68 +567,112 @@
     </section>
 
     <!-- ══ SERVICES ══ -->
-    <section class="biz">
+    <section class="biz" id="business">
         <div class="biz-inner">
             <span class="sec-label">Business</span>
-            <h2 class="sec-h2 reveal" data-i18n="biz.h2">事業は3つ。値段はここに書いてあります。</h2>
-            <p class="sec-lead reveal" data-i18n="biz.lead">見積りのための電話は要りません。金額の目安を先に出します。</p>
+            <h2 class="sec-h2 reveal" data-i18n="biz.h2">3つの事業の目的・ゴール・価格</h2>
+            <p class="sec-lead reveal" data-i18n="biz.lead">どの事業も、何のためにやるのか、どこを目指すのか、いくらかかるのかを先に出します。見積りのための電話は要りません。</p>
 
             <div class="biz-list">
-                <div class="biz-row reveal">
-                    <div>
-                        <p class="biz-for" data-i18n="biz1.for">FOR 病院・診療所・介護事業者・薬局</p>
+                <article class="biz-row reveal">
+                    <div class="biz-id">
+                        <p class="biz-for" data-i18n="biz1.for">FOR 病院・診療所・介護事業所・薬局</p>
                         <h3 class="biz-name" data-i18n="biz1.name">やるゼ！ — 現場の業務アプリ</h3>
+                        <p class="biz-desc" data-i18n="biz1.p">退院から受入れまで、法人をまたぐ引継ぎを1件のケースとして進めるアプリ。同意書の電子署名、日程調整、担当者会議、オンライン通話まで1つの画面で完結。</p>
+                        <div class="biz-tags"><span data-i18n="tag.m">ｍやるゼ！</span><span data-i18n="tag.t">ｔやるゼ！</span><span>Care Support Pass</span><span data-i18n="tag.gp">Google Play 公開中</span></div>
                     </div>
                     <div class="biz-body">
-                        <p data-i18n="biz1.p">法人をまたぐ受入れ・移行の業務を1件のケースとして進めます。退院通知、面談の日程調整、同意書の電子署名、担当者会議、モニタリング。連絡を取るためのSNSではなく、業務そのものを動かすアプリです。</p>
-                        <p class="biz-aim"><b>目的</b>　事務の重さで現場が潰れないようにする。</p>
-                        <div class="biz-tags">
-                            <span>ｍやるゼ！</span><span>ｔやるゼ！</span><span>Care Support Pass</span><span>Google Play 公開中</span>
-                        </div>
+                        <dl class="biz-pg">
+                            <div class="pg-aim"><dt data-i18n="lbl.aim">目的</dt><dd data-i18n="biz1.aim">事務の重さで、医療と介護の現場を止めない。</dd></div>
+                            <div class="pg-goal"><dt data-i18n="lbl.goal">ゴール</dt><dd data-i18n="biz1.goal">患者さん1人の引継ぎに関わる全員が、所属に関係なく同じ画面で動ける状態を、日本中の標準にする。</dd></div>
+                            <div class="pg-now"><dt data-i18n="lbl.now">現在地</dt><dd data-i18n="biz1.now">Google Play で公開中。1ユーザー月200円、無料プランあり。</dd></div>
+                        </dl>
                     </div>
                     <div class="biz-price">
                         <p class="p">&yen;200</p>
                         <span class="u" data-i18n="biz1.u">1ユーザー / 月（税抜）<br>無料プランあり</span>
-                        <a href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" data-i18n="biz1.cta">無料で始める &rarr;</a>
+                        <ul class="biz-ways">
+                            <li><span data-i18n="way.use">使う</span><a href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" data-i18n="biz1.w1">無料で始める</a></li>
+                            <li><span data-i18n="way.ask">相談</span><a href="contact.html?topic=myaruze" data-i18n="biz1.w2">導入の相談</a></li>
+                            <li><span data-i18n="way.inv">出資・提携</span><a href="contact.html?topic=invest" data-i18n="biz1.w3">ソフト会社との連携・出資</a></li>
+                        </ul>
                     </div>
-                </div>
+                </article>
 
-                <div class="biz-row reveal">
-                    <div>
-                        <p class="biz-for" data-i18n="biz2.for">FOR 施設をつくる人・譲る人・継ぐ人</p>
+                <article class="biz-row reveal">
+                    <div class="biz-id">
+                        <p class="biz-for" data-i18n="biz2.for">FOR 施設をつくる人・譲る人・継ぐ人・投資する人</p>
                         <h3 class="biz-name" data-i18n="biz2.name">開発と承継</h3>
+                        <p class="biz-desc" data-i18n="biz2.p">医療・介護施設の開発と、事業承継・M&amp;A。全国1,740市区町村の需給データで「どこに・何を・いくらで」を決め、着工から引継ぎまで請け負う。</p>
+                        <div class="biz-tags"><span data-i18n="tag.re">不動産開発</span><span data-i18n="tag.rb">Re-Bridge 事業承継</span><span data-i18n="tag.t1">teamONE 地域分析</span></div>
                     </div>
                     <div class="biz-body">
-                        <p data-i18n="biz2.p">医療・介護施設の開発用地、事業承継とM&amp;A、開発シミュレーションから財務設計・見積までを一気通貫で。全国1,740市区町村の需給分析をもとに、どこに何をつくるかから一緒に決めます。</p>
-                        <p class="biz-aim"><b>目的</b>　畳むしかない施設と事業所を、次の担い手につなぐ。</p>
-                        <div class="biz-tags">
-                            <span>不動産開発</span><span>Re-Bridge 事業承継</span><span>teamONE 地域分析</span>
-                        </div>
+                        <dl class="biz-pg">
+                            <div class="pg-aim"><dt data-i18n="lbl.aim">目的</dt><dd data-i18n="biz2.aim">担い手がいないという理由で、施設と事業所を閉じさせない。</dd></div>
+                            <div class="pg-goal"><dt data-i18n="lbl.goal">ゴール</dt><dd data-i18n="biz2.goal">人口が減る地域でも、医療と介護の拠点が次の担い手へ引き継がれ、残り続けること。</dd></div>
+                            <div class="pg-now"><dt data-i18n="lbl.now">現在地</dt><dd data-i18n="biz2.now">施設23棟・事業所33ヶ所の開発、M&amp;A 9社。開発・承継案件を掲載中。</dd></div>
+                        </dl>
                     </div>
                     <div class="biz-price">
                         <p class="p" data-i18n="biz2.p2">着手金＋成功報酬</p>
                         <span class="u" data-i18n="biz2.u">案件の規模に応じて<br>初回相談は無料</span>
-                        <a href="https://develop.tamjump.com/" target="_blank" rel="noopener" data-i18n="biz2.cta">案件を見る &rarr;</a>
+                        <ul class="biz-ways">
+                            <li><span data-i18n="way.use">使う</span><a href="https://develop.tamjump.com/" target="_blank" rel="noopener" data-i18n="biz2.w1">開発シミュレーションを無料で使う</a></li>
+                            <li><span data-i18n="way.ask">相談</span><a href="contact.html?topic=develop" data-i18n="biz2.w2">譲りたい・継ぎたい・建てたい</a></li>
+                            <li><span data-i18n="way.inv">出資・提携</span><a href="https://develop.tamjump.com/" target="_blank" rel="noopener" data-i18n="biz2.w3">掲載中の案件を見る（NDA）</a></li>
+                        </ul>
                     </div>
-                </div>
+                </article>
 
-                <div class="biz-row reveal">
-                    <div>
-                        <p class="biz-for" data-i18n="biz3.for">FOR 自社のアプリ・サイトが要る会社</p>
+                <article class="biz-row reveal">
+                    <div class="biz-id">
+                        <p class="biz-for" data-i18n="biz3.for">FOR アプリ・サイトが要る会社、企画を一緒にやりたい人</p>
                         <h3 class="biz-name" data-i18n="biz3.name">受託開発とコンテンツ</h3>
+                        <p class="biz-desc" data-i18n="biz3.p">医療・介護の業務システム、会員サイト、決済、スマートフォンアプリの受託開発。音楽レーベル TAMSIC と、クラウドファンディング企画も運営。</p>
+                        <div class="biz-tags"><span data-i18n="tag.sys">業務システム</span><span data-i18n="tag.web">サイト制作</span><span>TAMSIC</span><span data-i18n="tag.cf">クラウドファンディング</span></div>
                     </div>
                     <div class="biz-body">
-                        <p data-i18n="biz3.p">医療・介護の業務システムを中心に、企画から運用まで。自社でアプリを公開し、決済まで回してきた会社が、そのまま請け負います。音楽レーベルとクラウドファンディング企画も、この枠でやっています。</p>
-                        <p class="biz-aim"><b>目的</b>　公費に頼りきらない原資を、自分たちでつくる。</p>
-                        <div class="biz-tags">
-                            <span>業務システム</span><span>サイト制作</span><span>TAMSIC</span><span>クラウドファンディング</span>
-                        </div>
+                        <dl class="biz-pg">
+                            <div class="pg-aim"><dt data-i18n="lbl.aim">目的</dt><dd data-i18n="biz3.aim">公費だけに頼らない収入を、自分たちでつくる。</dd></div>
+                            <div class="pg-goal"><dt data-i18n="lbl.goal">ゴール</dt><dd data-i18n="biz3.goal">ここで生んだ収益を、へき地の医療・介護と、医療が届かない地域の支援に回し続けること。</dd></div>
+                            <div class="pg-now"><dt data-i18n="lbl.now">現在地</dt><dd data-i18n="biz3.now">自社アプリを Google Play で公開・運用。Kickstarter で ONE HEART を公開中。</dd></div>
+                        </dl>
                     </div>
                     <div class="biz-price">
                         <p class="p" data-i18n="biz3.p2">お見積り</p>
                         <span class="u" data-i18n="biz3.u">小さく試す形から<br>相談できます</span>
-                        <a href="contact.html" data-i18n="biz3.cta">相談する &rarr;</a>
+                        <ul class="biz-ways">
+                            <li><span data-i18n="way.use">使う</span><a href="https://tamsic.tamjump.com/" target="_blank" rel="noopener" data-i18n="biz3.w1">TAMSIC を聴く</a></li>
+                            <li><span data-i18n="way.ask">相談</span><a href="contact.html?topic=build" data-i18n="biz3.w2">開発を依頼する</a></li>
+                            <li><span data-i18n="way.inv">出資・提携</span><a href="contact.html?topic=partner" data-i18n="biz3.w3">共同企画・スポンサー</a></li>
+                        </ul>
                     </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ WAYS IN ══ -->
+    <section class="join" id="join">
+        <div class="join-inner">
+            <span class="sec-label">Get Involved</span>
+            <h2 class="sec-h2 reveal" data-i18n="join.h2">3つの窓口</h2>
+            <p class="sec-lead reveal" data-i18n="join.lead">使う・相談する・出資する。目的に合わせてお選びください。</p>
+            <div class="join-grid">
+                <div class="join-cell">
+                    <h3 data-i18n="join.u.h">使ってみたい</h3>
+                    <p data-i18n="join.u.p">ｍやるゼ！は無料プランから。カード登録なし、期限なし。</p>
+                    <a href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" class="btn-solid" data-i18n="join.u.a">無料で始める</a>
+                </div>
+                <div class="join-cell">
+                    <h3 data-i18n="join.c.h">相談したい</h3>
+                    <p data-i18n="join.c.p">施設の開発・承継、業務システムの開発。初回相談は無料。</p>
+                    <a href="contact.html?topic=consult" class="btn-line" data-i18n="join.c.a">相談する</a>
+                </div>
+                <div class="join-cell">
+                    <h3 data-i18n="join.i.h">出資・提携したい</h3>
+                    <p data-i18n="join.i.p">やるゼ！の普及と、地域の医療・介護拠点を残す事業について、出資と業務提携のご相談を受け付けています。</p>
+                    <a href="contact.html?topic=invest" class="btn-line" data-i18n="join.i.a">出資・提携の相談</a>
                 </div>
             </div>
         </div>
@@ -735,7 +816,7 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     </script>
-    <script src="js/translations.js?v=20260927a"></script>
-    <script src="js/lang.js?v=20260927a"></script>
+    <script src="js/translations.js?v=20260927b"></script>
+    <script src="js/lang.js?v=20260927b"></script>
 </body>
 </html>

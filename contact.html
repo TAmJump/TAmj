@@ -215,6 +215,7 @@
                         <option value="KINGMAKER 23:23 について" data-i18n="contact.cat.kingmaker">KINGMAKER 23:23 について</option>
                         <option value="TAMSIC（音楽）について" data-i18n="contact.cat.tamsic">TAMSIC（音楽）について</option>
                         <option value="CM・おもちゃ作りについて" data-i18n="contact.cat.cm">CM・おもちゃ作りについて</option>
+                        <option value="出資・業務提携について" data-i18n="contact.cat.invest">出資・業務提携について</option>
                         <option value="パートナー協業について" data-i18n="contact.cat.partner">パートナー協業について（さかえケア／メディパス／GO TO HAPPY LIFE／コンパス／へき地医療jp 等）</option>
                         <option value="採用について" data-i18n="contact.cat.recruit">採用について</option>
                         <option value="会員登録について" data-i18n="contact.cat.member">会員登録について</option>
@@ -250,33 +251,33 @@
     <div id="confirmOverlay" class="confirm-overlay">
         <div class="confirm-modal">
             <div class="confirm-header">
-                <h3>入力内容の確認</h3>
+                <h3 data-i18n="contact.confirm.h">入力内容の確認</h3>
             </div>
             <div class="confirm-body">
                 <div class="confirm-item">
-                    <div class="confirm-label">お名前</div>
+                    <div class="confirm-label" data-i18n="contact.confirm.name">お名前</div>
                     <div class="confirm-value" id="confirmName"></div>
                 </div>
                 <div class="confirm-item">
-                    <div class="confirm-label">メールアドレス</div>
+                    <div class="confirm-label" data-i18n="contact.confirm.email">メールアドレス</div>
                     <div class="confirm-value" id="confirmEmail"></div>
                 </div>
                 <div class="confirm-item">
-                    <div class="confirm-label">電話番号</div>
+                    <div class="confirm-label" data-i18n="contact.confirm.phone">電話番号</div>
                     <div class="confirm-value" id="confirmPhone"></div>
                 </div>
                 <div class="confirm-item">
-                    <div class="confirm-label">お問合せ種別</div>
+                    <div class="confirm-label" data-i18n="contact.confirm.cat">お問合せ種別</div>
                     <div class="confirm-value" id="confirmCategory"></div>
                 </div>
                 <div class="confirm-item">
-                    <div class="confirm-label">お問合せ内容</div>
+                    <div class="confirm-label" data-i18n="contact.confirm.msg">お問合せ内容</div>
                     <div class="confirm-value" id="confirmMessage"></div>
                 </div>
             </div>
             <div class="confirm-footer">
-                <button type="button" class="confirm-btn cancel" id="confirmCancel">修正する</button>
-                <button type="button" class="confirm-btn submit" id="confirmSubmit">送信する</button>
+                <button type="button" class="confirm-btn cancel" id="confirmCancel" data-i18n="contact.confirm.back">修正する</button>
+                <button type="button" class="confirm-btn submit" id="confirmSubmit" data-i18n="contact.confirm.send">送信する</button>
             </div>
         </div>
     </div>
@@ -323,6 +324,21 @@
     // ============================================
     // 設定（デプロイ時に変更）
     // ============================================
+
+    // ?topic= で問合せ種別を先に選んでおく（トップ・事業ページの各入口から）
+    (function () {
+        var map = {
+            invest: '出資・業務提携について',
+            partner: 'パートナー協業について',
+            myaruze: 'ｍやるゼ！について',
+            develop: '介護・医療施設 開発シミュレーションについて',
+            build: 'アプリ開発について'
+        };
+        var topic = new URLSearchParams(location.search).get('topic');
+        var sel = document.querySelector('select[name="category"]');
+        if (topic && map[topic] && sel) sel.value = map[topic];
+    })();
+
     const API_URL = 'https://tamjump-contact-api.animalb001.workers.dev/contact';
     // カスタムドメイン設定後は ↓ に変更
     // const API_URL = 'https://api.tamjump.com/contact';
@@ -446,5 +462,7 @@
         }
     });
     </script>
+    <script src="js/translations.js?v=20260927b"></script>
+    <script src="js/lang.js?v=20260927b"></script>
 </body>
 </html>
