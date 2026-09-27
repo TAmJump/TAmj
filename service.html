@@ -107,6 +107,145 @@
             .sv-actions { display: grid; grid-template-columns: 1fr; gap: 0.7rem; }
         }
 
+        /* Contact */
+        .index-contact { padding: 5rem 2rem; background: var(--white); text-align: center; }
+        .index-contact .cl {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 0.65rem; letter-spacing: 0.35em;
+            color: var(--gray-400); text-transform: uppercase;
+            margin-bottom: 1rem; display: block;
+        }
+        .index-contact .contact-cta {
+            display: inline-flex; align-items: center; gap: 0.8rem;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 0.82rem; letter-spacing: 0.15em; color: var(--primary);
+            padding-bottom: 0.3rem; border-bottom: 1px solid var(--primary); transition: all 0.4s;
+        }
+        .index-contact .contact-cta:hover { gap: 1.2rem; }
+        .index-contact .contact-cta svg {
+            width: 16px; height: 16px; stroke: var(--primary); fill: none; stroke-width: 1.5;
+        }
+
+        .footer-sns {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .footer-sns a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px; height: 36px;
+            color: var(--gray-400);
+            transition: color 0.3s;
+        }
+        .footer-sns a:hover { color: var(--black); }
+        .footer-sns a svg { width: 20px; height: 20px; fill: currentColor; }
+
+        @media (max-width: 640px) {
+            .index-nav-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+            .index-nav-card { padding: 2.5rem 2rem; }
+            .partner-item {
+                width: 120px;
+                height: 120px;
+                margin: 0 25px;
+                padding: 20px;
+            }
+            .partner-item .text-logo {
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* フッターロゴ大きく */
+        .footer-brand img {
+            height: 48px !important;
+            width: auto !important;
+        }
+        
+        /* ヘッダーナビ（右上固定） */
+        .header-nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            padding: 1.5rem 2.5rem;
+            z-index: 100;
+        }
+        .header-nav a {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            color: var(--gray-500);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .header-nav a:hover {
+            color: var(--black);
+        }
+        .header-nav a.contact-link {
+            color: var(--primary);
+        }
+        .header-nav a.contact-link:hover {
+            color: #7a1a28;
+        }
+        
+        @media (max-width: 640px) {
+            .header-nav {
+                gap: 1.2rem;
+                padding: 1rem 1.2rem;
+            }
+            .header-nav a {
+                font-size: 0.65rem;
+            }
+        }
+
+        /* ── Vision Map ── */
+        .index-vision { padding: var(--sp-xl) 2rem; background: var(--cream); }
+        .index-vision-inner { max-width: 1000px; margin: 0 auto; }
+        .vision-head { text-align: center; margin-bottom: 2.5rem; }
+        .vision-label {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 0.65rem; letter-spacing: 0.35em; color: var(--gray-400);
+            text-transform: uppercase; display: block; margin-bottom: 0.8rem;
+        }
+        .vision-heading {
+            font-family: "Noto Serif JP", serif; font-weight: 400;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem); letter-spacing: 0.06em;
+            color: var(--black); line-height: 1.6;
+        }
+        .vision-desc {
+            font-size: 0.85rem; font-weight: 300; color: var(--gray-500);
+            line-height: 2; margin-top: 1rem;
+        }
+        .vision-figure {
+            position: relative; display: block;
+            background: var(--white); border: 1px solid var(--gray-200); padding: 8px;
+            transition: box-shadow 0.5s ease, transform 0.5s ease;
+        }
+        .vision-figure:hover { box-shadow: 0 22px 55px rgba(0,0,0,0.12); transform: translateY(-3px); }
+        .vision-figure img { width: 100%; display: block; }
+        .vision-pin {
+            position: absolute; transform: translate(-50%, -50%);
+            width: 3.1%; min-width: 28px; aspect-ratio: 1 / 1; border-radius: 50%;
+            background: rgba(255,255,255,0.94); border: 1px solid var(--primary);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+            display: flex; align-items: center; justify-content: center;
+            font-family: "Cormorant Garamond", serif; font-weight: 500;
+            font-size: clamp(0.72rem, 1.05vw, 0.95rem); color: var(--primary);
+            pointer-events: none;
+            transition: background 0.4s, color 0.4s;
+        }
+        .vision-figure:hover .vision-pin { background: var(--primary); color: var(--white); }
+        .vision-foot { text-align: center; margin-top: 2rem; }
+        @media (max-width: 768px) {
+            .index-vision { padding: var(--sp-lg) 1.2rem; }
+            .vision-pin { min-width: 22px; font-size: 0.62rem; }
+        }
+
         /* ── 印刷・PDF ── */
         @media print {
             .reveal { opacity: 1 !important; transform: none !important; }

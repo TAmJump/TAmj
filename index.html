@@ -134,6 +134,240 @@
             .lead-cta { display: grid; grid-template-columns: 1fr; gap: 0.7rem; }
         }
 
+        /* Partners - 流れるマーキー */
+        .index-partners { 
+            padding: 6rem 0; 
+            background: var(--cream); 
+            text-align: center;
+            overflow: hidden;
+        }
+        .partners-label {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 0.65rem; letter-spacing: 0.35em;
+            color: var(--gray-400); text-transform: uppercase; margin-bottom: 3rem;
+        }
+        
+        /* マーキーラッパー */
+        .marquee-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        .marquee-wrapper::before,
+        .marquee-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 120px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .marquee-wrapper::before {
+            left: 0;
+            background: linear-gradient(to right, var(--cream), transparent);
+        }
+        .marquee-wrapper::after {
+            right: 0;
+            background: linear-gradient(to left, var(--cream), transparent);
+        }
+        
+        .marquee-track {
+            display: flex;
+            align-items: center;
+            animation: marqueeScroll 30s linear infinite;
+            width: max-content;
+        }
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+        
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .partner-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 160px;
+            height: 160px;
+            margin: 0 30px;
+            opacity: 0.7;
+            transition: opacity 0.4s;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 50%;
+            background: #fff;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            flex-shrink: 0;
+        }
+        .partner-item:hover { opacity: 1; }
+        .partner-item img { 
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* 横長ロゴはcontain表示＋余白 */
+        .partner-item.fit-contain img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+        }
+        /* ロゴ背景色を丸枠と同化させる */
+        .partner-item.bg-red    { background: #DA4616; border-color: #DA4616; }
+        .partner-item.bg-blue   { background: #007CA2; border-color: #007CA2; }
+        .partner-item.bg-black  { background: #000;    border-color: #000;    }
+        .partner-item .text-logo {
+            font-family: "Noto Sans JP", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--charcoal);
+            letter-spacing: 0.05em;
+            text-align: center;
+        }
+
+        /* Contact */
+        .index-contact { padding: 5rem 2rem; background: var(--white); text-align: center; }
+        .index-contact .cl {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 0.65rem; letter-spacing: 0.35em;
+            color: var(--gray-400); text-transform: uppercase;
+            margin-bottom: 1rem; display: block;
+        }
+        .index-contact .contact-cta {
+            display: inline-flex; align-items: center; gap: 0.8rem;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 0.82rem; letter-spacing: 0.15em; color: var(--primary);
+            padding-bottom: 0.3rem; border-bottom: 1px solid var(--primary); transition: all 0.4s;
+        }
+        .index-contact .contact-cta:hover { gap: 1.2rem; }
+        .index-contact .contact-cta svg {
+            width: 16px; height: 16px; stroke: var(--primary); fill: none; stroke-width: 1.5;
+        }
+
+        .footer-sns {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .footer-sns a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px; height: 36px;
+            color: var(--gray-400);
+            transition: color 0.3s;
+        }
+        .footer-sns a:hover { color: var(--black); }
+        .footer-sns a svg { width: 20px; height: 20px; fill: currentColor; }
+
+        @media (max-width: 640px) {
+            .index-nav-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+            .index-nav-card { padding: 2.5rem 2rem; }
+            .partner-item {
+                width: 120px;
+                height: 120px;
+                margin: 0 25px;
+                padding: 20px;
+            }
+            .partner-item .text-logo {
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* フッターロゴ大きく */
+        .footer-brand img {
+            height: 48px !important;
+            width: auto !important;
+        }
+        
+        /* ヘッダーナビ（右上固定） */
+        .header-nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            padding: 1.5rem 2.5rem;
+            z-index: 100;
+        }
+        .header-nav a {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            color: var(--gray-500);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .header-nav a:hover {
+            color: var(--black);
+        }
+        .header-nav a.contact-link {
+            color: var(--primary);
+        }
+        .header-nav a.contact-link:hover {
+            color: #7a1a28;
+        }
+        
+        @media (max-width: 640px) {
+            .header-nav {
+                gap: 1.2rem;
+                padding: 1rem 1.2rem;
+            }
+            .header-nav a {
+                font-size: 0.65rem;
+            }
+        }
+
+        /* ── Vision Map ── */
+        .index-vision { padding: var(--sp-xl) 2rem; background: var(--cream); }
+        .index-vision-inner { max-width: 1000px; margin: 0 auto; }
+        .vision-head { text-align: center; margin-bottom: 2.5rem; }
+        .vision-label {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 0.65rem; letter-spacing: 0.35em; color: var(--gray-400);
+            text-transform: uppercase; display: block; margin-bottom: 0.8rem;
+        }
+        .vision-heading {
+            font-family: "Noto Serif JP", serif; font-weight: 400;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem); letter-spacing: 0.06em;
+            color: var(--black); line-height: 1.6;
+        }
+        .vision-desc {
+            font-size: 0.85rem; font-weight: 300; color: var(--gray-500);
+            line-height: 2; margin-top: 1rem;
+        }
+        .vision-figure {
+            position: relative; display: block;
+            background: var(--white); border: 1px solid var(--gray-200); padding: 8px;
+            transition: box-shadow 0.5s ease, transform 0.5s ease;
+        }
+        .vision-figure:hover { box-shadow: 0 22px 55px rgba(0,0,0,0.12); transform: translateY(-3px); }
+        .vision-figure img { width: 100%; display: block; }
+        .vision-pin {
+            position: absolute; transform: translate(-50%, -50%);
+            width: 3.1%; min-width: 28px; aspect-ratio: 1 / 1; border-radius: 50%;
+            background: rgba(255,255,255,0.94); border: 1px solid var(--primary);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+            display: flex; align-items: center; justify-content: center;
+            font-family: "Cormorant Garamond", serif; font-weight: 500;
+            font-size: clamp(0.72rem, 1.05vw, 0.95rem); color: var(--primary);
+            pointer-events: none;
+            transition: background 0.4s, color 0.4s;
+        }
+        .vision-figure:hover .vision-pin { background: var(--primary); color: var(--white); }
+        .vision-foot { text-align: center; margin-top: 2rem; }
+        @media (max-width: 768px) {
+            .index-vision { padding: var(--sp-lg) 1.2rem; }
+            .vision-pin { min-width: 22px; font-size: 0.62rem; }
+        }
+
         /* ── 印刷・PDF ── */
         @media print {
             .reveal { opacity: 1 !important; transform: none !important; }
