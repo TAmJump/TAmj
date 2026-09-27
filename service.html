@@ -7,8 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+JP:wght@200;300;400;500;700&family=Noto+Serif+JP:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/base.css?v=20260928b">
-    <link rel="stylesheet" href="css/corporate.css?v=20260928b">
+    <link rel="stylesheet" href="css/base.css?v=20260928c">
+    <link rel="stylesheet" href="css/corporate.css?v=20260928c">
     <style>
         .tab-section {
             max-width: 780px;
@@ -364,6 +364,12 @@
         }
         .pnl-change { font-size: 0.84rem; font-weight: 300; color: var(--gray-500); line-height: 2; max-width: 36em; margin: 0 auto 2rem; }
         .pnl-aim { max-width: 30em; margin-left: auto; margin-right: auto; }
+        .pnl-hook { font-family: "Noto Serif JP", serif; font-size: clamp(1.15rem, 2.8vw, 1.45rem); font-weight: 400; color: var(--black); line-height: 1.8; letter-spacing: 0.05em; max-width: 26em; margin: 0 auto 1.2rem; }
+        .pnl-peek { margin-bottom: 3rem; }
+        @media (max-width: 640px) {
+            .product-item { flex-wrap: wrap; }
+            .product-desc { display: block; order: 3; flex: 0 0 100%; margin: 0.35rem 0 0; line-height: 1.8; }
+        }
     </style>
 </head>
 <body>
@@ -391,6 +397,8 @@
         <div class="tab-panels" id="tabPanels">
             <div class="tab-panel active" id="panel-app">
                 <div class="pnl-lead">
+                    <p class="pnl-hook" data-i18n="hook1">家族が退院するとき、病院と施設のやり取りはまだ電話と紙。それを、スマホ1台に。</p>
+                    <p class="pnl-peek"><a href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" class="text-link" data-i18n="peek1">ｍやるゼ！を見てみる</a></p>
                     <p class="pnl-k" data-i18n="lbl.aim">目的</p>
                     <p class="pnl-aim" data-i18n="biz1.aim">医療・介護の事業者に事務を減らす道具を渡し、売上と利益を上げてもらう。</p>
                     <p class="pnl-k" data-i18n="lbl.change">変わること</p>
@@ -406,7 +414,7 @@
                         <span class="store-text">
                             <span class="store-name" data-i18n="card1.h">やるゼ！</span>
                             <span class="store-tag" data-i18n="onplay">Google Play で配信中</span>
-                            <span class="store-desc" data-i18n="app.yaruze.d">現場のアプリをまとめる入口。必要なものだけを使える。</span>
+                            <span class="store-desc" data-i18n="app.yaruze.d">現場で使うアプリの入口。必要なものだけ選んで使う。</span>
                         </span>
                     </a>
                     <span class="store-cta">
@@ -420,7 +428,7 @@
                         <span class="store-text">
                             <span class="store-name" data-i18n="tag.m">ｍやるゼ！</span>
                             <span class="store-tag" data-i18n="onplay">Google Play で配信中</span>
-                            <span class="store-desc" data-i18n="app.myaruze.d">医療・介護の法人間連携。受入れ・移行・同意書・会議を1件のケースで。</span>
+                            <span class="store-desc" data-i18n="app.myaruze.d">病院・介護施設・家族のやり取りを、スマホ1台に。署名もスマホで。</span>
                         </span>
                     </a>
                     <span class="store-cta">
@@ -430,12 +438,12 @@
                 </div>
                 <a class="product-item" href="https://tyaruze.tamjump.com/" target="_blank" rel="noopener">
                     <span class="product-name" data-i18n="tag.t">ｔやるゼ！</span>
-                    <span class="product-desc" data-i18n="app.tyaruze.d">施設設備の通報と管理会社への連絡を1画面で。</span>
+                    <span class="product-desc" data-i18n="app.tyaruze.d">施設の電球が切れた、水が漏れた。その連絡をボタン1つで。</span>
                     <span class="product-arrow">→</span>
                 </a>
                 <a class="product-item" href="https://carepass.tamjump.com/" target="_blank" rel="noopener">
                     <span class="product-name" data-i18n="tag.carepass">Care Support Pass</span>
-                    <span class="product-desc" data-i18n="app.carepass.d">施設運営を支える月額会員の仕組み。</span>
+                    <span class="product-desc" data-i18n="app.carepass.d">月100円で、近所の介護施設を応援できる会員制度。</span>
                     <span class="product-arrow">→</span>
                 </a>
                 </div>
@@ -454,6 +462,8 @@
             </div>
             <div class="tab-panel" id="panel-dev">
                 <div class="pnl-lead">
+                    <p class="pnl-hook" data-i18n="hook2">住んでいる街の介護施設、10年後も残っていますか。</p>
+                    <p class="pnl-peek"><a href="https://teamone.tamjump.com/" target="_blank" rel="noopener" class="text-link" data-i18n="peek2">あなたの街を調べる</a></p>
                     <p class="pnl-k" data-i18n="lbl.aim">目的</p>
                     <p class="pnl-aim" data-i18n="biz2.aim">施設を持つ人・継ぐ人・投資する人に、利回りと出口を。売れない施設も立て直して取引にのせる。</p>
                     <p class="pnl-k" data-i18n="lbl.change">変わること</p>
@@ -465,22 +475,22 @@
                 <div class="plist">
                 <a class="product-item" href="https://develop.tamjump.com/" target="_blank" rel="noopener">
                     <span class="product-name" data-i18n="dev.r1">掲載中の開発案件・M&amp;A案件</span>
-                    <span class="product-desc" data-i18n="dev.r1d">物件ごとにNDAを結んで閲覧。</span>
+                    <span class="product-desc" data-i18n="dev.r1d">売りに出ている土地と施設を見る。</span>
                     <span class="product-arrow">→</span>
                 </a>
                 <a class="product-item" href="https://tamjump.github.io/develop/" target="_blank" rel="noopener">
                     <span class="product-name" data-i18n="dev.r2">介護・医療施設 開発シミュレーション</span>
-                    <span class="product-desc" data-i18n="dev.r2d">施設種別と定員から建築費・投資額を概算。</span>
+                    <span class="product-desc" data-i18n="dev.r2d">施設を建てたらいくらかかるか、数字を入れるだけで分かる。</span>
                     <span class="product-arrow">→</span>
                 </a>
                 <a class="product-item" href="https://develop.tamjump.com/lp-mci.html" target="_blank" rel="noopener">
                     <span class="product-name" data-i18n="dev.r3">建設コスト根拠ツール</span>
-                    <span class="product-desc" data-i18n="dev.r3d">8指標のMCI指数で、根拠のある提案資料を。</span>
+                    <span class="product-desc" data-i18n="dev.r3d">その建築費が高いか安いか、根拠つきで確かめる。</span>
                     <span class="product-arrow">→</span>
                 </a>
                 <a class="product-item" href="https://teamone.tamjump.com/" target="_blank" rel="noopener">
                     <span class="product-name" data-i18n="dev.r4">teamONE 地域分析</span>
-                    <span class="product-desc" data-i18n="dev.r4d">全国1,740市区町村の需給を4つの軸で。</span>
+                    <span class="product-desc" data-i18n="dev.r4d">住んでいる街に、介護がどれだけ足りているかを見る。</span>
                     <span class="product-arrow">→</span>
                 </a>
                 </div>
@@ -499,6 +509,8 @@
             </div>
             <div class="tab-panel" id="panel-make">
                 <div class="pnl-lead">
+                    <p class="pnl-hook" data-i18n="hook3">音楽を聴く。顔写真でアートに加わる。ゲームで勝負する。そこで、人と出逢う。</p>
+                    <p class="pnl-peek"><a href="https://oneheart.tamjump.com/" target="_blank" rel="noopener" class="text-link" data-i18n="peek3">ONE HEART に参加する</a></p>
                     <p class="pnl-k" data-i18n="lbl.aim">目的</p>
                     <p class="pnl-aim" data-i18n="biz3.aim">音楽・アート・ゲームに参加する人に、楽しみと出逢いを。そこで生まれた縁を、仕事と収益につなぐ。</p>
                     <p class="pnl-k" data-i18n="lbl.change">変わること</p>
@@ -510,22 +522,22 @@
                 <div class="plist">
                 <a class="product-item" href="contact.html?topic=build">
                     <span class="product-name" data-i18n="mk.r1">業務システム・サイト・アプリの受託開発</span>
-                    <span class="product-desc" data-i18n="mk.r1d">医療・介護の要件がそのまま通じる。1画面から。</span>
+                    <span class="product-desc" data-i18n="mk.r1d">こんなアプリがほしい、を形にする。1画面から。</span>
                     <span class="product-arrow">→</span>
                 </a>
                 <a class="product-item" href="https://tamsic.tamjump.com/" target="_blank" rel="noopener">
                     <span class="product-name" data-i18n="mk.r2">TAMSIC</span>
-                    <span class="product-desc" data-i18n="mk.r2d">命と人間をテーマにした音楽レーベル。</span>
+                    <span class="product-desc" data-i18n="mk.r2d">命と人間を歌う、小さな音楽レーベル。YouTubeで全曲聴ける。</span>
                     <span class="product-arrow">→</span>
                 </a>
                 <a class="product-item" href="https://oneheart.tamjump.com/" target="_blank" rel="noopener">
                     <span class="product-name" data-i18n="mk.r3">ONE HEART</span>
-                    <span class="product-desc" data-i18n="mk.r3d">顔写真でつくる参加型モザイクアート。IDを持つ人だけの交流の場へ。</span>
+                    <span class="product-desc" data-i18n="mk.r3d">顔写真1枚が、世界規模のモザイクアートの1ピースになる。</span>
                     <span class="product-arrow">→</span>
                 </a>
                 <a class="product-item" href="https://king2323.tamjump.com/" target="_blank" rel="noopener">
                     <span class="product-name" data-i18n="mk.r4">KINGMAKER 23:23</span>
-                    <span class="product-desc" data-i18n="mk.r4d">5分で決着する参加型ゲーム。勝負のあとに、参加者同士が出逢う場を。</span>
+                    <span class="product-desc" data-i18n="mk.r4d">5分で決着する参加型ゲーム。勝負のあとに、参加者同士が出逢う。</span>
                     <span class="product-arrow">→</span>
                 </a>
                 </div>
@@ -665,7 +677,7 @@
         window.addEventListener('load', badge);
         new MutationObserver(badge).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
     </script>
-    <script src="js/translations.js?v=20260928b"></script>
-    <script src="js/lang.js?v=20260928b"></script>
+    <script src="js/translations.js?v=20260928c"></script>
+    <script src="js/lang.js?v=20260928c"></script>
 </body>
 </html>
