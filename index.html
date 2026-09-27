@@ -3,170 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAmJ | 医療と介護を、続けられるようにする。</title>
-    <meta name="description" content="医療・介護の現場から生まれた会社です。法人間連携アプリ ｍやるゼ！は1人 月200円から。施設の開発と承継、受託開発まで。タムジ株式会社（東京）。">
+    <title>TAmJ | Touch all minds, Jump</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+JP:wght@200;300;400;500;700&family=Noto+Serif+JP:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/base.css?v=20260520b">
-    <link rel="stylesheet" href="css/corporate.css?v=20260520b">
+    <link rel="stylesheet" href="css/base.css?v=20260928a">
+    <link rel="stylesheet" href="css/corporate.css?v=20260928a">
     <style>
-        /* ── HERO ── */
-        .lead-hero { padding: 9rem 2rem 4.5rem; background: var(--warm-white); }
-        .lead-inner { max-width: 1080px; margin: 0 auto; }
-        .lead-brand {
-            font-family: var(--font-display);
-            font-size: 0.7rem; letter-spacing: 0.34em; text-transform: uppercase;
-            color: var(--gray-400); margin-bottom: 2.2rem; display: block;
+        .index-hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: var(--warm-white);
         }
-        .lead-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 4.5rem; align-items: start; }
-        .lead-eyebrow {
-            display: inline-block; font-size: 0.68rem; font-weight: 500;
-            letter-spacing: 0.22em; color: var(--primary);
-            border: 1px solid var(--primary); border-radius: 2px;
-            padding: 0.45rem 0.9rem; margin-bottom: 1.8rem;
+        .index-hero-inner { text-align: center; padding: 0 2rem; }
+        .index-logo {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            color: var(--black);
+            line-height: 1;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: softFadeUp 1.2s 0.3s forwards;
         }
-        .lead-h1 {
-            font-family: var(--font-serif); font-weight: 500;
-            font-size: clamp(1.75rem, 4vw, 2.5rem); line-height: 1.5;
-            letter-spacing: 0.03em; color: var(--black); margin-bottom: 1.5rem;
+        .index-tagline {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+            font-weight: 400;
+            letter-spacing: 0.4em;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            opacity: 0;
+            animation: softFadeUp 1.2s 0.7s forwards;
         }
-        .lead-h1 span { display: inline-block; }
-        .lead-h1 em { font-style: normal; color: var(--primary); }
-        .lead-sub {
-            font-size: 0.95rem; font-weight: 300; line-height: 2.1;
-            color: var(--gray-700); max-width: 34em; margin-bottom: 2.4rem;
+        .index-sub {
+            font-family: "Noto Serif JP", serif;
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: var(--gray-500);
+            margin-top: 1.5rem;
+            letter-spacing: 0.06em;
+            line-height: 2;
+            opacity: 0;
+            animation: softFadeUp 1.2s 1s forwards;
         }
-        .lead-cta { display: flex; gap: 0.9rem; flex-wrap: wrap; align-items: center; }
-        .btn-solid, .btn-line {
-            display: inline-block; padding: 1.05rem 2.2rem; border-radius: 2px;
-            font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em;
-            transition: all 0.4s ease;
+        .index-scroll {
+            position: absolute; bottom: 2.5rem; left: 50%;
+            transform: translateX(-50%);
+            display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+            opacity: 0; animation: softFadeUp 1s 1.5s forwards;
         }
-        .btn-solid { background: var(--primary); color: var(--white); border: 1px solid var(--primary); }
-        .btn-solid:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
-        .btn-line { color: var(--black); border: 1px solid var(--gray-200); }
-        .btn-line:hover { border-color: var(--black); }
-        .lead-note { font-size: 0.72rem; color: var(--gray-400); margin-top: 1.1rem; letter-spacing: 0.04em; }
+        .index-scroll span {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gray-300);
+            text-transform: uppercase;
+        }
+        .scroll-line {
+            width: 1px; height: 40px;
+            background: linear-gradient(to bottom, var(--gray-300), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.4; } 50% { opacity: 1; }
+        }
 
-        /* product shot */
-        .lead-shot { padding-top: 0.4rem; }
-        .shot {
-            border: 1px solid var(--gray-200); background: var(--white);
-            box-shadow: 0 18px 50px rgba(0,0,0,0.06);
+        /* Two doors */
+        .index-nav { padding: 8rem 2rem; background: var(--white); }
+        .index-nav-inner {
+            max-width: 800px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
         }
-        .shot-bar {
-            display: flex; align-items: center; gap: 6px;
-            padding: 0.65rem 0.9rem; border-bottom: 1px solid var(--gray-100); background: var(--cream);
+        .index-nav-card {
+            display: block; padding: 3.5rem 2.5rem;
+            border: 1px solid var(--gray-100); border-radius: 2px;
+            transition: all 0.5s ease; text-align: center;
         }
-        .shot-bar span { width: 8px; height: 8px; border-radius: 50%; background: var(--gray-200); }
-        .shot-bar p {
-            margin-left: 0.6rem; font-size: 0.64rem; letter-spacing: 0.1em;
-            color: var(--gray-500); font-weight: 500;
+        .index-nav-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.04);
+            transform: translateY(-4px);
         }
-        .shot-body { padding: 1.1rem 1.1rem 1.3rem; }
-        .shot-kpi { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; margin-bottom: 1.1rem; }
-        .shot-kpi div { border: 1px solid var(--gray-100); padding: 0.6rem 0.7rem; }
-        .shot-kpi b {
-            display: block; font-family: var(--font-display); font-size: 1.5rem;
-            font-weight: 500; color: var(--primary); line-height: 1.1;
+        .index-nav-card .card-label {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 0.65rem; letter-spacing: 0.35em;
+            color: var(--gray-400); text-transform: uppercase;
+            margin-bottom: 1.5rem; display: block;
         }
-        .shot-kpi span { font-size: 0.62rem; color: var(--gray-500); letter-spacing: 0.04em; }
-        .shot-row { border: 1px solid var(--gray-100); padding: 0.7rem 0.85rem; margin-bottom: 0.55rem; }
-        .shot-row.hot { border-color: var(--primary); background: var(--primary-pale); }
-        .shot-row .t { font-size: 0.78rem; font-weight: 500; color: var(--black); }
-        .shot-row .s { font-size: 0.66rem; color: var(--gray-500); margin-top: 0.15rem; }
-        .shot-cap { font-size: 0.68rem; color: var(--gray-400); line-height: 1.9; margin-top: 0.9rem; }
-
-        /* three answers strip */
-        .answer-strip { background: var(--white); border-top: 1px solid var(--gray-100); padding: 2.4rem 2rem; }
-        .answer-strip dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.6rem; }
-        .answer-strip .ans dt {
-            font-family: var(--font-display); font-size: 0.64rem; letter-spacing: 0.22em;
-            text-transform: uppercase; color: var(--gray-400); margin-bottom: 0.6rem;
+        .index-nav-card .card-heading {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.8rem; font-weight: 400;
+            letter-spacing: 0.12em; color: var(--black); margin-bottom: 1rem;
         }
-        .answer-strip .ans dd { font-size: 0.85rem; font-weight: 300; line-height: 1.95; color: var(--black); }
-        .answer-strip .ans dd .amt {
-            font-family: var(--font-display); font-size: 1.6rem; font-weight: 500;
-            color: var(--primary); letter-spacing: 0.02em;
+        .index-nav-card .card-jp {
+            font-family: "Noto Serif JP", serif;
+            font-size: 0.82rem; font-weight: 300;
+            color: var(--gray-500); letter-spacing: 0.06em;
+            margin-bottom: 2rem; line-height: 1.8;
         }
-        .answer-strip .ans dd small { font-size: 0.72rem; color: var(--gray-500); }
-
-        /* ── GOAL ── */
-        .goal { padding: 6.5rem 2rem; background: var(--white); border-top: 1px solid var(--gray-100); }
-        .goal-inner { max-width: 1080px; margin: 0 auto; }
-        .sec-label {
-            font-family: var(--font-display); font-size: 0.65rem;
-            letter-spacing: 0.35em; text-transform: uppercase;
-            color: var(--gray-400); display: block; margin-bottom: 1.2rem;
+        .index-nav-card .card-arrow {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 0.7rem; letter-spacing: 0.2em;
+            color: var(--primary); transition: letter-spacing 0.4s;
         }
-        .sec-h2 {
-            font-family: var(--font-serif); font-weight: 400;
-            font-size: clamp(1.35rem, 3.2vw, 1.95rem); line-height: 1.75;
-            letter-spacing: 0.05em; color: var(--black); margin-bottom: 1rem;
-        }
-        .sec-lead { font-size: 0.9rem; font-weight: 300; line-height: 2.1; color: var(--gray-700); max-width: 42em; }
-        .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.4rem; margin-top: 3.6rem; }
-        .step { position: relative; padding-top: 2.2rem; border-top: 2px solid var(--primary); }
-        .step .no {
-            position: absolute; top: -0.95rem; left: 0; background: var(--white);
-            padding-right: 0.8rem; font-family: var(--font-display);
-            font-size: 0.85rem; letter-spacing: 0.2em; color: var(--primary);
-        }
-        .step h3 { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 500; color: var(--black); margin-bottom: 0.8rem; letter-spacing: 0.04em; }
-        .step p { font-size: 0.85rem; font-weight: 300; line-height: 2; color: var(--gray-700); }
-
-        /* ── SERVICES ── */
-        .biz { padding: 6.5rem 2rem; background: var(--cream); }
-        .biz-inner { max-width: 1080px; margin: 0 auto; }
-        .biz-list { margin-top: 3.4rem; }
-        .biz-row {
-            display: grid; grid-template-columns: 0.9fr 1.5fr 0.8fr;
-            gap: 2.6rem; align-items: start;
-            padding: 2.8rem 0; border-top: 1px solid var(--gray-200);
-        }
-        .biz-row:last-child { border-bottom: 1px solid var(--gray-200); }
-        .biz-name { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; color: var(--black); letter-spacing: 0.04em; margin-bottom: 0.5rem; }
-        .biz-for { font-size: 0.74rem; letter-spacing: 0.1em; color: var(--primary); font-weight: 500; }
-        .biz-body p { font-size: 0.88rem; font-weight: 300; line-height: 2.05; color: var(--gray-700); }
-        .biz-aim {
-            margin-top: 0.9rem; font-size: 0.82rem; font-weight: 400; color: var(--black);
-            border-left: 2px solid var(--primary); padding-left: 0.8rem; line-height: 1.9;
-        }
-        .biz-aim b { font-weight: 500; color: var(--primary); font-size: 0.7rem; letter-spacing: 0.1em; }
-        .biz-tags { margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
-        .biz-tags span {
-            font-size: 0.68rem; letter-spacing: 0.06em; color: var(--gray-500);
-            border: 1px solid var(--gray-200); border-radius: 2px; padding: 0.25rem 0.6rem;
-        }
-        .biz-price { text-align: right; }
-        .biz-price .p {
-            font-family: var(--font-display); font-size: 1.7rem; font-weight: 500;
-            color: var(--black); letter-spacing: 0.02em; line-height: 1.3;
-        }
-        .biz-price .u { font-size: 0.72rem; color: var(--gray-500); font-weight: 300; display: block; margin-bottom: 1rem; }
-        .biz-price a { font-size: 0.78rem; color: var(--primary); letter-spacing: 0.08em; border-bottom: 1px solid var(--primary); padding-bottom: 2px; }
-
-        /* ── PROOF ── */
-        .proof { padding: 5rem 2rem; background: var(--warm-white); border-top: 1px solid var(--gray-100); }
-        .proof-inner { max-width: 1080px; margin: 0 auto; }
-        .nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 2.6rem; }
-        .num .v { font-family: var(--font-display); font-size: 2.5rem; font-weight: 400; color: var(--primary); line-height: 1.1; }
-        .num .l { font-size: 0.76rem; font-weight: 300; color: var(--gray-500); letter-spacing: 0.06em; margin-top: 0.5rem; line-height: 1.8; }
-        .proof-note { font-size: 0.78rem; color: var(--gray-500); font-weight: 300; margin-top: 2.6rem; line-height: 2; }
-
-        @media (max-width: 900px) {
-            .lead-hero { padding: 7rem 1.5rem 3.5rem; }
-            .lead-grid { grid-template-columns: 1fr; gap: 3rem; }
-            .answer-strip dl { grid-template-columns: 1fr; gap: 1.8rem; }
-            .answer-strip { padding: 2rem 1.5rem; }
-            .steps { grid-template-columns: 1fr; gap: 2.8rem; }
-            .biz-row { grid-template-columns: 1fr; gap: 1.4rem; }
-            .biz-price { text-align: left; }
-            .nums { grid-template-columns: 1fr 1fr; gap: 2.2rem; }
-            .btn-solid, .btn-line { display: block; text-align: center; }
-            .lead-cta { display: grid; grid-template-columns: 1fr; gap: 0.7rem; }
-        }
+        .index-nav-card:hover .card-arrow { letter-spacing: 0.35em; }
 
         /* Partners - 流れるマーキー */
         .index-partners { 
@@ -402,86 +346,30 @@
             .vision-pin { min-width: 22px; font-size: 0.62rem; }
         }
 
-        /* ── 印刷・PDF ── */
-        @media print {
-            .reveal { opacity: 1 !important; transform: none !important; }
-            .header-nav,
-            a[href*="kickstarter"],
-            .index-partners,
-            .marquee-wrapper,
-            .index-scroll { display: none !important; }
-            .lead-hero { padding: 0 0 1.5rem !important; }
-            .goal, .biz, .proof, .sv-block, .sv-price, .sv-faq,
-            .index-vision, .index-contact, .page-top { padding: 1.4rem 0 !important; }
-            section { break-inside: avoid; page-break-inside: avoid; }
-            .index-vision-inner img { max-height: 11cm; width: auto; margin: 0 auto; display: block; }
-            .qa details { break-inside: avoid; }
-            .qa .a { display: block !important; }
-            body { font-size: 10.5pt; background: #fff; }
-            footer { break-before: avoid; }
+        /* ── 約束の1行・3つの事業カード ── */
+        .index-promise {
+            font-family: "Noto Serif JP", serif; font-weight: 500;
+            font-size: clamp(1.15rem, 2.6vw, 1.6rem); letter-spacing: 0.08em;
+            color: var(--black); margin-top: 2.6rem; line-height: 1.7;
+            opacity: 0; animation: softFadeUp 1.2s 0.9s forwards;
         }
-        /* ── BUSINESS（目的・ゴール・現在地／3つの入口） ── */
-        .biz-row { grid-template-columns: 1.15fr 1.25fr 0.85fr; }
-        .biz-desc { font-size: 0.84rem; font-weight: 300; line-height: 2; color: var(--gray-700); margin-top: 0.9rem; }
-        .biz-pg { margin: 0; }
-        .biz-pg > div { padding: 0.95rem 0; border-top: 1px solid var(--gray-200); }
-        .biz-pg > div:first-child { border-top: 0; padding-top: 0; }
-        .biz-pg dt { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; color: var(--primary); margin-bottom: 0.3rem; }
-        .biz-pg dd { margin: 0; font-size: 0.86rem; font-weight: 300; line-height: 1.95; color: var(--gray-700); }
-        .biz-pg .pg-goal dd { font-family: var(--font-serif); font-size: 1.02rem; font-weight: 500; line-height: 1.85; color: var(--black); letter-spacing: 0.02em; }
-        .biz-price { text-align: left; border-left: 1px solid var(--gray-200); padding-left: 1.6rem; }
-        .biz-ways { list-style: none; margin: 0.4rem 0 0; padding: 0; border-top: 1px solid var(--gray-200); }
-        .biz-ways li { padding: 0.7rem 0; border-bottom: 1px solid var(--gray-200); }
-        .biz-ways li span { display: block; font-size: 0.64rem; letter-spacing: 0.12em; color: var(--gray-400); margin-bottom: 0.15rem; }
-        .biz-price .biz-ways a { font-size: 0.8rem; line-height: 1.6; border-bottom: 0; padding-bottom: 0; }
-        .biz-price .biz-ways a:hover, .biz-price .biz-ways a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
-
-        /* ── 3つの窓口 ── */
-        .join { padding: 6rem 2rem; background: var(--white); border-top: 1px solid var(--gray-100); }
-        .join-inner { max-width: 1080px; margin: 0 auto; }
-        .join-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 3rem; border: 1px solid var(--gray-200); }
-        .join-cell { padding: 2.4rem 2rem 2.2rem; display: flex; flex-direction: column; align-items: flex-start; }
-        .join-cell + .join-cell { border-left: 1px solid var(--gray-200); }
-        .join-cell h3 { font-family: var(--font-serif); font-size: 1.12rem; font-weight: 500; color: var(--black); letter-spacing: 0.04em; margin-bottom: 0.8rem; }
-        .join-cell p { font-size: 0.84rem; font-weight: 300; line-height: 2; color: var(--gray-700); margin-bottom: 1.8rem; flex: 1; }
-        .join-cell .btn-solid, .join-cell .btn-line { padding: 0.85rem 1.6rem; }
-
+        .index-nav-inner.three { max-width: 1080px; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .index-nav-inner.three .index-nav-card { padding: 3rem 1.8rem; display: flex; flex-direction: column; align-items: center; }
+        .index-nav-inner.three .card-heading { font-family: "Noto Serif JP", serif; font-size: 1.3rem; font-weight: 400; letter-spacing: 0.08em; }
+        .index-nav-inner.three .card-jp { margin-bottom: 1.6rem; flex: 1; }
+        .card-goal { margin-bottom: 1.8rem; }
+        .card-goal-l { display: block; font-family: "Cormorant Garamond", serif; font-size: 0.62rem; letter-spacing: 0.3em; color: var(--gray-400); margin-bottom: 0.3rem; }
+        .card-goal-n { font-family: "Noto Serif JP", serif; font-size: 1.05rem; font-weight: 500; color: var(--primary); letter-spacing: 0.04em; }
+        .contact-ways { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 2.4rem; }
         @media (max-width: 900px) {
-            .biz-row { grid-template-columns: 1fr; }
-            .biz-price { border-left: 0; padding-left: 0; border-top: 1px solid var(--gray-200); padding-top: 1.2rem; }
-            .join { padding: 4.5rem 1.5rem; }
-            .join-grid { grid-template-columns: 1fr; }
-            .join-cell + .join-cell { border-left: 0; border-top: 1px solid var(--gray-200); }
+            .index-nav-inner.three { grid-template-columns: 1fr; max-width: 460px; }
         }
         @media print {
-            .join { padding: 1.4rem 0 !important; }
-            .join-cell { padding: 1rem !important; }
+            .reveal, .index-logo, .index-tagline, .index-sub, .index-promise { opacity: 1 !important; transform: none !important; animation: none !important; }
+            .header-nav, a[href*="kickstarter"], .index-partners, .index-scroll { display: none !important; }
+            .index-hero { min-height: auto; padding: 2rem 0; }
+            .index-nav { padding: 2rem 0; }
         }
-        /* ── フック・数値ゴール ── */
-        .gnum { display: block; font-family: var(--font-serif); font-weight: 600; font-size: 1.5rem; line-height: 1.35; color: var(--primary); letter-spacing: 0.02em; margin: 0.1rem 0 0.35rem; }
-
-        /* ── 連携先 ── */
-        .pt { padding: 6rem 2rem; border-top: 1px solid var(--gray-100); }
-        .pt-idx { background: var(--white); }
-        .pt-sv { background: var(--white); padding-left: 0; padding-right: 0; }
-        .pt-inner { max-width: 1080px; margin: 0 auto; }
-        .pt-sv .pt-inner { padding: 0 2rem; }
-        .pt-grid { display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 3rem; border-top: 1px solid var(--gray-200); border-left: 1px solid var(--gray-200); }
-        .pt-cell { display: flex; flex-direction: column; gap: 0.35rem; padding: 1.6rem 1.3rem 1.5rem; border-right: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); color: inherit; }
-        a.pt-cell:hover .pt-name, a.pt-cell:focus-visible .pt-name { color: var(--primary); }
-        .pt-logo { height: 64px; display: flex; align-items: center; margin-bottom: 0.8rem; }
-        .pt-logo img { max-height: 64px; max-width: 100%; width: auto; height: auto; object-fit: contain; }
-        .pt-text { font-family: var(--font-serif); font-size: 0.82rem; line-height: 1.4; color: var(--black); border-left: 2px solid var(--primary); padding-left: 0.6rem; height: auto; min-height: 64px; }
-        .pt-name { font-size: 0.84rem; font-weight: 500; color: var(--black); line-height: 1.6; transition: color 0.3s; }
-        .pt-field { font-size: 0.72rem; font-weight: 300; color: var(--gray-500); line-height: 1.7; }
-        @media (max-width: 900px) {
-            .pt { padding: 4.5rem 1.5rem; }
-            .pt-grid { grid-template-columns: 1fr 1fr; }
-        }
-        @media print { .pt { padding: 1.4rem 0 !important; } }
-
-        /* ── 事業行（フック） ── */
-        .biz-hook { font-family: var(--font-serif); font-size: 1.12rem; font-weight: 500; line-height: 1.8; color: var(--primary); margin-top: 1.1rem; letter-spacing: 0.02em; }
     </style>
 </head>
 <body>
@@ -493,261 +381,50 @@
   <span style="color:#E4572E;font-weight:700;margin-left:8px" data-i18n="ks.join">参加する &rarr;</span>
 </a>
 
+
     <!-- ヘッダーナビ（右上） -->
     <nav class="header-nav">
         <a href="service.html" data-i18n="nav.service">SERVICE</a>
-        <a href="service.html#price" data-i18n="nav.price">PRICE</a>
         <a href="about-company.html" data-i18n="nav.company">COMPANY</a>
         <a href="contact.html" class="contact-link" data-i18n="nav.contact">CONTACT</a>
     </nav>
 
-    <!-- ══ HERO ══ -->
-    <section class="lead-hero">
-        <div class="lead-inner">
-            <span class="lead-brand">TAmJ &nbsp;—&nbsp; Touch all minds, Jump</span>
-            <div class="lead-grid">
-                <div>
-                    <span class="lead-eyebrow" data-i18n="lead.eyebrow">医療・介護の現場から生まれた会社</span>
-                    <h1 class="lead-h1" data-i18n="lead.h1">医療と介護を、<br><span><em>続けられる</em>ようにする。</span></h1>
-                    <p class="lead-sub" data-i18n="lead.sub">現場の連携を1つの画面にまとめるアプリ。施設と事業を残すための開発と承継。そして、公費に頼りきらない原資づくり。20年この現場にいた人間が、必要だったものを順番につくっています。</p>
-                    <div class="lead-cta">
-                        <a href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" class="btn-solid" data-i18n="lead.cta1">ｍやるゼ！を無料で始める</a>
-                        <a href="contact.html" class="btn-line" data-i18n="lead.cta2">事業のご相談</a>
-                    </div>
-                    <p class="lead-note" data-i18n="lead.note">カード登録は不要。無料のまま使い続けられます。</p>
-                </div>
-
-                <div class="lead-shot">
-                    <div class="shot">
-                        <div class="shot-bar"><span></span><span></span><span></span><p data-i18n="shot.bar">ｍやるゼ！ &nbsp;/&nbsp; 受入れ・移行</p></div>
-                        <div class="shot-body">
-                            <div class="shot-kpi">
-                                <div><b>3</b><span data-i18n="shot.k1">対応中</span></div>
-                                <div><b>7</b><span data-i18n="shot.k2">今週の受入れ</span></div>
-                                <div><b>2</b><span data-i18n="shot.k3">署名待ち</span></div>
-                            </div>
-                            <div class="shot-row hot">
-                                <p class="t" data-i18n="shot.r1t">退院通知 &mdash; 佐藤様</p>
-                                <p class="s" data-i18n="shot.r1s">同意書 署名待ち ・ 担当者会議 10/2</p>
-                            </div>
-                            <div class="shot-row">
-                                <p class="t" data-i18n="shot.r2t">受入れ相談 &mdash; 田中様</p>
-                                <p class="s" data-i18n="shot.r2s">面談の日程を調整中</p>
-                            </div>
-                            <div class="shot-row">
-                                <p class="t" data-i18n="shot.r3t">モニタリング &mdash; 鈴木様</p>
-                                <p class="s" data-i18n="shot.r3s">記録の下書きあり</p>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="shot-cap" data-i18n="shot.cap">ｍやるゼ！の画面イメージ。法人をまたぐ1件が、1つのケースとして進みます。</p>
-                </div>
-            </div>
+    <section class="index-hero">
+        <div class="index-hero-inner">
+            <h1 class="index-logo">TAmJ</h1>
+            <p class="index-tagline">Touch all minds, Jump</p>
+            <p class="index-promise" data-i18n="hero.promise">医療と介護を、続けられるようにする。</p>
+            <p class="index-sub" data-i18n="hero.goal">医療と介護が、最後まで残る街をつくる。</p>
+        </div>
+        <div class="index-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
-    <div class="answer-strip">
-        <div class="lead-inner">
-            <dl>
-                <div class="ans">
-                    <dt data-i18n="ans.what.dt">What &nbsp;何をする会社か</dt>
-                    <dd data-i18n="ans.what.dd">医療・介護の法人間連携アプリ／施設の開発と事業承継／受託開発</dd>
-                </div>
-                <div class="ans">
-                    <dt data-i18n="ans.who.dt">Who &nbsp;誰のための会社か</dt>
-                    <dd data-i18n="ans.who.dd">病院・診療所・介護事業者・薬局／施設をつくる人、譲る人、継ぐ人</dd>
-                </div>
-                <div class="ans">
-                    <dt data-i18n="ans.price.dt">Price &nbsp;いくらで始まるか</dt>
-                    <dd><span class="amt">&yen;200</span> <small data-i18n="ans.price.sm">ｍやるゼ！ 1ユーザー / 月（税抜）・初期費用なし</small></dd>
-                </div>
-            </dl>
-        </div>
-    </div>
-
-    <!-- ══ GOAL ══ -->
-    <section class="goal">
-        <div class="goal-inner">
-            <span class="sec-label">Our Goal</span>
-            <h2 class="sec-h2 reveal" data-i18n="goal.h2">医療と介護が、最後まで残る街をつくる。</h2>
-            <p class="sec-lead reveal" data-i18n="goal.lead">人が減ると、先に医療と介護が抜けていきます。建物が足りないのではなく、仕事と賃金と若い人が抜けていく。だから私たちは、現場の手間を減らし、事業を残し、そのための原資を自分たちでつくる。この3つを同時にやります。</p>
-            <div class="steps">
-                <div class="step reveal">
-                    <span class="no">01</span>
-                    <h3 data-i18n="goal.s1.h">手間を減らす</h3>
-                    <p data-i18n="goal.s1.p">法人をまたぐ受入れ・移行・同意書・会議を1つの画面へ。現場が続けられなくなる理由の多くは、事務の重さです。</p>
-                </div>
-                <div class="step reveal delay-1">
-                    <span class="no">02</span>
-                    <h3 data-i18n="goal.s2.h">事業を残す</h3>
-                    <p data-i18n="goal.s2.p">畳むしかない施設と事業所を、開発と承継でつなぎ直す。施設23棟・事業所33ヶ所の開発、9社のM&amp;Aを実行してきました。</p>
-                </div>
-                <div class="step reveal delay-2">
-                    <span class="no">03</span>
-                    <h3 data-i18n="goal.s3.h">原資をつくる</h3>
-                    <p data-i18n="goal.s3.p">医療・介護は公費で回ります。単価は国が決め、下がり続ける。そこだけを前提にした事業には天井がある。だから別の稼ぎ方を並行してつくっています。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══ SERVICES ══ -->
-    <section class="biz" id="business">
-        <div class="biz-inner">
-            <span class="sec-label">Business</span>
-            <h2 class="sec-h2 reveal" data-i18n="biz.h2">3つの事業。誰の、何が変わるのか。</h2>
-            <p class="sec-lead reveal" data-i18n="biz.lead">目的とゴールの数字、ほかとの違い、価格。読むのは1分で足ります。</p>
-
-            <div class="biz-list">
-                <article class="biz-row reveal">
-                    <div class="biz-id">
-                        <p class="biz-for" data-i18n="biz1.for">FOR 病院・診療所・介護事業所・薬局</p>
-                        <h3 class="biz-name" data-i18n="biz1.name">やるゼ！ — 現場の業務アプリ</h3>
-                        <p class="biz-hook" data-i18n="biz1.hook">その同意書、まだ紙で運んでいますか。</p>
-                    </div>
-                    <div class="biz-body">
-                        <dl class="biz-pg">
-                            <div class="pg-aim"><dt data-i18n="lbl.aim">目的</dt><dd data-i18n="biz1.aim">事務の重さで、医療と介護の現場を止めない。</dd></div>
-                            <div class="pg-goal"><dt data-i18n="lbl.goal">ゴール</dt><dd><b class="gnum" data-i18n="biz1.gnum">利用者 20万人</b><span data-i18n="biz1.goal">退院から受入れまでの引継ぎを、日本中どこでも同じ画面で。</span></dd></div>
-                            <div class="pg-diff"><dt data-i18n="lbl.diff">ほかとの違い</dt><dd data-i18n="biz1.diff">連絡を取るためのSNSではなく、同意書・会議・記録までが1件のケースで終わる業務アプリ。</dd></div>
-                        </dl>
-                    </div>
-                    <div class="biz-price">
-                        <p class="p">&yen;200</p>
-                        <span class="u" data-i18n="biz1.u">1ユーザー / 月（税抜）<br>無料プランあり</span>
-                        <ul class="biz-ways">
-                            <li><span data-i18n="way.use">使う</span><a href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" data-i18n="biz1.w1">無料で始める</a></li>
-                            <li><span data-i18n="way.ask">相談</span><a href="contact.html?topic=myaruze" data-i18n="biz1.w2">導入の相談</a></li>
-                            <li><span data-i18n="way.inv">出資・提携</span><a href="contact.html?topic=invest" data-i18n="biz1.w3">ソフト会社との連携・出資</a></li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="biz-row reveal">
-                    <div class="biz-id">
-                        <p class="biz-for" data-i18n="biz2.for">FOR 施設をつくる人・譲る人・継ぐ人・投資する人</p>
-                        <h3 class="biz-name" data-i18n="biz2.name">開発と承継</h3>
-                        <p class="biz-hook" data-i18n="biz2.hook">「売れない」と言われた施設から、始める。</p>
-                    </div>
-                    <div class="biz-body">
-                        <dl class="biz-pg">
-                            <div class="pg-aim"><dt data-i18n="lbl.aim">目的</dt><dd data-i18n="biz2.aim">担い手がいないという理由で、施設と事業所を閉じさせない。</dd></div>
-                            <div class="pg-goal"><dt data-i18n="lbl.goal">ゴール</dt><dd><b class="gnum" data-i18n="biz2.gnum">再生・承継 100社</b><span data-i18n="biz2.goal">後継者がいない、赤字、人が足りない。そんな事業所を立て直してつなぎ、医療と介護の拠点を地域に残す。</span></dd></div>
-                            <div class="pg-diff"><dt data-i18n="lbl.diff">ほかとの違い</dt><dd data-i18n="biz2.diff">売れる会社だけを仲介するのではなく、売れない事業所を立て直してから引き継ぐ。建てる前の立地選びから、承継後の運営まで。</dd></div>
-                        </dl>
-                    </div>
-                    <div class="biz-price">
-                        <p class="p" data-i18n="biz2.p2">着手金＋成功報酬</p>
-                        <span class="u" data-i18n="biz2.u">案件の規模に応じて<br>初回相談は無料</span>
-                        <ul class="biz-ways">
-                            <li><span data-i18n="way.use">使う</span><a href="https://develop.tamjump.com/" target="_blank" rel="noopener" data-i18n="biz2.w1">開発シミュレーションを無料で使う</a></li>
-                            <li><span data-i18n="way.ask">相談</span><a href="contact.html?topic=develop" data-i18n="biz2.w2">譲りたい・継ぎたい・建てたい</a></li>
-                            <li><span data-i18n="way.inv">出資・提携</span><a href="https://develop.tamjump.com/" target="_blank" rel="noopener" data-i18n="biz2.w3">掲載中の案件を見る（NDA）</a></li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="biz-row reveal">
-                    <div class="biz-id">
-                        <p class="biz-for" data-i18n="biz3.for">FOR アプリ・サイトが要る会社、企画を一緒にやりたい人</p>
-                        <h3 class="biz-name" data-i18n="biz3.name">受託開発とコンテンツ</h3>
-                        <p class="biz-hook" data-i18n="biz3.hook">稼いだお金の行き先まで、決めています。</p>
-                    </div>
-                    <div class="biz-body">
-                        <dl class="biz-pg">
-                            <div class="pg-aim"><dt data-i18n="lbl.aim">目的</dt><dd data-i18n="biz3.aim">公費だけに頼らない収入を、自分たちでつくる。</dd></div>
-                            <div class="pg-goal"><dt data-i18n="lbl.goal">ゴール</dt><dd><b class="gnum" data-i18n="biz3.gnum">ONE HEART 目標 &yen;1,250,000</b><span data-i18n="biz3.goal">公費に頼らない収入で、へき地の医療・介護と、医療が届かない地域の支援を続ける。まずは10月8日まで。</span></dd></div>
-                            <div class="pg-diff"><dt data-i18n="lbl.diff">ほかとの違い</dt><dd data-i18n="biz3.diff">医療・介護の業務を説明しなくていい。自社でアプリを公開し、決済と規約まで運用している会社がつくる。</dd></div>
-                        </dl>
-                    </div>
-                    <div class="biz-price">
-                        <p class="p" data-i18n="biz3.p2">お見積り</p>
-                        <span class="u" data-i18n="biz3.u">小さく試す形から<br>相談できます</span>
-                        <ul class="biz-ways">
-                            <li><span data-i18n="way.use">使う</span><a href="https://tamsic.tamjump.com/" target="_blank" rel="noopener" data-i18n="biz3.w1">TAMSIC を聴く</a></li>
-                            <li><span data-i18n="way.ask">相談</span><a href="contact.html?topic=build" data-i18n="biz3.w2">開発を依頼する</a></li>
-                            <li><span data-i18n="way.inv">出資・提携</span><a href="contact.html?topic=partner" data-i18n="biz3.w3">共同企画・スポンサー</a></li>
-                        </ul>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══ WAYS IN ══ -->
-    <section class="join" id="join">
-        <div class="join-inner">
-            <span class="sec-label">Get Involved</span>
-            <h2 class="sec-h2 reveal" data-i18n="join.h2">3つの窓口</h2>
-            <p class="sec-lead reveal" data-i18n="join.lead">使う・相談する・出資する。目的に合わせてお選びください。</p>
-            <div class="join-grid">
-                <div class="join-cell">
-                    <h3 data-i18n="join.u.h">使ってみたい</h3>
-                    <p data-i18n="join.u.p">ｍやるゼ！は無料プランから。カード登録なし、期限なし。</p>
-                    <a href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" class="btn-solid" data-i18n="join.u.a">無料で始める</a>
-                </div>
-                <div class="join-cell">
-                    <h3 data-i18n="join.c.h">相談したい</h3>
-                    <p data-i18n="join.c.p">施設の開発・承継、業務システムの開発。初回相談は無料。</p>
-                    <a href="contact.html?topic=consult" class="btn-line" data-i18n="join.c.a">相談する</a>
-                </div>
-                <div class="join-cell">
-                    <h3 data-i18n="join.i.h">出資・提携したい</h3>
-                    <p data-i18n="join.i.p">やるゼ！の普及と、地域の医療・介護拠点を残す事業について、出資と業務提携のご相談を受け付けています。</p>
-                    <a href="contact.html?topic=invest" class="btn-line" data-i18n="join.i.a">出資・提携の相談</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══ PROOF ══ -->
-    <section class="proof">
-        <div class="proof-inner">
-            <span class="sec-label">Track Record</span>
-            <h2 class="sec-h2 reveal" data-i18n="proof.h2">現場にいた20年が、そのまま設計になっています。</h2>
-            <div class="nums">
-                <div class="num reveal"><p class="v">20</p><p class="l" data-i18n="proof.n1">年<br>医療・介護の現場と経営</p></div>
-                <div class="num reveal delay-1"><p class="v">23</p><p class="l" data-i18n="proof.n2">棟<br>介護施設の開発（1,500床以上）</p></div>
-                <div class="num reveal delay-2"><p class="v">33</p><p class="l" data-i18n="proof.n3">ヶ所<br>介護事業所の開発</p></div>
-                <div class="num reveal delay-3"><p class="v">9</p><p class="l" data-i18n="proof.n4">社<br>M&amp;A（DD・実行・PMIまで）</p></div>
-            </div>
-            <p class="proof-note" data-i18n="proof.note">へき地医療jp チームGREEN、特定非営利活動法人 GO TO HAPPY LIFE と連携し、人口の少ない地域の医療・介護をどう残すかに取り組んでいます。</p>
-        </div>
-    </section>
-
-    <!-- ══ PARTNERS ══ -->
-    <section class="pt pt-idx" id="partners">
-        <div class="pt-inner">
-            <span class="sec-label">Partners</span>
-            <h2 class="sec-h2 reveal" data-i18n="pt.h2">連携先</h2>
-            <p class="sec-lead reveal" data-i18n="pt.lead">医療・介護の現場で、一緒に動いている法人です。</p>
-            <div class="pt-grid">
-                <a class="pt-cell" href="https://www.compass-dc.jp/" target="_blank" rel="noopener">
-                    <span class="pt-logo"><img src="partners/compass.png?v=20260520b" alt="コンパスメディカルグループ" loading="lazy"></span>
-                    <span class="pt-name" data-i18n="pt.n.compass">コンパスメディカルグループ</span>
-                    <span class="pt-field" data-i18n="pt.compass">医科・歯科・健診</span>
-                </a>
-                <a class="pt-cell" href="https://medipass.co.jp/" target="_blank" rel="noopener">
-                    <span class="pt-logo"><img src="partners/medipass.png?v=20260520b" alt="株式会社メディパス" loading="lazy"></span>
-                    <span class="pt-name" data-i18n="pt.n.medipass">株式会社メディパス</span>
-                    <span class="pt-field" data-i18n="pt.medipass">医療・介護施設の経営支援、訪問診療の支援</span>
-                </a>
-                <a class="pt-cell" href="https://hekichiiryou.jp/" target="_blank" rel="noopener">
-                    <span class="pt-logo"><img src="partners/hekichiiryou.png?v=20260520b" alt="へき地医療jp チームGREEN" loading="lazy"></span>
-                    <span class="pt-name" data-i18n="pt.n.hekichi">へき地医療jp チームGREEN</span>
-                    <span class="pt-field" data-i18n="pt.hekichi">へき地医療</span>
-                </a>
-                <a class="pt-cell" href="https://tamjump.github.io/GoTo_Site/" target="_blank" rel="noopener">
-                    <span class="pt-logo"><img src="partners/goto-happy.png?v=20260520b" alt="特定非営利活動法人 GO TO HAPPY LIFE" loading="lazy"></span>
-                    <span class="pt-name" data-i18n="pt.n.goto">特定非営利活動法人 GO TO HAPPY LIFE</span>
-                    <span class="pt-field" data-i18n="pt.goto">医療・福祉支援、国際支援</span>
-                </a>
-                <div class="pt-cell">
-                    <span class="pt-logo pt-text" aria-hidden="true">さかえ<br>ケアサービス</span>
-                    <span class="pt-name" data-i18n="pt.n.sakae">株式会社さかえケアサービス</span>
-                    <span class="pt-field" data-i18n="pt.sakae">医療・福祉</span>
-                </div>
-            </div>
+    <section class="index-nav">
+        <div class="index-nav-inner three">
+            <a href="service.html#app" class="index-nav-card reveal">
+                <span class="card-label">01 &nbsp;App</span>
+                <h2 class="card-heading" data-i18n="card1.h">やるゼ！</h2>
+                <p class="card-jp" data-i18n="biz1.aim">事務の重さで、医療と介護の現場を止めない。</p>
+                <p class="card-goal"><span class="card-goal-l" data-i18n="lbl.goal">ゴール</span><span class="card-goal-n" data-i18n="biz1.gnum">利用者 20万人</span></p>
+                <span class="card-arrow">View →</span>
+            </a>
+            <a href="service.html#dev" class="index-nav-card reveal delay-1">
+                <span class="card-label">02 &nbsp;Develop</span>
+                <h2 class="card-heading" data-i18n="card2.h">開発と承継</h2>
+                <p class="card-jp" data-i18n="biz2.aim">担い手がいないという理由で、施設と事業所を閉じさせない。</p>
+                <p class="card-goal"><span class="card-goal-l" data-i18n="lbl.goal">ゴール</span><span class="card-goal-n" data-i18n="biz2.gnum">再生・承継 100社</span></p>
+                <span class="card-arrow">View →</span>
+            </a>
+            <a href="service.html#make" class="index-nav-card reveal delay-2">
+                <span class="card-label">03 &nbsp;Create</span>
+                <h2 class="card-heading" data-i18n="card3.h">受託開発とコンテンツ</h2>
+                <p class="card-jp" data-i18n="biz3.aim">公費だけに頼らない収入を、自分たちでつくる。</p>
+                <p class="card-goal"><span class="card-goal-l" data-i18n="lbl.goal">ゴール</span><span class="card-goal-n" data-i18n="biz3.gnum">ONE HEART 目標 &yen;1,250,000</span></p>
+                <span class="card-arrow">View →</span>
+            </a>
         </div>
     </section>
 
@@ -773,37 +450,39 @@
     </section>
 
     <section class="index-partners">
-        <p class="partners-label reveal">Group &amp; Partners</p>
+        <p class="partners-label reveal">Partners</p>
         <div class="marquee-wrapper">
             <div class="marquee-track">
-                <a class="partner-item" href="https://tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamj.png?v=20260520b" alt="タムジ.Corp"></a>
-                <a class="partner-item" href="https://carepass.tamjump.com/" target="_blank" rel="noopener"><img src="partners/carepass.png?v=20260520b" alt="Care Support Pass"></a>
-                <a class="partner-item bg-red" href="https://tyaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tyaruze.png?v=20260520b" alt="tやるぜ！"></a>
-                <a class="partner-item" href="https://tamsic.tamjump.com/kiki.html" target="_blank" rel="noopener"><img src="partners/kiki.png?v=20260520b" alt="kiki"></a>
-                <a class="partner-item fit-contain" href="https://www.compass-dc.jp/" target="_blank" rel="noopener"><img src="partners/compass.png?v=20260520b" alt="コンパスメディカルグループ"></a>
-                <a class="partner-item" href="https://yaruze.tamjump.com/lp.html" target="_blank" rel="noopener"><img src="partners/yaruze.png?v=20260520b" alt="やるぜ！"></a>
-                <a class="partner-item" href="https://tamsic.tamjump.com/nono.html" target="_blank" rel="noopener"><img src="partners/nono.png?v=20260520b" alt="no-no"></a>
-                <a class="partner-item fit-contain" href="https://medipass.co.jp/" target="_blank" rel="noopener"><img src="partners/medipass.png?v=20260520b" alt="株式会社メディパス"></a>
-                <a class="partner-item bg-black" href="https://tamsic.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamsic.png?v=20260520b" alt="TAMSiC"></a>
-                <a class="partner-item bg-blue" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/myaruze.png?v=20260520b" alt="mやるぜ！"></a>
-                <a class="partner-item" href="https://tamsic.tamjump.com/gen.html" target="_blank" rel="noopener"><img src="partners/gen.png?v=20260520b" alt="gEN"></a>
-                <a class="partner-item fit-contain" href="https://hekichiiryou.jp/" target="_blank" rel="noopener"><img src="partners/hekichiiryou.png?v=20260520b" alt="へき地医療jp チームGREEN"></a>
-                <a class="partner-item" href="https://king2323.tamjump.com/" target="_blank" rel="noopener"><img src="partners/kingmaker.png?v=20260520b" alt="KING MAKER 23:23"></a>
-                <a class="partner-item" href="https://tamjump.github.io/GoTo_Site/" target="_blank" rel="noopener"><img src="partners/goto-happy.png?v=20260520b" alt="特定非営利法人GO TO HAPPY LIFE"></a>
-                <a class="partner-item" href="https://tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamj.png?v=20260520b" alt="タムジ.Corp"></a>
-                <a class="partner-item" href="https://carepass.tamjump.com/" target="_blank" rel="noopener"><img src="partners/carepass.png?v=20260520b" alt="Care Support Pass"></a>
-                <a class="partner-item bg-red" href="https://tyaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tyaruze.png?v=20260520b" alt="tやるぜ！"></a>
-                <a class="partner-item" href="https://tamsic.tamjump.com/kiki.html" target="_blank" rel="noopener"><img src="partners/kiki.png?v=20260520b" alt="kiki"></a>
-                <a class="partner-item fit-contain" href="https://www.compass-dc.jp/" target="_blank" rel="noopener"><img src="partners/compass.png?v=20260520b" alt="コンパスメディカルグループ"></a>
-                <a class="partner-item" href="https://yaruze.tamjump.com/lp.html" target="_blank" rel="noopener"><img src="partners/yaruze.png?v=20260520b" alt="やるぜ！"></a>
-                <a class="partner-item" href="https://tamsic.tamjump.com/nono.html" target="_blank" rel="noopener"><img src="partners/nono.png?v=20260520b" alt="no-no"></a>
-                <a class="partner-item fit-contain" href="https://medipass.co.jp/" target="_blank" rel="noopener"><img src="partners/medipass.png?v=20260520b" alt="株式会社メディパス"></a>
-                <a class="partner-item bg-black" href="https://tamsic.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamsic.png?v=20260520b" alt="TAMSiC"></a>
-                <a class="partner-item bg-blue" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/myaruze.png?v=20260520b" alt="mやるぜ！"></a>
-                <a class="partner-item" href="https://tamsic.tamjump.com/gen.html" target="_blank" rel="noopener"><img src="partners/gen.png?v=20260520b" alt="gEN"></a>
-                <a class="partner-item fit-contain" href="https://hekichiiryou.jp/" target="_blank" rel="noopener"><img src="partners/hekichiiryou.png?v=20260520b" alt="へき地医療jp チームGREEN"></a>
-                <a class="partner-item" href="https://king2323.tamjump.com/" target="_blank" rel="noopener"><img src="partners/kingmaker.png?v=20260520b" alt="KING MAKER 23:23"></a>
-                <a class="partner-item" href="https://tamjump.github.io/GoTo_Site/" target="_blank" rel="noopener"><img src="partners/goto-happy.png?v=20260520b" alt="特定非営利法人GO TO HAPPY LIFE"></a>
+                <!-- ロゴセット1（ランダム順・14件） -->
+                <a class="partner-item" href="https://tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamj.png?v=20260928a" alt="タムジ.Corp"></a>
+                <a class="partner-item" href="https://carepass.tamjump.com/" target="_blank" rel="noopener"><img src="partners/carepass.png?v=20260928a" alt="Care Support Pass"></a>
+                <a class="partner-item bg-red" href="https://tyaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tyaruze.png?v=20260928a" alt="tやるぜ！"></a>
+                <a class="partner-item" href="https://tamsic.tamjump.com/kiki.html" target="_blank" rel="noopener"><img src="partners/kiki.png?v=20260928a" alt="kiki"></a>
+                <a class="partner-item fit-contain" href="https://www.compass-dc.jp/" target="_blank" rel="noopener"><img src="partners/compass.png?v=20260928a" alt="コンパスメディカルグループ"></a>
+                <a class="partner-item" href="https://yaruze.tamjump.com/lp.html" target="_blank" rel="noopener"><img src="partners/yaruze.png?v=20260928a" alt="やるぜ！"></a>
+                <a class="partner-item" href="https://tamsic.tamjump.com/nono.html" target="_blank" rel="noopener"><img src="partners/nono.png?v=20260928a" alt="no-no"></a>
+                <a class="partner-item fit-contain" href="https://medipass.co.jp/" target="_blank" rel="noopener"><img src="partners/medipass.png?v=20260928a" alt="株式会社メディパス"></a>
+                <a class="partner-item bg-black" href="https://tamsic.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamsic.png?v=20260928a" alt="TAMSiC"></a>
+                <a class="partner-item bg-blue" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/myaruze.png?v=20260928a" alt="mやるぜ！"></a>
+                <a class="partner-item" href="https://tamsic.tamjump.com/gen.html" target="_blank" rel="noopener"><img src="partners/gen.png?v=20260928a" alt="gEN"></a>
+                <a class="partner-item fit-contain" href="https://hekichiiryou.jp/" target="_blank" rel="noopener"><img src="partners/hekichiiryou.png?v=20260928a" alt="へき地医療jp チームGREEN"></a>
+                <a class="partner-item" href="https://king2323.tamjump.com/" target="_blank" rel="noopener"><img src="partners/kingmaker.png?v=20260928a" alt="KING MAKER 23:23"></a>
+                <a class="partner-item" href="https://tamjump.github.io/GoTo_Site/" target="_blank" rel="noopener"><img src="partners/goto-happy.png?v=20260928a" alt="特定非営利法人GO TO HAPPY LIFE"></a>
+                <!-- 複製（無限ループ用） -->
+                <a class="partner-item" href="https://tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamj.png?v=20260928a" alt="タムジ.Corp"></a>
+                <a class="partner-item" href="https://carepass.tamjump.com/" target="_blank" rel="noopener"><img src="partners/carepass.png?v=20260928a" alt="Care Support Pass"></a>
+                <a class="partner-item bg-red" href="https://tyaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tyaruze.png?v=20260928a" alt="tやるぜ！"></a>
+                <a class="partner-item" href="https://tamsic.tamjump.com/kiki.html" target="_blank" rel="noopener"><img src="partners/kiki.png?v=20260928a" alt="kiki"></a>
+                <a class="partner-item fit-contain" href="https://www.compass-dc.jp/" target="_blank" rel="noopener"><img src="partners/compass.png?v=20260928a" alt="コンパスメディカルグループ"></a>
+                <a class="partner-item" href="https://yaruze.tamjump.com/lp.html" target="_blank" rel="noopener"><img src="partners/yaruze.png?v=20260928a" alt="やるぜ！"></a>
+                <a class="partner-item" href="https://tamsic.tamjump.com/nono.html" target="_blank" rel="noopener"><img src="partners/nono.png?v=20260928a" alt="no-no"></a>
+                <a class="partner-item fit-contain" href="https://medipass.co.jp/" target="_blank" rel="noopener"><img src="partners/medipass.png?v=20260928a" alt="株式会社メディパス"></a>
+                <a class="partner-item bg-black" href="https://tamsic.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamsic.png?v=20260928a" alt="TAMSiC"></a>
+                <a class="partner-item bg-blue" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/myaruze.png?v=20260928a" alt="mやるぜ！"></a>
+                <a class="partner-item" href="https://tamsic.tamjump.com/gen.html" target="_blank" rel="noopener"><img src="partners/gen.png?v=20260928a" alt="gEN"></a>
+                <a class="partner-item fit-contain" href="https://hekichiiryou.jp/" target="_blank" rel="noopener"><img src="partners/hekichiiryou.png?v=20260928a" alt="へき地医療jp チームGREEN"></a>
+                <a class="partner-item" href="https://king2323.tamjump.com/" target="_blank" rel="noopener"><img src="partners/kingmaker.png?v=20260928a" alt="KING MAKER 23:23"></a>
+                <a class="partner-item" href="https://tamjump.github.io/GoTo_Site/" target="_blank" rel="noopener"><img src="partners/goto-happy.png?v=20260928a" alt="特定非営利法人GO TO HAPPY LIFE"></a>
             </div>
         </div>
     </section>
@@ -816,6 +495,11 @@
                 <span data-i18n="index.contact.cta">お問合せ</span>
                 <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
+            <p class="contact-ways reveal">
+                <a href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" class="text-link" data-i18n="join.u.a">無料で始める</a>
+                <a href="contact.html?topic=consult" class="text-link" data-i18n="join.c.a">相談する</a>
+                <a href="contact.html?topic=invest" class="text-link" data-i18n="join.i.a">出資・提携の相談</a>
+            </p>
         </div>
     </section>
 
@@ -874,7 +558,7 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     </script>
-    <script src="js/translations.js?v=20260927c"></script>
-    <script src="js/lang.js?v=20260927c"></script>
+    <script src="js/translations.js?v=20260928a"></script>
+    <script src="js/lang.js?v=20260928a"></script>
 </body>
 </html>

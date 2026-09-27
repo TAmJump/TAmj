@@ -3,767 +3,568 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service | TAmJ — 事業と料金</title>
-    <meta name="description" content="タムジ株式会社の事業は3つ。現場の業務アプリ（1人 月200円）、医療・介護施設の開発と承継、受託開発。料金の目安をこのページに書いています。">
+    <title>Service | TAmJ</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+JP:wght@200;300;400;500;700&family=Noto+Serif+JP:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/base.css?v=20260520b">
-    <link rel="stylesheet" href="css/corporate.css?v=20260520b">
+    <link rel="stylesheet" href="css/base.css?v=20260928a">
+    <link rel="stylesheet" href="css/corporate.css?v=20260928a">
     <style>
-        .sv-wrap { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
-        .sec-label {
-            font-family: var(--font-display); font-size: 0.65rem;
-            letter-spacing: 0.35em; text-transform: uppercase;
-            color: var(--gray-400); display: block; margin-bottom: 1.2rem;
-        }
-        .sec-h2 {
-            font-family: var(--font-serif); font-weight: 400;
-            font-size: clamp(1.3rem, 3vw, 1.85rem); line-height: 1.75;
-            letter-spacing: 0.05em; color: var(--black); margin-bottom: 1rem;
-        }
-        .sec-lead { font-size: 0.9rem; font-weight: 300; line-height: 2.1; color: var(--gray-700); max-width: 42em; }
-
-        /* jump nav */
-        .sv-jump { border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100); padding: 1.2rem 0; background: var(--white); }
-        .sv-jump ul { list-style: none; display: flex; gap: 2.2rem; flex-wrap: wrap; justify-content: center; }
-        .sv-jump a { font-size: 0.76rem; letter-spacing: 0.1em; color: var(--gray-500); }
-        .sv-jump a:hover { color: var(--primary); }
-
-        /* business block */
-        .sv-block { padding: 6rem 0; border-bottom: 1px solid var(--gray-100); }
-        .sv-block:nth-child(even) { background: var(--cream); }
-        .sv-head { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3.5rem; align-items: end; margin-bottom: 3rem; }
-        .sv-for { font-size: 0.72rem; letter-spacing: 0.12em; color: var(--primary); font-weight: 500; margin-bottom: 0.9rem; }
-        .sv-name { font-family: var(--font-serif); font-size: clamp(1.4rem, 3.4vw, 2rem); font-weight: 500; color: var(--black); letter-spacing: 0.04em; line-height: 1.5; }
-        .sv-price-tag { text-align: right; }
-        .sv-price-tag .p { font-family: var(--font-display); font-size: 2.4rem; font-weight: 500; color: var(--primary); line-height: 1.1; }
-        .sv-price-tag .u { font-size: 0.74rem; color: var(--gray-500); font-weight: 300; display: block; margin-top: 0.4rem; }
-
-        .sv-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-        .sv-col h4 {
-            font-size: 0.7rem; letter-spacing: 0.16em; color: var(--gray-400);
-            font-weight: 500; text-transform: uppercase; margin-bottom: 1rem;
-            padding-bottom: 0.6rem; border-bottom: 1px solid var(--gray-200);
-        }
-        .sv-col ul { list-style: none; }
-        .sv-col li { font-size: 0.86rem; font-weight: 300; line-height: 1.95; color: var(--gray-700); padding-left: 1.1rem; position: relative; margin-bottom: 0.5rem; }
-        .sv-col li::before { content: ""; position: absolute; left: 0; top: 0.85em; width: 5px; height: 1px; background: var(--primary); }
-        .sv-col p { font-size: 0.88rem; font-weight: 300; line-height: 2.05; color: var(--gray-700); }
-
-        .sv-actions { margin-top: 2.6rem; display: flex; gap: 0.9rem; flex-wrap: wrap; }
-        .btn-solid, .btn-line {
-            display: inline-block; padding: 1rem 2.1rem; border-radius: 2px;
-            font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; transition: all 0.4s ease;
-        }
-        .btn-solid { background: var(--primary); color: var(--white); border: 1px solid var(--primary); }
-        .btn-solid:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
-        .btn-line { color: var(--black); border: 1px solid var(--gray-200); }
-        .btn-line:hover { border-color: var(--black); }
-
-        /* pricing */
-        .sv-price { padding: 6rem 0; background: var(--warm-white); }
-        .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; margin-top: 3rem; }
-        .plan { border: 1px solid var(--gray-200); border-radius: 2px; padding: 2.6rem 2.2rem; background: var(--white); }
-        .plan.hi { border: 2px solid var(--primary); }
-        .plan .nm { font-family: var(--font-display); font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 1rem; }
-        .plan.hi .nm { color: var(--primary); }
-        .plan .amt { font-family: var(--font-display); font-size: 3rem; font-weight: 500; color: var(--black); line-height: 1; }
-        .plan.hi .amt { color: var(--primary); }
-        .plan .unit { font-size: 0.74rem; color: var(--gray-500); font-weight: 300; margin: 0.5rem 0 1.8rem; }
-        .plan ul { list-style: none; margin-bottom: 2rem; }
-        .plan li { font-size: 0.84rem; font-weight: 300; line-height: 1.95; color: var(--gray-700); padding-left: 1.1rem; position: relative; margin-bottom: 0.4rem; }
-        .plan li::before { content: ""; position: absolute; left: 0; top: 0.85em; width: 5px; height: 1px; background: var(--primary); }
-        .plan .btn-solid, .plan .btn-line { display: block; text-align: center; }
-        .price-foot { font-size: 0.78rem; color: var(--gray-500); font-weight: 300; margin-top: 2rem; line-height: 2; }
-
-        .fee-rows { margin-top: 2.6rem; border-top: 1px solid var(--gray-200); }
-        .fee-row { display: grid; grid-template-columns: 1fr 1fr 0.8fr; gap: 1.5rem; padding: 1.4rem 0; border-bottom: 1px solid var(--gray-200); align-items: baseline; }
-        .fee-row .k { font-size: 0.88rem; color: var(--black); font-weight: 400; }
-        .fee-row .d { font-size: 0.8rem; color: var(--gray-500); font-weight: 300; line-height: 1.9; }
-        .fee-row .v { font-size: 0.88rem; color: var(--primary); text-align: right; font-weight: 400; }
-
-        /* FAQ */
-        .sv-faq { padding: 6rem 0; background: var(--cream); }
-        .qa { border-top: 1px solid var(--gray-200); }
-        .qa details { border-bottom: 1px solid var(--gray-200); }
-        .qa summary {
-            cursor: pointer; padding: 1.5rem 0; font-size: 0.92rem;
-            color: var(--black); font-weight: 400; list-style: none; position: relative; padding-right: 2rem;
-        }
-        .qa summary::-webkit-details-marker { display: none; }
-        .qa summary::after { content: "+"; position: absolute; right: 0; top: 1.4rem; color: var(--primary); font-size: 1.1rem; }
-        .qa details[open] summary::after { content: "–"; }
-        .qa .a { font-size: 0.86rem; font-weight: 300; line-height: 2.1; color: var(--gray-700); padding: 0 0 1.6rem; max-width: 46em; }
-
-        @media (max-width: 900px) {
-            .sv-head { grid-template-columns: 1fr; gap: 1.6rem; align-items: start; }
-            .sv-price-tag { text-align: left; }
-            .sv-cols { grid-template-columns: 1fr; gap: 2.4rem; }
-            .plans { grid-template-columns: 1fr; }
-            .fee-row { grid-template-columns: 1fr; gap: 0.4rem; }
-            .fee-row .v { text-align: left; }
-            .btn-solid, .btn-line { display: block; text-align: center; }
-            .sv-actions { display: grid; grid-template-columns: 1fr; gap: 0.7rem; }
+        .tab-section {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 2rem 8rem;
         }
 
-        /* Contact */
-        .index-contact { padding: 5rem 2rem; background: var(--white); text-align: center; }
-        .index-contact .cl {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 0.65rem; letter-spacing: 0.35em;
-            color: var(--gray-400); text-transform: uppercase;
-            margin-bottom: 1rem; display: block;
-        }
-        .index-contact .contact-cta {
-            display: inline-flex; align-items: center; gap: 0.8rem;
-            font-family: "Cormorant Garamond", serif;
-            font-size: 0.82rem; letter-spacing: 0.15em; color: var(--primary);
-            padding-bottom: 0.3rem; border-bottom: 1px solid var(--primary); transition: all 0.4s;
-        }
-        .index-contact .contact-cta:hover { gap: 1.2rem; }
-        .index-contact .contact-cta svg {
-            width: 16px; height: 16px; stroke: var(--primary); fill: none; stroke-width: 1.5;
-        }
-
-        .footer-sns {
+        /* ── Tabs ── */
+        .tab-nav {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--gray-100);
         }
-        .footer-sns a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px; height: 36px;
-            color: var(--gray-400);
-            transition: color 0.3s;
+        .tab-btn {
+            flex: 1;
+            padding: 1.2rem 0.5rem;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: inherit;
+            position: relative;
+            transition: all 0.3s;
         }
-        .footer-sns a:hover { color: var(--black); }
-        .footer-sns a svg { width: 20px; height: 20px; fill: currentColor; }
-
-        @media (max-width: 640px) {
-            .index-nav-inner { grid-template-columns: 1fr; gap: 1.5rem; }
-            .index-nav-card { padding: 2.5rem 2rem; }
-            .partner-item {
-                width: 120px;
-                height: 120px;
-                margin: 0 25px;
-                padding: 20px;
-            }
-            .partner-item .text-logo {
-                font-size: 0.9rem;
-            }
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -1px; left: 0; right: 0;
+            height: 2px;
+            background: var(--charcoal);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
         }
-        
-        /* フッターロゴ大きく */
-        .footer-brand img {
-            height: 48px !important;
-            width: auto !important;
-        }
-        
-        /* ヘッダーナビ（右上固定） */
-        .header-nav {
-            position: fixed;
-            top: 0;
-            right: 0;
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-            padding: 1.5rem 2.5rem;
-            z-index: 100;
-        }
-        .header-nav a {
+        .tab-btn.active::after { transform: scaleX(1); }
+        .tab-num {
             font-family: "Cormorant Garamond", serif;
-            font-size: 0.8rem;
+            font-size: 0.6rem;
             font-weight: 400;
-            letter-spacing: 0.12em;
-            color: var(--gray-500);
-            text-decoration: none;
+            letter-spacing: 0.15em;
+            color: var(--gray-300);
+            display: block;
+            margin-bottom: 0.3rem;
             transition: color 0.3s;
         }
-        .header-nav a:hover {
-            color: var(--black);
+        .tab-btn.active .tab-num { color: var(--gray-500); }
+        .tab-label {
+            font-family: "Noto Serif JP", serif;
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--gray-400);
+            letter-spacing: 0.04em;
+            transition: color 0.3s;
         }
-        .header-nav a.contact-link {
-            color: var(--primary);
-        }
-        .header-nav a.contact-link:hover {
-            color: #7a1a28;
-        }
-        
-        @media (max-width: 640px) {
-            .header-nav {
-                gap: 1.2rem;
-                padding: 1rem 1.2rem;
-            }
-            .header-nav a {
-                font-size: 0.65rem;
-            }
-        }
+        .tab-btn.active .tab-label { color: var(--black); }
+        .tab-btn:hover .tab-label { color: var(--charcoal); }
 
-        /* ── Vision Map ── */
-        .index-vision { padding: var(--sp-xl) 2rem; background: var(--cream); }
-        .index-vision-inner { max-width: 1000px; margin: 0 auto; }
-        .vision-head { text-align: center; margin-bottom: 2.5rem; }
-        .vision-label {
+        /* ── Panel ── */
+        .tab-panels { padding-top: 0.5rem; }
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+        .panel-head {
             font-family: "Cormorant Garamond", serif;
-            font-size: 0.65rem; letter-spacing: 0.35em; color: var(--gray-400);
-            text-transform: uppercase; display: block; margin-bottom: 0.8rem;
-        }
-        .vision-heading {
-            font-family: "Noto Serif JP", serif; font-weight: 400;
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem); letter-spacing: 0.06em;
-            color: var(--black); line-height: 1.6;
-        }
-        .vision-desc {
-            font-size: 0.85rem; font-weight: 300; color: var(--gray-500);
-            line-height: 2; margin-top: 1rem;
-        }
-        .vision-figure {
-            position: relative; display: block;
-            background: var(--white); border: 1px solid var(--gray-200); padding: 8px;
-            transition: box-shadow 0.5s ease, transform 0.5s ease;
-        }
-        .vision-figure:hover { box-shadow: 0 22px 55px rgba(0,0,0,0.12); transform: translateY(-3px); }
-        .vision-figure img { width: 100%; display: block; }
-        .vision-pin {
-            position: absolute; transform: translate(-50%, -50%);
-            width: 3.1%; min-width: 28px; aspect-ratio: 1 / 1; border-radius: 50%;
-            background: rgba(255,255,255,0.94); border: 1px solid var(--primary);
-            box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-            display: flex; align-items: center; justify-content: center;
-            font-family: "Cormorant Garamond", serif; font-weight: 500;
-            font-size: clamp(0.72rem, 1.05vw, 0.95rem); color: var(--primary);
-            pointer-events: none;
-            transition: background 0.4s, color 0.4s;
-        }
-        .vision-figure:hover .vision-pin { background: var(--primary); color: var(--white); }
-        .vision-foot { text-align: center; margin-top: 2rem; }
-        @media (max-width: 768px) {
-            .index-vision { padding: var(--sp-lg) 1.2rem; }
-            .vision-pin { min-width: 22px; font-size: 0.62rem; }
+            font-size: 0.6rem;
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            padding: 2rem 0 0.5rem;
         }
 
-        /* ── 印刷・PDF ── */
+        /* ── Category ── */
+        .category { border-bottom: 1px solid var(--gray-100); }
+        .category:first-of-type { border-top: 1px solid var(--gray-100); }
+        .category-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 1.4rem 0;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+            transition: padding-left 0.3s;
+        }
+        .category-btn:hover { padding-left: 0.5rem; }
+        .category-name {
+            font-family: "Noto Serif JP", serif;
+            font-size: 0.88rem;
+            font-weight: 300;
+            color: var(--charcoal);
+            flex: 1;
+            text-align: left;
+            letter-spacing: 0.03em;
+        }
+        .category-count {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 0.65rem;
+            color: var(--gray-300);
+            margin-right: 1rem;
+        }
+        .category-toggle {
+            font-size: 0.75rem;
+            color: var(--gray-300);
+            transition: transform 0.3s, color 0.3s;
+        }
+        .category.open .category-toggle {
+            transform: rotate(90deg);
+            color: var(--charcoal);
+        }
+
+        /* ── Products ── */
+        .products {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .category.open .products { max-height: 1200px; }
+        .product-item {
+            display: flex;
+            align-items: center;
+            padding: 0.9rem 0 0.9rem 1.5rem;
+            border-top: 1px solid var(--gray-100);
+            transition: padding-left 0.3s;
+        }
+        .product-item:hover { padding-left: 2rem; }
+        .product-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            object-fit: cover;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        .product-name {
+            font-size: 0.82rem;
+            font-weight: 300;
+            color: var(--charcoal);
+            flex: 1;
+        }
+        .product-desc {
+            font-size: 0.7rem;
+            font-weight: 300;
+            color: var(--gray-400);
+            margin-right: 1rem;
+        }
+        .product-arrow {
+            font-size: 0.7rem;
+            color: var(--gray-300);
+            transition: color 0.3s;
+        }
+        .product-item:hover .product-arrow { color: var(--primary); }
+
+        /* ── Featured (store-listed apps) ── */
+        .product-store {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.6rem 1.5rem;
+            border-top: 1px solid var(--gray-100);
+        }
+        .store-main {
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+            flex: 1;
+            min-width: 0;
+            transition: opacity 0.3s;
+        }
+        .store-main:hover { opacity: 0.62; }
+        .store-icon {
+            width: 68px;
+            height: 68px;
+            border-radius: 15px;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 1px solid var(--gray-100);
+        }
+        .store-text { min-width: 0; }
+        .store-name {
+            display: block;
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            letter-spacing: 0.04em;
+            line-height: 1.3;
+        }
+        .store-tag {
+            display: inline-block;
+            margin-top: 0.4rem;
+            padding: 0.15rem 0.55rem;
+            border: 1px solid var(--gray-100);
+            border-radius: 2px;
+            font-size: 0.58rem;
+            font-weight: 400;
+            color: var(--gray-400);
+            letter-spacing: 0.08em;
+            white-space: nowrap;
+        }
+        .store-desc {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.72rem;
+            font-weight: 300;
+            line-height: 1.65;
+            color: var(--gray-400);
+        }
+        .store-cta {
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+            flex-shrink: 0;
+        }
+        .store-badge { display: block; transition: opacity 0.3s; }
+        .store-badge:hover { opacity: 0.72; }
+        .store-badge img {
+            display: block;
+            width: 152px;
+            height: auto;
+        }
+        .store-qr { text-align: center; }
+        .store-qr img {
+            display: block;
+            width: 84px;
+            height: 84px;
+            padding: 5px;
+            border: 1px solid var(--gray-100);
+            border-radius: 4px;
+            background: #fff;
+        }
+        .store-qr span {
+            display: block;
+            margin-top: 0.4rem;
+            font-size: 0.55rem;
+            font-weight: 300;
+            color: var(--gray-300);
+            letter-spacing: 0.06em;
+        }
+        .empty-msg {
+            padding: 1rem 1.5rem;
+            font-size: 0.75rem;
+            color: var(--gray-300);
+            font-style: italic;
+            border-top: 1px solid var(--gray-100);
+        }
+
+        /* ── Partners ── */
+        .partner-section {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 2rem 5rem;
+        }
+        .partner-title {
+            text-align: center;
+            padding: 5rem 0 3rem;
+        }
+        .partner-title-en {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 0.6rem;
+            font-weight: 400;
+            letter-spacing: 0.35em;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 1rem;
+        }
+        .partner-title-jp {
+            font-family: "Noto Serif JP", serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            letter-spacing: 0.06em;
+        }
+        .partner-item {
+            display: flex;
+            align-items: center;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        .partner-item:first-child {
+            border-top: 1px solid var(--gray-100);
+        }
+        .partner-name {
+            font-family: "Noto Serif JP", serif;
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: var(--charcoal);
+            flex: 1;
+            letter-spacing: 0.03em;
+        }
+        a.partner-item { text-decoration: none; transition: padding-left 0.3s; }
+        a.partner-item:hover { padding-left: 0.5rem; }
+        a.partner-item:hover .partner-name { color: var(--primary); }
+        .partner-type {
+            font-family: "Noto Serif JP", serif;
+            font-size: 0.7rem;
+            font-weight: 300;
+            color: var(--gray-400);
+        }
+
+        @media (max-width: 640px) {
+            .tab-label { font-size: 0.75rem; }
+            .tab-btn { padding: 1rem 0.3rem; }
+            .product-desc { display: none; }
+            .product-item { padding-left: 1rem; }
+            .product-item:hover { padding-left: 1.5rem; }
+            .product-store {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1.1rem;
+                padding: 1.4rem 1rem;
+            }
+            .store-icon { width: 56px; height: 56px; border-radius: 13px; }
+            .store-name { font-size: 1rem; }
+            .store-cta { justify-content: flex-start; gap: 1rem; }
+            .store-badge img { width: 132px; }
+            .store-qr img { width: 68px; height: 68px; }
+        }
+
+        /* ── 目的・ゴール（各タブの冒頭） ── */
+        .pnl-lead { padding: 2.8rem 0 1rem; text-align: center; }
+        .pnl-k { font-family: "Cormorant Garamond", serif; font-size: 0.62rem; letter-spacing: 0.3em; color: var(--gray-400); text-transform: uppercase; margin-bottom: 0.5rem; }
+        .pnl-aim { font-family: "Noto Serif JP", serif; font-size: 1.05rem; font-weight: 400; color: var(--black); letter-spacing: 0.05em; line-height: 1.9; margin-bottom: 2rem; }
+        .pnl-goal b { display: block; font-family: "Noto Serif JP", serif; font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 500; color: var(--primary); letter-spacing: 0.04em; margin-bottom: 0.4rem; }
+        .pnl-goal span { font-size: 0.82rem; font-weight: 300; color: var(--gray-500); line-height: 2; display: block; max-width: 34em; margin: 0 auto; }
+        .plist { border-top: 1px solid var(--gray-100); }
+        .plist .product-item, .plist .product-store { border-top: 0; border-bottom: 1px solid var(--gray-100); }
+        a.product-item { color: inherit; }
+        .info-row { display: flex; gap: 1.5rem; padding: 1.1rem 0; border-bottom: 1px solid var(--gray-100); align-items: baseline; }
+        .info-k { flex: 0 0 9.5rem; font-family: "Noto Serif JP", serif; font-size: 0.8rem; color: var(--charcoal); }
+        .info-v { flex: 1; font-size: 0.8rem; font-weight: 300; color: var(--gray-500); line-height: 1.9; }
+        .ways { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100); padding: 0; margin: 0; }
+        .ways li { padding: 1.1rem 0.8rem 1.2rem 0; }
+        .ways li span { display: block; font-size: 0.62rem; letter-spacing: 0.12em; color: var(--gray-300); margin-bottom: 0.3rem; }
+        .way-link { font-size: 0.82rem; color: var(--primary); }
+        .way-link:hover, .way-link:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+        .faq-item { border-bottom: 1px solid var(--gray-100); }
+        .faq-item:first-child { border-top: 1px solid var(--gray-100); }
+        .faq-item summary { list-style: none; cursor: pointer; padding: 1.2rem 1.6rem 1.2rem 0; position: relative; font-family: "Noto Serif JP", serif; font-size: 0.85rem; font-weight: 300; color: var(--charcoal); }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after { content: "+"; position: absolute; right: 0.2rem; top: 1.1rem; color: var(--gray-300); }
+        .faq-item[open] summary::after { content: "−"; color: var(--primary); }
+        .faq-a { font-size: 0.8rem; font-weight: 300; color: var(--gray-500); line-height: 2; padding: 0 0 1.4rem; }
+        @media (max-width: 640px) {
+            .info-row { flex-direction: column; gap: 0.3rem; }
+            .info-k { flex: none; }
+            .ways { grid-template-columns: 1fr; }
+            .ways li + li { border-top: 1px solid var(--gray-100); }
+        }
         @media print {
             .reveal { opacity: 1 !important; transform: none !important; }
-            .header-nav,
-            a[href*="kickstarter"],
-            .index-partners,
-            .marquee-wrapper,
-            .index-scroll { display: none !important; }
-            .lead-hero { padding: 0 0 1.5rem !important; }
-            .goal, .biz, .proof, .sv-block, .sv-price, .sv-faq,
-            .index-vision, .index-contact, .page-top { padding: 1.4rem 0 !important; }
-            section { break-inside: avoid; page-break-inside: avoid; }
-            .index-vision-inner img { max-height: 11cm; width: auto; margin: 0 auto; display: block; }
-            .qa details { break-inside: avoid; }
-            .qa .a { display: block !important; }
-            body { font-size: 10.5pt; background: #fff; }
-            footer { break-before: avoid; }
-        }
-        /* ── 目的・ゴール・現在地／3つの入口 ── */
-        .sv-desc { font-size: 0.9rem; font-weight: 300; line-height: 2.05; color: var(--gray-700); max-width: 44em; margin: -1rem 0 2.2rem; }
-        .sv-pg { display: grid; grid-template-columns: 1fr 1.35fr 1fr; gap: 0; margin: 0 0 3.2rem; border-top: 2px solid var(--primary); border-bottom: 1px solid var(--gray-200); }
-        .sv-pg > div { padding: 1.4rem 1.6rem 1.5rem 0; }
-        .sv-pg > div + div { padding-left: 1.6rem; border-left: 1px solid var(--gray-200); }
-        .sv-pg dt { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; color: var(--primary); margin-bottom: 0.45rem; }
-        .sv-pg dd { margin: 0; font-size: 0.86rem; font-weight: 300; line-height: 1.95; color: var(--gray-700); }
-        .sv-pg .pg-goal dd { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 500; line-height: 1.85; color: var(--black); }
-        .sv-ways { list-style: none; margin: 2.8rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--gray-200); background: var(--white); }
-        .sv-ways li { padding: 1.2rem 1.4rem; }
-        .sv-ways li + li { border-left: 1px solid var(--gray-200); }
-        .sv-ways li span { display: block; font-size: 0.64rem; letter-spacing: 0.12em; color: var(--gray-400); margin-bottom: 0.3rem; }
-        .sv-ways a { font-size: 0.86rem; color: var(--primary); font-weight: 500; line-height: 1.6; }
-        .sv-ways a:hover, .sv-ways a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
-        .sv-ways li:first-child { background: var(--primary-pale); }
-
-        .join { padding: 6rem 0; background: var(--warm-white); border-top: 1px solid var(--gray-100); }
-        .join-inner { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
-        .join-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 3rem; border: 1px solid var(--gray-200); background: var(--white); }
-        .join-cell { padding: 2.4rem 2rem 2.2rem; display: flex; flex-direction: column; align-items: flex-start; }
-        .join-cell + .join-cell { border-left: 1px solid var(--gray-200); }
-        .join-cell h3 { font-family: var(--font-serif); font-size: 1.12rem; font-weight: 500; color: var(--black); letter-spacing: 0.04em; margin-bottom: 0.8rem; }
-        .join-cell p { font-size: 0.84rem; font-weight: 300; line-height: 2; color: var(--gray-700); margin-bottom: 1.8rem; flex: 1; }
-        .join-cell .btn-solid, .join-cell .btn-line { padding: 0.85rem 1.6rem; }
-
-        @media (max-width: 900px) {
-            .sv-desc { margin-top: 0; }
-            .sv-pg, .sv-ways, .join-grid { grid-template-columns: 1fr; }
-            .sv-pg > div, .sv-pg > div + div { padding: 1.1rem 0; border-left: 0; }
-            .sv-pg > div + div { border-top: 1px solid var(--gray-200); }
-            .sv-ways li + li, .join-cell + .join-cell { border-left: 0; border-top: 1px solid var(--gray-200); }
-            .join { padding: 4.5rem 0; }
-        }
-        @media print {
-            .join { padding: 1.4rem 0 !important; }
-            .join-cell { padding: 1rem !important; }
-        }
-        /* ── フック・数値ゴール ── */
-        .gnum { display: block; font-family: var(--font-serif); font-weight: 600; font-size: 1.5rem; line-height: 1.35; color: var(--primary); letter-spacing: 0.02em; margin: 0.1rem 0 0.35rem; }
-
-        /* ── 連携先 ── */
-        .pt { padding: 6rem 2rem; border-top: 1px solid var(--gray-100); }
-        .pt-idx { background: var(--white); }
-        .pt-sv { background: var(--white); padding-left: 0; padding-right: 0; }
-        .pt-inner { max-width: 1080px; margin: 0 auto; }
-        .pt-sv .pt-inner { padding: 0 2rem; }
-        .pt-grid { display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 3rem; border-top: 1px solid var(--gray-200); border-left: 1px solid var(--gray-200); }
-        .pt-cell { display: flex; flex-direction: column; gap: 0.35rem; padding: 1.6rem 1.3rem 1.5rem; border-right: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); color: inherit; }
-        a.pt-cell:hover .pt-name, a.pt-cell:focus-visible .pt-name { color: var(--primary); }
-        .pt-logo { height: 64px; display: flex; align-items: center; margin-bottom: 0.8rem; }
-        .pt-logo img { max-height: 64px; max-width: 100%; width: auto; height: auto; object-fit: contain; }
-        .pt-text { font-family: var(--font-serif); font-size: 0.82rem; line-height: 1.4; color: var(--black); border-left: 2px solid var(--primary); padding-left: 0.6rem; height: auto; min-height: 64px; }
-        .pt-name { font-size: 0.84rem; font-weight: 500; color: var(--black); line-height: 1.6; transition: color 0.3s; }
-        .pt-field { font-size: 0.72rem; font-weight: 300; color: var(--gray-500); line-height: 1.7; }
-        @media (max-width: 900px) {
-            .pt { padding: 4.5rem 1.5rem; }
-            .pt-grid { grid-template-columns: 1fr 1fr; }
-        }
-        @media print { .pt { padding: 1.4rem 0 !important; } }
-
-        /* ── 事業ブロック（フック・使う人・比較） ── */
-        .sv-hook { font-family: var(--font-serif); font-size: clamp(1.3rem, 3vw, 1.75rem); font-weight: 500; line-height: 1.6; color: var(--primary); letter-spacing: 0.03em; margin: -0.6rem 0 1.4rem; }
-        .sv-sub { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; color: var(--gray-500); margin-bottom: 1.1rem; }
-        .sv-who { margin: 0 0 3rem; }
-        .sv-who-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
-        .sv-who-grid > div { border-top: 1px solid var(--black); padding-top: 1rem; }
-        .sv-who-grid h4 { font-family: var(--font-serif); font-size: 1rem; font-weight: 500; color: var(--black); margin-bottom: 0.5rem; letter-spacing: 0.04em; }
-        .sv-who-grid p { font-size: 0.86rem; font-weight: 300; line-height: 2; color: var(--gray-700); }
-        .sv-vs { margin: 0 0 3.4rem; }
-        .sv-vs-scroll { overflow-x: auto; }
-        .sv-vs table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 0.84rem; background: var(--white); }
-        .sv-vs th, .sv-vs td { text-align: left; padding: 0.95rem 1.1rem; border-bottom: 1px solid var(--gray-200); line-height: 1.8; vertical-align: top; font-weight: 300; color: var(--gray-700); }
-        .sv-vs thead th { font-size: 0.74rem; font-weight: 500; color: var(--gray-500); letter-spacing: 0.06em; border-bottom: 1px solid var(--black); }
-        .sv-vs tbody th { font-weight: 500; color: var(--black); width: 22%; }
-        .sv-vs .us { color: var(--black); font-weight: 500; background: var(--primary-pale); border-left: 2px solid var(--primary); }
-        .sv-vs thead .us { color: var(--primary); }
-        @media (max-width: 900px) {
-            .sv-who-grid { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 600px) {
-            .sv-vs table { min-width: 0; font-size: 0.76rem; }
-            .sv-vs th, .sv-vs td { padding: 0.75rem 0.55rem; }
-            .sv-vs tbody th { width: 27%; }
+            #siteHeader, .tab-nav { display: none !important; }
+            .tab-panel { display: block !important; break-inside: avoid; }
+            .faq-item .faq-a { display: block !important; }
         }
     </style>
 </head>
 <body>
-
-    <nav class="header-nav">
-        <a href="index.html" data-i18n="nav.top">TOP</a>
-        <a href="service.html" data-i18n="nav.service">SERVICE</a>
-        <a href="about-company.html" data-i18n="nav.company">COMPANY</a>
-        <a href="contact.html" class="contact-link" data-i18n="nav.contact">CONTACT</a>
-    </nav>
+    <header id="siteHeader">
+        <a href="index.html" class="header-logo"><img src="logo.png" alt="TAmJ"></a>
+        <nav class="header-nav">
+            <a href="index.html" data-i18n="nav.top">Top</a>
+            <a href="service.html" data-i18n="nav.service">Service</a>
+            <a href="about-company.html" data-i18n="nav.company">Company</a>
+            <a href="contact.html" class="nav-cta" data-i18n="nav.contact">Contact</a>
+        </nav>
+    </header>
 
     <section class="page-top">
-        <span class="page-label">Service</span>
-        <h1 data-i18n="sv.h1">3つの事業の目的とゴール</h1>
-        <p class="page-sub" data-i18n="sv.sub">医療と介護が最後まで残る街をつくる、という1つの目的のための3つ。事業ごとに、使う・相談する・出資するの入口を置いています。</p>
+        <span class="page-label reveal" data-i18n="service.label">Our Business</span>
+        <h1 class="reveal" data-i18n="sv.title2">3つの事業</h1>
     </section>
 
-    <div class="sv-jump">
-        <div class="sv-wrap">
-            <ul>
-                <li><a href="#app" data-i18n="sv.jump1">01 現場の業務アプリ</a></li>
-                <li><a href="#dev" data-i18n="sv.jump2">02 開発と承継</a></li>
-                <li><a href="#make" data-i18n="sv.jump3">03 受託開発とコンテンツ</a></li>
-                <li><a href="#price" data-i18n="sv.jump4">料金</a></li>
-                <li><a href="#faq" data-i18n="sv.jump5">よくある質問</a></li>
-                <li><a href="#join" data-i18n="sv.jump6">3つの窓口</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- 01 ── APP ── -->
-    <section class="sv-block" id="app">
-        <div class="sv-wrap">
-            <div class="sv-head">
-                <div>
-                    <p class="sv-for" data-i18n="sv1.for">FOR 病院・診療所・介護事業所・薬局</p>
-                    <h2 class="sv-name" data-i18n="sv1.name">01 &nbsp;やるゼ！ — 法人をまたぐ業務を、1つの画面に</h2>
+    <section class="tab-section" id="price">
+        <nav class="tab-nav" id="tabNav" role="tablist">
+            <button class="tab-btn active" data-tab="app" type="button"><span class="tab-num">01</span><span class="tab-label" data-i18n="tab1">やるゼ！</span></button>
+            <button class="tab-btn" data-tab="dev" type="button"><span class="tab-num">02</span><span class="tab-label" data-i18n="tab2">開発と承継</span></button>
+            <button class="tab-btn" data-tab="make" type="button"><span class="tab-num">03</span><span class="tab-label" data-i18n="tab3">受託開発・コンテンツ</span></button>
+        </nav>
+        <div class="tab-panels" id="tabPanels">
+            <div class="tab-panel active" id="panel-app">
+                <div class="pnl-lead">
+                    <p class="pnl-k" data-i18n="lbl.aim">目的</p>
+                    <p class="pnl-aim" data-i18n="biz1.aim">事務の重さで、医療と介護の現場を止めない。</p>
+                    <p class="pnl-k" data-i18n="lbl.goal">ゴール</p>
+                    <p class="pnl-goal"><b data-i18n="biz1.gnum">利用者 20万人</b><span data-i18n="biz1.goal">退院から受入れまでの引継ぎを、日本中どこでも同じ画面で。</span></p>
                 </div>
-                <div class="sv-price-tag">
-                    <p class="p">&yen;200</p>
-                    <span class="u" data-i18n="sv1.u">1ユーザー / 月（税抜）・無料プランあり</span>
+                <p class="panel-head" data-i18n="sv.can">できること</p>
+                <div class="plist">
+                <div class="product-store">
+                    <a href="https://yaruze.tamjump.com/lp.html" class="store-main" target="_blank" rel="noopener">
+                        <img src="icons/yaruze.png" alt="やるゼ！" class="store-icon">
+                        <span class="store-text">
+                            <span class="store-name" data-i18n="card1.h">やるゼ！</span>
+                            <span class="store-tag" data-i18n="onplay">Google Play で配信中</span>
+                            <span class="store-desc" data-i18n="app.yaruze.d">現場のアプリをまとめる入口。必要なものだけを使える。</span>
+                        </span>
+                    </a>
+                    <span class="store-cta">
+                        <a href="https://play.google.com/store/apps/details?id=com.tamjump.yaruze&pcampaignid=web_share" class="store-badge" target="_blank" rel="noopener"><img class="gp-badge" src="icons/googleplay/ja.svg" alt="Google Play" loading="lazy"></a>
+                        <span class="store-qr"><img src="icons/qr/yaruze.svg" alt="" loading="lazy"></span>
+                    </span>
                 </div>
-            </div>
-
-            <p class="sv-hook" data-i18n="biz1.hook">その同意書、まだ紙で運んでいますか。</p>
-            <p class="sv-desc" data-i18n="biz1.p">退院から受入れまで、法人をまたぐ引継ぎを1件のケースとして進めるアプリ。同意書の電子署名、日程調整、担当者会議、オンライン通話まで1つの画面で完結。</p>
-            <dl class="biz-pg sv-pg">
-                <div class="pg-aim"><dt data-i18n="lbl.aim">目的</dt><dd data-i18n="biz1.aim">事務の重さで、医療と介護の現場を止めない。</dd></div>
-                <div class="pg-goal"><dt data-i18n="lbl.goal">ゴール</dt><dd><b class="gnum" data-i18n="biz1.gnum">利用者 20万人</b><span data-i18n="biz1.goal">退院から受入れまでの引継ぎを、日本中どこでも同じ画面で。</span></dd></div>
-                <div class="pg-now"><dt data-i18n="lbl.now">現在地</dt><dd data-i18n="biz1.now">Google Play で公開中。1ユーザー月200円、無料プランあり。</dd></div>
-            </dl>
-
-            <div class="sv-who">
-                <p class="sv-sub" data-i18n="lbl.who">使う人にとって</p>
-                <div class="sv-who-grid">
-                    <div><h4 data-i18n="biz1.who1.h">患者さん・ご家族</h4><p data-i18n="biz1.who1.p">同意書はスマホで署名。そのために病院へ行かなくていい。担当者会議にも、離れた場所から参加できる。</p></div>
-                    <div><h4 data-i18n="biz1.who2.h">現場のスタッフ</h4><p data-i18n="biz1.who2.p">電話・FAX・書類の持参が減る。誰がどこまで進めたかが、法人が違っても見える。</p></div>
-                    <div><h4 data-i18n="biz1.who3.h">経営者</h4><p data-i18n="biz1.who3.p">1人月200円、無料プランから。いまの介護ソフトはそのまま使える。</p></div>
+                <div class="product-store">
+                    <a href="https://myaruze.tamjump.com/" class="store-main" target="_blank" rel="noopener">
+                        <img src="icons/myaruze.png" alt="ｍやるゼ！" class="store-icon">
+                        <span class="store-text">
+                            <span class="store-name" data-i18n="tag.m">ｍやるゼ！</span>
+                            <span class="store-tag" data-i18n="onplay">Google Play で配信中</span>
+                            <span class="store-desc" data-i18n="app.myaruze.d">医療・介護の法人間連携。受入れ・移行・同意書・会議を1件のケースで。</span>
+                        </span>
+                    </a>
+                    <span class="store-cta">
+                        <a href="https://play.google.com/store/apps/details?id=com.tamjump.medvoo&pcampaignid=web_share" class="store-badge" target="_blank" rel="noopener"><img class="gp-badge" src="icons/googleplay/ja.svg" alt="Google Play" loading="lazy"></a>
+                        <span class="store-qr"><img src="icons/qr/myaruze.svg" alt="" loading="lazy"></span>
+                    </span>
                 </div>
-            </div>
-
-            <div class="sv-vs">
-                <p class="sv-sub" data-i18n="lbl.vs">よくあるサービスとの比較</p>
-                <div class="sv-vs-scroll">
-                    <table>
-                        <thead><tr><th></th><th data-i18n="biz1.vs.h1">一般的な連携SNS型</th><th class="us" data-i18n="biz1.vs.h2">やるゼ！</th></tr></thead>
-                        <tbody>
-                        <tr><th data-i18n="biz1.vs.r1">中心にあるもの</th><td data-i18n="biz1.vs.r1a">メッセージのやり取り</td><td class="us" data-i18n="biz1.vs.r1b">受入れ・移行の業務そのもの</td></tr>
-                        <tr><th data-i18n="biz1.vs.r2">同意書</th><td data-i18n="biz1.vs.r2a">紙に印刷して持参・署名</td><td class="us" data-i18n="biz1.vs.r2b">スマホで電子署名、改ざん検知つき</td></tr>
-                        <tr><th data-i18n="biz1.vs.r3">オンライン通話</th><td data-i18n="biz1.vs.r3a">少人数向けが中心</td><td class="us" data-i18n="biz1.vs.r3b">最大200人、待機室つき</td></tr>
-                        <tr><th data-i18n="biz1.vs.r4">会議・モニタリング</th><td data-i18n="biz1.vs.r4a">別の書類や仕組みで管理</td><td class="us" data-i18n="biz1.vs.r4b">同じケースの中に記録</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="sv-cols">
-                <div class="sv-col">
-                    <h4 data-i18n="sv1.h4a">いま起きていること</h4>
-                    <ul>
-                        <li data-i18n="sv1.a1">退院の連絡は電話、記録は手元のメモに残る</li>
-                        <li data-i18n="sv1.a2">同意書は印刷して持参し、署名をもらって持ち帰る</li>
-                        <li data-i18n="sv1.a3">担当者会議の日程はメールの往復で決まる</li>
-                        <li data-i18n="sv1.a4">誰がどこまで進めたかが、法人をまたぐと見えない</li>
-                    </ul>
-                </div>
-                <div class="sv-col">
-                    <h4 data-i18n="sv1.h4b">入れたあと</h4>
-                    <ul>
-                        <li data-i18n="sv1.b1">退院通知から受入れまでが1件のケースとして進む</li>
-                        <li data-i18n="sv1.b2">同意書はその場で電子署名、改ざん検知つきで保存</li>
-                        <li data-i18n="sv1.b3">日程調整とオンライン通話が同じ画面の中にある</li>
-                        <li data-i18n="sv1.b4">進捗と記録が、法人が違っても共有される</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="sv-cols" style="margin-top:3rem">
-                <div class="sv-col">
-                    <h4 data-i18n="sv1.h4c">含まれるもの</h4>
-                    <p data-i18n="sv1.c">受入れ・移行の管理、退院通知、面談の日程調整、同意書の電子署名、担当者会議、モニタリング、アセスメント、オンライン通話（主催者の許可制・最大200人）、監査ログ。AndroidアプリはGoogle Playで公開中、ブラウザでもそのまま使えます。</p>
-                </div>
-                <div class="sv-col">
-                    <h4 data-i18n="sv1.h4d">3つのアプリの関係</h4>
-                    <p data-i18n="sv1.d">ｍやるゼ！が医療・介護の法人間連携、ｔやるゼ！が施設設備の通報と管理会社連携、Care Support Pass が施設運営まわり。共通の入口が親アプリ「やるゼ！」です。必要なものだけを使えます。</p>
-                </div>
-            </div>
-
-            <ul class="biz-ways sv-ways">
-                            <li><span data-i18n="way.use">使う</span><a href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" data-i18n="biz1.w1">無料で始める</a></li>
-                            <li><span data-i18n="way.ask">相談</span><a href="contact.html?topic=myaruze" data-i18n="biz1.w2">導入の相談</a></li>
-                            <li><span data-i18n="way.inv">出資・提携</span><a href="contact.html?topic=invest" data-i18n="biz1.w3">ソフト会社との連携・出資</a></li>
-                        </ul>
-        </div>
-    </section>
-
-    <!-- 02 ── DEVELOPMENT ── -->
-    <section class="sv-block" id="dev">
-        <div class="sv-wrap">
-            <div class="sv-head">
-                <div>
-                    <p class="sv-for" data-i18n="sv2.for">FOR 施設をつくる人・譲る人・継ぐ人・投資する人</p>
-                    <h2 class="sv-name" data-i18n="sv2.name">02 &nbsp;開発と承継 — どこに、何を、いくらでつくるか</h2>
-                </div>
-                <div class="sv-price-tag">
-                    <p class="p" style="font-size:1.6rem" data-i18n="sv2.p">着手金＋成功報酬</p>
-                    <span class="u" data-i18n="sv2.u">初回相談は無料</span>
-                </div>
-            </div>
-
-            <p class="sv-hook" data-i18n="biz2.hook">「売れない」と言われた施設から、始める。</p>
-            <p class="sv-desc" data-i18n="biz2.p">医療・介護施設の開発と、事業承継・M&amp;A。全国1,740市区町村の需給データで「どこに・何を・いくらで」を決め、着工から引継ぎまで請け負う。</p>
-            <dl class="biz-pg sv-pg">
-                <div class="pg-aim"><dt data-i18n="lbl.aim">目的</dt><dd data-i18n="biz2.aim">担い手がいないという理由で、施設と事業所を閉じさせない。</dd></div>
-                <div class="pg-goal"><dt data-i18n="lbl.goal">ゴール</dt><dd><b class="gnum" data-i18n="biz2.gnum">再生・承継 100社</b><span data-i18n="biz2.goal">後継者がいない、赤字、人が足りない。そんな事業所を立て直してつなぎ、医療と介護の拠点を地域に残す。</span></dd></div>
-                <div class="pg-now"><dt data-i18n="lbl.now">現在地</dt><dd data-i18n="biz2.now">施設23棟・事業所33ヶ所の開発、M&amp;A 9社。開発・承継案件を掲載中。</dd></div>
-            </dl>
-
-            <div class="sv-who">
-                <p class="sv-sub" data-i18n="lbl.who">使う人にとって</p>
-                <div class="sv-who-grid">
-                    <div><h4 data-i18n="biz2.who1.h">地域の利用者</h4><p data-i18n="biz2.who1.p">施設が閉まらずに続けば、通い慣れた場所と顔なじみの職員が残る。遠くの施設へ移らなくて済む。</p></div>
-                    <div><h4 data-i18n="biz2.who2.h">譲りたい経営者</h4><p data-i18n="biz2.who2.p">赤字や人手不足でも相談できる。立て直してから、適正な対価で出口をつくる。</p></div>
-                    <div><h4 data-i18n="biz2.who3.h">継ぎたい・建てたい・投資したい人</h4><p data-i18n="biz2.who3.p">全国1,740市区町村のデータで、建てる前に数字で判断できる。やめる判断も含めて。</p></div>
-                </div>
-            </div>
-
-            <div class="sv-vs">
-                <p class="sv-sub" data-i18n="lbl.vs">よくあるサービスとの比較</p>
-                <div class="sv-vs-scroll">
-                    <table>
-                        <thead><tr><th></th><th data-i18n="biz2.vs.h1">一般的なM&amp;A仲介</th><th class="us" data-i18n="biz2.vs.h2">弊社</th></tr></thead>
-                        <tbody>
-                        <tr><th data-i18n="biz2.vs.r1">対象</th><td data-i18n="biz2.vs.r1a">売れる会社が中心</td><td class="us" data-i18n="biz2.vs.r1b">赤字・後継者不在・人手不足の事業所も</td></tr>
-                        <tr><th data-i18n="biz2.vs.r2">関わる期間</th><td data-i18n="biz2.vs.r2a">成約まで</td><td class="us" data-i18n="biz2.vs.r2b">立地選びから承継後の運営まで</td></tr>
-                        <tr><th data-i18n="biz2.vs.r3">判断の材料</th><td data-i18n="biz2.vs.r3a">個別の案件情報</td><td class="us" data-i18n="biz2.vs.r3b">全国1,740市区町村の需給データ</td></tr>
-                        <tr><th data-i18n="biz2.vs.r4">現場の経験</th><td data-i18n="biz2.vs.r4a">仲介が専門</td><td class="us" data-i18n="biz2.vs.r4b">施設23棟・事業所33ヶ所を開発</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="sv-cols">
-                <div class="sv-col">
-                    <h4 data-i18n="sv2.h4a">請け負う範囲</h4>
-                    <ul>
-                        <li data-i18n="sv2.a1">開発用地の紹介と売買（札幌ほか）</li>
-                        <li data-i18n="sv2.a2">施設種別と定員からの建築費・投資額の概算</li>
-                        <li data-i18n="sv2.a3">収支計画と資金調達の設計、見積の精査</li>
-                        <li data-i18n="sv2.a4">介護・医療事業のM&amp;A（DD・実行・PMIまで）</li>
-                        <li data-i18n="sv2.a5">畳む前の事業承継、譲渡先の探索</li>
-                    </ul>
-                </div>
-                <div class="sv-col">
-                    <h4 data-i18n="sv2.h4b">判断の材料をこちらで用意します</h4>
-                    <p data-i18n="sv2.b">全国1,740市区町村の需給を4つの軸で分析した teamONE を使い、「どこに建てるか」から一緒に決めます。感覚ではなく数字で場所を選べるので、着工前に引き返す判断もできます。実績は施設23棟（1,500床以上）、事業所33ヶ所、医療施設3棟、M&amp;A 9社。</p>
-                </div>
-            </div>
-
-            <ul class="biz-ways sv-ways">
-                            <li><span data-i18n="way.use">使う</span><a href="https://develop.tamjump.com/" target="_blank" rel="noopener" data-i18n="biz2.w1">開発シミュレーションを無料で使う</a></li>
-                            <li><span data-i18n="way.ask">相談</span><a href="contact.html?topic=develop" data-i18n="biz2.w2">譲りたい・継ぎたい・建てたい</a></li>
-                            <li><span data-i18n="way.inv">出資・提携</span><a href="https://develop.tamjump.com/" target="_blank" rel="noopener" data-i18n="biz2.w3">掲載中の案件を見る（NDA）</a></li>
-                        </ul>
-        </div>
-    </section>
-
-    <!-- 03 ── MAKE ── -->
-    <section class="sv-block" id="make">
-        <div class="sv-wrap">
-            <div class="sv-head">
-                <div>
-                    <p class="sv-for" data-i18n="sv3.for">FOR アプリ・サイトが要る会社、企画を一緒にやりたい人</p>
-                    <h2 class="sv-name" data-i18n="sv3.name">03 &nbsp;受託開発とコンテンツ</h2>
-                </div>
-                <div class="sv-price-tag">
-                    <p class="p" style="font-size:1.6rem" data-i18n="sv3.p">お見積り</p>
-                    <span class="u" data-i18n="sv3.u">小さく試す形から</span>
-                </div>
-            </div>
-
-            <p class="sv-hook" data-i18n="biz3.hook">稼いだお金の行き先まで、決めています。</p>
-            <p class="sv-desc" data-i18n="biz3.p">医療・介護の業務システム、会員サイト、決済、スマートフォンアプリの受託開発。音楽レーベル TAMSIC と、クラウドファンディング企画も運営。</p>
-            <dl class="biz-pg sv-pg">
-                <div class="pg-aim"><dt data-i18n="lbl.aim">目的</dt><dd data-i18n="biz3.aim">公費だけに頼らない収入を、自分たちでつくる。</dd></div>
-                <div class="pg-goal"><dt data-i18n="lbl.goal">ゴール</dt><dd><b class="gnum" data-i18n="biz3.gnum">ONE HEART 目標 &yen;1,250,000</b><span data-i18n="biz3.goal">公費に頼らない収入で、へき地の医療・介護と、医療が届かない地域の支援を続ける。まずは10月8日まで。</span></dd></div>
-                <div class="pg-now"><dt data-i18n="lbl.now">現在地</dt><dd data-i18n="biz3.now">自社アプリを Google Play で公開・運用。Kickstarter で ONE HEART を公開中。</dd></div>
-            </dl>
-
-            <div class="sv-who">
-                <p class="sv-sub" data-i18n="lbl.who">使う人にとって</p>
-                <div class="sv-who-grid">
-                    <div><h4 data-i18n="biz3.who1.h">依頼する会社</h4><p data-i18n="biz3.who1.p">業務の説明から始めなくていい。1画面から相談でき、公開と運用まで任せられる。</p></div>
-                    <div><h4 data-i18n="biz3.who2.h">聴く人・参加する人</h4><p data-i18n="biz3.who2.p">TAMSIC の曲や ONE HEART の作品に、見るだけでなく参加者として関われる。</p></div>
-                    <div><h4 data-i18n="biz3.who3.h">医療が届きにくい地域</h4><p data-i18n="biz3.who3.p">ここで生んだ収益を、へき地の医療・介護の支えに回す。</p></div>
-                </div>
-            </div>
-
-            <div class="sv-vs">
-                <p class="sv-sub" data-i18n="lbl.vs">よくあるサービスとの比較</p>
-                <div class="sv-vs-scroll">
-                    <table>
-                        <thead><tr><th></th><th data-i18n="biz3.vs.h1">一般的な受託開発会社</th><th class="us" data-i18n="biz3.vs.h2">弊社</th></tr></thead>
-                        <tbody>
-                        <tr><th data-i18n="biz3.vs.r1">医療・介護の知識</th><td data-i18n="biz3.vs.r1a">要件の説明から必要</td><td class="us" data-i18n="biz3.vs.r1b">現場20年。説明なしで通じる</td></tr>
-                        <tr><th data-i18n="biz3.vs.r2">公開・決済・規約</th><td data-i18n="biz3.vs.r2a">別の会社に頼むことが多い</td><td class="us" data-i18n="biz3.vs.r2b">自社アプリで運用しているものをそのまま</td></tr>
-                        <tr><th data-i18n="biz3.vs.r3">始め方</th><td data-i18n="biz3.vs.r3a">まとまった要件と予算から</td><td class="us" data-i18n="biz3.vs.r3b">1画面から</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="sv-cols">
-                <div class="sv-col">
-                    <h4 data-i18n="sv3.h4a">つくれるもの</h4>
-                    <ul>
-                        <li data-i18n="sv3.a1">医療・介護の業務システム（記録・請求・連携）</li>
-                        <li data-i18n="sv3.a2">会員サイト、予約、決済、電子署名</li>
-                        <li data-i18n="sv3.a3">スマートフォンアプリの公開まで</li>
-                        <li data-i18n="sv3.a4">クラウドファンディングの企画と運営</li>
-                    </ul>
-                </div>
-                <div class="sv-col">
-                    <h4 data-i18n="sv3.h4b">なぜここに頼めるのか</h4>
-                    <p data-i18n="sv3.b">受託を請け負う会社ではなく、自社でアプリを公開し、決済を回し、規約と個人情報の扱いまで自分で作ってきた会社です。医療・介護の要件を説明しなくても通じます。音楽レーベル TAMSIC とクラウドファンディング企画も、この枠でやっています。</p>
-                </div>
-            </div>
-
-            <ul class="biz-ways sv-ways">
-                            <li><span data-i18n="way.use">使う</span><a href="https://tamsic.tamjump.com/" target="_blank" rel="noopener" data-i18n="biz3.w1">TAMSIC を聴く</a></li>
-                            <li><span data-i18n="way.ask">相談</span><a href="contact.html?topic=build" data-i18n="biz3.w2">開発を依頼する</a></li>
-                            <li><span data-i18n="way.inv">出資・提携</span><a href="contact.html?topic=partner" data-i18n="biz3.w3">共同企画・スポンサー</a></li>
-                        </ul>
-        </div>
-    </section>
-
-    <!-- ── PRICE ── -->
-    <section class="sv-price" id="price">
-        <div class="sv-wrap">
-            <span class="sec-label">Price</span>
-            <h2 class="sec-h2" data-i18n="pr.h2">料金</h2>
-            <p class="sec-lead" data-i18n="pr.lead">見積りのための電話は要りません。書いてあるものがすべてです。</p>
-
-            <div class="plans">
-                <div class="plan">
-                    <p class="nm">Free</p>
-                    <p class="amt">&yen;0</p>
-                    <p class="unit" data-i18n="pr.free.u">ずっと無料・カード登録なし</p>
-                    <ul>
-                        <li data-i18n="pr.free.1">患者・利用者 100件まで</li>
-                        <li data-i18n="pr.free.2">スタッフ 50名まで</li>
-                        <li data-i18n="pr.free.3">受入れ・移行の管理、同意書の電子署名</li>
-                        <li data-i18n="pr.free.4">招待された通話への参加</li>
-                    </ul>
-                    <a href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" class="btn-line" data-i18n="pr.free.cta">無料で始める</a>
-                </div>
-                <div class="plan hi">
-                    <p class="nm">Pro</p>
-                    <p class="amt">&yen;200</p>
-                    <p class="unit" data-i18n="pr.pro.u">1ユーザー / 月（税抜・税込 &yen;220）・初期費用なし</p>
-                    <ul>
-                        <li data-i18n="pr.pro.1">件数・人数の上限なし</li>
-                        <li data-i18n="pr.pro.2">オンライン通話の発行（最大200人・待機室つき）</li>
-                        <li data-i18n="pr.pro.3">担当者会議・モニタリング・アセスメント</li>
-                        <li data-i18n="pr.pro.4">監査ログの書き出し、帳票の自動作成</li>
-                    </ul>
-                    <a href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" class="btn-solid" data-i18n="pr.pro.cta">Pro を申し込む</a>
-                </div>
-            </div>
-
-            <div class="fee-rows">
-                <div class="fee-row">
-                    <p class="k" data-i18n="pr.f1.k">開発と承継</p>
-                    <p class="d" data-i18n="pr.f1.d">案件の規模と範囲に応じて設計します。初回相談と概算は無料。</p>
-                    <p class="v" data-i18n="pr.f1.v">着手金＋成功報酬</p>
-                </div>
-                <div class="fee-row">
-                    <p class="k" data-i18n="pr.f2.k">受託開発</p>
-                    <p class="d" data-i18n="pr.f2.d">1画面から相談できます。要件が固まっていない段階でも構いません。</p>
-                    <p class="v" data-i18n="pr.f2.v">お見積り</p>
-                </div>
-                <div class="fee-row">
-                    <p class="k" data-i18n="pr.f3.k">代理店・レベニューシェア</p>
-                    <p class="d" data-i18n="pr.f3.d">やるゼ！を自社の顧客に提供したい事業者向け。条件はご相談。</p>
-                    <p class="v" data-i18n="pr.f3.v">要相談</p>
-                </div>
-            </div>
-            <p class="price-foot" data-i18n="pr.foot">表示はすべて税抜です。ｍやるゼ！の請求は税込 &yen;220 / ユーザー / 月。</p>
-        </div>
-    </section>
-
-    <!-- ── FAQ ── -->
-    <section class="sv-faq" id="faq">
-        <div class="sv-wrap">
-            <span class="sec-label">FAQ</span>
-            <h2 class="sec-h2" data-i18n="faq.h2">よくある質問</h2>
-            <div class="qa" style="margin-top:2.4rem">
-                <details open>
-                    <summary data-i18n="faq.q1">無料プランのまま使い続けられますか。</summary>
-                    <p class="a" data-i18n="faq.a1">使い続けられます。期限も、カード登録もありません。件数や人数が上限に届いたとき、通話を自分から発行したくなったときに Pro を検討してください。</p>
-                </details>
-                <details open>
-                    <summary data-i18n="faq.q2">他社の介護ソフトを使っています。入れ替えが必要ですか。</summary>
-                    <p class="a" data-i18n="faq.a2">要りません。やるゼ！は法人をまたぐ受入れ・移行の部分を担うもので、記録や請求のソフトとは役割が違います。いまお使いのものはそのままで構いません。</p>
-                </details>
-                <details open>
-                    <summary data-i18n="faq.q3">連携用のSNSと何が違うのですか。</summary>
-                    <p class="a" data-i18n="faq.a3">SNS型は「連絡を取ること」が中心です。やるゼ！は同意書の電子署名、改ざん検知、療養費の流れ、担当者会議やモニタリングまでを業務として持っています。メッセージ機能の多さで比べるより、1件の受入れが終わるまでに何回アプリの外に出るかで比べてください。</p>
-                </details>
-                <details open>
-                    <summary data-i18n="faq.q4">患者や利用者の情報を預けても大丈夫ですか。</summary>
-                    <p class="a" data-i18n="faq.a4">データは実績のあるクラウド基盤に保管し、アクセスできる範囲を役割ごとに分けています。同意書には改ざん検知をかけ、監査ログを書き出せます。契約前に、保管場所と取扱いの範囲を書面でお渡しします。</p>
-                </details>
-                <details open>
-                    <summary data-i18n="faq.q5">開発の相談は、土地が決まっていなくてもできますか。</summary>
-                    <p class="a" data-i18n="faq.a5">その段階が一番向いています。市区町村ごとの需給分析から場所を絞り、施設種別と定員を変えながら概算を出します。数字が合わなければ、やらない判断まで含めてお手伝いします。</p>
-                </details>
-                <details open>
-                    <summary data-i18n="faq.q6">1人でやっている会社だと聞きました。続きますか。</summary>
-                    <p class="a" data-i18n="faq.a6">開発と運営は少人数です。そのぶん判断が速く、価格も低く保てています。規模が増える分は外部に出す設計にしていますし、データの持ち出しと契約終了時の扱いはあらかじめ決めてあります。心配な点があれば、契約前に具体的にお答えします。</p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══ PARTNERS ══ -->
-    <section class="pt pt-sv" id="partners">
-        <div class="pt-inner">
-            <span class="sec-label">Partners</span>
-            <h2 class="sec-h2 reveal" data-i18n="pt.h2">連携先</h2>
-            <p class="sec-lead reveal" data-i18n="pt.lead">医療・介護の現場で、一緒に動いている法人です。</p>
-            <div class="pt-grid">
-                <a class="pt-cell" href="https://www.compass-dc.jp/" target="_blank" rel="noopener">
-                    <span class="pt-logo"><img src="partners/compass.png?v=20260520b" alt="コンパスメディカルグループ" loading="lazy"></span>
-                    <span class="pt-name" data-i18n="pt.n.compass">コンパスメディカルグループ</span>
-                    <span class="pt-field" data-i18n="pt.compass">医科・歯科・健診</span>
+                <a class="product-item" href="https://tyaruze.tamjump.com/" target="_blank" rel="noopener">
+                    <span class="product-name" data-i18n="tag.t">ｔやるゼ！</span>
+                    <span class="product-desc" data-i18n="app.tyaruze.d">施設設備の通報と管理会社への連絡を1画面で。</span>
+                    <span class="product-arrow">→</span>
                 </a>
-                <a class="pt-cell" href="https://medipass.co.jp/" target="_blank" rel="noopener">
-                    <span class="pt-logo"><img src="partners/medipass.png?v=20260520b" alt="株式会社メディパス" loading="lazy"></span>
-                    <span class="pt-name" data-i18n="pt.n.medipass">株式会社メディパス</span>
-                    <span class="pt-field" data-i18n="pt.medipass">医療・介護施設の経営支援、訪問診療の支援</span>
+                <a class="product-item" href="https://carepass.tamjump.com/" target="_blank" rel="noopener">
+                    <span class="product-name" data-i18n="tag.carepass">Care Support Pass</span>
+                    <span class="product-desc" data-i18n="app.carepass.d">施設運営を支える月額会員の仕組み。</span>
+                    <span class="product-arrow">→</span>
                 </a>
-                <a class="pt-cell" href="https://hekichiiryou.jp/" target="_blank" rel="noopener">
-                    <span class="pt-logo"><img src="partners/hekichiiryou.png?v=20260520b" alt="へき地医療jp チームGREEN" loading="lazy"></span>
-                    <span class="pt-name" data-i18n="pt.n.hekichi">へき地医療jp チームGREEN</span>
-                    <span class="pt-field" data-i18n="pt.hekichi">へき地医療</span>
-                </a>
-                <a class="pt-cell" href="https://tamjump.github.io/GoTo_Site/" target="_blank" rel="noopener">
-                    <span class="pt-logo"><img src="partners/goto-happy.png?v=20260520b" alt="特定非営利活動法人 GO TO HAPPY LIFE" loading="lazy"></span>
-                    <span class="pt-name" data-i18n="pt.n.goto">特定非営利活動法人 GO TO HAPPY LIFE</span>
-                    <span class="pt-field" data-i18n="pt.goto">医療・福祉支援、国際支援</span>
-                </a>
-                <div class="pt-cell">
-                    <span class="pt-logo pt-text" aria-hidden="true">さかえ<br>ケアサービス</span>
-                    <span class="pt-name" data-i18n="pt.n.sakae">株式会社さかえケアサービス</span>
-                    <span class="pt-field" data-i18n="pt.sakae">医療・福祉</span>
                 </div>
+                <p class="panel-head" data-i18n="sv.info">料金と違い</p>
+                <div class="plist">
+                <div class="info-row"><span class="info-k" data-i18n="lbl.price">料金</span><span class="info-v" data-i18n="p1.price">1ユーザー月200円（税抜）。無料プランあり（患者100件・スタッフ50名まで）。</span></div>
+                <div class="info-row"><span class="info-k" data-i18n="biz1.who1.h">患者さん・ご家族</span><span class="info-v" data-i18n="biz1.who1.p">同意書はスマホで署名。そのために病院へ行かなくていい。担当者会議にも、離れた場所から参加できる。</span></div>
+                <div class="info-row"><span class="info-k" data-i18n="lbl.diff">ほかとの違い</span><span class="info-v" data-i18n="biz1.diff">連絡を取るためのSNSではなく、同意書・会議・記録までが1件のケースで終わる業務アプリ。</span></div>
+                </div>
+                <p class="panel-head" data-i18n="sv.start">始め方</p>
+                <ul class="ways">
+                    <li><span data-i18n="way.use">使う</span><a href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" class="way-link" data-i18n="biz1.w1">無料で始める</a></li>
+                    <li><span data-i18n="way.ask">相談</span><a href="contact.html?topic=myaruze" class="way-link" data-i18n="biz1.w2">導入の相談</a></li>
+                    <li><span data-i18n="way.inv">出資・提携</span><a href="contact.html?topic=invest" class="way-link" data-i18n="biz1.w3">ソフト会社との連携・出資</a></li>
+                </ul>
+            </div>
+            <div class="tab-panel" id="panel-dev">
+                <div class="pnl-lead">
+                    <p class="pnl-k" data-i18n="lbl.aim">目的</p>
+                    <p class="pnl-aim" data-i18n="biz2.aim">担い手がいないという理由で、施設と事業所を閉じさせない。</p>
+                    <p class="pnl-k" data-i18n="lbl.goal">ゴール</p>
+                    <p class="pnl-goal"><b data-i18n="biz2.gnum">再生・承継 100社</b><span data-i18n="biz2.goal">後継者がいない、赤字、人が足りない。そんな事業所を立て直してつなぎ、医療と介護の拠点を地域に残す。</span></p>
+                </div>
+                <p class="panel-head" data-i18n="sv.can">できること</p>
+                <div class="plist">
+                <a class="product-item" href="https://develop.tamjump.com/" target="_blank" rel="noopener">
+                    <span class="product-name" data-i18n="dev.r1">掲載中の開発案件・M&amp;A案件</span>
+                    <span class="product-desc" data-i18n="dev.r1d">物件ごとにNDAを結んで閲覧。</span>
+                    <span class="product-arrow">→</span>
+                </a>
+                <a class="product-item" href="https://tamjump.github.io/develop/" target="_blank" rel="noopener">
+                    <span class="product-name" data-i18n="dev.r2">介護・医療施設 開発シミュレーション</span>
+                    <span class="product-desc" data-i18n="dev.r2d">施設種別と定員から建築費・投資額を概算。</span>
+                    <span class="product-arrow">→</span>
+                </a>
+                <a class="product-item" href="https://develop.tamjump.com/lp-mci.html" target="_blank" rel="noopener">
+                    <span class="product-name" data-i18n="dev.r3">建設コスト根拠ツール</span>
+                    <span class="product-desc" data-i18n="dev.r3d">8指標のMCI指数で、根拠のある提案資料を。</span>
+                    <span class="product-arrow">→</span>
+                </a>
+                <a class="product-item" href="https://teamone.tamjump.com/" target="_blank" rel="noopener">
+                    <span class="product-name" data-i18n="dev.r4">teamONE 地域分析</span>
+                    <span class="product-desc" data-i18n="dev.r4d">全国1,740市区町村の需給を4つの軸で。</span>
+                    <span class="product-arrow">→</span>
+                </a>
+                </div>
+                <p class="panel-head" data-i18n="sv.info">料金と違い</p>
+                <div class="plist">
+                <div class="info-row"><span class="info-k" data-i18n="lbl.price">料金</span><span class="info-v" data-i18n="p2.price">着手金＋成功報酬。初回相談と概算は無料。</span></div>
+                <div class="info-row"><span class="info-k" data-i18n="biz2.who1.h">地域の利用者</span><span class="info-v" data-i18n="biz2.who1.p">施設が閉まらずに続けば、通い慣れた場所と顔なじみの職員が残る。遠くの施設へ移らなくて済む。</span></div>
+                <div class="info-row"><span class="info-k" data-i18n="lbl.diff">ほかとの違い</span><span class="info-v" data-i18n="biz2.diff">売れる会社だけを仲介するのではなく、売れない事業所を立て直してから引き継ぐ。建てる前の立地選びから、承継後の運営まで。</span></div>
+                </div>
+                <p class="panel-head" data-i18n="sv.start">始め方</p>
+                <ul class="ways">
+                    <li><span data-i18n="way.use">使う</span><a href="https://develop.tamjump.com/" target="_blank" rel="noopener" class="way-link" data-i18n="biz2.w1">開発シミュレーションを無料で使う</a></li>
+                    <li><span data-i18n="way.ask">相談</span><a href="contact.html?topic=develop" class="way-link" data-i18n="biz2.w2">譲りたい・継ぎたい・建てたい</a></li>
+                    <li><span data-i18n="way.inv">出資・提携</span><a href="https://develop.tamjump.com/" target="_blank" rel="noopener" class="way-link" data-i18n="biz2.w3">掲載中の案件を見る（NDA）</a></li>
+                </ul>
+            </div>
+            <div class="tab-panel" id="panel-make">
+                <div class="pnl-lead">
+                    <p class="pnl-k" data-i18n="lbl.aim">目的</p>
+                    <p class="pnl-aim" data-i18n="biz3.aim">公費だけに頼らない収入を、自分たちでつくる。</p>
+                    <p class="pnl-k" data-i18n="lbl.goal">ゴール</p>
+                    <p class="pnl-goal"><b data-i18n="biz3.gnum">ONE HEART 目標 &yen;1,250,000</b><span data-i18n="biz3.goal">公費に頼らない収入で、へき地の医療・介護と、医療が届かない地域の支援を続ける。まずは10月8日まで。</span></p>
+                </div>
+                <p class="panel-head" data-i18n="sv.can">できること</p>
+                <div class="plist">
+                <a class="product-item" href="contact.html?topic=build">
+                    <span class="product-name" data-i18n="mk.r1">業務システム・サイト・アプリの受託開発</span>
+                    <span class="product-desc" data-i18n="mk.r1d">医療・介護の要件がそのまま通じる。1画面から。</span>
+                    <span class="product-arrow">→</span>
+                </a>
+                <a class="product-item" href="https://tamsic.tamjump.com/" target="_blank" rel="noopener">
+                    <span class="product-name" data-i18n="mk.r2">TAMSIC</span>
+                    <span class="product-desc" data-i18n="mk.r2d">命と人間をテーマにした音楽レーベル。</span>
+                    <span class="product-arrow">→</span>
+                </a>
+                <a class="product-item" href="https://oneheart.tamjump.com/" target="_blank" rel="noopener">
+                    <span class="product-name" data-i18n="mk.r3">ONE HEART</span>
+                    <span class="product-desc" data-i18n="mk.r3d">参加型モザイクアート。Kickstarter で10月8日まで。</span>
+                    <span class="product-arrow">→</span>
+                </a>
+                </div>
+                <p class="panel-head" data-i18n="sv.info">料金と違い</p>
+                <div class="plist">
+                <div class="info-row"><span class="info-k" data-i18n="lbl.price">料金</span><span class="info-v" data-i18n="p3.price">お見積り。1画面から相談できます。</span></div>
+                <div class="info-row"><span class="info-k" data-i18n="biz3.who1.h">依頼する会社</span><span class="info-v" data-i18n="biz3.who1.p">業務の説明から始めなくていい。1画面から相談でき、公開と運用まで任せられる。</span></div>
+                <div class="info-row"><span class="info-k" data-i18n="lbl.diff">ほかとの違い</span><span class="info-v" data-i18n="biz3.diff">医療・介護の業務を説明しなくていい。自社でアプリを公開し、決済と規約まで運用している会社がつくる。</span></div>
+                </div>
+                <p class="panel-head" data-i18n="sv.start">始め方</p>
+                <ul class="ways">
+                    <li><span data-i18n="way.use">使う</span><a href="https://tamsic.tamjump.com/" target="_blank" rel="noopener" class="way-link" data-i18n="biz3.w1">TAMSIC を聴く</a></li>
+                    <li><span data-i18n="way.ask">相談</span><a href="contact.html?topic=build" class="way-link" data-i18n="biz3.w2">開発を依頼する</a></li>
+                    <li><span data-i18n="way.inv">出資・提携</span><a href="contact.html?topic=partner" class="way-link" data-i18n="biz3.w3">共同企画・スポンサー</a></li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- ── WAYS IN ── -->
-    <section class="join" id="join">
-        <div class="join-inner">
-            <span class="sec-label">Get Involved</span>
-            <h2 class="sec-h2 reveal" data-i18n="join.h2">3つの窓口</h2>
-            <p class="sec-lead reveal" data-i18n="join.lead">使う・相談する・出資する。目的に合わせてお選びください。</p>
-            <div class="join-grid">
-                <div class="join-cell">
-                    <h3 data-i18n="join.u.h">使ってみたい</h3>
-                    <p data-i18n="join.u.p">ｍやるゼ！は無料プランから。カード登録なし、期限なし。</p>
-                    <a href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" class="btn-solid" data-i18n="join.u.a">無料で始める</a>
-                </div>
-                <div class="join-cell">
-                    <h3 data-i18n="join.c.h">相談したい</h3>
-                    <p data-i18n="join.c.p">施設の開発・承継、業務システムの開発。初回相談は無料。</p>
-                    <a href="contact.html?topic=consult" class="btn-line" data-i18n="join.c.a">相談する</a>
-                </div>
-                <div class="join-cell">
-                    <h3 data-i18n="join.i.h">出資・提携したい</h3>
-                    <p data-i18n="join.i.p">やるゼ！の普及と、地域の医療・介護拠点を残す事業について、出資と業務提携のご相談を受け付けています。</p>
-                    <a href="contact.html?topic=invest" class="btn-line" data-i18n="join.i.a">出資・提携の相談</a>
-                </div>
-            </div>
+    <section class="partner-section">
+        <div class="partner-title reveal">
+            <span class="partner-title-en" data-i18n="service.partner.label">Partner</span>
+            <h2 class="partner-title-jp" data-i18n="service.partner.title">パートナー企業</h2>
+        </div>
+        <div id="partnerList">
+            <div class="partner-item"><span class="partner-name" data-i18n="pt.n.sakae">株式会社さかえケアサービス</span><span class="partner-type" data-i18n="pt.sakae">医療・福祉</span></div>
+            <a class="partner-item" href="https://tamjump.github.io/GoTo_Site/" target="_blank" rel="noopener"><span class="partner-name" data-i18n="pt.n.goto">特定非営利活動法人 GO TO HAPPY LIFE</span><span class="partner-type" data-i18n="pt.goto">医療・福祉支援、国際支援</span></a>
+            <a class="partner-item" href="https://www.compass-dc.jp/" target="_blank" rel="noopener"><span class="partner-name" data-i18n="pt.n.compass">コンパスメディカルグループ</span><span class="partner-type" data-i18n="pt.compass">医科・歯科・健診</span></a>
+            <a class="partner-item" href="https://medipass.co.jp/" target="_blank" rel="noopener"><span class="partner-name" data-i18n="pt.n.medipass">株式会社メディパス</span><span class="partner-type" data-i18n="pt.medipass">医療・介護施設の経営支援、訪問診療の支援</span></a>
+            <a class="partner-item" href="https://hekichiiryou.jp/" target="_blank" rel="noopener"><span class="partner-name" data-i18n="pt.n.hekichi">へき地医療jp チームGREEN</span><span class="partner-type" data-i18n="pt.hekichi">へき地医療</span></a>
         </div>
     </section>
 
-    <section class="index-contact">
+
+    <section class="partner-section" id="faq">
+        <div class="partner-title reveal">
+            <span class="partner-title-en">FAQ</span>
+            <h2 class="partner-title-jp" data-i18n="sv.faq">よくある質問</h2>
+        </div>
         <div>
-            <span class="cl reveal">Contact</span>
-            <p class="reveal" style="margin-bottom: 2rem;" data-i18n="index.contact.desc">ご相談・お問合せはお気軽にどうぞ。</p>
-            <a href="contact.html" class="contact-cta reveal">
-                <span data-i18n="index.contact.cta">お問合せ</span>
-                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
+            <details class="faq-item"><summary data-i18n="faq.q1">無料プランのまま使い続けられますか。</summary><p class="faq-a" data-i18n="faq.a1">使い続けられます。期限も、カード登録もありません。件数や人数が上限に届いたとき、通話を自分から発行したくなったときに Pro を検討してください。</p></details>
+            <details class="faq-item"><summary data-i18n="faq.q2">他社の介護ソフトを使っています。入れ替えが必要ですか。</summary><p class="faq-a" data-i18n="faq.a2">要りません。やるゼ！は法人をまたぐ受入れ・移行の部分を担うもので、記録や請求のソフトとは役割が違います。いまお使いのものはそのままで構いません。</p></details>
+            <details class="faq-item"><summary data-i18n="faq.q3">連携用のSNSと何が違うのですか。</summary><p class="faq-a" data-i18n="faq.a3">SNS型は「連絡を取ること」が中心です。やるゼ！は同意書の電子署名、改ざん検知、療養費の流れ、担当者会議やモニタリングまでを業務として持っています。メッセージ機能の多さで比べるより、1件の受入れが終わるまでに何回アプリの外に出るかで比べてください。</p></details>
+            <details class="faq-item"><summary data-i18n="faq.q4">患者や利用者の情報を預けても大丈夫ですか。</summary><p class="faq-a" data-i18n="faq.a4">データは実績のあるクラウド基盤に保管し、アクセスできる範囲を役割ごとに分けています。同意書には改ざん検知をかけ、監査ログを書き出せます。契約前に、保管場所と取扱いの範囲を書面でお渡しします。</p></details>
+            <details class="faq-item"><summary data-i18n="faq.q5">開発の相談は、土地が決まっていなくてもできますか。</summary><p class="faq-a" data-i18n="faq.a5">その段階が一番向いています。市区町村ごとの需給分析から場所を絞り、施設種別と定員を変えながら概算を出します。数字が合わなければ、やらない判断まで含めてお手伝いします。</p></details>
+            <details class="faq-item"><summary data-i18n="faq.q6">1人でやっている会社だと聞きました。続きますか。</summary><p class="faq-a" data-i18n="faq.a6">開発と運営は少人数です。そのぶん判断が速く、価格も低く保てています。規模が増える分は外部に出す設計にしていますし、データの持ち出しと契約終了時の扱いはあらかじめ決めてあります。心配な点があれば、契約前に具体的にお答えします。</p></details>
         </div>
+    </section>
+
+    <section class="contact-band reveal">
+        <p data-i18n="service.contact.desc">サービスに関するご質問・ご相談</p>
+        <a href="contact.html" class="text-link">Contact →</a>
     </section>
 
     <footer>
@@ -816,12 +617,42 @@
     </footer>
 
     <script>
+        const h = document.getElementById('siteHeader');
+        if (h) window.addEventListener('scroll', () => h.classList.toggle('scrolled', window.scrollY > 50));
         const obs = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible','animated'); });
-        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+        // タブ（#app / #dev / #make で直接開ける）
+        function openTab(id) {
+            var ok = false;
+            document.querySelectorAll('.tab-btn').forEach(function (b) { var on = b.dataset.tab === id; b.classList.toggle('active', on); b.setAttribute('aria-selected', on); if (on) ok = true; });
+            if (!ok) return false;
+            document.querySelectorAll('.tab-panel').forEach(function (p) { p.classList.toggle('active', p.id === 'panel-' + id); });
+            return true;
+        }
+        document.querySelectorAll('.tab-btn').forEach(function (b) {
+            b.addEventListener('click', function () { openTab(b.dataset.tab); history.replaceState(null, '', location.pathname + location.search + '#' + b.dataset.tab); });
+        });
+        function fromHash() {
+            var id = location.hash.replace('#', '');
+            if (openTab(id)) document.getElementById('tabNav').scrollIntoView({ block: 'start' });
+        }
+        window.addEventListener('hashchange', fromHash);
+        fromHash();
+
+        window.addEventListener('beforeprint', function () { document.querySelectorAll('details').forEach(function (d) { d.open = true; }); });
+
+        // Google Play バッジを表示言語に合わせる
+        function badge() {
+            var l = document.documentElement.lang;
+            document.querySelectorAll('.gp-badge').forEach(function (i) { i.src = 'icons/googleplay/' + (l === 'ko' || l === 'en' ? l : 'ja') + '.svg'; });
+        }
+        window.addEventListener('load', badge);
+        new MutationObserver(badge).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
     </script>
-    <script src="js/translations.js?v=20260927c"></script>
-    <script src="js/lang.js?v=20260927c"></script>
+    <script src="js/translations.js?v=20260928a"></script>
+    <script src="js/lang.js?v=20260928a"></script>
 </body>
 </html>
