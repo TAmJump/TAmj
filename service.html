@@ -3,385 +3,371 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service | TAmJ</title>
+    <title>Service | TAmJ — 事業と料金</title>
+    <meta name="description" content="タムジ株式会社の事業は3つ。現場の業務アプリ（1人 月200円）、医療・介護施設の開発と承継、受託開発。料金の目安をこのページに書いています。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+JP:wght@200;300;400;500;700&family=Noto+Serif+JP:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/base.css?v=20260520b">
     <link rel="stylesheet" href="css/corporate.css?v=20260520b">
     <style>
-        .tab-section {
-            max-width: 780px;
-            margin: 0 auto;
-            padding: 0 2rem 8rem;
+        .sv-wrap { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
+        .sec-label {
+            font-family: var(--font-display); font-size: 0.65rem;
+            letter-spacing: 0.35em; text-transform: uppercase;
+            color: var(--gray-400); display: block; margin-bottom: 1.2rem;
         }
+        .sec-h2 {
+            font-family: var(--font-serif); font-weight: 400;
+            font-size: clamp(1.3rem, 3vw, 1.85rem); line-height: 1.75;
+            letter-spacing: 0.05em; color: var(--black); margin-bottom: 1rem;
+        }
+        .sec-lead { font-size: 0.9rem; font-weight: 300; line-height: 2.1; color: var(--gray-700); max-width: 42em; }
 
-        /* ── Tabs ── */
-        .tab-nav {
-            display: flex;
-            border-bottom: 1px solid var(--gray-100);
-        }
-        .tab-btn {
-            flex: 1;
-            padding: 1.2rem 0.5rem;
-            text-align: center;
-            cursor: pointer;
-            border: none;
-            background: none;
-            font-family: inherit;
-            position: relative;
-            transition: all 0.3s;
-        }
-        .tab-btn::after {
-            content: '';
-            position: absolute;
-            bottom: -1px; left: 0; right: 0;
-            height: 2px;
-            background: var(--charcoal);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-        .tab-btn.active::after { transform: scaleX(1); }
-        .tab-num {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 0.6rem;
-            font-weight: 400;
-            letter-spacing: 0.15em;
-            color: var(--gray-300);
-            display: block;
-            margin-bottom: 0.3rem;
-            transition: color 0.3s;
-        }
-        .tab-btn.active .tab-num { color: var(--gray-500); }
-        .tab-label {
-            font-family: "Noto Serif JP", serif;
-            font-size: 0.85rem;
-            font-weight: 400;
-            color: var(--gray-400);
-            letter-spacing: 0.04em;
-            transition: color 0.3s;
-        }
-        .tab-btn.active .tab-label { color: var(--black); }
-        .tab-btn:hover .tab-label { color: var(--charcoal); }
+        /* jump nav */
+        .sv-jump { border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100); padding: 1.2rem 0; background: var(--white); }
+        .sv-jump ul { list-style: none; display: flex; gap: 2.2rem; flex-wrap: wrap; justify-content: center; }
+        .sv-jump a { font-size: 0.76rem; letter-spacing: 0.1em; color: var(--gray-500); }
+        .sv-jump a:hover { color: var(--primary); }
 
-        /* ── Panel ── */
-        .tab-panels { padding-top: 0.5rem; }
-        .tab-panel { display: none; }
-        .tab-panel.active { display: block; }
-        .panel-head {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 0.6rem;
-            font-weight: 400;
-            letter-spacing: 0.3em;
-            color: var(--gray-400);
-            text-transform: uppercase;
-            padding: 2rem 0 0.5rem;
-        }
+        /* business block */
+        .sv-block { padding: 6rem 0; border-bottom: 1px solid var(--gray-100); }
+        .sv-block:nth-child(even) { background: var(--cream); }
+        .sv-head { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3.5rem; align-items: end; margin-bottom: 3rem; }
+        .sv-for { font-size: 0.72rem; letter-spacing: 0.12em; color: var(--primary); font-weight: 500; margin-bottom: 0.9rem; }
+        .sv-name { font-family: var(--font-serif); font-size: clamp(1.4rem, 3.4vw, 2rem); font-weight: 500; color: var(--black); letter-spacing: 0.04em; line-height: 1.5; }
+        .sv-price-tag { text-align: right; }
+        .sv-price-tag .p { font-family: var(--font-display); font-size: 2.4rem; font-weight: 500; color: var(--primary); line-height: 1.1; }
+        .sv-price-tag .u { font-size: 0.74rem; color: var(--gray-500); font-weight: 300; display: block; margin-top: 0.4rem; }
 
-        /* ── Category ── */
-        .category { border-bottom: 1px solid var(--gray-100); }
-        .category:first-of-type { border-top: 1px solid var(--gray-100); }
-        .category-btn {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            padding: 1.4rem 0;
-            border: none;
-            background: none;
-            cursor: pointer;
-            font-family: inherit;
-            transition: padding-left 0.3s;
+        .sv-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .sv-col h4 {
+            font-size: 0.7rem; letter-spacing: 0.16em; color: var(--gray-400);
+            font-weight: 500; text-transform: uppercase; margin-bottom: 1rem;
+            padding-bottom: 0.6rem; border-bottom: 1px solid var(--gray-200);
         }
-        .category-btn:hover { padding-left: 0.5rem; }
-        .category-name {
-            font-family: "Noto Serif JP", serif;
-            font-size: 0.88rem;
-            font-weight: 300;
-            color: var(--charcoal);
-            flex: 1;
-            text-align: left;
-            letter-spacing: 0.03em;
-        }
-        .category-count {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 0.65rem;
-            color: var(--gray-300);
-            margin-right: 1rem;
-        }
-        .category-toggle {
-            font-size: 0.75rem;
-            color: var(--gray-300);
-            transition: transform 0.3s, color 0.3s;
-        }
-        .category.open .category-toggle {
-            transform: rotate(90deg);
-            color: var(--charcoal);
-        }
+        .sv-col ul { list-style: none; }
+        .sv-col li { font-size: 0.86rem; font-weight: 300; line-height: 1.95; color: var(--gray-700); padding-left: 1.1rem; position: relative; margin-bottom: 0.5rem; }
+        .sv-col li::before { content: ""; position: absolute; left: 0; top: 0.85em; width: 5px; height: 1px; background: var(--primary); }
+        .sv-col p { font-size: 0.88rem; font-weight: 300; line-height: 2.05; color: var(--gray-700); }
 
-        /* ── Products ── */
-        .products {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
+        .sv-actions { margin-top: 2.6rem; display: flex; gap: 0.9rem; flex-wrap: wrap; }
+        .btn-solid, .btn-line {
+            display: inline-block; padding: 1rem 2.1rem; border-radius: 2px;
+            font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; transition: all 0.4s ease;
         }
-        .category.open .products { max-height: 1200px; }
-        .product-item {
-            display: flex;
-            align-items: center;
-            padding: 0.9rem 0 0.9rem 1.5rem;
-            border-top: 1px solid var(--gray-100);
-            transition: padding-left 0.3s;
-        }
-        .product-item:hover { padding-left: 2rem; }
-        .product-icon {
-            width: 28px;
-            height: 28px;
-            border-radius: 6px;
-            object-fit: cover;
-            margin-right: 1rem;
-            flex-shrink: 0;
-        }
-        .product-name {
-            font-size: 0.82rem;
-            font-weight: 300;
-            color: var(--charcoal);
-            flex: 1;
-        }
-        .product-desc {
-            font-size: 0.7rem;
-            font-weight: 300;
-            color: var(--gray-400);
-            margin-right: 1rem;
-        }
-        .product-arrow {
-            font-size: 0.7rem;
-            color: var(--gray-300);
-            transition: color 0.3s;
-        }
-        .product-item:hover .product-arrow { color: var(--primary); }
+        .btn-solid { background: var(--primary); color: var(--white); border: 1px solid var(--primary); }
+        .btn-solid:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+        .btn-line { color: var(--black); border: 1px solid var(--gray-200); }
+        .btn-line:hover { border-color: var(--black); }
 
-        /* ── Featured (store-listed apps) ── */
-        .product-store {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            padding: 1.6rem 1.5rem;
-            border-top: 1px solid var(--gray-100);
-        }
-        .store-main {
-            display: flex;
-            align-items: center;
-            gap: 1.1rem;
-            flex: 1;
-            min-width: 0;
-            transition: opacity 0.3s;
-        }
-        .store-main:hover { opacity: 0.62; }
-        .store-icon {
-            width: 68px;
-            height: 68px;
-            border-radius: 15px;
-            object-fit: cover;
-            flex-shrink: 0;
-            border: 1px solid var(--gray-100);
-        }
-        .store-text { min-width: 0; }
-        .store-name {
-            display: block;
-            font-size: 1.15rem;
-            font-weight: 400;
-            color: var(--charcoal);
-            letter-spacing: 0.04em;
-            line-height: 1.3;
-        }
-        .store-tag {
-            display: inline-block;
-            margin-top: 0.4rem;
-            padding: 0.15rem 0.55rem;
-            border: 1px solid var(--gray-100);
-            border-radius: 2px;
-            font-size: 0.58rem;
-            font-weight: 400;
-            color: var(--gray-400);
-            letter-spacing: 0.08em;
-            white-space: nowrap;
-        }
-        .store-desc {
-            display: block;
-            margin-top: 0.5rem;
-            font-size: 0.72rem;
-            font-weight: 300;
-            line-height: 1.65;
-            color: var(--gray-400);
-        }
-        .store-cta {
-            display: flex;
-            align-items: center;
-            gap: 1.1rem;
-            flex-shrink: 0;
-        }
-        .store-badge { display: block; transition: opacity 0.3s; }
-        .store-badge:hover { opacity: 0.72; }
-        .store-badge img {
-            display: block;
-            width: 152px;
-            height: auto;
-        }
-        .store-qr { text-align: center; }
-        .store-qr img {
-            display: block;
-            width: 84px;
-            height: 84px;
-            padding: 5px;
-            border: 1px solid var(--gray-100);
-            border-radius: 4px;
-            background: #fff;
-        }
-        .store-qr span {
-            display: block;
-            margin-top: 0.4rem;
-            font-size: 0.55rem;
-            font-weight: 300;
-            color: var(--gray-300);
-            letter-spacing: 0.06em;
-        }
-        .empty-msg {
-            padding: 1rem 1.5rem;
-            font-size: 0.75rem;
-            color: var(--gray-300);
-            font-style: italic;
-            border-top: 1px solid var(--gray-100);
-        }
+        /* pricing */
+        .sv-price { padding: 6rem 0; background: var(--warm-white); }
+        .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; margin-top: 3rem; }
+        .plan { border: 1px solid var(--gray-200); border-radius: 2px; padding: 2.6rem 2.2rem; background: var(--white); }
+        .plan.hi { border: 2px solid var(--primary); }
+        .plan .nm { font-family: var(--font-display); font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 1rem; }
+        .plan.hi .nm { color: var(--primary); }
+        .plan .amt { font-family: var(--font-display); font-size: 3rem; font-weight: 500; color: var(--black); line-height: 1; }
+        .plan.hi .amt { color: var(--primary); }
+        .plan .unit { font-size: 0.74rem; color: var(--gray-500); font-weight: 300; margin: 0.5rem 0 1.8rem; }
+        .plan ul { list-style: none; margin-bottom: 2rem; }
+        .plan li { font-size: 0.84rem; font-weight: 300; line-height: 1.95; color: var(--gray-700); padding-left: 1.1rem; position: relative; margin-bottom: 0.4rem; }
+        .plan li::before { content: ""; position: absolute; left: 0; top: 0.85em; width: 5px; height: 1px; background: var(--primary); }
+        .plan .btn-solid, .plan .btn-line { display: block; text-align: center; }
+        .price-foot { font-size: 0.78rem; color: var(--gray-500); font-weight: 300; margin-top: 2rem; line-height: 2; }
 
-        /* ── Partners ── */
-        .partner-section {
-            max-width: 780px;
-            margin: 0 auto;
-            padding: 0 2rem 5rem;
-        }
-        .partner-title {
-            text-align: center;
-            padding: 5rem 0 3rem;
-        }
-        .partner-title-en {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 0.6rem;
-            font-weight: 400;
-            letter-spacing: 0.35em;
-            color: var(--gray-400);
-            text-transform: uppercase;
-            display: block;
-            margin-bottom: 1rem;
-        }
-        .partner-title-jp {
-            font-family: "Noto Serif JP", serif;
-            font-size: 1.6rem;
-            font-weight: 400;
-            color: var(--charcoal);
-            letter-spacing: 0.06em;
-        }
-        .partner-item {
-            display: flex;
-            align-items: center;
-            padding: 1.2rem 0;
-            border-bottom: 1px solid var(--gray-100);
-        }
-        .partner-item:first-child {
-            border-top: 1px solid var(--gray-100);
-        }
-        .partner-name {
-            font-family: "Noto Serif JP", serif;
-            font-size: 0.85rem;
-            font-weight: 300;
-            color: var(--charcoal);
-            flex: 1;
-            letter-spacing: 0.03em;
-        }
-        a.partner-item { text-decoration: none; transition: padding-left 0.3s; }
-        a.partner-item:hover { padding-left: 0.5rem; }
-        a.partner-item:hover .partner-name { color: var(--primary); }
-        .partner-type {
-            font-family: "Noto Serif JP", serif;
-            font-size: 0.7rem;
-            font-weight: 300;
-            color: var(--gray-400);
-        }
+        .fee-rows { margin-top: 2.6rem; border-top: 1px solid var(--gray-200); }
+        .fee-row { display: grid; grid-template-columns: 1fr 1fr 0.8fr; gap: 1.5rem; padding: 1.4rem 0; border-bottom: 1px solid var(--gray-200); align-items: baseline; }
+        .fee-row .k { font-size: 0.88rem; color: var(--black); font-weight: 400; }
+        .fee-row .d { font-size: 0.8rem; color: var(--gray-500); font-weight: 300; line-height: 1.9; }
+        .fee-row .v { font-size: 0.88rem; color: var(--primary); text-align: right; font-weight: 400; }
 
-        @media (max-width: 640px) {
-            .tab-label { font-size: 0.75rem; }
-            .tab-btn { padding: 1rem 0.3rem; }
-            .product-desc { display: none; }
-            .product-item { padding-left: 1rem; }
-            .product-item:hover { padding-left: 1.5rem; }
-            .product-store {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 1.1rem;
-                padding: 1.4rem 1rem;
-            }
-            .store-icon { width: 56px; height: 56px; border-radius: 13px; }
-            .store-name { font-size: 1rem; }
-            .store-cta { justify-content: flex-start; gap: 1rem; }
-            .store-badge img { width: 132px; }
-            .store-qr img { width: 68px; height: 68px; }
+        /* FAQ */
+        .sv-faq { padding: 6rem 0; background: var(--cream); }
+        .qa { border-top: 1px solid var(--gray-200); }
+        .qa details { border-bottom: 1px solid var(--gray-200); }
+        .qa summary {
+            cursor: pointer; padding: 1.5rem 0; font-size: 0.92rem;
+            color: var(--black); font-weight: 400; list-style: none; position: relative; padding-right: 2rem;
+        }
+        .qa summary::-webkit-details-marker { display: none; }
+        .qa summary::after { content: "+"; position: absolute; right: 0; top: 1.4rem; color: var(--primary); font-size: 1.1rem; }
+        .qa details[open] summary::after { content: "–"; }
+        .qa .a { font-size: 0.86rem; font-weight: 300; line-height: 2.1; color: var(--gray-700); padding: 0 0 1.6rem; max-width: 46em; }
+
+        @media (max-width: 900px) {
+            .sv-head { grid-template-columns: 1fr; gap: 1.6rem; align-items: start; }
+            .sv-price-tag { text-align: left; }
+            .sv-cols { grid-template-columns: 1fr; gap: 2.4rem; }
+            .plans { grid-template-columns: 1fr; }
+            .fee-row { grid-template-columns: 1fr; gap: 0.4rem; }
+            .fee-row .v { text-align: left; }
+            .btn-solid, .btn-line { display: block; text-align: center; }
+            .sv-actions { display: grid; grid-template-columns: 1fr; gap: 0.7rem; }
         }
     </style>
 </head>
 <body>
-    <header id="siteHeader">
-        <a href="index.html" class="header-logo"><img src="logo.png" alt="TAmJ"></a>
-        <nav class="header-nav">
-            <a href="index.html" data-i18n="nav.top">Top</a>
-            <a href="service.html" data-i18n="nav.service">Service</a>
-            <a href="about-company.html" data-i18n="nav.company">Company</a>
-            <a href="contact.html" class="nav-cta" data-i18n="nav.contact">Contact</a>
-        </nav>
-    </header>
+
+    <nav class="header-nav">
+        <a href="index.html" data-i18n="nav.top">TOP</a>
+        <a href="service.html" data-i18n="nav.service">SERVICE</a>
+        <a href="about-company.html" data-i18n="nav.company">COMPANY</a>
+        <a href="contact.html" class="contact-link" data-i18n="nav.contact">CONTACT</a>
+    </nav>
 
     <section class="page-top">
-        <span class="page-label reveal" data-i18n="service.label">Our Business</span>
-        <h1 class="reveal" data-i18n="service.title">4つの事業領域</h1>
+        <span class="page-label">Service</span>
+        <h1 data-i18n="sv.h1">事業は3つ。値段はこのページに書いてあります。</h1>
+        <p class="page-sub" data-i18n="sv.sub">医療と介護が最後まで残る街をつくる、という1つの目的のための3つです。</p>
     </section>
 
-    <section class="tab-section">
-        <nav class="tab-nav" id="tabNav"></nav>
-        <div class="tab-panels" id="tabPanels"></div>
-    </section>
-
-    <section class="redev-section" style="max-width:780px;margin:0 auto;padding:0 2rem 5rem">
-        <style>
-        .redev-link{display:block;border:1px solid var(--gray-100);padding:2.4rem 2rem;transition:border-color .3s,background .3s;text-decoration:none;color:inherit}
-        .redev-link:hover{border-color:var(--charcoal);background:#fafafa}
-        .redev-link:hover .redev-go{color:var(--primary)}
-        </style>
-        <a class="redev-link" href="https://develop.tamjump.com/">
-            <div style="font-family:'Cormorant Garamond',serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gray-400);margin-bottom:.7rem">Real Estate Development</div>
-            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap">
-                <h2 style="font-family:'Noto Serif JP',serif;font-size:1.35rem;font-weight:500;color:var(--black);letter-spacing:.04em;margin:0">不動産開発</h2>
-                <span class="redev-go" style="font-size:.72rem;font-weight:600;letter-spacing:.08em;color:var(--gray-400)">不動産開発サイトへ &rarr;</span>
-            </div>
-            <p style="font-size:.78rem;font-weight:300;line-height:1.9;color:var(--gray-400);margin:.9rem 0 0;max-width:620px">札幌の開発用地の売買と、介護・医療事業のM&amp;A・事業承継。さらに開発シミュレーション・財務設計・見積まで一気通貫で設計します。Development land sales, healthcare M&amp;A, and end-to-end development design.</p>
-        </a>
-    </section>
-
-    <section class="partner-section">
-        <div class="partner-title reveal">
-            <span class="partner-title-en" data-i18n="service.partner.label">Partner</span>
-            <h2 class="partner-title-jp" data-i18n="service.partner.title">パートナー企業</h2>
+    <div class="sv-jump">
+        <div class="sv-wrap">
+            <ul>
+                <li><a href="#app" data-i18n="sv.jump1">01 現場の業務アプリ</a></li>
+                <li><a href="#dev" data-i18n="sv.jump2">02 開発と承継</a></li>
+                <li><a href="#make" data-i18n="sv.jump3">03 受託開発とコンテンツ</a></li>
+                <li><a href="#price" data-i18n="sv.jump4">料金</a></li>
+                <li><a href="#faq" data-i18n="sv.jump5">よくある質問</a></li>
+            </ul>
         </div>
-        <div id="partnerList"></div>
+    </div>
+
+    <!-- 01 ── APP ── -->
+    <section class="sv-block" id="app">
+        <div class="sv-wrap">
+            <div class="sv-head">
+                <div>
+                    <p class="sv-for" data-i18n="sv1.for">FOR 病院・診療所・介護事業者・薬局</p>
+                    <h2 class="sv-name" data-i18n="sv1.name">01 &nbsp;やるゼ！ — 法人をまたぐ業務を、1つの画面に</h2>
+                </div>
+                <div class="sv-price-tag">
+                    <p class="p">&yen;200</p>
+                    <span class="u" data-i18n="sv1.u">1ユーザー / 月（税抜）・無料プランあり</span>
+                </div>
+            </div>
+
+            <div class="sv-cols">
+                <div class="sv-col">
+                    <h4 data-i18n="sv1.h4a">いま起きていること</h4>
+                    <ul>
+                        <li data-i18n="sv1.a1">退院の連絡は電話、記録は手元のメモに残る</li>
+                        <li data-i18n="sv1.a2">同意書は印刷して持参し、署名をもらって持ち帰る</li>
+                        <li data-i18n="sv1.a3">担当者会議の日程はメールの往復で決まる</li>
+                        <li data-i18n="sv1.a4">誰がどこまで進めたかが、法人をまたぐと見えない</li>
+                    </ul>
+                </div>
+                <div class="sv-col">
+                    <h4 data-i18n="sv1.h4b">入れたあと</h4>
+                    <ul>
+                        <li data-i18n="sv1.b1">退院通知から受入れまでが1件のケースとして進む</li>
+                        <li data-i18n="sv1.b2">同意書はその場で電子署名、改ざん検知つきで保存</li>
+                        <li data-i18n="sv1.b3">日程調整とオンライン通話が同じ画面の中にある</li>
+                        <li data-i18n="sv1.b4">進捗と記録が、法人が違っても共有される</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sv-cols" style="margin-top:3rem">
+                <div class="sv-col">
+                    <h4 data-i18n="sv1.h4c">含まれるもの</h4>
+                    <p data-i18n="sv1.c">受入れ・移行の管理、退院通知、面談の日程調整、同意書の電子署名、担当者会議、モニタリング、アセスメント、オンライン通話（主催者の許可制・最大200人）、監査ログ。AndroidアプリはGoogle Playで公開中、ブラウザでもそのまま使えます。</p>
+                </div>
+                <div class="sv-col">
+                    <h4 data-i18n="sv1.h4d">3つのアプリの関係</h4>
+                    <p data-i18n="sv1.d">ｍやるゼ！が医療・介護の法人間連携、ｔやるゼ！が施設設備の通報と管理会社連携、Care Support Pass が施設運営まわり。共通の入口が親アプリ「やるゼ！」です。必要なものだけを使えます。</p>
+                </div>
+            </div>
+
+            <div class="sv-actions">
+                <a href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" class="btn-solid" data-i18n="sv1.cta1">ｍやるゼ！を無料で始める</a>
+                <a href="#price" class="btn-line" data-i18n="sv1.cta2">料金を見る</a>
+            </div>
+        </div>
     </section>
 
-    <section class="contact-band reveal">
-        <p data-i18n="service.contact.desc">サービスに関するご質問・ご相談</p>
-        <a href="contact.html" class="text-link">Contact →</a>
+    <!-- 02 ── DEVELOPMENT ── -->
+    <section class="sv-block" id="dev">
+        <div class="sv-wrap">
+            <div class="sv-head">
+                <div>
+                    <p class="sv-for" data-i18n="sv2.for">FOR 施設をつくる人・譲る人・継ぐ人</p>
+                    <h2 class="sv-name" data-i18n="sv2.name">02 &nbsp;開発と承継 — どこに、何を、いくらでつくるか</h2>
+                </div>
+                <div class="sv-price-tag">
+                    <p class="p" style="font-size:1.6rem" data-i18n="sv2.p">着手金＋成功報酬</p>
+                    <span class="u" data-i18n="sv2.u">初回相談は無料</span>
+                </div>
+            </div>
+
+            <div class="sv-cols">
+                <div class="sv-col">
+                    <h4 data-i18n="sv2.h4a">請け負う範囲</h4>
+                    <ul>
+                        <li data-i18n="sv2.a1">開発用地の紹介と売買（札幌ほか）</li>
+                        <li data-i18n="sv2.a2">施設種別と定員からの建築費・投資額の概算</li>
+                        <li data-i18n="sv2.a3">収支計画と資金調達の設計、見積の精査</li>
+                        <li data-i18n="sv2.a4">介護・医療事業のM&amp;A（DD・実行・PMIまで）</li>
+                        <li data-i18n="sv2.a5">畳む前の事業承継、譲渡先の探索</li>
+                    </ul>
+                </div>
+                <div class="sv-col">
+                    <h4 data-i18n="sv2.h4b">判断の材料をこちらで用意します</h4>
+                    <p data-i18n="sv2.b">全国1,740市区町村の需給を4つの軸で分析した teamONE を使い、「どこに建てるか」から一緒に決めます。感覚ではなく数字で場所を選べるので、着工前に引き返す判断もできます。実績は施設23棟（1,500床以上）、事業所33ヶ所、医療施設3棟、M&amp;A 9社。</p>
+                </div>
+            </div>
+
+            <div class="sv-actions">
+                <a href="https://develop.tamjump.com/" target="_blank" rel="noopener" class="btn-solid" data-i18n="sv2.cta1">掲載中の案件を見る</a>
+                <a href="contact.html" class="btn-line" data-i18n="sv2.cta2">無料で相談する</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03 ── MAKE ── -->
+    <section class="sv-block" id="make">
+        <div class="sv-wrap">
+            <div class="sv-head">
+                <div>
+                    <p class="sv-for" data-i18n="sv3.for">FOR 自社のアプリ・サイトが要る会社</p>
+                    <h2 class="sv-name" data-i18n="sv3.name">03 &nbsp;受託開発とコンテンツ</h2>
+                </div>
+                <div class="sv-price-tag">
+                    <p class="p" style="font-size:1.6rem" data-i18n="sv3.p">お見積り</p>
+                    <span class="u" data-i18n="sv3.u">小さく試す形から</span>
+                </div>
+            </div>
+
+            <div class="sv-cols">
+                <div class="sv-col">
+                    <h4 data-i18n="sv3.h4a">つくれるもの</h4>
+                    <ul>
+                        <li data-i18n="sv3.a1">医療・介護の業務システム（記録・請求・連携）</li>
+                        <li data-i18n="sv3.a2">会員サイト、予約、決済、電子署名</li>
+                        <li data-i18n="sv3.a3">スマートフォンアプリの公開まで</li>
+                        <li data-i18n="sv3.a4">クラウドファンディングの企画と運営</li>
+                    </ul>
+                </div>
+                <div class="sv-col">
+                    <h4 data-i18n="sv3.h4b">なぜここに頼めるのか</h4>
+                    <p data-i18n="sv3.b">受託を請け負う会社ではなく、自社でアプリを公開し、決済を回し、規約と個人情報の扱いまで自分で作ってきた会社です。医療・介護の要件を説明しなくても通じます。音楽レーベル TAMSIC とクラウドファンディング企画も、この枠でやっています。</p>
+                </div>
+            </div>
+
+            <div class="sv-actions">
+                <a href="contact.html" class="btn-solid" data-i18n="sv3.cta1">相談する</a>
+                <a href="https://tamsic.tamjump.com/" target="_blank" rel="noopener" class="btn-line" data-i18n="sv3.cta2">TAMSIC を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── PRICE ── -->
+    <section class="sv-price" id="price">
+        <div class="sv-wrap">
+            <span class="sec-label">Price</span>
+            <h2 class="sec-h2" data-i18n="pr.h2">料金</h2>
+            <p class="sec-lead" data-i18n="pr.lead">見積りのための電話は要りません。書いてあるものがすべてです。</p>
+
+            <div class="plans">
+                <div class="plan">
+                    <p class="nm">Free</p>
+                    <p class="amt">&yen;0</p>
+                    <p class="unit" data-i18n="pr.free.u">ずっと無料・カード登録なし</p>
+                    <ul>
+                        <li data-i18n="pr.free.1">患者・利用者 100件まで</li>
+                        <li data-i18n="pr.free.2">スタッフ 50名まで</li>
+                        <li data-i18n="pr.free.3">受入れ・移行の管理、同意書の電子署名</li>
+                        <li data-i18n="pr.free.4">招待された通話への参加</li>
+                    </ul>
+                    <a href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" class="btn-line" data-i18n="pr.free.cta">無料で始める</a>
+                </div>
+                <div class="plan hi">
+                    <p class="nm">Pro</p>
+                    <p class="amt">&yen;200</p>
+                    <p class="unit" data-i18n="pr.pro.u">1ユーザー / 月（税抜・税込 &yen;220）・初期費用なし</p>
+                    <ul>
+                        <li data-i18n="pr.pro.1">件数・人数の上限なし</li>
+                        <li data-i18n="pr.pro.2">オンライン通話の発行（最大200人・待機室つき）</li>
+                        <li data-i18n="pr.pro.3">担当者会議・モニタリング・アセスメント</li>
+                        <li data-i18n="pr.pro.4">監査ログの書き出し、帳票の自動作成</li>
+                    </ul>
+                    <a href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" class="btn-solid" data-i18n="pr.pro.cta">Pro を申し込む</a>
+                </div>
+            </div>
+
+            <div class="fee-rows">
+                <div class="fee-row">
+                    <p class="k" data-i18n="pr.f1.k">開発と承継</p>
+                    <p class="d" data-i18n="pr.f1.d">案件の規模と範囲に応じて設計します。初回相談と概算は無料。</p>
+                    <p class="v" data-i18n="pr.f1.v">着手金＋成功報酬</p>
+                </div>
+                <div class="fee-row">
+                    <p class="k" data-i18n="pr.f2.k">受託開発</p>
+                    <p class="d" data-i18n="pr.f2.d">1画面から相談できます。要件が固まっていない段階でも構いません。</p>
+                    <p class="v" data-i18n="pr.f2.v">お見積り</p>
+                </div>
+                <div class="fee-row">
+                    <p class="k" data-i18n="pr.f3.k">代理店・レベニューシェア</p>
+                    <p class="d" data-i18n="pr.f3.d">やるゼ！を自社の顧客に提供したい事業者向け。条件はご相談。</p>
+                    <p class="v" data-i18n="pr.f3.v">要相談</p>
+                </div>
+            </div>
+            <p class="price-foot" data-i18n="pr.foot">表示はすべて税抜です。ｍやるゼ！の請求は税込 &yen;220 / ユーザー / 月。</p>
+        </div>
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section class="sv-faq" id="faq">
+        <div class="sv-wrap">
+            <span class="sec-label">FAQ</span>
+            <h2 class="sec-h2" data-i18n="faq.h2">よくある質問</h2>
+            <div class="qa" style="margin-top:2.4rem">
+                <details>
+                    <summary data-i18n="faq.q1">無料プランのまま使い続けられますか。</summary>
+                    <p class="a" data-i18n="faq.a1">使い続けられます。期限も、カード登録もありません。件数や人数が上限に届いたとき、通話を自分から発行したくなったときに Pro を検討してください。</p>
+                </details>
+                <details>
+                    <summary data-i18n="faq.q2">他社の介護ソフトを使っています。入れ替えが必要ですか。</summary>
+                    <p class="a" data-i18n="faq.a2">要りません。やるゼ！は法人をまたぐ受入れ・移行の部分を担うもので、記録や請求のソフトとは役割が違います。いまお使いのものはそのままで構いません。</p>
+                </details>
+                <details>
+                    <summary data-i18n="faq.q3">連携用のSNSと何が違うのですか。</summary>
+                    <p class="a" data-i18n="faq.a3">SNS型は「連絡を取ること」が中心です。やるゼ！は同意書の電子署名、改ざん検知、療養費の流れ、担当者会議やモニタリングまでを業務として持っています。メッセージ機能の多さで比べるより、1件の受入れが終わるまでに何回アプリの外に出るかで比べてください。</p>
+                </details>
+                <details>
+                    <summary data-i18n="faq.q4">患者や利用者の情報を預けても大丈夫ですか。</summary>
+                    <p class="a" data-i18n="faq.a4">データは実績のあるクラウド基盤に保管し、アクセスできる範囲を役割ごとに分けています。同意書には改ざん検知をかけ、監査ログを書き出せます。契約前に、保管場所と取扱いの範囲を書面でお渡しします。</p>
+                </details>
+                <details>
+                    <summary data-i18n="faq.q5">開発の相談は、土地が決まっていなくてもできますか。</summary>
+                    <p class="a" data-i18n="faq.a5">その段階が一番向いています。市区町村ごとの需給分析から場所を絞り、施設種別と定員を変えながら概算を出します。数字が合わなければ、やらない判断まで含めてお手伝いします。</p>
+                </details>
+                <details>
+                    <summary data-i18n="faq.q6">1人でやっている会社だと聞きました。続きますか。</summary>
+                    <p class="a" data-i18n="faq.a6">開発と運営は少人数です。そのぶん判断が速く、価格も低く保てています。規模が増える分は外部に出す設計にしていますし、データの持ち出しと契約終了時の扱いはあらかじめ決めてあります。心配な点があれば、契約前に具体的にお答えします。</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="index-contact">
+        <div>
+            <span class="cl reveal">Contact</span>
+            <p class="reveal" style="margin-bottom: 2rem;" data-i18n="index.contact.desc">ご相談・お問合せはお気軽にどうぞ。</p>
+            <a href="contact.html" class="contact-cta reveal">
+                <span data-i18n="index.contact.cta">お問合せ</span>
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
     </section>
 
     <footer>
         <div class="footer-inner">
             <div class="footer-brand">
                 <img src="logo.png" alt="TAmJ">
-                <p data-i18n="footer.brand">Touch all minds, Jump</p>
+                <p>Touch all minds, Jump</p>
             </div>
             <div class="footer-links">
                 <div class="footer-col">
@@ -392,10 +378,10 @@
                 </div>
                 <div class="footer-col">
                     <h4 data-i18n="footer.service">Service</h4>
-                    <a href="service.html" data-i18n="footer.dev">開発</a>
-                    <a href="service.html" data-i18n="footer.medical">医療＆福祉</a>
-                    <a href="service.html" data-i18n="footer.finance">金融</a>
-                    <a href="service.html" data-i18n="footer.entertainment">エンターテイメント</a>
+                    <a href="service.html#app" data-i18n="footer.svc.app">業務アプリ やるゼ！</a>
+                    <a href="service.html#dev" data-i18n="footer.svc.dev">開発と承継</a>
+                    <a href="service.html#make" data-i18n="footer.svc.make">受託開発・コンテンツ</a>
+                    <a href="service.html#price" data-i18n="footer.svc.price">料金</a>
                 </div>
                 <div class="footer-col">
                     <h4 data-i18n="footer.support">Support</h4>
@@ -411,172 +397,27 @@
             </div>
         </div>
         <div class="footer-bottom">
+            <div class="footer-sns">
+                <a href="https://lin.ee/V4CN1OX" target="_blank" rel="noopener" aria-label="LINE">
+                    <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386a.63.63 0 0 1-.63-.629V8.108a.63.63 0 0 1 .63-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016a.63.63 0 0 1-.63.63.626.626 0 0 1-.51-.262l-2.443-3.317v2.949a.63.63 0 0 1-1.26 0V8.108a.63.63 0 0 1 .63-.63c.2 0 .385.096.51.262l2.443 3.32V8.108a.63.63 0 0 1 1.26 0v4.771zm-5.741 0a.63.63 0 0 1-1.26 0V8.108a.63.63 0 0 1 1.26 0v4.771zm-2.466.63H4.917a.63.63 0 0 1-.63-.63V8.108a.63.63 0 0 1 1.26 0v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.63-.629.63M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.593.121.303.079.778.039 1.085l-.171 1.027c-.053.303-.242 1.186 1.039.647 1.281-.54 6.911-4.069 9.428-6.967C23.309 14.09 24 12.323 24 10.314"/></svg>
+                </a>
+                <a href="https://instagram.com/tamj.corp/" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                </a>
+                <a href="https://youtube.com/@infotamj" target="_blank" rel="noopener" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+            </div>
             <p class="footer-copy" data-i18n="footer.copy">&copy; 2020 TAmJ株式会社 All Rights Reserved.</p>
         </div>
     </footer>
 
-    <script src="services.js?v=20260828a"></script>
     <script>
-        // Header scroll
-        const h = document.getElementById('siteHeader');
-        if(h) window.addEventListener('scroll', () => h.classList.toggle('scrolled', window.scrollY > 50));
-
-        // Reveal
         const obs = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible','animated'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-        // ── Helper: get text by language ──
-        function t(val, lang) {
-            if (typeof val === 'object' && val !== null) return val[lang] || val['ja'] || '';
-            return val || '';
-        }
-
-        // ── Build service UI ──
-        function buildServiceUI(lang) {
-            lang = lang || 'ja';
-            var data = SERVICES_DATA;
-            var ui = (data.ui && data.ui[lang]) || (data.ui && data.ui['ja']) || {};
-            ui = { capabilities: ui.capabilities || 'できること', preparing: ui.preparing || '準備中',
-                   open: ui.open || 'アプリを開く', scan: ui.scan || 'スマホで読み取る',
-                   onPlay: ui.onPlay || 'Google Play で配信中' };
-            var nav = document.getElementById('tabNav');
-            var panels = document.getElementById('tabPanels');
-            var activeTab = nav.querySelector('.tab-btn.active');
-            var activeId = activeTab ? activeTab.dataset.tab : null;
-
-            nav.innerHTML = '';
-            panels.innerHTML = '';
-
-            data.domains.forEach(function(domain, i) {
-                var isActive = activeId ? (domain.id === activeId) : (i === 0);
-
-                // Tab button
-                var btn = document.createElement('button');
-                btn.className = 'tab-btn' + (isActive ? ' active' : '');
-                btn.dataset.tab = domain.id;
-                btn.innerHTML = '<span class="tab-num">' + domain.num + '</span><span class="tab-label">' + t(domain.label, lang) + '</span>';
-                nav.appendChild(btn);
-
-                // Panel
-                var panel = document.createElement('div');
-                panel.className = 'tab-panel' + (isActive ? ' active' : '');
-                panel.id = 'panel-' + domain.id;
-
-                var head = document.createElement('p');
-                head.className = 'panel-head';
-                head.textContent = ui.capabilities;
-                panel.appendChild(head);
-
-                domain.categories.forEach(function(cat) {
-                    var catDiv = document.createElement('div');
-                    catDiv.className = 'category';
-                    var count = cat.products.length;
-                    var countHtml = count > 0 ? '<span class="category-count">' + count + '</span>' : '';
-
-                    var productsHtml = '';
-                    if (count > 0) {
-                        productsHtml = cat.products.map(function(p) {
-                            if (p.play) {
-                                var badge = 'icons/googleplay/' + (lang === 'ja' || lang === 'ko' ? lang : 'en') + '.svg';
-                                var name = t(p.name, lang);
-                                return '<div class="product-store">'
-                                    + '<a href="' + p.url + '" class="store-main">'
-                                    +   '<img src="' + p.icon + '" alt="' + name + '" class="store-icon">'
-                                    +   '<span class="store-text">'
-                                    +     '<span class="store-name">' + name + '</span>'
-                                    +     '<span class="store-tag">' + ui.onPlay + '</span>'
-                                    +     '<span class="store-desc">' + t(p.desc, lang) + '</span>'
-                                    +   '</span>'
-                                    + '</a>'
-                                    + '<span class="store-cta">'
-                                    +   '<a href="' + p.play + '" class="store-badge" target="_blank" rel="noopener">'
-                                    +     '<img src="' + badge + '" alt="Google Play" loading="lazy">'
-                                    +   '</a>'
-                                    +   (p.qr ? '<span class="store-qr">'
-                                    +     '<img src="' + p.qr + '" alt="" loading="lazy">'
-                                    +     '<span>' + ui.scan + '</span>'
-                                    +   '</span>' : '')
-                                    + '</span>'
-                                    + '</div>';
-                            }
-                            return '<a href="' + p.url + '" class="product-item">'
-                                + (p.icon ? '<img src="' + p.icon + '" alt="" class="product-icon">' : '')
-                                + '<span class="product-name">' + t(p.name, lang) + '</span>'
-                                + '<span class="product-desc">' + t(p.desc, lang) + '</span>'
-                                + '<span class="product-arrow">→</span></a>';
-                        }).join('');
-                    } else {
-                        productsHtml = '<p class="empty-msg">' + ui.preparing + '</p>';
-                    }
-
-                    catDiv.innerHTML = '<button class="category-btn">'
-                        + '<span class="category-name">' + t(cat.name, lang) + '</span>'
-                        + countHtml
-                        + '<span class="category-toggle">→</span></button>'
-                        + '<div class="products">' + productsHtml + '</div>';
-                    // Auto-open categories that have at least one product so users
-                    // see live offerings without an extra tap.
-                    if (count > 0) {
-                        catDiv.classList.add('open');
-                    }
-                    panel.appendChild(catDiv);
-                });
-
-                panels.appendChild(panel);
-            });
-
-            // Tab click
-            nav.querySelectorAll('.tab-btn').forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    nav.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
-                    panels.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
-                    btn.classList.add('active');
-                    document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
-                });
-            });
-
-            // Accordion click
-            panels.querySelectorAll('.category-btn').forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    btn.parentElement.classList.toggle('open');
-                });
-            });
-
-            // ── Partners ──
-            var list = document.getElementById('partnerList');
-            list.innerHTML = '';
-            if (data.partners && data.partners.length > 0) {
-                data.partners.forEach(function(p) {
-                    var inner = '<span class="partner-name">' + t(p.name, lang) + '</span>'
-                        + '<span class="partner-type">' + t(p.type, lang) + '</span>';
-                    if (p.url) {
-                        var a = document.createElement('a');
-                        a.className = 'partner-item';
-                        a.href = p.url;
-                        a.target = '_blank';
-                        a.rel = 'noopener';
-                        a.innerHTML = inner;
-                        list.appendChild(a);
-                    } else {
-                        var div = document.createElement('div');
-                        div.className = 'partner-item';
-                        div.innerHTML = inner;
-                        list.appendChild(div);
-                    }
-                });
-            }
-        }
-
-        // Initial build
-        var initLang = 'ja';
-        try { initLang = localStorage.getItem('tamj_lang') || 'ja'; } catch(e) {}
-        buildServiceUI(initLang);
-
-        // Expose for lang.js to call on switch
-        window.onLanguageChange = function(lang) { buildServiceUI(lang); };
-        </script>
+    </script>
     <script src="js/translations.js?v=20260520b"></script>
     <script src="js/lang.js?v=20260520b"></script>
 </body>
