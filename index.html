@@ -457,6 +457,31 @@
             .join { padding: 1.4rem 0 !important; }
             .join-cell { padding: 1rem !important; }
         }
+        /* ── フック・数値ゴール ── */
+        .gnum { display: block; font-family: var(--font-serif); font-weight: 600; font-size: 1.5rem; line-height: 1.35; color: var(--primary); letter-spacing: 0.02em; margin: 0.1rem 0 0.35rem; }
+
+        /* ── 連携先 ── */
+        .pt { padding: 6rem 2rem; border-top: 1px solid var(--gray-100); }
+        .pt-idx { background: var(--white); }
+        .pt-sv { background: var(--white); padding-left: 0; padding-right: 0; }
+        .pt-inner { max-width: 1080px; margin: 0 auto; }
+        .pt-sv .pt-inner { padding: 0 2rem; }
+        .pt-grid { display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 3rem; border-top: 1px solid var(--gray-200); border-left: 1px solid var(--gray-200); }
+        .pt-cell { display: flex; flex-direction: column; gap: 0.35rem; padding: 1.6rem 1.3rem 1.5rem; border-right: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); color: inherit; }
+        a.pt-cell:hover .pt-name, a.pt-cell:focus-visible .pt-name { color: var(--primary); }
+        .pt-logo { height: 64px; display: flex; align-items: center; margin-bottom: 0.8rem; }
+        .pt-logo img { max-height: 64px; max-width: 100%; width: auto; height: auto; object-fit: contain; }
+        .pt-text { font-family: var(--font-serif); font-size: 0.82rem; line-height: 1.4; color: var(--black); border-left: 2px solid var(--primary); padding-left: 0.6rem; height: auto; min-height: 64px; }
+        .pt-name { font-size: 0.84rem; font-weight: 500; color: var(--black); line-height: 1.6; transition: color 0.3s; }
+        .pt-field { font-size: 0.72rem; font-weight: 300; color: var(--gray-500); line-height: 1.7; }
+        @media (max-width: 900px) {
+            .pt { padding: 4.5rem 1.5rem; }
+            .pt-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media print { .pt { padding: 1.4rem 0 !important; } }
+
+        /* ── 事業行（フック） ── */
+        .biz-hook { font-family: var(--font-serif); font-size: 1.12rem; font-weight: 500; line-height: 1.8; color: var(--primary); margin-top: 1.1rem; letter-spacing: 0.02em; }
     </style>
 </head>
 <body>
@@ -570,22 +595,21 @@
     <section class="biz" id="business">
         <div class="biz-inner">
             <span class="sec-label">Business</span>
-            <h2 class="sec-h2 reveal" data-i18n="biz.h2">3つの事業の目的・ゴール・価格</h2>
-            <p class="sec-lead reveal" data-i18n="biz.lead">どの事業も、何のためにやるのか、どこを目指すのか、いくらかかるのかを先に出します。見積りのための電話は要りません。</p>
+            <h2 class="sec-h2 reveal" data-i18n="biz.h2">3つの事業。誰の、何が変わるのか。</h2>
+            <p class="sec-lead reveal" data-i18n="biz.lead">目的とゴールの数字、ほかとの違い、価格。読むのは1分で足ります。</p>
 
             <div class="biz-list">
                 <article class="biz-row reveal">
                     <div class="biz-id">
                         <p class="biz-for" data-i18n="biz1.for">FOR 病院・診療所・介護事業所・薬局</p>
                         <h3 class="biz-name" data-i18n="biz1.name">やるゼ！ — 現場の業務アプリ</h3>
-                        <p class="biz-desc" data-i18n="biz1.p">退院から受入れまで、法人をまたぐ引継ぎを1件のケースとして進めるアプリ。同意書の電子署名、日程調整、担当者会議、オンライン通話まで1つの画面で完結。</p>
-                        <div class="biz-tags"><span data-i18n="tag.m">ｍやるゼ！</span><span data-i18n="tag.t">ｔやるゼ！</span><span>Care Support Pass</span><span data-i18n="tag.gp">Google Play 公開中</span></div>
+                        <p class="biz-hook" data-i18n="biz1.hook">その同意書、まだ紙で運んでいますか。</p>
                     </div>
                     <div class="biz-body">
                         <dl class="biz-pg">
                             <div class="pg-aim"><dt data-i18n="lbl.aim">目的</dt><dd data-i18n="biz1.aim">事務の重さで、医療と介護の現場を止めない。</dd></div>
-                            <div class="pg-goal"><dt data-i18n="lbl.goal">ゴール</dt><dd data-i18n="biz1.goal">患者さん1人の引継ぎに関わる全員が、所属に関係なく同じ画面で動ける状態を、日本中の標準にする。</dd></div>
-                            <div class="pg-now"><dt data-i18n="lbl.now">現在地</dt><dd data-i18n="biz1.now">Google Play で公開中。1ユーザー月200円、無料プランあり。</dd></div>
+                            <div class="pg-goal"><dt data-i18n="lbl.goal">ゴール</dt><dd><b class="gnum" data-i18n="biz1.gnum">利用者 20万人</b><span data-i18n="biz1.goal">退院から受入れまでの引継ぎを、日本中どこでも同じ画面で。</span></dd></div>
+                            <div class="pg-diff"><dt data-i18n="lbl.diff">ほかとの違い</dt><dd data-i18n="biz1.diff">連絡を取るためのSNSではなく、同意書・会議・記録までが1件のケースで終わる業務アプリ。</dd></div>
                         </dl>
                     </div>
                     <div class="biz-price">
@@ -603,14 +627,13 @@
                     <div class="biz-id">
                         <p class="biz-for" data-i18n="biz2.for">FOR 施設をつくる人・譲る人・継ぐ人・投資する人</p>
                         <h3 class="biz-name" data-i18n="biz2.name">開発と承継</h3>
-                        <p class="biz-desc" data-i18n="biz2.p">医療・介護施設の開発と、事業承継・M&amp;A。全国1,740市区町村の需給データで「どこに・何を・いくらで」を決め、着工から引継ぎまで請け負う。</p>
-                        <div class="biz-tags"><span data-i18n="tag.re">不動産開発</span><span data-i18n="tag.rb">Re-Bridge 事業承継</span><span data-i18n="tag.t1">teamONE 地域分析</span></div>
+                        <p class="biz-hook" data-i18n="biz2.hook">「売れない」と言われた施設から、始める。</p>
                     </div>
                     <div class="biz-body">
                         <dl class="biz-pg">
                             <div class="pg-aim"><dt data-i18n="lbl.aim">目的</dt><dd data-i18n="biz2.aim">担い手がいないという理由で、施設と事業所を閉じさせない。</dd></div>
-                            <div class="pg-goal"><dt data-i18n="lbl.goal">ゴール</dt><dd data-i18n="biz2.goal">人口が減る地域でも、医療と介護の拠点が次の担い手へ引き継がれ、残り続けること。</dd></div>
-                            <div class="pg-now"><dt data-i18n="lbl.now">現在地</dt><dd data-i18n="biz2.now">施設23棟・事業所33ヶ所の開発、M&amp;A 9社。開発・承継案件を掲載中。</dd></div>
+                            <div class="pg-goal"><dt data-i18n="lbl.goal">ゴール</dt><dd><b class="gnum" data-i18n="biz2.gnum">再生・承継 100社</b><span data-i18n="biz2.goal">後継者がいない、赤字、人が足りない。そんな事業所を立て直してつなぎ、医療と介護の拠点を地域に残す。</span></dd></div>
+                            <div class="pg-diff"><dt data-i18n="lbl.diff">ほかとの違い</dt><dd data-i18n="biz2.diff">売れる会社だけを仲介するのではなく、売れない事業所を立て直してから引き継ぐ。建てる前の立地選びから、承継後の運営まで。</dd></div>
                         </dl>
                     </div>
                     <div class="biz-price">
@@ -628,14 +651,13 @@
                     <div class="biz-id">
                         <p class="biz-for" data-i18n="biz3.for">FOR アプリ・サイトが要る会社、企画を一緒にやりたい人</p>
                         <h3 class="biz-name" data-i18n="biz3.name">受託開発とコンテンツ</h3>
-                        <p class="biz-desc" data-i18n="biz3.p">医療・介護の業務システム、会員サイト、決済、スマートフォンアプリの受託開発。音楽レーベル TAMSIC と、クラウドファンディング企画も運営。</p>
-                        <div class="biz-tags"><span data-i18n="tag.sys">業務システム</span><span data-i18n="tag.web">サイト制作</span><span>TAMSIC</span><span data-i18n="tag.cf">クラウドファンディング</span></div>
+                        <p class="biz-hook" data-i18n="biz3.hook">稼いだお金の行き先まで、決めています。</p>
                     </div>
                     <div class="biz-body">
                         <dl class="biz-pg">
                             <div class="pg-aim"><dt data-i18n="lbl.aim">目的</dt><dd data-i18n="biz3.aim">公費だけに頼らない収入を、自分たちでつくる。</dd></div>
-                            <div class="pg-goal"><dt data-i18n="lbl.goal">ゴール</dt><dd data-i18n="biz3.goal">ここで生んだ収益を、へき地の医療・介護と、医療が届かない地域の支援に回し続けること。</dd></div>
-                            <div class="pg-now"><dt data-i18n="lbl.now">現在地</dt><dd data-i18n="biz3.now">自社アプリを Google Play で公開・運用。Kickstarter で ONE HEART を公開中。</dd></div>
+                            <div class="pg-goal"><dt data-i18n="lbl.goal">ゴール</dt><dd><b class="gnum" data-i18n="biz3.gnum">ONE HEART 目標 &yen;1,250,000</b><span data-i18n="biz3.goal">公費に頼らない収入で、へき地の医療・介護と、医療が届かない地域の支援を続ける。まずは10月8日まで。</span></dd></div>
+                            <div class="pg-diff"><dt data-i18n="lbl.diff">ほかとの違い</dt><dd data-i18n="biz3.diff">医療・介護の業務を説明しなくていい。自社でアプリを公開し、決済と規約まで運用している会社がつくる。</dd></div>
                         </dl>
                     </div>
                     <div class="biz-price">
@@ -690,6 +712,42 @@
                 <div class="num reveal delay-3"><p class="v">9</p><p class="l" data-i18n="proof.n4">社<br>M&amp;A（DD・実行・PMIまで）</p></div>
             </div>
             <p class="proof-note" data-i18n="proof.note">へき地医療jp チームGREEN、特定非営利活動法人 GO TO HAPPY LIFE と連携し、人口の少ない地域の医療・介護をどう残すかに取り組んでいます。</p>
+        </div>
+    </section>
+
+    <!-- ══ PARTNERS ══ -->
+    <section class="pt pt-idx" id="partners">
+        <div class="pt-inner">
+            <span class="sec-label">Partners</span>
+            <h2 class="sec-h2 reveal" data-i18n="pt.h2">連携先</h2>
+            <p class="sec-lead reveal" data-i18n="pt.lead">医療・介護の現場で、一緒に動いている法人です。</p>
+            <div class="pt-grid">
+                <a class="pt-cell" href="https://www.compass-dc.jp/" target="_blank" rel="noopener">
+                    <span class="pt-logo"><img src="partners/compass.png?v=20260520b" alt="コンパスメディカルグループ" loading="lazy"></span>
+                    <span class="pt-name" data-i18n="pt.n.compass">コンパスメディカルグループ</span>
+                    <span class="pt-field" data-i18n="pt.compass">医科・歯科・健診</span>
+                </a>
+                <a class="pt-cell" href="https://medipass.co.jp/" target="_blank" rel="noopener">
+                    <span class="pt-logo"><img src="partners/medipass.png?v=20260520b" alt="株式会社メディパス" loading="lazy"></span>
+                    <span class="pt-name" data-i18n="pt.n.medipass">株式会社メディパス</span>
+                    <span class="pt-field" data-i18n="pt.medipass">医療・介護施設の経営支援、訪問診療の支援</span>
+                </a>
+                <a class="pt-cell" href="https://hekichiiryou.jp/" target="_blank" rel="noopener">
+                    <span class="pt-logo"><img src="partners/hekichiiryou.png?v=20260520b" alt="へき地医療jp チームGREEN" loading="lazy"></span>
+                    <span class="pt-name" data-i18n="pt.n.hekichi">へき地医療jp チームGREEN</span>
+                    <span class="pt-field" data-i18n="pt.hekichi">へき地医療</span>
+                </a>
+                <a class="pt-cell" href="https://tamjump.github.io/GoTo_Site/" target="_blank" rel="noopener">
+                    <span class="pt-logo"><img src="partners/goto-happy.png?v=20260520b" alt="特定非営利活動法人 GO TO HAPPY LIFE" loading="lazy"></span>
+                    <span class="pt-name" data-i18n="pt.n.goto">特定非営利活動法人 GO TO HAPPY LIFE</span>
+                    <span class="pt-field" data-i18n="pt.goto">医療・福祉支援、国際支援</span>
+                </a>
+                <div class="pt-cell">
+                    <span class="pt-logo pt-text" aria-hidden="true">さかえ<br>ケアサービス</span>
+                    <span class="pt-name" data-i18n="pt.n.sakae">株式会社さかえケアサービス</span>
+                    <span class="pt-field" data-i18n="pt.sakae">医療・福祉</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -816,7 +874,7 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     </script>
-    <script src="js/translations.js?v=20260927b"></script>
-    <script src="js/lang.js?v=20260927b"></script>
+    <script src="js/translations.js?v=20260927c"></script>
+    <script src="js/lang.js?v=20260927c"></script>
 </body>
 </html>
