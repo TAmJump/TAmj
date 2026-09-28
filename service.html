@@ -7,8 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+JP:wght@200;300;400;500;700&family=Noto+Serif+JP:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/base.css?v=20260928i">
-    <link rel="stylesheet" href="css/corporate.css?v=20260928i">
+    <link rel="stylesheet" href="css/base.css?v=20260928j">
+    <link rel="stylesheet" href="css/corporate.css?v=20260928j">
     <style>
         .tab-section {
             max-width: 780px;
@@ -384,6 +384,12 @@
         .pnl-entry .pnl-k { text-align: center; }
         .entry-list { border-top: 1px solid var(--gray-100); }
         .pnl-lead .entry-list { border-top: 1px solid var(--gray-100); }
+        /* ── フッターのSNSアイコン ── */
+        .footer-sns { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+        .footer-sns a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; color: var(--gray-400); transition: color 0.3s; }
+        .footer-sns a:hover { color: var(--black); }
+        .footer-sns a svg { width: 20px; height: 20px; fill: currentColor; }
+        .footer-brand img { height: 48px !important; width: auto !important; }
     </style>
 </head>
 <body>
@@ -710,7 +716,7 @@
                     <h4 data-i18n="footer.service">Service</h4>
                     <a href="service.html#app" data-i18n="footer.svc.app">業務アプリ やるゼ！</a>
                     <a href="service.html#dev" data-i18n="footer.svc.dev">開発と承継</a>
-                    <a href="service.html#make" data-i18n="footer.svc.make">受託開発・コンテンツ</a>
+                    <a href="service.html#make" data-i18n="footer.svc.make">エンタメと出逢い</a>
                     <a href="service.html#price" data-i18n="footer.svc.price">料金</a>
                 </div>
                 <div class="footer-col">
@@ -778,7 +784,7 @@
         window.addEventListener('load', badge);
         new MutationObserver(badge).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
     </script>
-    <script src="js/translations.js?v=20260928i"></script>
-    <script src="js/lang.js?v=20260928i"></script>
+    <script src="js/translations.js?v=20260928j"></script>
+    <script src="js/lang.js?v=20260928j"></script>
 </body>
 </html>
