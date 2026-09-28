@@ -7,8 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+JP:wght@200;300;400;500;700&family=Noto+Serif+JP:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/base.css?v=20260928h">
-    <link rel="stylesheet" href="css/corporate.css?v=20260928h">
+    <link rel="stylesheet" href="css/base.css?v=20260928i">
+    <link rel="stylesheet" href="css/corporate.css?v=20260928i">
     <style>
         .index-hero {
             min-height: 100vh;
@@ -427,6 +427,23 @@
             .partner-item { width: 118px; height: 118px; margin: 0 26px; padding: 0; }
             .partner-item.is-icon img, .partner-item.is-photo img { top: 11px; left: 11px; width: calc(100% - 22px); height: calc(100% - 22px); }
         }
+        /* ── あなたの入口：選ぶ形 ── */
+        .pk { text-align: center; }
+        .pk-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 0.7rem; max-width: 760px; margin: 0 auto; }
+        .pk-chip {
+            font: inherit; font-size: 0.78rem; font-weight: 300; letter-spacing: 0.04em; color: var(--gray-500);
+            background: transparent; border: 1px solid var(--gray-200); border-radius: 999px;
+            padding: 0.55rem 1.1rem; cursor: pointer; transition: color 0.3s, border-color 0.3s;
+        }
+        .pk-chip:hover, .pk-chip:focus-visible { color: var(--black); border-color: var(--gray-400); }
+        .pk-chip.on { color: var(--primary); border-color: var(--primary); }
+        .pk-out { margin-top: 2.8rem; min-height: 4.5rem; }
+        .pk-item { display: inline-flex; align-items: baseline; gap: 1rem; color: var(--black); }
+        .pk-item[hidden] { display: none; }
+        .pk-line { font-family: "Noto Serif JP", serif; font-size: clamp(1.15rem, 2.8vw, 1.55rem); line-height: 1.7; letter-spacing: 0.05em; }
+        .pk-go { color: var(--primary); font-size: 1.1rem; transition: transform 0.3s; }
+        .pk-item:hover .pk-go, .pk-item:focus-visible .pk-go { transform: translateX(6px); }
+        @media (max-width: 640px) { .pk-chip { font-size: 0.74rem; padding: 0.5rem 0.9rem; } }
     </style>
 </head>
 <body>
@@ -493,80 +510,51 @@
             <div class="entry-head reveal">
                 <span class="entry-label">For You</span>
                 <h2 class="entry-title" data-i18n="entry.h">あなたの入口</h2>
-                <p class="entry-lead" data-i18n="entry.lead">当てはまるところから、どうぞ。</p>
+                <p class="entry-lead" data-i18n="entry.lead">当てはまるものを、1つ選んで。</p>
             </div>
-            <div class="entry-list">
-            <a class="en-row" href="contact.html?topic=partner">
-                <span class="en-who" data-i18n="t11.w">代理店になりたい人</span>
-                <span class="en-line" data-i18n="t11.l">紹介した施設の数だけ、毎月フィーが入る。上位は認定代理店に。</span>
-                <span class="en-arrow">→</span>
-            </a>
-            <a class="en-row" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener">
-                <span class="en-who" data-i18n="t12.w">介護施設・訪問看護の経営者</span>
-                <span class="en-line" data-i18n="t12.l">あなたの施設、先月いくら空床で失いましたか。</span>
-                <span class="en-arrow">→</span>
-            </a>
-            <a class="en-row" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener">
-                <span class="en-who" data-i18n="t13.w">病院・施設で働く人</span>
-                <span class="en-line" data-i18n="t13.l">回した受入れの件数が、あなたの実績として残る。</span>
-                <span class="en-arrow">→</span>
-            </a>
-            <a class="en-row" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener">
-                <span class="en-who" data-i18n="t14.w">親を介護している家族</span>
-                <span class="en-line" data-i18n="t14.l">お母さんの退院、仕事を休まずにスマホで。</span>
-                <span class="en-arrow">→</span>
-            </a>
-            <a class="en-row" href="contact.html?topic=build">
-                <span class="en-who" data-i18n="t15.w">アプリをつくりたい会社</span>
-                <span class="en-line" data-i18n="t15.l">やるゼ！をつくったチームが、あなたのアプリを1画面から。</span>
-                <span class="en-arrow">→</span>
-            </a>
-            <a class="en-row" href="https://develop.tamjump.com/" target="_blank" rel="noopener">
-                <span class="en-who" data-i18n="t21.w">土地を持っている人</span>
-                <span class="en-line" data-i18n="t21.l">その土地、毎月いくら生むか。無料で出す。</span>
-                <span class="en-arrow">→</span>
-            </a>
-            <a class="en-row" href="contact.html?topic=develop">
-                <span class="en-who" data-i18n="t22.w">会社を閉じるか迷っている経営者</span>
-                <span class="en-line" data-i18n="t22.l">閉じたら何も残らない。売ればいくら残るか、無料で査定。</span>
-                <span class="en-arrow">→</span>
-            </a>
-            <a class="en-row" href="https://develop.tamjump.com/" target="_blank" rel="noopener">
-                <span class="en-who" data-i18n="t23.w">投資家</span>
-                <span class="en-line" data-i18n="t23.l">非公開案件は会員だけ。先着順。</span>
-                <span class="en-arrow">→</span>
-            </a>
-            <a class="en-row" href="contact.html?topic=develop">
-                <span class="en-who" data-i18n="t24.w">社長になりたい人</span>
-                <span class="en-line" data-i18n="t24.l">来月から社長。動いている事業を引き継ぐ。</span>
-                <span class="en-arrow">→</span>
-            </a>
-            <a class="en-row" href="https://teamone.tamjump.com/" target="_blank" rel="noopener">
-                <span class="en-who" data-i18n="t25.w">建てる場所を探している人</span>
-                <span class="en-line" data-i18n="t25.l">あなたの街は全国何位か。1,740市区町村のランキング。</span>
-                <span class="en-arrow">→</span>
-            </a>
-            <a class="en-row" href="https://king2323.tamjump.com/" target="_blank" rel="noopener">
-                <span class="en-who" data-i18n="t31.w">勝負が好きな人</span>
-                <span class="en-line" data-i18n="t31.l">毎週23:23、王様が1人。誰が選ばれるかは最後まで分からない。</span>
-                <span class="en-arrow">→</span>
-            </a>
-            <a class="en-row" href="https://king2323.tamjump.com/" target="_blank" rel="noopener">
-                <span class="en-who" data-i18n="t32.w">人脈を広げたい人</span>
-                <span class="en-line" data-i18n="t32.l">負けても王様のパーティーに入れる。勝った人と同じ部屋で飲める。</span>
-                <span class="en-arrow">→</span>
-            </a>
-            <a class="en-row" href="https://oneheart.tamjump.com/" target="_blank" rel="noopener">
-                <span class="en-who" data-i18n="t33.w">世界の人とつながりたい人</span>
-                <span class="en-line" data-i18n="t33.l">番号付きのピースは、埋まったら終わり。保有者だけの会へ。</span>
-                <span class="en-arrow">→</span>
-            </a>
-            <a class="en-row" href="https://tamsic.tamjump.com/" target="_blank" rel="noopener">
-                <span class="en-who" data-i18n="t34.w">歌いたい人</span>
-                <span class="en-line" data-i18n="t34.l">次の歌い手に選ばれるのは誰か。制作費はレーベル持ち。</span>
-                <span class="en-arrow">→</span>
-            </a>
+            <div class="pk">
+            <div class="pk-chips" role="group">
+                <button type="button" class="pk-chip on" data-i="0" aria-pressed="true" data-i18n="t11.w">代理店になりたい人</button>
+                <button type="button" class="pk-chip" data-i="1" aria-pressed="false" data-i18n="t12.w">介護施設・訪問看護の経営者</button>
+                <button type="button" class="pk-chip" data-i="2" aria-pressed="false" data-i18n="t13.w">病院・施設で働く人</button>
+                <button type="button" class="pk-chip" data-i="3" aria-pressed="false" data-i18n="t14.w">親を介護している家族</button>
+                <button type="button" class="pk-chip" data-i="4" aria-pressed="false" data-i18n="t15.w">アプリをつくりたい会社</button>
+                <button type="button" class="pk-chip" data-i="5" aria-pressed="false" data-i18n="t21.w">土地を持っている人</button>
+                <button type="button" class="pk-chip" data-i="6" aria-pressed="false" data-i18n="t22.w">会社を閉じるか迷っている経営者</button>
+                <button type="button" class="pk-chip" data-i="7" aria-pressed="false" data-i18n="t23.w">投資家</button>
+                <button type="button" class="pk-chip" data-i="8" aria-pressed="false" data-i18n="t24.w">社長になりたい人</button>
+                <button type="button" class="pk-chip" data-i="9" aria-pressed="false" data-i18n="t25.w">建てる場所を探している人</button>
+                <button type="button" class="pk-chip" data-i="10" aria-pressed="false" data-i18n="t31.w">勝負が好きな人</button>
+                <button type="button" class="pk-chip" data-i="11" aria-pressed="false" data-i18n="t32.w">人脈を広げたい人</button>
+                <button type="button" class="pk-chip" data-i="12" aria-pressed="false" data-i18n="t33.w">世界の人とつながりたい人</button>
+                <button type="button" class="pk-chip" data-i="13" aria-pressed="false" data-i18n="t34.w">歌いたい人</button>
             </div>
+            <div class="pk-out" aria-live="polite">
+                <a class="pk-item" data-i="0" href="contact.html?topic=partner"><span class="pk-line" data-i18n="t11.l">紹介した施設の数だけ、毎月フィーが入る。上位は認定代理店に。</span><span class="pk-go">→</span></a>
+                <a class="pk-item" data-i="1" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" hidden><span class="pk-line" data-i18n="t12.l">あなたの施設、先月いくら空床で失いましたか。</span><span class="pk-go">→</span></a>
+                <a class="pk-item" data-i="2" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" hidden><span class="pk-line" data-i18n="t13.l">回した受入れの件数が、あなたの実績として残る。</span><span class="pk-go">→</span></a>
+                <a class="pk-item" data-i="3" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener" hidden><span class="pk-line" data-i18n="t14.l">お母さんの退院、仕事を休まずにスマホで。</span><span class="pk-go">→</span></a>
+                <a class="pk-item" data-i="4" href="contact.html?topic=build" hidden><span class="pk-line" data-i18n="t15.l">やるゼ！をつくったチームが、あなたのアプリを1画面から。</span><span class="pk-go">→</span></a>
+                <a class="pk-item" data-i="5" href="https://develop.tamjump.com/" target="_blank" rel="noopener" hidden><span class="pk-line" data-i18n="t21.l">その土地、毎月いくら生むか。無料で出す。</span><span class="pk-go">→</span></a>
+                <a class="pk-item" data-i="6" href="contact.html?topic=develop" hidden><span class="pk-line" data-i18n="t22.l">閉じたら何も残らない。売ればいくら残るか、無料で査定。</span><span class="pk-go">→</span></a>
+                <a class="pk-item" data-i="7" href="https://develop.tamjump.com/" target="_blank" rel="noopener" hidden><span class="pk-line" data-i18n="t23.l">非公開案件は会員だけ。先着順。</span><span class="pk-go">→</span></a>
+                <a class="pk-item" data-i="8" href="contact.html?topic=develop" hidden><span class="pk-line" data-i18n="t24.l">来月から社長。動いている事業を引き継ぐ。</span><span class="pk-go">→</span></a>
+                <a class="pk-item" data-i="9" href="https://teamone.tamjump.com/" target="_blank" rel="noopener" hidden><span class="pk-line" data-i18n="t25.l">あなたの街は全国何位か。1,740市区町村のランキング。</span><span class="pk-go">→</span></a>
+                <a class="pk-item" data-i="10" href="https://king2323.tamjump.com/" target="_blank" rel="noopener" hidden><span class="pk-line" data-i18n="t31.l">毎週23:23、王様が1人。誰が選ばれるかは最後まで分からない。</span><span class="pk-go">→</span></a>
+                <a class="pk-item" data-i="11" href="https://king2323.tamjump.com/" target="_blank" rel="noopener" hidden><span class="pk-line" data-i18n="t32.l">負けても王様のパーティーに入れる。勝った人と同じ部屋で飲める。</span><span class="pk-go">→</span></a>
+                <a class="pk-item" data-i="12" href="https://oneheart.tamjump.com/" target="_blank" rel="noopener" hidden><span class="pk-line" data-i18n="t33.l">番号付きのピースは、埋まったら終わり。保有者だけの会へ。</span><span class="pk-go">→</span></a>
+                <a class="pk-item" data-i="13" href="https://tamsic.tamjump.com/" target="_blank" rel="noopener" hidden><span class="pk-line" data-i18n="t34.l">次の歌い手に選ばれるのは誰か。制作費はレーベル持ち。</span><span class="pk-go">→</span></a>
+            </div>
+        </div>
+        <script>
+        (function(){
+            var chips=document.querySelectorAll('.pk-chip'), items=document.querySelectorAll('.pk-item');
+            chips.forEach(function(c){ c.addEventListener('click',function(){
+                chips.forEach(function(x){ var on=x===c; x.classList.toggle('on',on); x.setAttribute('aria-pressed',on); });
+                items.forEach(function(it){ it.hidden = it.dataset.i!==c.dataset.i; });
+            }); });
+        })();
+        </script>
         </div>
     </section>
 
@@ -612,35 +600,35 @@
         <div class="marquee-wrapper">
             <div class="marquee-track">
                 <!-- ロゴセット1（ランダム順・14件） -->
-                <a class="partner-item is-logo" href="https://tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamj-t.png?v=20260928h" alt="タムジ.Corp"></a>
-                <a class="partner-item is-logo" href="https://carepass.tamjump.com/" target="_blank" rel="noopener"><img src="partners/carepass-t.png?v=20260928h" alt="Care Support Pass"></a>
-                <a class="partner-item is-icon" href="https://tyaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tyaruze.png?v=20260928h" alt="tやるぜ！"></a>
-                <a class="partner-item is-photo" href="https://tamsic.tamjump.com/kiki.html" target="_blank" rel="noopener"><img src="partners/kiki.png?v=20260928h" alt="kiki"></a>
-                <a class="partner-item is-logo is-wide" href="https://www.compass-dc.jp/" target="_blank" rel="noopener"><img src="partners/compass-t.png?v=20260928h" alt="コンパスメディカルグループ"></a>
-                <a class="partner-item is-logo" href="https://yaruze.tamjump.com/lp.html" target="_blank" rel="noopener"><img src="partners/yaruze-t.png?v=20260928h" alt="やるぜ！"></a>
-                <a class="partner-item is-photo" href="https://tamsic.tamjump.com/nono.html" target="_blank" rel="noopener"><img src="partners/nono.png?v=20260928h" alt="no-no"></a>
-                <a class="partner-item is-logo is-wide" href="https://medipass.co.jp/" target="_blank" rel="noopener"><img src="partners/medipass-t.png?v=20260928h" alt="株式会社メディパス"></a>
-                <a class="partner-item is-icon" href="https://tamsic.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamsic.png?v=20260928h" alt="TAMSiC"></a>
-                <a class="partner-item is-icon" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/myaruze.png?v=20260928h" alt="mやるぜ！"></a>
-                <a class="partner-item is-photo" href="https://tamsic.tamjump.com/gen.html" target="_blank" rel="noopener"><img src="partners/gen.png?v=20260928h" alt="gEN"></a>
-                <a class="partner-item is-logo is-wide" href="https://hekichiiryou.jp/" target="_blank" rel="noopener"><img src="partners/hekichiiryou-t.png?v=20260928h" alt="へき地医療jp チームGREEN"></a>
-                <a class="partner-item is-logo" href="https://king2323.tamjump.com/" target="_blank" rel="noopener"><img src="partners/kingmaker-t.png?v=20260928h" alt="KING MAKER 23:23"></a>
-                <a class="partner-item is-logo" href="https://tamjump.github.io/GoTo_Site/" target="_blank" rel="noopener"><img src="partners/goto-happy-t.png?v=20260928h" alt="特定非営利法人GO TO HAPPY LIFE"></a>
+                <a class="partner-item is-logo" href="https://tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamj-t.png?v=20260928i" alt="タムジ.Corp"></a>
+                <a class="partner-item is-logo" href="https://carepass.tamjump.com/" target="_blank" rel="noopener"><img src="partners/carepass-t.png?v=20260928i" alt="Care Support Pass"></a>
+                <a class="partner-item is-icon" href="https://tyaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tyaruze.png?v=20260928i" alt="tやるぜ！"></a>
+                <a class="partner-item is-photo" href="https://tamsic.tamjump.com/kiki.html" target="_blank" rel="noopener"><img src="partners/kiki.png?v=20260928i" alt="kiki"></a>
+                <a class="partner-item is-logo is-wide" href="https://www.compass-dc.jp/" target="_blank" rel="noopener"><img src="partners/compass-t.png?v=20260928i" alt="コンパスメディカルグループ"></a>
+                <a class="partner-item is-logo" href="https://yaruze.tamjump.com/lp.html" target="_blank" rel="noopener"><img src="partners/yaruze-t.png?v=20260928i" alt="やるぜ！"></a>
+                <a class="partner-item is-photo" href="https://tamsic.tamjump.com/nono.html" target="_blank" rel="noopener"><img src="partners/nono.png?v=20260928i" alt="no-no"></a>
+                <a class="partner-item is-logo is-wide" href="https://medipass.co.jp/" target="_blank" rel="noopener"><img src="partners/medipass-t.png?v=20260928i" alt="株式会社メディパス"></a>
+                <a class="partner-item is-icon" href="https://tamsic.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamsic.png?v=20260928i" alt="TAMSiC"></a>
+                <a class="partner-item is-icon" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/myaruze.png?v=20260928i" alt="mやるぜ！"></a>
+                <a class="partner-item is-photo" href="https://tamsic.tamjump.com/gen.html" target="_blank" rel="noopener"><img src="partners/gen.png?v=20260928i" alt="gEN"></a>
+                <a class="partner-item is-logo is-wide" href="https://hekichiiryou.jp/" target="_blank" rel="noopener"><img src="partners/hekichiiryou-t.png?v=20260928i" alt="へき地医療jp チームGREEN"></a>
+                <a class="partner-item is-logo" href="https://king2323.tamjump.com/" target="_blank" rel="noopener"><img src="partners/kingmaker-t.png?v=20260928i" alt="KING MAKER 23:23"></a>
+                <a class="partner-item is-logo" href="https://tamjump.github.io/GoTo_Site/" target="_blank" rel="noopener"><img src="partners/goto-happy-t.png?v=20260928i" alt="特定非営利法人GO TO HAPPY LIFE"></a>
                 <!-- 複製（無限ループ用） -->
-                <a class="partner-item is-logo" href="https://tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamj-t.png?v=20260928h" alt="タムジ.Corp"></a>
-                <a class="partner-item is-logo" href="https://carepass.tamjump.com/" target="_blank" rel="noopener"><img src="partners/carepass-t.png?v=20260928h" alt="Care Support Pass"></a>
-                <a class="partner-item is-icon" href="https://tyaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tyaruze.png?v=20260928h" alt="tやるぜ！"></a>
-                <a class="partner-item is-photo" href="https://tamsic.tamjump.com/kiki.html" target="_blank" rel="noopener"><img src="partners/kiki.png?v=20260928h" alt="kiki"></a>
-                <a class="partner-item is-logo is-wide" href="https://www.compass-dc.jp/" target="_blank" rel="noopener"><img src="partners/compass-t.png?v=20260928h" alt="コンパスメディカルグループ"></a>
-                <a class="partner-item is-logo" href="https://yaruze.tamjump.com/lp.html" target="_blank" rel="noopener"><img src="partners/yaruze-t.png?v=20260928h" alt="やるぜ！"></a>
-                <a class="partner-item is-photo" href="https://tamsic.tamjump.com/nono.html" target="_blank" rel="noopener"><img src="partners/nono.png?v=20260928h" alt="no-no"></a>
-                <a class="partner-item is-logo is-wide" href="https://medipass.co.jp/" target="_blank" rel="noopener"><img src="partners/medipass-t.png?v=20260928h" alt="株式会社メディパス"></a>
-                <a class="partner-item is-icon" href="https://tamsic.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamsic.png?v=20260928h" alt="TAMSiC"></a>
-                <a class="partner-item is-icon" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/myaruze.png?v=20260928h" alt="mやるぜ！"></a>
-                <a class="partner-item is-photo" href="https://tamsic.tamjump.com/gen.html" target="_blank" rel="noopener"><img src="partners/gen.png?v=20260928h" alt="gEN"></a>
-                <a class="partner-item is-logo is-wide" href="https://hekichiiryou.jp/" target="_blank" rel="noopener"><img src="partners/hekichiiryou-t.png?v=20260928h" alt="へき地医療jp チームGREEN"></a>
-                <a class="partner-item is-logo" href="https://king2323.tamjump.com/" target="_blank" rel="noopener"><img src="partners/kingmaker-t.png?v=20260928h" alt="KING MAKER 23:23"></a>
-                <a class="partner-item is-logo" href="https://tamjump.github.io/GoTo_Site/" target="_blank" rel="noopener"><img src="partners/goto-happy-t.png?v=20260928h" alt="特定非営利法人GO TO HAPPY LIFE"></a>
+                <a class="partner-item is-logo" href="https://tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamj-t.png?v=20260928i" alt="タムジ.Corp"></a>
+                <a class="partner-item is-logo" href="https://carepass.tamjump.com/" target="_blank" rel="noopener"><img src="partners/carepass-t.png?v=20260928i" alt="Care Support Pass"></a>
+                <a class="partner-item is-icon" href="https://tyaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tyaruze.png?v=20260928i" alt="tやるぜ！"></a>
+                <a class="partner-item is-photo" href="https://tamsic.tamjump.com/kiki.html" target="_blank" rel="noopener"><img src="partners/kiki.png?v=20260928i" alt="kiki"></a>
+                <a class="partner-item is-logo is-wide" href="https://www.compass-dc.jp/" target="_blank" rel="noopener"><img src="partners/compass-t.png?v=20260928i" alt="コンパスメディカルグループ"></a>
+                <a class="partner-item is-logo" href="https://yaruze.tamjump.com/lp.html" target="_blank" rel="noopener"><img src="partners/yaruze-t.png?v=20260928i" alt="やるぜ！"></a>
+                <a class="partner-item is-photo" href="https://tamsic.tamjump.com/nono.html" target="_blank" rel="noopener"><img src="partners/nono.png?v=20260928i" alt="no-no"></a>
+                <a class="partner-item is-logo is-wide" href="https://medipass.co.jp/" target="_blank" rel="noopener"><img src="partners/medipass-t.png?v=20260928i" alt="株式会社メディパス"></a>
+                <a class="partner-item is-icon" href="https://tamsic.tamjump.com/" target="_blank" rel="noopener"><img src="partners/tamsic.png?v=20260928i" alt="TAMSiC"></a>
+                <a class="partner-item is-icon" href="https://myaruze.tamjump.com/" target="_blank" rel="noopener"><img src="partners/myaruze.png?v=20260928i" alt="mやるぜ！"></a>
+                <a class="partner-item is-photo" href="https://tamsic.tamjump.com/gen.html" target="_blank" rel="noopener"><img src="partners/gen.png?v=20260928i" alt="gEN"></a>
+                <a class="partner-item is-logo is-wide" href="https://hekichiiryou.jp/" target="_blank" rel="noopener"><img src="partners/hekichiiryou-t.png?v=20260928i" alt="へき地医療jp チームGREEN"></a>
+                <a class="partner-item is-logo" href="https://king2323.tamjump.com/" target="_blank" rel="noopener"><img src="partners/kingmaker-t.png?v=20260928i" alt="KING MAKER 23:23"></a>
+                <a class="partner-item is-logo" href="https://tamjump.github.io/GoTo_Site/" target="_blank" rel="noopener"><img src="partners/goto-happy-t.png?v=20260928i" alt="特定非営利法人GO TO HAPPY LIFE"></a>
             </div>
         </div>
     </section>
@@ -716,7 +704,7 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     </script>
-    <script src="js/translations.js?v=20260928h"></script>
-    <script src="js/lang.js?v=20260928h"></script>
+    <script src="js/translations.js?v=20260928i"></script>
+    <script src="js/lang.js?v=20260928i"></script>
 </body>
 </html>
