@@ -267,6 +267,7 @@
         .header-nav {
             position: fixed;
             top: 0;
+            transition: top 0.15s linear;
             right: 0;
             display: flex;
             align-items: center;
@@ -448,7 +449,7 @@
 </head>
 <body>
 <!-- ONE HEART Kickstarter 告知帯 -->
-<a href="https://www.kickstarter.com/projects/tamj/we-are-all-one-heart-23-pieces-one-world?ref=4k7z69" target="_blank" rel="noopener" style="display:block;background:#FDFBF5;border-bottom:1px solid #E4572E;color:#1a1a1a;text-decoration:none;font-family:system-ui,-apple-system,'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;font-size:13px;line-height:1.5;letter-spacing:.02em;padding:9px 16px;text-align:center;position:relative;z-index:9999">
+<a id="ksBar" href="https://www.kickstarter.com/projects/tamj/we-are-all-one-heart-23-pieces-one-world?ref=4k7z69" target="_blank" rel="noopener" style="display:block;background:#FDFBF5;border-bottom:1px solid #E4572E;color:#1a1a1a;text-decoration:none;font-family:system-ui,-apple-system,'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;font-size:13px;line-height:1.5;letter-spacing:.02em;padding:9px 16px;text-align:center;position:relative;z-index:9999">
   <span style="color:#E4572E;font-weight:700" data-i18n="ks.live">Kickstarterで公開中</span>
   <span style="opacity:.55;margin:0 8px">·</span>WE ARE ALL ONE HEART — 23 Pieces, One World
   <span style="opacity:.55;margin:0 8px">·</span><span data-i18n="ks.until">10月8日まで</span>
@@ -709,5 +710,17 @@
     </script>
     <script src="js/translations.js?v=20260928j"></script>
     <script src="js/lang.js?v=20260928j"></script>
+    <script>
+        // 告知帯が見えている間は、右上のナビを帯の下に置く
+        (function () {
+            var bar = document.getElementById('ksBar'), nav = document.querySelector('.header-nav');
+            if (!bar || !nav) return;
+            function place() { nav.style.top = Math.max(0, bar.getBoundingClientRect().bottom) + 'px'; }
+            window.addEventListener('scroll', place, { passive: true });
+            window.addEventListener('resize', place);
+            window.addEventListener('load', place);
+            place();
+        })();
+    </script>
 </body>
 </html>
