@@ -22,7 +22,7 @@ var SERVICES_DATA = {
             {
               "name": { "ja": "やるゼ！", "en": "Yaruze", "ko": "Yaruze" },
               "desc": { "ja": "Vision Of Oneness — モジュール統合プラットフォーム。1クリックで各モジュールを起動", "en": "Vision Of Oneness — Module integration platform, launch each module with one click", "ko": "Vision Of Oneness — 모듈 통합 플랫폼. 원 클릭으로 각 모듈 실행" },
-              "url": "https://yaruze.tamjump.com/",
+              "url": "https://yaruze.115en.com/",
               "icon": "icons/yaruze.png",
               "play": "https://play.google.com/store/apps/details?id=com.tamjump.yaruze&pcampaignid=web_share",
               "qr": "icons/qr/yaruze.svg"
@@ -30,13 +30,13 @@ var SERVICES_DATA = {
             {
               "name": { "ja": "ｔやるゼ！", "en": "tYaruze", "ko": "tYaruze" },
               "desc": { "ja": "施設設備の通報・管理会社連携・QR台帳", "en": "Facility equipment alerts, management company coordination, QR ledger", "ko": "시설 설비 신고・관리회사 연계・QR 대장" },
-              "url": "https://tyaruze.tamjump.com",
+              "url": "https://tyaruze.115en.com",
               "icon": ""
             },
             {
               "name": { "ja": "ｍやるゼ！", "en": "mYaruze", "ko": "mYaruze" },
               "desc": { "ja": "医療・介護の法人間連携OS（NDA・退院通知・面談）", "en": "Medical & care inter-organization OS (NDA, discharge notification, meetings)", "ko": "의료・요양의 법인간 연계 OS (NDA・퇴원 통지・면담)" },
-              "url": "https://myaruze.tamjump.com/",
+              "url": "https://myaruze.115en.com/",
               "icon": "icons/myaruze.png",
               "play": "https://play.google.com/store/apps/details?id=com.tamjump.medvoo&pcampaignid=web_share",
               "qr": "icons/qr/myaruze.svg"
@@ -55,7 +55,7 @@ var SERVICES_DATA = {
             {
               "name": { "ja": "建設コスト根拠ツール", "en": "Construction Cost Intelligence", "ko": "건설 비용 근거 툴" },
               "desc": { "ja": "8指標で算出するMCI指数。根拠のある提案資料を5分で作成。", "en": "MCI index calculated from 8 market indicators. Create evidence-based proposals in 5 minutes.", "ko": "8개 지표로 산출하는 MCI 지수. 근거 있는 제안 자료를 5분에 작성." },
-              "url": "https://develop.tamjump.com/lp-mci.html",
+              "url": "https://develop.115en.com/lp-mci.html",
               "icon": ""
             }
           ]
@@ -73,7 +73,7 @@ var SERVICES_DATA = {
             {
               "name": { "ja": "ｍやるゼ！", "en": "mYaruze", "ko": "mYaruze" },
               "desc": { "ja": "医療・介護の法人間連携OS（NDA・退院通知・面談）", "en": "Medical & care inter-organization OS (NDA, discharge notification, meetings)", "ko": "의료・요양의 법인간 연계 OS (NDA・퇴원 통지・면담)" },
-              "url": "https://myaruze.tamjump.com/",
+              "url": "https://myaruze.115en.com/",
               "icon": "icons/myaruze.png",
               "play": "https://play.google.com/store/apps/details?id=com.tamjump.medvoo&pcampaignid=web_share",
               "qr": "icons/qr/myaruze.svg"
@@ -92,7 +92,7 @@ var SERVICES_DATA = {
             {
               "name": { "ja": "Care Support Pass", "en": "Care Support Pass", "ko": "Care Support Pass" },
               "desc": { "ja": "月100円の支援者を集め、介護施設の固定費を埋める仕組み。", "en": "A subscription scheme where ¥100/month supporters help cover fixed costs of care facilities.", "ko": "월 100엔 후원자를 모아 요양시설의 고정비를 메우는 구조." },
-              "url": "https://carepass.tamjump.com/",
+              "url": "https://carepass.115en.com/",
               "icon": ""
             }
           ]
@@ -125,7 +125,7 @@ var SERVICES_DATA = {
             {
               "name": { "ja": "Re-Bridge", "en": "Re-Bridge", "ko": "Re-Bridge" },
               "desc": { "ja": "承継再生型M&A。事業の価値を無料・約5分で再評価する。", "en": "Succession & turnaround M&A. Reappraise your business value for free in about 5 minutes.", "ko": "승계 재생형 M&A. 사업 가치를 무료・약 5분에 재평가." },
-              "url": "https://rebridge.tamjump.com/",
+              "url": "https://rebridge.115en.com/",
               "icon": ""
             }
           ]
@@ -136,7 +136,7 @@ var SERVICES_DATA = {
             {
               "name": { "ja": "Care Support Pass", "en": "Care Support Pass", "ko": "Care Support Pass" },
               "desc": { "ja": "月100円の月額会員サービス。施設を指名して支援できる仕組み。", "en": "A ¥100/month membership service. Supporters designate the facility they want to support.", "ko": "월 100엔 월회원 서비스. 후원할 시설을 지명할 수 있는 구조." },
-              "url": "https://carepass.tamjump.com/",
+              "url": "https://carepass.115en.com/",
               "icon": ""
             }
           ]
@@ -154,7 +154,7 @@ var SERVICES_DATA = {
             {
               "name": { "ja": "KINGMAKER 23:23", "en": "KINGMAKER 23:23", "ko": "KINGMAKER 23:23" },
               "desc": { "ja": "世界同時5分儀式。100円が誰かのMissionを王にする。", "en": "A worldwide 5-minute ritual. ¥100 turns someone's Mission into a King.", "ko": "전 세계 동시 5분 의식. 100엔이 누군가의 Mission을 왕으로 만든다." },
-              "url": "https://king2323.tamjump.com",
+              "url": "https://king2323.115en.com",
               "icon": ""
             }
           ]
@@ -165,7 +165,7 @@ var SERVICES_DATA = {
             {
               "name": { "ja": "TAMSIC", "en": "TAMSIC", "ko": "TAMSIC" },
               "desc": { "ja": "音楽レーベル & エンターテイメント", "en": "Music Label & Entertainment", "ko": "뮤직 레이블 & 엔터테인먼트" },
-              "url": "https://tamsic.tamjump.com",
+              "url": "https://tamsic.115en.com",
               "icon": ""
             }
           ]
@@ -187,7 +187,7 @@ var SERVICES_DATA = {
             {
               "name": { "ja": "ONE HEART PROJECT", "en": "ONE HEART PROJECT", "ko": "ONE HEART PROJECT" },
               "desc": { "ja": "世界中の顔写真1枚が、1ピースになる参加型モザイクアート。", "en": "A participatory mosaic art project. One portrait from anywhere in the world becomes one piece.", "ko": "전 세계의 얼굴 사진 한 장이 한 조각이 되는 참여형 모자이크 아트." },
-              "url": "https://oneheart.tamjump.com",
+              "url": "https://oneheart.115en.com",
               "icon": ""
             }
           ]
