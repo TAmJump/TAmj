@@ -1,701 +1,166 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tiger.J.Bob</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+JP:wght@200;300;400;500;700&family=Noto+Serif+JP:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/base.css?v=20260928j">
-    <link rel="stylesheet" href="css/corporate.css?v=20260928j">
-    <style>
-        .index-hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background: var(--warm-white);
-        }
-        .index-hero-inner { text-align: center; padding: 0 2rem; }
-        .index-logo {
-            font-family: "Cormorant Garamond", serif;
-            font-size: clamp(3.5rem, 10vw, 7rem);
-            font-weight: 300;
-            letter-spacing: 0.15em;
-            color: var(--black);
-            line-height: 1;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: softFadeUp 1.2s 0.3s forwards;
-        }
-        .index-tagline {
-            font-family: "Cormorant Garamond", serif;
-            font-size: clamp(0.75rem, 1.5vw, 0.95rem);
-            font-weight: 400;
-            letter-spacing: 0.4em;
-            color: var(--gray-400);
-            text-transform: uppercase;
-            opacity: 0;
-            animation: softFadeUp 1.2s 0.7s forwards;
-        }
-        .index-sub {
-            font-family: "Noto Serif JP", serif;
-            font-size: 0.85rem;
-            font-weight: 300;
-            color: var(--gray-500);
-            margin-top: 1.5rem;
-            letter-spacing: 0.06em;
-            line-height: 2;
-            opacity: 0;
-            animation: softFadeUp 1.2s 1s forwards;
-        }
-        .index-scroll {
-            position: absolute; bottom: 2.5rem; left: 50%;
-            transform: translateX(-50%);
-            display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
-            opacity: 0; animation: softFadeUp 1s 1.5s forwards;
-        }
-        .index-scroll span {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gray-300);
-            text-transform: uppercase;
-        }
-        .scroll-line {
-            width: 1px; height: 40px;
-            background: linear-gradient(to bottom, var(--gray-300), transparent);
-            animation: scrollPulse 2s ease-in-out infinite;
-        }
-        @keyframes scrollPulse {
-            0%, 100% { opacity: 0.4; } 50% { opacity: 1; }
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>115en</title>
+<meta name="description" content="医療・介護・地域をつなぐ、ご縁のグループ。株式会社GMS、株式会社さかえケアサービス、特定非営利活動法人 GO TO HAPPY LIFE ほか。">
+<meta property="og:title" content="115en">
+<meta property="og:description" content="医療・介護・地域をつなぐ、ご縁のグループ">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://115en.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FAF6EE; --paper:#FFFDF8; --ink:#1a1a1a; --muted:#7a746a; --line:#e6dfd2; --red:#C8161D;
+  --en:"Cormorant Garamond",Georgia,serif; --jp:"Noto Serif JP","Hiragino Mincho ProN",serif;
+  --side:max(20px,4vw);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--cream);color:var(--ink);font:15px/1.9 var(--jp);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
 
-        /* Two doors */
-        .index-nav { padding: 8rem 2rem; background: var(--white); }
-        .index-nav-inner {
-            max-width: 800px; margin: 0 auto;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
-        }
-        .index-nav-card {
-            display: block; padding: 3.5rem 2.5rem;
-            border: 1px solid var(--gray-100); border-radius: 2px;
-            transition: all 0.5s ease; text-align: center;
-        }
-        .index-nav-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.04);
-            transform: translateY(-4px);
-        }
-        .index-nav-card .card-label {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 0.65rem; letter-spacing: 0.35em;
-            color: var(--gray-400); text-transform: uppercase;
-            margin-bottom: 1.5rem; display: block;
-        }
-        .index-nav-card .card-heading {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 1.8rem; font-weight: 400;
-            letter-spacing: 0.12em; color: var(--black); margin-bottom: 1rem;
-        }
-        .index-nav-card .card-jp {
-            font-family: "Noto Serif JP", serif;
-            font-size: 0.82rem; font-weight: 300;
-            color: var(--gray-500); letter-spacing: 0.06em;
-            margin-bottom: 2rem; line-height: 1.8;
-        }
-        .index-nav-card .card-arrow {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 0.7rem; letter-spacing: 0.2em;
-            color: var(--primary); transition: letter-spacing 0.4s;
-        }
-        .index-nav-card:hover .card-arrow { letter-spacing: 0.35em; }
+/* 上下の帯 */
+.top,.bottom{position:fixed;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;
+  padding:18px max(var(--side),env(safe-area-inset-left,0px)) 18px max(var(--side),env(safe-area-inset-right,0px));pointer-events:none}
+.top{top:0}.bottom{bottom:0}
+.top>*,.bottom>*{pointer-events:auto}
+.mark{font-family:var(--en);font-weight:600;font-size:26px;letter-spacing:.06em}
+.mark span{color:var(--red)}
+.mark small{display:block;font-family:var(--jp);font-weight:400;font-size:10px;letter-spacing:.3em;color:var(--muted);margin-top:-4px}
+.close{font-family:var(--en);font-size:14px;letter-spacing:.2em;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:6px 16px;cursor:pointer;opacity:0;visibility:hidden;transition:opacity .4s}
+body.open .close{opacity:1;visibility:visible}
+.copy{font-family:var(--en);font-size:12px;letter-spacing:.12em;color:var(--muted)}
+.tiger{font-family:var(--en);font-style:italic;font-size:14px;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+.tiger:hover,.tiger:focus-visible{color:var(--red);border-color:var(--red)}
 
-        /* Partners - 流れるマーキー */
-        .index-partners { 
-            padding: 6rem 0; 
-            background: var(--cream); 
-            text-align: center;
-            overflow: hidden;
-        }
-        .partners-label {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 0.65rem; letter-spacing: 0.35em;
-            color: var(--gray-400); text-transform: uppercase; margin-bottom: 3rem;
-        }
-        
-        /* マーキーラッパー */
-        .marquee-wrapper {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-        }
-        .marquee-wrapper::before,
-        .marquee-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 120px;
-            z-index: 2;
-            pointer-events: none;
-        }
-        .marquee-wrapper::before {
-            left: 0;
-            background: linear-gradient(to right, var(--cream), transparent);
-        }
-        .marquee-wrapper::after {
-            right: 0;
-            background: linear-gradient(to left, var(--cream), transparent);
-        }
-        
-        .marquee-track {
-            display: flex;
-            align-items: center;
-            animation: marqueeScroll 30s linear infinite;
-            width: max-content;
-        }
-        .marquee-track:hover {
-            animation-play-state: paused;
-        }
-        
-        @keyframes marqueeScroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        
-        .partner-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 160px;
-            height: 160px;
-            margin: 0 30px;
-            opacity: 0.7;
-            transition: opacity 0.4s;
-            border: 1px solid rgba(0,0,0,0.08);
-            border-radius: 50%;
-            background: #fff;
-            overflow: hidden;
-            text-decoration: none;
-            color: inherit;
-            flex-shrink: 0;
-        }
-        .partner-item:hover { opacity: 1; }
-        .partner-item img { 
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        /* 横長ロゴはcontain表示＋余白 */
-        .partner-item.fit-contain img {
-            width: 90%;
-            height: 90%;
-            object-fit: contain;
-        }
-        /* ロゴ背景色を丸枠と同化させる */
-        .partner-item.bg-red    { background: #DA4616; border-color: #DA4616; }
-        .partner-item.bg-blue   { background: #007CA2; border-color: #007CA2; }
-        .partner-item.bg-black  { background: #000;    border-color: #000;    }
-        .partner-item .text-logo {
-            font-family: "Noto Sans JP", sans-serif;
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: var(--charcoal);
-            letter-spacing: 0.05em;
-            text-align: center;
-        }
+/* 1枚目：画像 */
+.stage{position:fixed;inset:0;display:grid;place-items:center;padding:84px var(--side) 72px}
+.visual{position:relative;width:min(100%,1100px);aspect-ratio:16/9;max-height:100%;border:0;padding:0;background:none;cursor:pointer;
+  transition:transform 1s cubic-bezier(.2,.7,.2,1),opacity .8s,filter .8s}
+.visual img{width:100%;height:100%;object-fit:contain;display:block}
+.visual::after{content:"";position:absolute;inset:-14px;border:1px solid var(--line);pointer-events:none;transition:border-color .4s}
+.visual:hover::after,.visual:focus-visible::after{border-color:var(--red)}
+.hint{position:absolute;left:50%;bottom:-46px;transform:translateX(-50%);font-family:var(--en);font-size:13px;letter-spacing:.4em;color:var(--muted);white-space:nowrap;transition:opacity .4s}
+.hint::before{content:"";display:inline-block;width:28px;height:1px;background:var(--red);vertical-align:middle;margin-right:14px;animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scaleX(.4);opacity:.5}50%{transform:scaleX(1);opacity:1}}
+body.open .visual{transform:scale(.86);opacity:.12;filter:blur(2px);pointer-events:none}
+body.open .hint{opacity:0}
 
-        /* Contact */
-        .index-contact { padding: 5rem 2rem; background: var(--white); text-align: center; }
-        .index-contact .cl {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 0.65rem; letter-spacing: 0.35em;
-            color: var(--gray-400); text-transform: uppercase;
-            margin-bottom: 1rem; display: block;
-        }
-        .index-contact .contact-cta {
-            display: inline-flex; align-items: center; gap: 0.8rem;
-            font-family: "Cormorant Garamond", serif;
-            font-size: 0.82rem; letter-spacing: 0.15em; color: var(--primary);
-            padding-bottom: 0.3rem; border-bottom: 1px solid var(--primary); transition: all 0.4s;
-        }
-        .index-contact .contact-cta:hover { gap: 1.2rem; }
-        .index-contact .contact-cta svg {
-            width: 16px; height: 16px; stroke: var(--primary); fill: none; stroke-width: 1.5;
-        }
+/* 2枚目：4つの入口 */
+.doors{position:fixed;inset:0;display:grid;place-items:center;padding:96px var(--side) 80px;opacity:0;visibility:hidden;transition:opacity .6s .25s,visibility 0s .9s}
+body.open .doors{opacity:1;visibility:visible;transition:opacity .6s .25s,visibility 0s}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:min(100%,1180px);border-top:1px solid var(--ink)}
+.door{position:relative;display:flex;flex-direction:column;min-height:clamp(260px,46vh,420px);padding:28px 26px 30px;border-right:1px solid var(--line);background:rgba(255,253,248,.72);
+  transform:translateY(24px);opacity:0;transition:transform .8s cubic-bezier(.2,.7,.2,1),opacity .8s,background .4s}
+.door:last-child{border-right:0}
+body.open .door{transform:none;opacity:1}
+body.open .door:nth-child(1){transition-delay:.30s}
+body.open .door:nth-child(2){transition-delay:.42s}
+body.open .door:nth-child(3){transition-delay:.54s}
+body.open .door:nth-child(4){transition-delay:.66s}
+.door .no{font-family:var(--en);font-size:15px;letter-spacing:.2em;color:var(--red)}
+.door .en{font-family:var(--en);font-weight:500;font-size:clamp(30px,3.2vw,44px);line-height:1.05;letter-spacing:.01em;margin:18px 0 14px}
+.door .jp{font-size:14px;font-weight:600;letter-spacing:.06em}
+.door .desc{font-size:13px;color:var(--muted);line-height:1.85;margin-top:10px}
+.door .go{margin-top:auto;padding-top:22px;font-family:var(--en);font-size:14px;letter-spacing:.2em;display:flex;align-items:center;gap:12px}
+.door .go::after{content:"";flex:0 0 36px;height:1px;background:var(--ink);transition:flex-basis .4s,background .4s}
+a.door::before{content:"";position:absolute;left:0;right:100%;top:-1px;height:3px;background:var(--red);transition:right .5s}
+a.door:hover,a.door:focus-visible{background:var(--paper)}
+a.door:hover::before,a.door:focus-visible::before{right:0}
+a.door:hover .go::after,a.door:focus-visible .go::after{flex-basis:64px;background:var(--red)}
+.door.soon{background:transparent;cursor:default}
+.door.soon .en,.door.soon .jp{color:var(--muted)}
+.door.soon .go{color:var(--red)}
+.door.soon .go::after{background:var(--red);opacity:.4}
 
-        .footer-sns {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-        }
-        .footer-sns a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px; height: 36px;
-            color: var(--gray-400);
-            transition: color 0.3s;
-        }
-        .footer-sns a:hover { color: var(--black); }
-        .footer-sns a svg { width: 20px; height: 20px; fill: currentColor; }
+a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:4px}
 
-        @media (max-width: 640px) {
-            .index-nav-inner { grid-template-columns: 1fr; gap: 1.5rem; }
-            .index-nav-card { padding: 2.5rem 2rem; }
-            .partner-item {
-                width: 120px;
-                height: 120px;
-                margin: 0 25px;
-                padding: 20px;
-            }
-            .partner-item .text-logo {
-                font-size: 0.9rem;
-            }
-        }
-        
-        /* フッターロゴ大きく */
-        .footer-brand img {
-            height: 48px !important;
-            width: auto !important;
-        }
-        
-        /* ヘッダーナビ（右上固定） */
-        .header-nav {
-            position: fixed;
-            top: 0;
-            transition: top 0.15s linear;
-            right: 0;
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-            padding: 1.5rem 2.5rem;
-            z-index: 100;
-        }
-        .header-nav a {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 0.8rem;
-            font-weight: 400;
-            letter-spacing: 0.12em;
-            color: var(--gray-500);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .header-nav a:hover {
-            color: var(--black);
-        }
-        .header-nav a.contact-link {
-            color: var(--primary);
-        }
-        .header-nav a.contact-link:hover {
-            color: #7a1a28;
-        }
-        
-        @media (max-width: 640px) {
-            .header-nav {
-                gap: 1.2rem;
-                padding: 1rem 1.2rem;
-            }
-            .header-nav a {
-                font-size: 0.65rem;
-            }
-        }
-
-        /* ── Vision Map ── */
-        .index-vision { padding: var(--sp-xl) 2rem; background: var(--cream); }
-        .index-vision-inner { max-width: 1000px; margin: 0 auto; }
-        .vision-head { text-align: center; margin-bottom: 2.5rem; }
-        .vision-label {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 0.65rem; letter-spacing: 0.35em; color: var(--gray-400);
-            text-transform: uppercase; display: block; margin-bottom: 0.8rem;
-        }
-        .vision-heading {
-            font-family: "Noto Serif JP", serif; font-weight: 400;
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem); letter-spacing: 0.06em;
-            color: var(--black); line-height: 1.6;
-        }
-        .vision-desc {
-            font-size: 0.85rem; font-weight: 300; color: var(--gray-500);
-            line-height: 2; margin-top: 1rem;
-        }
-        .vision-figure {
-            position: relative; display: block;
-            background: var(--white); border: 1px solid var(--gray-200); padding: 8px;
-            transition: box-shadow 0.5s ease, transform 0.5s ease;
-        }
-        .vision-figure:hover { box-shadow: 0 22px 55px rgba(0,0,0,0.12); transform: translateY(-3px); }
-        .vision-figure img { width: 100%; display: block; }
-        .vision-pin {
-            position: absolute; transform: translate(-50%, -50%);
-            width: 3.1%; min-width: 28px; aspect-ratio: 1 / 1; border-radius: 50%;
-            background: rgba(255,255,255,0.94); border: 1px solid var(--primary);
-            box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-            display: flex; align-items: center; justify-content: center;
-            font-family: "Cormorant Garamond", serif; font-weight: 500;
-            font-size: clamp(0.72rem, 1.05vw, 0.95rem); color: var(--primary);
-            pointer-events: none;
-            transition: background 0.4s, color 0.4s;
-        }
-        .vision-figure:hover .vision-pin { background: var(--primary); color: var(--white); }
-        .vision-foot { text-align: center; margin-top: 2rem; }
-        @media (max-width: 768px) {
-            .index-vision { padding: var(--sp-lg) 1.2rem; }
-            .vision-pin { min-width: 22px; font-size: 0.62rem; }
-        }
-
-        /* ── 約束の1行・3つの事業カード ── */
-        .index-promise {
-            font-family: "Noto Serif JP", serif; font-weight: 500;
-            font-size: clamp(1.15rem, 2.6vw, 1.6rem); letter-spacing: 0.08em;
-            color: var(--black); margin-top: 2.6rem; line-height: 1.7;
-            opacity: 0; animation: softFadeUp 1.2s 0.9s forwards;
-        }
-        .index-nav-inner.three { max-width: 1080px; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-        .index-nav-inner.three .index-nav-card { padding: 3rem 1.8rem; display: flex; flex-direction: column; align-items: center; }
-        .index-nav-inner.three .card-heading { font-family: "Noto Serif JP", serif; font-size: 1.3rem; font-weight: 400; letter-spacing: 0.08em; }
-        .index-nav-inner.three .card-jp { margin-bottom: 1.6rem; flex: 1; }
-        .card-goal { margin-bottom: 1.8rem; }
-        .card-goal-l { display: block; font-family: "Cormorant Garamond", serif; font-size: 0.62rem; letter-spacing: 0.3em; color: var(--gray-400); margin-bottom: 0.3rem; }
-        .card-goal-n { font-family: "Noto Serif JP", serif; font-size: 1.05rem; font-weight: 500; color: var(--primary); letter-spacing: 0.04em; }
-        .contact-ways { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 2.4rem; }
-        @media (max-width: 900px) {
-            .index-nav-inner.three { grid-template-columns: 1fr; max-width: 460px; }
-        }
-        @media print {
-            .reveal, .index-logo, .index-tagline, .index-sub, .index-promise { opacity: 1 !important; transform: none !important; animation: none !important; }
-            .header-nav, a[href*="kickstarter"], .index-partners, .index-scroll { display: none !important; }
-            .index-hero { min-height: auto; padding: 2rem 0; }
-            .index-nav { padding: 2rem 0; }
-        }
-        .card-hook { font-family: "Noto Serif JP", serif; font-size: 0.95rem; font-weight: 400; color: var(--black); line-height: 1.9; letter-spacing: 0.04em; margin-bottom: 1rem; }
-        .index-nav-inner.three .card-jp { font-size: 0.76rem; color: var(--gray-400); }
-        .en-row { display: flex; align-items: baseline; gap: 1.5rem; padding: 1.15rem 0; border-bottom: 1px solid var(--gray-100); color: inherit; transition: padding-left 0.3s; }
-        .en-row:hover, .en-row:focus-visible { padding-left: 0.5rem; }
-        .en-row:hover .en-line, .en-row:focus-visible .en-line { color: var(--primary); }
-        .en-who { flex: 0 0 13rem; font-size: 0.72rem; font-weight: 300; color: var(--gray-400); letter-spacing: 0.04em; }
-        .en-line { flex: 1; font-family: "Noto Serif JP", serif; font-size: 0.9rem; color: var(--black); line-height: 1.8; letter-spacing: 0.03em; transition: color 0.3s; }
-        .en-arrow { font-size: 0.7rem; color: var(--gray-300); }
-        @media (max-width: 640px) {
-            .en-row { flex-wrap: wrap; gap: 0.2rem; }
-            .en-who { flex: 0 0 100%; }
-        }
-        .index-entry { padding: 2rem 2rem 8rem; background: var(--white); }
-        .index-entry-inner { max-width: 820px; margin: 0 auto; }
-        .entry-head { text-align: center; margin-bottom: 3rem; }
-        .entry-label { font-family: "Cormorant Garamond", serif; font-size: 0.65rem; letter-spacing: 0.35em; color: var(--gray-400); text-transform: uppercase; display: block; margin-bottom: 1.2rem; }
-        .entry-title { font-family: "Noto Serif JP", serif; font-size: 1.6rem; font-weight: 400; color: var(--charcoal); letter-spacing: 0.06em; margin-bottom: 0.8rem; }
-        .entry-lead { font-size: 0.82rem; font-weight: 300; color: var(--gray-500); }
-        .entry-list { border-top: 1px solid var(--gray-100); }
-        .index-id { padding: 2rem 2rem 8rem; background: var(--white); }
-        .id-list { border-top: 1px solid var(--gray-100); counter-reset: idr; }
-        .id-row { display: flex; align-items: baseline; gap: 1.5rem; padding: 1.2rem 0; border-bottom: 1px solid var(--gray-100); }
-        .id-n { flex: 0 0 7rem; font-family: "Noto Serif JP", serif; font-size: 1rem; color: var(--primary); letter-spacing: 0.08em; }
-        .id-d { flex: 1; font-size: 0.84rem; font-weight: 300; color: var(--gray-700); line-height: 1.9; }
-        @media (max-width: 640px) { .id-row { flex-direction: column; gap: 0.2rem; } }
-        /* ── ロゴ帯：白地なし・細い弧 ── */
-        .marquee-track { padding: 16px 0; }
-        .partner-item {
-            position: relative; width: 150px; height: 150px; margin: 0 36px;
-            border: 0; border-radius: 50%; background: transparent; overflow: visible; opacity: 1;
-        }
-        .partner-item::after {
-            content: ""; position: absolute; inset: 0; border-radius: 50%; pointer-events: none;
-            background: conic-gradient(from 0deg, transparent 0deg, var(--primary) 210deg, transparent 320deg);
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2.6px), #000 calc(100% - 2.2px));
-                    mask: radial-gradient(farthest-side, transparent calc(100% - 2.6px), #000 calc(100% - 2.2px));
-            opacity: 0.75; transform: rotate(var(--r, 0deg));
-            transition: transform 1.1s cubic-bezier(.2,.7,.2,1), opacity 0.6s;
-        }
-        .partner-item:nth-child(5n+2)::after { --r: 72deg; }
-        .partner-item:nth-child(5n+3)::after { --r: 144deg; }
-        .partner-item:nth-child(5n+4)::after { --r: 216deg; }
-        .partner-item:nth-child(5n+5)::after { --r: 288deg; }
-        .partner-item:hover::after, .partner-item:focus-visible::after { transform: rotate(calc(var(--r, 0deg) + 160deg)); opacity: 1; }
-        .partner-item img { position: absolute; mix-blend-mode: normal; }
-        .partner-item.is-logo img {
-            top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: auto; height: auto; max-width: 64%; max-height: 58%; object-fit: contain; border-radius: 0;
-        }
-        .partner-item.is-icon img, .partner-item.is-photo img {
-            top: 14px; left: 14px; width: calc(100% - 28px); height: calc(100% - 28px); border-radius: 50%; object-fit: cover;
-        }
-        .partner-item.is-logo.is-wide img { max-width: 80%; max-height: 40%; }
-        @media (max-width: 640px) {
-            .partner-item { width: 118px; height: 118px; margin: 0 26px; padding: 0; }
-            .partner-item.is-icon img, .partner-item.is-photo img { top: 11px; left: 11px; width: calc(100% - 22px); height: calc(100% - 22px); }
-        }
-        /* ── あなたの入口：選ぶ形 ── */
-        .pk { text-align: center; }
-        .pk-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 0.7rem; max-width: 760px; margin: 0 auto; }
-        .pk-chip {
-            font: inherit; font-size: 0.78rem; font-weight: 300; letter-spacing: 0.04em; color: var(--gray-500);
-            background: transparent; border: 1px solid var(--gray-200); border-radius: 999px;
-            padding: 0.55rem 1.1rem; cursor: pointer; transition: color 0.3s, border-color 0.3s;
-        }
-        .pk-chip:hover, .pk-chip:focus-visible { color: var(--black); border-color: var(--gray-400); }
-        .pk-chip.on { color: var(--primary); border-color: var(--primary); }
-        .pk-out { margin-top: 2.8rem; min-height: 4.5rem; }
-        .pk-item { display: inline-flex; align-items: baseline; gap: 1rem; color: var(--black); }
-        .pk-item[hidden] { display: none; }
-        .pk-line { font-family: "Noto Serif JP", serif; font-size: clamp(1.15rem, 2.8vw, 1.55rem); line-height: 1.7; letter-spacing: 0.05em; }
-        .pk-go { color: var(--primary); font-size: 1.1rem; transition: transform 0.3s; }
-        .pk-item:hover .pk-go, .pk-item:focus-visible .pk-go { transform: translateX(6px); }
-        @media (max-width: 640px) { .pk-chip { font-size: 0.74rem; padding: 0.5rem 0.9rem; } }
-    </style>
+@media (max-width:980px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .door{min-height:clamp(180px,30vh,260px);border-bottom:1px solid var(--line)}
+  .door:nth-child(2n){border-right:0}
+}
+@media (max-width:560px){
+  body.open{overflow:auto}
+  .doors{position:absolute;min-height:100%;align-items:start;padding-top:84px;padding-bottom:96px}
+  .bottom{background:linear-gradient(to top,var(--cream) 70%,rgba(250,246,238,0))}
+  .top{background:linear-gradient(to bottom,var(--cream) 75%,rgba(250,246,238,0))}
+  .grid{grid-template-columns:1fr}
+  .door{min-height:0;border-right:0;padding:22px 4px 24px}
+  .door .en{font-size:30px;margin:8px 0 8px}
+  .mark{font-size:22px}
+  .copy{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
 </head>
 <body>
-<!-- ONE HEART Kickstarter 告知帯 -->
-<a id="ksBar" href="https://www.kickstarter.com/projects/tamj/we-are-all-one-heart-23-pieces-one-world?ref=4k7z69" target="_blank" rel="noopener" style="display:block;background:#FDFBF5;border-bottom:1px solid #E4572E;color:#1a1a1a;text-decoration:none;font-family:system-ui,-apple-system,'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;font-size:13px;line-height:1.5;letter-spacing:.02em;padding:9px 16px;text-align:center;position:relative;z-index:9999">
-  <span style="color:#E4572E;font-weight:700" data-i18n="ks.live">Kickstarterで公開中</span>
-  <span style="opacity:.55;margin:0 8px">·</span>WE ARE ALL ONE HEART — 23 Pieces, One World
-  <span style="opacity:.55;margin:0 8px">·</span><span data-i18n="ks.until">10月8日まで</span>
-  <span style="color:#E4572E;font-weight:700;margin-left:8px" data-i18n="ks.join">参加する &rarr;</span>
-</a>
+<div class="top">
+  <a class="mark" href="./" aria-label="115en トップ">115<span>en</span><small>いいご縁</small></a>
+  <button class="close" type="button" id="close" aria-label="画像に戻る">CLOSE</button>
+</div>
 
+<main>
+  <div class="stage">
+    <button class="visual" type="button" id="open" aria-expanded="false" aria-controls="doors">
+      <img src="hero.svg" alt="医療・介護・地域・仲間が、ひとつの輪でつながる絵">
+      <span class="hint">ENTER</span>
+    </button>
+  </div>
 
-    <!-- ヘッダーナビ（右上） -->
-    <nav class="header-nav">
-        <a href="service.html" data-i18n="nav.service">SERVICE</a>
-        <a href="contact.html" class="contact-link" data-i18n="nav.contact">CONTACT</a>
-    </nav>
+  <nav class="doors" id="doors" aria-label="グループの入口" aria-hidden="true">
+    <div class="grid">
+      <a class="door" href="https://gms.115en.com/">
+        <span class="no">01</span>
+        <span class="en">GMS</span>
+        <span class="jp">株式会社GMS</span>
+        <span class="desc">病院・訪問看護の立上げと運営管理。医療・介護施設の企画運営と経営支援。</span>
+        <span class="go">VISIT</span>
+      </a>
+      <a class="door" href="https://site.scsgo.co.jp/">
+        <span class="no">02</span>
+        <span class="en">Sakae Care</span>
+        <span class="jp">株式会社さかえケアサービス</span>
+        <span class="desc">在宅の医療と介護。すべてのイノチを∞にツナぐ。</span>
+        <span class="go">VISIT</span>
+      </a>
+      <a class="door" href="https://tamjump.github.io/GoTo_Site/">
+        <span class="no">03</span>
+        <span class="en">Go To Happy Life</span>
+        <span class="jp">特定非営利活動法人 GO TO HAPPY LIFE</span>
+        <span class="desc">寄付を受け取り、パートナーと企画し、医療・福祉の現場で形にするNPO。</span>
+        <span class="go">VISIT</span>
+      </a>
+      <div class="door soon" aria-disabled="true">
+        <span class="no">04</span>
+        <span class="en">Union</span>
+        <span class="jp">組合</span>
+        <span class="desc">準備中。</span>
+        <span class="go">COMING SOON</span>
+      </div>
+    </div>
+  </nav>
+</main>
 
-    <section class="index-hero">
-        <div class="index-hero-inner">
-            <h1 class="index-logo">Tiger.J.Bob</h1>
-            <p class="index-promise" data-i18n="hero.promise">仕事が広がる場所と、人が出逢う場所を。</p>
-        </div>
-        <div class="index-scroll">
-            <span>Scroll</span>
-            <div class="scroll-line"></div>
-        </div>
-    </section>
+<div class="bottom">
+  <span class="copy">&copy; 2026 115en &nbsp;/&nbsp; info@115en.com</span>
+  <a class="tiger" href="tiger.html">Tiger.J.Bob</a>
+</div>
 
-    <section class="index-nav">
-        <div class="index-nav-inner three">
-            <a href="service.html#app" class="index-nav-card reveal">
-                <span class="card-label">01 &nbsp;App</span>
-                <h2 class="card-heading" data-i18n="card1.h">やるゼ！</h2>
-                <p class="card-hook" data-i18n="hook1">紹介した施設の数だけ、毎月フィーが入る。</p>
-                <p class="card-jp" data-i18n="card1.aim">代理店に継続収入を。施設に売上を。</p>
-                <p class="card-goal"><span class="card-goal-l" data-i18n="lbl.goal">ゴール</span><span class="card-goal-n" data-i18n="biz1.gnum">代理店100社・会員20万人</span></p>
-                <span class="card-arrow">View →</span>
-            </a>
-            <a href="service.html#dev" class="index-nav-card reveal delay-1">
-                <span class="card-label">02 &nbsp;Develop</span>
-                <h2 class="card-heading" data-i18n="card2.h">開発と承継</h2>
-                <p class="card-hook" data-i18n="hook2">その土地、その会社、いくらになるか。無料で出す。</p>
-                <p class="card-jp" data-i18n="card2.aim">地主・経営者・投資家に、利回りと出口を。</p>
-                <p class="card-goal"><span class="card-goal-l" data-i18n="lbl.goal">ゴール</span><span class="card-goal-n" data-i18n="biz2.gnum">再生・承継 100社</span></p>
-                <span class="card-arrow">View →</span>
-            </a>
-            <a href="service.html#make" class="index-nav-card reveal delay-2">
-                <span class="card-label">03 &nbsp;Play</span>
-                <h2 class="card-heading" data-i18n="card3.h">エンタメと出逢い</h2>
-                <p class="card-hook" data-i18n="hook3">毎週23:23、王様が1人決まる。負けても、王様のパーティーに入れる。</p>
-                <p class="card-jp" data-i18n="card3.aim">勝負と音楽とアートで、人が出逢う。</p>
-                <p class="card-goal"><span class="card-goal-l" data-i18n="lbl.goal">ゴール</span><span class="card-goal-n" data-i18n="biz3.gnum">年52回の王様パーティー</span></p>
-                <span class="card-arrow">View →</span>
-            </a>
-        </div>
-    </section>
-
-    <section class="index-entry">
-        <div class="index-entry-inner">
-            <div class="entry-head reveal">
-                <span class="entry-label">For You</span>
-                <h2 class="entry-title" data-i18n="entry.h">あなたの入口</h2>
-                <p class="entry-lead" data-i18n="entry.lead">当てはまるものを、1つ選んで。</p>
-            </div>
-            <div class="pk">
-            <div class="pk-chips" role="group">
-                <button type="button" class="pk-chip on" data-i="0" aria-pressed="true" data-i18n="t11.w">代理店になりたい人</button>
-                <button type="button" class="pk-chip" data-i="1" aria-pressed="false" data-i18n="t12.w">介護施設・訪問看護の経営者</button>
-                <button type="button" class="pk-chip" data-i="2" aria-pressed="false" data-i18n="t13.w">病院・施設で働く人</button>
-                <button type="button" class="pk-chip" data-i="3" aria-pressed="false" data-i18n="t14.w">親を介護している家族</button>
-                <button type="button" class="pk-chip" data-i="4" aria-pressed="false" data-i18n="t15.w">アプリをつくりたい会社</button>
-                <button type="button" class="pk-chip" data-i="5" aria-pressed="false" data-i18n="t21.w">土地を持っている人</button>
-                <button type="button" class="pk-chip" data-i="6" aria-pressed="false" data-i18n="t22.w">会社を閉じるか迷っている経営者</button>
-                <button type="button" class="pk-chip" data-i="7" aria-pressed="false" data-i18n="t23.w">投資家</button>
-                <button type="button" class="pk-chip" data-i="8" aria-pressed="false" data-i18n="t24.w">社長になりたい人</button>
-                <button type="button" class="pk-chip" data-i="9" aria-pressed="false" data-i18n="t25.w">建てる場所を探している人</button>
-                <button type="button" class="pk-chip" data-i="10" aria-pressed="false" data-i18n="t31.w">勝負が好きな人</button>
-                <button type="button" class="pk-chip" data-i="11" aria-pressed="false" data-i18n="t32.w">人脈を広げたい人</button>
-                <button type="button" class="pk-chip" data-i="12" aria-pressed="false" data-i18n="t33.w">世界の人とつながりたい人</button>
-                <button type="button" class="pk-chip" data-i="13" aria-pressed="false" data-i18n="t34.w">歌いたい人</button>
-            </div>
-            <div class="pk-out" aria-live="polite">
-                <a class="pk-item" data-i="0" href="contact.html?topic=partner"><span class="pk-line" data-i18n="t11.l">紹介した施設の数だけ、毎月フィーが入る。上位は認定代理店に。</span><span class="pk-go">→</span></a>
-                <a class="pk-item" data-i="1" href="https://myaruze.115en.com/" target="_blank" rel="noopener" hidden><span class="pk-line" data-i18n="t12.l">あなたの施設、先月いくら空床で失いましたか。</span><span class="pk-go">→</span></a>
-                <a class="pk-item" data-i="2" href="https://myaruze.115en.com/" target="_blank" rel="noopener" hidden><span class="pk-line" data-i18n="t13.l">回した受入れの件数が、あなたの実績として残る。</span><span class="pk-go">→</span></a>
-                <a class="pk-item" data-i="3" href="https://myaruze.115en.com/" target="_blank" rel="noopener" hidden><span class="pk-line" data-i18n="t14.l">お母さんの退院、仕事を休まずにスマホで。</span><span class="pk-go">→</span></a>
-                <a class="pk-item" data-i="4" href="contact.html?topic=build" hidden><span class="pk-line" data-i18n="t15.l">やるゼ！をつくったチームが、あなたのアプリを1画面から。</span><span class="pk-go">→</span></a>
-                <a class="pk-item" data-i="5" href="https://develop.115en.com/" target="_blank" rel="noopener" hidden><span class="pk-line" data-i18n="t21.l">その土地、毎月いくら生むか。無料で出す。</span><span class="pk-go">→</span></a>
-                <a class="pk-item" data-i="6" href="contact.html?topic=develop" hidden><span class="pk-line" data-i18n="t22.l">閉じたら何も残らない。売ればいくら残るか、無料で査定。</span><span class="pk-go">→</span></a>
-                <a class="pk-item" data-i="7" href="https://develop.115en.com/" target="_blank" rel="noopener" hidden><span class="pk-line" data-i18n="t23.l">非公開案件は会員だけ。先着順。</span><span class="pk-go">→</span></a>
-                <a class="pk-item" data-i="8" href="contact.html?topic=develop" hidden><span class="pk-line" data-i18n="t24.l">来月から社長。動いている事業を引き継ぐ。</span><span class="pk-go">→</span></a>
-                <a class="pk-item" data-i="9" href="https://teamone.115en.com/" target="_blank" rel="noopener" hidden><span class="pk-line" data-i18n="t25.l">あなたの街は全国何位か。1,740市区町村のランキング。</span><span class="pk-go">→</span></a>
-                <a class="pk-item" data-i="10" href="https://king2323.115en.com/" target="_blank" rel="noopener" hidden><span class="pk-line" data-i18n="t31.l">毎週23:23、王様が1人。誰が選ばれるかは最後まで分からない。</span><span class="pk-go">→</span></a>
-                <a class="pk-item" data-i="11" href="https://king2323.115en.com/" target="_blank" rel="noopener" hidden><span class="pk-line" data-i18n="t32.l">負けても王様のパーティーに入れる。勝った人と同じ部屋で飲める。</span><span class="pk-go">→</span></a>
-                <a class="pk-item" data-i="12" href="https://oneheart.115en.com/" target="_blank" rel="noopener" hidden><span class="pk-line" data-i18n="t33.l">番号付きのピースは、埋まったら終わり。保有者だけの会へ。</span><span class="pk-go">→</span></a>
-                <a class="pk-item" data-i="13" href="https://tamsic.115en.com/" target="_blank" rel="noopener" hidden><span class="pk-line" data-i18n="t34.l">次の歌い手に選ばれるのは誰か。制作費はレーベル持ち。</span><span class="pk-go">→</span></a>
-            </div>
-        </div>
-        <script>
-        (function(){
-            var chips=document.querySelectorAll('.pk-chip'), items=document.querySelectorAll('.pk-item');
-            chips.forEach(function(c){ c.addEventListener('click',function(){
-                chips.forEach(function(x){ var on=x===c; x.classList.toggle('on',on); x.setAttribute('aria-pressed',on); });
-                items.forEach(function(it){ it.hidden = it.dataset.i!==c.dataset.i; });
-            }); });
-        })();
-        </script>
-        </div>
-    </section>
-
-
-    <section class="index-vision">
-        <div class="index-vision-inner">
-            <div class="vision-head reveal">
-                <span class="vision-label">Vision Map</span>
-                <h2 class="vision-heading" data-i18n="vision.title">未来の街の構想図</h2>
-                <p class="vision-desc" data-i18n="index.vision.desc">医療・介護を核に、住まい・仕事・食・交流を一つの圏域に束ねた街の全体像。<br>図中の番号から、5つの取り組みをご覧いただけます。</p>
-            </div>
-            <a href="vision-map.html" class="vision-figure reveal delay-1">
-                <img src="vision-map-front.jpg?v=20260911" alt="未来の街の構想図">
-                <span class="vision-pin" style="left: 10%;   top: 23%;">01</span>
-                <span class="vision-pin" style="left: 33.5%; top: 50%;">02</span>
-                <span class="vision-pin" style="left: 46.5%; top: 23.5%;">03</span>
-                <span class="vision-pin" style="left: 57.5%; top: 42%;">04</span>
-                <span class="vision-pin" style="left: 57.5%; top: 76%;">05</span>
-            </a>
-            <p class="vision-foot reveal">
-                <a href="vision-map.html" class="text-link" data-i18n="index.vision.cta">Vision Map を見る →</a>
-            </p>
-        </div>
-    </section>
-
-    <section class="index-partners">
-        <p class="partners-label reveal">Partners</p>
-        <div class="marquee-wrapper">
-            <div class="marquee-track">
-                <!-- ロゴセット1（ランダム順・14件） -->
-                <a class="partner-item" href="https://115en.com/"><span class="text-logo">Tiger.J.Bob</span></a>
-                <a class="partner-item is-logo" href="https://carepass.115en.com/" target="_blank" rel="noopener"><img src="partners/carepass-t.png?v=20260928j" alt="Care Support Pass"></a>
-                <a class="partner-item is-icon" href="https://tyaruze.115en.com/" target="_blank" rel="noopener"><img src="partners/tyaruze.png?v=20260928j" alt="tやるぜ！"></a>
-                <a class="partner-item is-photo" href="https://tamsic.115en.com/kiki.html" target="_blank" rel="noopener"><img src="partners/kiki.png?v=20260928j" alt="kiki"></a>
-                <a class="partner-item is-logo is-wide" href="https://www.compass-dc.jp/" target="_blank" rel="noopener"><img src="partners/compass-t.png?v=20260928j" alt="コンパスメディカルグループ"></a>
-                <a class="partner-item is-logo" href="https://yaruze.115en.com/lp.html" target="_blank" rel="noopener"><img src="partners/yaruze-t.png?v=20260928j" alt="やるぜ！"></a>
-                <a class="partner-item is-photo" href="https://tamsic.115en.com/nono.html" target="_blank" rel="noopener"><img src="partners/nono.png?v=20260928j" alt="no-no"></a>
-                <a class="partner-item is-logo is-wide" href="https://medipass.co.jp/" target="_blank" rel="noopener"><img src="partners/medipass-t.png?v=20260928j" alt="株式会社メディパス"></a>
-                <a class="partner-item is-icon" href="https://tamsic.115en.com/" target="_blank" rel="noopener"><img src="partners/tamsic.png?v=20260928j" alt="TAMSiC"></a>
-                <a class="partner-item is-icon" href="https://myaruze.115en.com/" target="_blank" rel="noopener"><img src="partners/myaruze.png?v=20260928j" alt="mやるぜ！"></a>
-                <a class="partner-item is-photo" href="https://tamsic.115en.com/gen.html" target="_blank" rel="noopener"><img src="partners/gen.png?v=20260928j" alt="gEN"></a>
-                <a class="partner-item is-logo is-wide" href="https://hekichiiryou.jp/" target="_blank" rel="noopener"><img src="partners/hekichiiryou-t.png?v=20260928j" alt="へき地医療jp チームGREEN"></a>
-                <a class="partner-item is-logo" href="https://king2323.115en.com/" target="_blank" rel="noopener"><img src="partners/kingmaker-t.png?v=20260928j" alt="KING MAKER 23:23"></a>
-                <a class="partner-item is-logo" href="https://tamjump.github.io/GoTo_Site/" target="_blank" rel="noopener"><img src="partners/goto-happy-t.png?v=20260928j" alt="特定非営利法人GO TO HAPPY LIFE"></a>
-                <!-- 複製（無限ループ用） -->
-                <a class="partner-item" href="https://115en.com/"><span class="text-logo">Tiger.J.Bob</span></a>
-                <a class="partner-item is-logo" href="https://carepass.115en.com/" target="_blank" rel="noopener"><img src="partners/carepass-t.png?v=20260928j" alt="Care Support Pass"></a>
-                <a class="partner-item is-icon" href="https://tyaruze.115en.com/" target="_blank" rel="noopener"><img src="partners/tyaruze.png?v=20260928j" alt="tやるぜ！"></a>
-                <a class="partner-item is-photo" href="https://tamsic.115en.com/kiki.html" target="_blank" rel="noopener"><img src="partners/kiki.png?v=20260928j" alt="kiki"></a>
-                <a class="partner-item is-logo is-wide" href="https://www.compass-dc.jp/" target="_blank" rel="noopener"><img src="partners/compass-t.png?v=20260928j" alt="コンパスメディカルグループ"></a>
-                <a class="partner-item is-logo" href="https://yaruze.115en.com/lp.html" target="_blank" rel="noopener"><img src="partners/yaruze-t.png?v=20260928j" alt="やるぜ！"></a>
-                <a class="partner-item is-photo" href="https://tamsic.115en.com/nono.html" target="_blank" rel="noopener"><img src="partners/nono.png?v=20260928j" alt="no-no"></a>
-                <a class="partner-item is-logo is-wide" href="https://medipass.co.jp/" target="_blank" rel="noopener"><img src="partners/medipass-t.png?v=20260928j" alt="株式会社メディパス"></a>
-                <a class="partner-item is-icon" href="https://tamsic.115en.com/" target="_blank" rel="noopener"><img src="partners/tamsic.png?v=20260928j" alt="TAMSiC"></a>
-                <a class="partner-item is-icon" href="https://myaruze.115en.com/" target="_blank" rel="noopener"><img src="partners/myaruze.png?v=20260928j" alt="mやるぜ！"></a>
-                <a class="partner-item is-photo" href="https://tamsic.115en.com/gen.html" target="_blank" rel="noopener"><img src="partners/gen.png?v=20260928j" alt="gEN"></a>
-                <a class="partner-item is-logo is-wide" href="https://hekichiiryou.jp/" target="_blank" rel="noopener"><img src="partners/hekichiiryou-t.png?v=20260928j" alt="へき地医療jp チームGREEN"></a>
-                <a class="partner-item is-logo" href="https://king2323.115en.com/" target="_blank" rel="noopener"><img src="partners/kingmaker-t.png?v=20260928j" alt="KING MAKER 23:23"></a>
-                <a class="partner-item is-logo" href="https://tamjump.github.io/GoTo_Site/" target="_blank" rel="noopener"><img src="partners/goto-happy-t.png?v=20260928j" alt="特定非営利法人GO TO HAPPY LIFE"></a>
-            </div>
-        </div>
-    </section>
-
-    <section class="index-contact">
-        <div>
-            <span class="cl reveal">Contact</span>
-            <p class="reveal" style="margin-bottom: 2rem;" data-i18n="index.contact.desc">ご相談・お問合せはお気軽にどうぞ。</p>
-            <a href="contact.html" class="contact-cta reveal">
-                <span data-i18n="index.contact.cta">お問合せ</span>
-                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <p class="contact-ways reveal">
-                <a href="https://myaruze.115en.com/" target="_blank" rel="noopener" class="text-link" data-i18n="join.u.a">無料で始める</a>
-                <a href="contact.html?topic=consult" class="text-link" data-i18n="join.c.a">相談する</a>
-                <a href="contact.html?topic=invest" class="text-link" data-i18n="join.i.a">出資・提携の相談</a>
-            </p>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-inner">
-            <div class="footer-brand">
-                <p style="font-weight:700;letter-spacing:.04em">Tiger.J.Bob</p>
-            </div>
-            <div class="footer-links">
-                <div class="footer-col">
-                    <h4 data-i18n="footer.service">Service</h4>
-                    <a href="service.html#app" data-i18n="footer.svc.app">業務アプリ やるゼ！</a>
-                    <a href="service.html#dev" data-i18n="footer.svc.dev">開発と承継</a>
-                    <a href="service.html#make" data-i18n="footer.svc.make">エンタメと出逢い</a>
-                    <a href="service.html#price" data-i18n="footer.svc.price">料金</a>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer.support">Support</h4>
-                    <a href="contact.html" data-i18n="footer.inquiry">お問合せ</a>
-                    <a href="members/" data-i18n="footer.members">会員ページ</a>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer.legal">Legal</h4>
-                    <a href="privacy.html" data-i18n="footer.privacy">プライバシーポリシー</a>
-                    <a href="terms.html" data-i18n="footer.terms">利用規約</a>
-                    <a href="commerce.html" data-i18n="footer.commerce">特定商取引法</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="footer-sns">
-                <a href="https://line.me/R/ti/p/@462vhtqr" target="_blank" rel="noopener" aria-label="LINE">
-                    <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386a.63.63 0 0 1-.63-.629V8.108a.63.63 0 0 1 .63-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016a.63.63 0 0 1-.63.63.626.626 0 0 1-.51-.262l-2.443-3.317v2.949a.63.63 0 0 1-1.26 0V8.108a.63.63 0 0 1 .63-.63c.2 0 .385.096.51.262l2.443 3.32V8.108a.63.63 0 0 1 1.26 0v4.771zm-5.741 0a.63.63 0 0 1-1.26 0V8.108a.63.63 0 0 1 1.26 0v4.771zm-2.466.63H4.917a.63.63 0 0 1-.63-.63V8.108a.63.63 0 0 1 1.26 0v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.63-.629.63M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.593.121.303.079.778.039 1.085l-.171 1.027c-.053.303-.242 1.186 1.039.647 1.281-.54 6.911-4.069 9.428-6.967C23.309 14.09 24 12.323 24 10.314"/></svg>
-                </a>
-                <a href="https://www.instagram.com/tamj.c/" target="_blank" rel="noopener" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-                </a>
-                <a href="https://www.youtube.com/@infotamsic" target="_blank" rel="noopener" aria-label="YouTube">
-                    <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                </a>
-                <a href="https://www.linkedin.com/in/jin-oshita-06a173416/" target="_blank" rel="noopener" aria-label="LinkedIn">
-                    <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                </a>
-            </div>
-            <p class="footer-copy" data-i18n="footer.copy">&copy; 2026 Tiger.J.Bob</p>
-        </div>
-    </footer>
-
-    <script>
-        const obs = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible','animated'); });
-        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-    </script>
-    <script src="js/translations.js?v=20260928j"></script>
-    <script src="js/lang.js?v=20260928j"></script>
-    <script>
-        // 告知帯が見えている間は、右上のナビを帯の下に置く
-        (function () {
-            var bar = document.getElementById('ksBar'), nav = document.querySelector('.header-nav');
-            if (!bar || !nav) return;
-            function place() { nav.style.top = Math.max(0, bar.getBoundingClientRect().bottom) + 'px'; }
-            window.addEventListener('scroll', place, { passive: true });
-            window.addEventListener('resize', place);
-            window.addEventListener('load', place);
-            place();
-        })();
-    </script>
+<script>
+(function(){
+  var b=document.body,o=document.getElementById('open'),c=document.getElementById('close'),d=document.getElementById('doors');
+  function show(){b.classList.add('open');o.setAttribute('aria-expanded','true');d.setAttribute('aria-hidden','false');
+    setTimeout(function(){var f=d.querySelector('a.door');if(f)f.focus({preventScroll:true});},700);}
+  function hide(){b.classList.remove('open');o.setAttribute('aria-expanded','false');d.setAttribute('aria-hidden','true');window.scrollTo(0,0);o.focus();}
+  o.addEventListener('click',show);c.addEventListener('click',hide);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&b.classList.contains('open'))hide();});
+  if(location.hash==='#enter')show();
+})();
+</script>
 </body>
 </html>

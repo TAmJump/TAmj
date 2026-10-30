@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="ご縁でつながる輪">
+  <rect width="1600" height="900" fill="#FAF6EE"/>
+  <g fill="none" stroke-linecap="round">
+    <circle cx="800" cy="450" r="250" stroke="#C8161D" stroke-width="3" stroke-dasharray="1180 60" transform="rotate(-70 800 450)"/>
+    <circle cx="800" cy="450" r="262" stroke="#C8161D" stroke-width="1" opacity=".35" stroke-dasharray="6 14"/>
+    <path d="M552 420 C640 380 700 330 800 200" stroke="#C8161D" stroke-width="1.4" opacity=".5"/>
+    <path d="M800 700 C900 640 990 560 1050 470" stroke="#C8161D" stroke-width="1.4" opacity=".5"/>
+  </g>
+  <g fill="#C8161D">
+    <circle cx="800" cy="200" r="9"/>
+    <circle cx="1050" cy="470" r="9"/>
+    <circle cx="800" cy="700" r="9"/>
+    <circle cx="552" cy="420" r="9"/>
+  </g>
+  <g font-family="'Cormorant Garamond',serif" font-size="22" fill="#3a3a3a" letter-spacing="6" text-anchor="middle">
+    <text x="800" y="165">MEDICAL</text>
+    <text x="1130" y="478" text-anchor="start">CARE</text>
+    <text x="800" y="745">COMMUNITY</text>
+    <text x="470" y="428" text-anchor="end">UNION</text>
+  </g>
+</svg>
