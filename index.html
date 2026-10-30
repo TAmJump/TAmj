@@ -11,136 +11,152 @@
 <meta property="og:url" content="https://115en.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
 <style>
 :root{
-  --cream:#FAF6EE; --paper:#FFFDF8; --ink:#1a1a1a; --muted:#7a746a; --line:#e6dfd2; --red:#C8161D;
-  --en:"Cormorant Garamond",Georgia,serif; --jp:"Noto Serif JP","Hiragino Mincho ProN",serif;
+  --bg:#ffffff; --fg:#111111; --muted:#777; --line:#e6e6e6; --red:#C8161D;
+  --en:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --jp:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
   --side:max(20px,4vw);
 }
 *{box-sizing:border-box}
 html,body{height:100%}
-body{margin:0;background:var(--cream);color:var(--ink);font:15px/1.9 var(--jp);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.9 var(--jp);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 
-/* 上下の帯 */
 .top,.bottom{position:fixed;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;
-  padding:18px max(var(--side),env(safe-area-inset-left,0px)) 18px max(var(--side),env(safe-area-inset-right,0px));pointer-events:none}
+  padding:20px max(var(--side),env(safe-area-inset-right,0px)) 20px max(var(--side),env(safe-area-inset-left,0px));pointer-events:none}
 .top{top:0}.bottom{bottom:0}
 .top>*,.bottom>*{pointer-events:auto}
-.mark{font-family:var(--en);font-weight:600;font-size:26px;letter-spacing:.06em}
+.mark{font-family:var(--en);font-weight:800;font-size:22px;letter-spacing:-.01em}
 .mark span{color:var(--red)}
-.mark small{display:block;font-family:var(--jp);font-weight:400;font-size:10px;letter-spacing:.3em;color:var(--muted);margin-top:-4px}
-.close{font-family:var(--en);font-size:14px;letter-spacing:.2em;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:6px 16px;cursor:pointer;opacity:0;visibility:hidden;transition:opacity .4s}
+.close{font-family:var(--en);font-weight:700;font-size:12px;letter-spacing:.18em;border:0;border-bottom:2px solid var(--fg);background:none;color:var(--fg);padding:4px 0;cursor:pointer;opacity:0;visibility:hidden;transition:opacity .4s}
 body.open .close{opacity:1;visibility:visible}
-.copy{font-family:var(--en);font-size:12px;letter-spacing:.12em;color:var(--muted)}
-.tiger{font-family:var(--en);font-style:italic;font-size:14px;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
-.tiger:hover,.tiger:focus-visible{color:var(--red);border-color:var(--red)}
+.copy{font-family:var(--en);font-size:11px;letter-spacing:.12em;color:var(--muted)}
+.tiger{font-family:var(--en);font-weight:500;font-size:12px;letter-spacing:.08em;color:var(--muted);transition:color .3s}
+.tiger:hover,.tiger:focus-visible{color:var(--red)}
 
-/* 1枚目：画像 */
-.stage{position:fixed;inset:0;display:grid;place-items:center;padding:84px var(--side) 72px}
-.visual{position:relative;width:min(100%,1100px);aspect-ratio:16/9;max-height:100%;border:0;padding:0;background:none;cursor:pointer;
-  transition:transform 1s cubic-bezier(.2,.7,.2,1),opacity .8s,filter .8s}
-.visual img{width:100%;height:100%;object-fit:contain;display:block}
-.visual::after{content:"";position:absolute;inset:-14px;border:1px solid var(--line);pointer-events:none;transition:border-color .4s}
-.visual:hover::after,.visual:focus-visible::after{border-color:var(--red)}
-.hint{position:absolute;left:50%;bottom:-46px;transform:translateX(-50%);font-family:var(--en);font-size:13px;letter-spacing:.4em;color:var(--muted);white-space:nowrap;transition:opacity .4s}
-.hint::before{content:"";display:inline-block;width:28px;height:1px;background:var(--red);vertical-align:middle;margin-right:14px;animation:pulse 2.4s ease-in-out infinite}
-@keyframes pulse{0%,100%{transform:scaleX(.4);opacity:.5}50%{transform:scaleX(1);opacity:1}}
-body.open .visual{transform:scale(.86);opacity:.12;filter:blur(2px);pointer-events:none}
-body.open .hint{opacity:0}
+/* 1枚目：赤い糸 */
+.stage{position:fixed;inset:0;display:grid;place-items:center}
+.visual{position:relative;display:block;width:min(100vw,1500px);aspect-ratio:16/9;max-height:100vh;border:0;padding:0;background:none;cursor:pointer;
+  transition:transform 1.1s cubic-bezier(.2,.7,.2,1),opacity .9s}
+.visual svg{width:100%;height:100%;display:block;overflow:visible}
+.thread{fill:none;stroke:var(--red);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 3.2s cubic-bezier(.6,.1,.25,1) .3s forwards}
+.thread.thin{stroke-width:1;opacity:.35;animation-delay:.9s;animation-duration:3.6s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.word{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none;opacity:0;animation:fade 1.2s ease 2.6s forwards}
+.word b{display:block;font-family:var(--en);font-weight:800;font-size:clamp(40px,7vw,96px);line-height:1;letter-spacing:-.03em}
+.word b span{color:var(--red)}
+.word small{display:block;margin-top:14px;font-size:clamp(12px,1.2vw,14px);letter-spacing:.3em;color:var(--muted)}
+.hint{position:fixed;left:50%;bottom:64px;transform:translateX(-50%);font-family:var(--en);font-weight:700;font-size:11px;letter-spacing:.4em;color:var(--fg);opacity:0;animation:fade 1s ease 3.2s forwards;pointer-events:none;transition:opacity .4s}
+.hint::after{content:"";display:block;width:1px;height:28px;margin:10px auto 0;background:var(--red);animation:drop 2s ease-in-out infinite}
+@keyframes fade{to{opacity:1}}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+body.open .visual{transform:scale(1.25);opacity:.07;pointer-events:none}
+body.open .hint{opacity:0!important;animation:none}
 
-/* 2枚目：4つの入口 */
-.doors{position:fixed;inset:0;display:grid;place-items:center;padding:96px var(--side) 80px;opacity:0;visibility:hidden;transition:opacity .6s .25s,visibility 0s .9s}
-body.open .doors{opacity:1;visibility:visible;transition:opacity .6s .25s,visibility 0s}
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:min(100%,1180px);border-top:1px solid var(--ink)}
-.door{position:relative;display:flex;flex-direction:column;min-height:clamp(260px,46vh,420px);padding:28px 26px 30px;border-right:1px solid var(--line);background:rgba(255,253,248,.72);
-  transform:translateY(24px);opacity:0;transition:transform .8s cubic-bezier(.2,.7,.2,1),opacity .8s,background .4s}
+/* 2枚目：入口 */
+.doors{position:fixed;inset:0;display:flex;flex-direction:column;justify-content:center;padding:92px var(--side) 76px;opacity:0;visibility:hidden;transition:opacity .5s .2s,visibility 0s .8s}
+body.open .doors{opacity:1;visibility:visible;transition:opacity .5s .2s,visibility 0s}
+.doors-head{width:min(100%,1240px);margin:0 auto 28px;display:flex;justify-content:space-between;align-items:end;gap:20px}
+.doors-head h2{margin:0;font-family:var(--en);font-weight:800;font-size:clamp(34px,5vw,64px);line-height:1;letter-spacing:-.02em}
+.doors-head h2 span{color:var(--red)}
+.doors-head p{margin:0;font-size:13px;color:var(--muted);letter-spacing:.08em}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:min(100%,1240px);margin:0 auto;border-top:2px solid var(--fg)}
+.door{position:relative;display:flex;flex-direction:column;min-height:clamp(240px,42vh,380px);padding:24px 24px 26px;border-right:1px solid var(--line);background:#fff;
+  transform:translateY(20px);opacity:0;transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .7s}
 .door:last-child{border-right:0}
 body.open .door{transform:none;opacity:1}
-body.open .door:nth-child(1){transition-delay:.30s}
-body.open .door:nth-child(2){transition-delay:.42s}
-body.open .door:nth-child(3){transition-delay:.54s}
-body.open .door:nth-child(4){transition-delay:.66s}
-.door .no{font-family:var(--en);font-size:15px;letter-spacing:.2em;color:var(--red)}
-.door .en{font-family:var(--en);font-weight:500;font-size:clamp(30px,3.2vw,44px);line-height:1.05;letter-spacing:.01em;margin:18px 0 14px}
-.door .jp{font-size:14px;font-weight:600;letter-spacing:.06em}
-.door .desc{font-size:13px;color:var(--muted);line-height:1.85;margin-top:10px}
-.door .go{margin-top:auto;padding-top:22px;font-family:var(--en);font-size:14px;letter-spacing:.2em;display:flex;align-items:center;gap:12px}
-.door .go::after{content:"";flex:0 0 36px;height:1px;background:var(--ink);transition:flex-basis .4s,background .4s}
-a.door::before{content:"";position:absolute;left:0;right:100%;top:-1px;height:3px;background:var(--red);transition:right .5s}
-a.door:hover,a.door:focus-visible{background:var(--paper)}
+body.open .door:nth-child(1){transition-delay:.25s}
+body.open .door:nth-child(2){transition-delay:.35s}
+body.open .door:nth-child(3){transition-delay:.45s}
+body.open .door:nth-child(4){transition-delay:.55s}
+.door .no{font-family:var(--en);font-weight:700;font-size:12px;letter-spacing:.14em;color:var(--red)}
+.door .en{font-family:var(--en);font-weight:800;font-size:clamp(26px,2.6vw,38px);line-height:1.05;letter-spacing:-.02em;margin:14px 0 12px}
+.door .jp{font-size:13.5px;font-weight:700;letter-spacing:.04em}
+.door .desc{font-size:13px;color:var(--muted);line-height:1.85;margin-top:8px}
+.door .go{margin-top:auto;padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-family:var(--en);font-weight:700;font-size:12px;letter-spacing:.16em}
+.door .go i{display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--fg);border-radius:50%;font-style:normal;font-size:15px;letter-spacing:0;transition:background .3s,color .3s,border-color .3s}
+a.door::before{content:"";position:absolute;left:0;right:100%;top:-2px;height:2px;background:var(--red);transition:right .5s cubic-bezier(.2,.7,.2,1)}
 a.door:hover::before,a.door:focus-visible::before{right:0}
-a.door:hover .go::after,a.door:focus-visible .go::after{flex-basis:64px;background:var(--red)}
-.door.soon{background:transparent;cursor:default}
-.door.soon .en,.door.soon .jp{color:var(--muted)}
+a.door:hover .go i,a.door:focus-visible .go i{background:var(--red);border-color:var(--red);color:#fff}
+.door.soon .en,.door.soon .jp{color:#aaa}
 .door.soon .go{color:var(--red)}
-.door.soon .go::after{background:var(--red);opacity:.4}
+.door.soon .go i{border-style:dashed;border-color:#ccc;color:#ccc}
 
 a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:4px}
 
 @media (max-width:980px){
   .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .door{min-height:clamp(180px,30vh,260px);border-bottom:1px solid var(--line)}
+  .door{min-height:clamp(170px,28vh,240px);border-bottom:1px solid var(--line)}
   .door:nth-child(2n){border-right:0}
 }
 @media (max-width:560px){
   body.open{overflow:auto}
-  .doors{position:absolute;min-height:100%;align-items:start;padding-top:84px;padding-bottom:96px}
-  .bottom{background:linear-gradient(to top,var(--cream) 70%,rgba(250,246,238,0))}
-  .top{background:linear-gradient(to bottom,var(--cream) 75%,rgba(250,246,238,0))}
+  .doors{position:absolute;min-height:100%;justify-content:flex-start;padding-top:84px;padding-bottom:96px}
+  .doors-head{flex-direction:column;align-items:flex-start;gap:8px}
   .grid{grid-template-columns:1fr}
-  .door{min-height:0;border-right:0;padding:22px 4px 24px}
-  .door .en{font-size:30px;margin:8px 0 8px}
-  .mark{font-size:22px}
+  .door{min-height:0;border-right:0;padding:20px 2px 22px}
+  .door .en{font-size:28px;margin:6px 0 6px}
+  .top{background:linear-gradient(#fff 75%,rgba(255,255,255,0))}
+  .bottom{background:linear-gradient(to top,#fff 70%,rgba(255,255,255,0))}
   .copy{display:none}
+  .visual{width:100vw;height:72vh;aspect-ratio:auto;max-height:none}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.thread{stroke-dashoffset:0}.word,.hint{opacity:1}}
 </style>
 </head>
 <body>
 <div class="top">
-  <a class="mark" href="./" aria-label="115en トップ">115<span>en</span><small>いいご縁</small></a>
-  <button class="close" type="button" id="close" aria-label="画像に戻る">CLOSE</button>
+  <a class="mark" href="./" aria-label="115en トップ">115<span>en</span></a>
+  <button class="close" type="button" id="close">CLOSE</button>
 </div>
 
 <main>
   <div class="stage">
-    <button class="visual" type="button" id="open" aria-expanded="false" aria-controls="doors">
-      <img src="hero.svg" alt="医療・介護・地域・仲間が、ひとつの輪でつながる絵">
-      <span class="hint">ENTER</span>
+    <button class="visual" type="button" id="open" aria-expanded="false" aria-controls="doors" aria-label="グループの入口をひらく">
+      <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <path class="thread" pathLength="1" d="M-40 600 C 180 640, 420 660, 560 580 C 700 500, 560 250, 770 205 C 980 160, 1100 310, 1078 470 C 1056 650, 850 732, 690 680 C 530 628, 510 470, 618 378 C 726 286, 910 326, 968 420 C 1030 520, 1210 610, 1640 520"/>
+        <path class="thread thin" pathLength="1" d="M-40 612 C 190 656, 430 672, 572 590 C 714 508, 578 262, 780 220 C 982 178, 1088 322, 1064 474 C 1040 640, 846 716, 694 664"/>
+      </svg>
+      <span class="word" aria-hidden="true"><b>115<span>en</span></b><small>いいご縁でつながる</small></span>
     </button>
+    <span class="hint">ENTER</span>
   </div>
 
   <nav class="doors" id="doors" aria-label="グループの入口" aria-hidden="true">
+    <div class="doors-head">
+      <h2>GROUP<span>.</span></h2>
+      <p>医療・介護・地域を、ご縁でつなぐ。</p>
+    </div>
     <div class="grid">
       <a class="door" href="https://gms.115en.com/">
         <span class="no">01</span>
         <span class="en">GMS</span>
         <span class="jp">株式会社GMS</span>
         <span class="desc">病院・訪問看護の立上げと運営管理。医療・介護施設の企画運営と経営支援。</span>
-        <span class="go">VISIT</span>
+        <span class="go">VISIT<i>&rarr;</i></span>
       </a>
       <a class="door" href="https://site.scsgo.co.jp/">
         <span class="no">02</span>
-        <span class="en">Sakae Care</span>
+        <span class="en">SAKAE CARE</span>
         <span class="jp">株式会社さかえケアサービス</span>
-        <span class="desc">在宅の医療と介護。すべてのイノチを∞にツナぐ。</span>
-        <span class="go">VISIT</span>
+        <span class="desc">DX・医療・介護。すべてのイノチを∞にツナぐ。</span>
+        <span class="go">VISIT<i>&rarr;</i></span>
       </a>
       <a class="door" href="https://tamjump.github.io/GoTo_Site/">
         <span class="no">03</span>
-        <span class="en">Go To Happy Life</span>
+        <span class="en">GO TO HAPPY LIFE</span>
         <span class="jp">特定非営利活動法人 GO TO HAPPY LIFE</span>
         <span class="desc">寄付を受け取り、パートナーと企画し、医療・福祉の現場で形にするNPO。</span>
-        <span class="go">VISIT</span>
+        <span class="go">VISIT<i>&rarr;</i></span>
       </a>
       <div class="door soon" aria-disabled="true">
         <span class="no">04</span>
-        <span class="en">Union</span>
+        <span class="en">UNION</span>
         <span class="jp">組合</span>
         <span class="desc">準備中。</span>
-        <span class="go">COMING SOON</span>
+        <span class="go">COMING SOON<i>&rarr;</i></span>
       </div>
     </div>
   </nav>
@@ -155,7 +171,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 (function(){
   var b=document.body,o=document.getElementById('open'),c=document.getElementById('close'),d=document.getElementById('doors');
   function show(){b.classList.add('open');o.setAttribute('aria-expanded','true');d.setAttribute('aria-hidden','false');
-    setTimeout(function(){var f=d.querySelector('a.door');if(f)f.focus({preventScroll:true});},700);}
+    setTimeout(function(){var f=d.querySelector('a.door');if(f)f.focus({preventScroll:true});},650);}
   function hide(){b.classList.remove('open');o.setAttribute('aria-expanded','false');d.setAttribute('aria-hidden','true');window.scrollTo(0,0);o.focus();}
   o.addEventListener('click',show);c.addEventListener('click',hide);
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&b.classList.contains('open'))hide();});
