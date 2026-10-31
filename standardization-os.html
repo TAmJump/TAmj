@@ -248,4 +248,10 @@ html.pw-locked{overflow:hidden}
 <button class="tab" data-t="s6">⑥ 施設評価<small>Quality</small></button>
 </div></footer>
 <script>document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.sec').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById(b.dataset.t).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})})</script>
+<!-- 115en-nav -->
+<nav aria-label="グループナビ" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9998;display:flex;gap:6px;font:700 11.5px/1 'Archivo','Helvetica Neue',Arial,sans-serif;letter-spacing:.08em">
+<a href="https://115en.com/#enter" onclick="if(history.length>1&&document.referrer){event.preventDefault();history.back();}" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;background:#fff;color:#111;border:1px solid #111;border-radius:999px;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.08)">&larr; 戻る</a>
+<a href="https://115en.com/#enter" style="display:inline-flex;align-items:center;padding:9px 14px;background:#fff;color:#111;border:1px solid #C8161D;border-radius:999px;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.08)">115<span style="color:#C8161D">en</span>&nbsp;TOP</a>
+</nav>
+<!-- /115en-nav -->
 </body></html>
